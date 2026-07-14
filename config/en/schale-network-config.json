@@ -122,8 +122,8 @@
         },
         "images": {
             "mode": "schaleData",
-            "quality": "1280",
-            "dataSelector": "$.data.1280"
+            "quality": "0",
+            "dataSelector": "$.data.0"
         }
     },
     "features": {
