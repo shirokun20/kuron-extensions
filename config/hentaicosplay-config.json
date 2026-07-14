@@ -1,0 +1,132 @@
+{
+  "source": "hentaicosplay",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://hentai-cosplay-xxx.com",
+  "ui": {
+    "displayName": "Hentai Cosplay",
+    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/hentaicosplay.png",
+    "brandColor": "#E91E63",
+    "openInBrowserUrl": "https://hentai-cosplay-xxx.com"
+  },
+  "network": {
+    "requiresBypass": true,
+    "headers": {
+      "Referer": "https://hentai-cosplay-xxx.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/search/",
+        "list": {
+          "container": "#center > #top_ad + #post_list_title + #display_area_image > #image-list > li",
+          "fields": {
+            "id": {
+              "selector": ".image-list-item-title a[href*='/image/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".image-list-item-title a"
+            },
+            "coverUrl": {
+              "selector": ".image-list-item-image img",
+              "attribute": "src"
+            }
+          },
+          "idFallbackSelectors": [
+            ".image-list-item-image a[href*='/image/']",
+            "a[href*='/image/']"
+          ],
+          "pagination": {
+            "next": ".wp-pagenavi a.nextpostslink[rel='next']",
+            "last": ".wp-pagenavi a.last[href]"
+          },
+          "sectionFilter": {
+            "enabled": true,
+            "allowedTitleContains": [
+              "search results",
+              "new images"
+            ]
+          }
+        }
+      },
+      "homePage": {
+        "url": "/search/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search/keyword/{query}/",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/search/keyword/{query}/page/{page}/",
+        "inherits": "home"
+      },
+      "tag": {
+        "url": "/search/tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagPage": {
+        "url": "/search/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/image/{id}",
+      "chapter": "/image/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "#title h2"
+          },
+          "coverUrl": {
+            "selector": "#display_image_detail a[data-modal-gallery-image-item]",
+            "attribute": "href"
+          },
+          "tags": {
+            "selector": "#detail_tag a[href*='/search/tag/']",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "container": "#display_image_detail",
+        "images": {
+          "selector": "#display_image_detail a[data-modal-gallery-image-item]",
+          "attribute": "href"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search cosplay..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/image/([^/]+)",
+  "features": {
+    "comments": false,
+    "related": false,
+    "favorite": true,
+    "chapters": false
+  }
+}

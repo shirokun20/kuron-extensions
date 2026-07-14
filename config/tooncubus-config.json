@@ -1,0 +1,145 @@
+{
+    "source": "tooncubus",
+    "displayName": "ToonCubus",
+    "schemaVersion": "2.0",
+    "version": "1.0.1",
+    "baseUrl": "https://www.tooncubus.top",
+    "enabled": true,
+    "defaultLanguage": "indonesian",
+    "ui": {
+        "displayName": "ToonCubus",
+        "iconPath": "https://www.tooncubus.top/favicon.ico",
+        "brandColor": "#b9009a"
+    },
+    "features": {
+        "home": true,
+        "search": true,
+        "detail": true,
+        "reader": true,
+        "chapters": true,
+        "comments": false,
+        "favorite": true
+    },
+    "scraper": {
+        "enabled": true,
+        "urlPatterns": {
+            "home": {
+                "url": "/search/label/Series?max-results=16",
+                "list": {
+                    "container": ".grid.gtc-f141a > div",
+                    "fields": {
+                        "id": {
+                            "selector": "a.clamp[href*='tooncubus.top/20'], a.block[href*='tooncubus.top/20']",
+                            "attribute": "href",
+                            "regex": "/(\\d{4}/\\d{2}/[^?#]+\\.html)"
+                        },
+                        "title": {
+                            "selector": "a.clamp[href*='tooncubus.top/20']"
+                        },
+                        "coverUrl": {
+                            "selector": ".b-img img[src*='blogger.googleusercontent.com'], img[src*='blogger.googleusercontent.com']",
+                            "attribute": "src"
+                        }
+                    },
+                    "pagination": {
+                        "next": ".blog-pager-older-link"
+                    }
+                }
+            },
+            "search": {
+                "url": "/search?q={query}&max-results=12",
+                "inherits": "home"
+            },
+            "tagSearch": {
+                "url": "/search/label/{tag}?max-results=20",
+                "tagTransform": "urlEncode",
+                "inherits": "home"
+            },
+            "authorSearch": {
+                "url": "/search/label/{tag}?max-results=20",
+                "tagTransform": "urlEncode",
+                "inherits": "home"
+            },
+            "detail": "/{id}",
+            "chapter": "/{id}"
+        },
+        "selectors": {
+            "detail": {
+                "fields": {
+                    "title": {
+                        "selector": "meta[property=\"og:title\"]",
+                        "attribute": "content",
+                        "regex": "^(.*?)\\s*-\\s*Tooncubus\\.top$"
+                    },
+                    "coverUrl": {
+                        "selector": "meta[property=\"og:image\"]",
+                        "attribute": "content"
+                    },
+                    "description": {
+                        "selector": "meta[property=\"og:description\"]",
+                        "attribute": "content"
+                    },
+                    "author": {
+                        "selector": "#extra-info a[href*=\"/search/label/\"]"
+                    },
+                    "tags": {
+                        "selector": ".mt-15 a.label[rel='tag']",
+                        "multi": true
+                    },
+                    "status": {
+                        "selector": ".y6x11p a[href*='/search/label/Ongoing'], .y6x11p a[href*='/search/label/Completed'], .y6x11p a[href*='/search/label/Hiatus'], .y6x11p a[href*='/search/label/Dropped'], .y6x11p a[href*='/search/label/Cancelled']"
+                    }
+                },
+                "chapters": {
+                    "container": ".series-chapterlist li",
+                    "fields": {
+                        "id": {
+                            "selector": ".flexch-infoz a[href*='tooncubus-read.my.id']",
+                            "attribute": "href"
+                        },
+                        "title": {
+                            "selector": ".flexch-infoz a span, .flexch-infoz a"
+                        }
+                    }
+                }
+            },
+            "reader": {
+                "readerPageLink": {
+                    "selector": ".series-chapterlist .flexch-infoz a[href*='tooncubus-read.my.id']",
+                    "attribute": "href"
+                },
+                "container": ".check-box, .post-body, .entry-content",
+                "images": {
+                    "selector": ".check-box center img[src*='imgbox.com']",
+                    "attribute": "src"
+                }
+            }
+        }
+    },
+    "contentIdPattern": "/(\\d{4}/\\d{2}/[^/]+\\.html)",
+    "navigation": {
+        "tagQueryMapping": {
+            "default": {
+                "mode": "name"
+            },
+            "author": {
+                "mode": "name"
+            }
+        }
+    },
+    "notes": "Blogger-based. Home/search/tag pagination follows pager cursor URLs, detail exposes explicit Baca Online reader links on tooncubus-read.my.id, and reader pages serve actual images from imgbox.",
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "q",
+                "type": "text",
+                "placeholder": "Search by title..."
+            },
+            "page": {
+                "queryParam": "page",
+                "type": "page"
+            }
+        }
+    }
+}

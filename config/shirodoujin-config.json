@@ -1,0 +1,189 @@
+{
+    "source": "shirodoujin",
+    "displayName": "ShiroDoujin",
+    "schemaVersion": "2.0",
+    "version": "1.0.0",
+    "baseUrl": "https://shirodoujin.com",
+    "defaultLanguage": "id",
+    "ui": {
+        "displayName": "ShiroDoujin",
+        "iconPath": "https://shirodoujin.com/wp-content/uploads/2021/10/cropped-20210601_193419.jpg",
+        "brandColor": "#b9009a"
+    },
+    "features": {
+        "home": true,
+        "search": true,
+        "detail": true,
+        "reader": true,
+        "chapters": true,
+        "comments": false,
+        "favorite": true
+    },
+    "requiredPrimitives": [
+        "pagination.page",
+        "auth.none",
+        "imageMode.directUrl"
+    ],
+    "scraper": {
+        "enabled": true,
+        "urlPatterns": {
+            "home": {
+                "url": "/",
+                "list": {
+                    "container": ".flexbox4 > .flexbox4-item",
+                    "fields": {
+                        "id": {
+                            "selector": "a[href*='/series/']",
+                            "attribute": "href",
+                            "transform": "slug"
+                        },
+                        "title": {
+                            "selector": ".flexbox4-side .title a"
+                        },
+                        "coverUrl": {
+                            "selector": ".flexbox4-thumb img",
+                            "attribute": "data-src"
+                        }
+                    },
+                    "pagination": {
+                        "next": ".next, a[rel=\"next\"]",
+                        "links": "a.page-numbers"
+                    }
+                }
+            },
+            "homePage": {
+                "url": "/page/{page}/",
+                "inherits": "home"
+            },
+            "search": {
+                "url": "/?s={query}",
+                "list": {
+                    "container": ".flexbox2-item",
+                    "fields": {
+                        "id": {
+                            "selector": "a[href*='/series/']",
+                            "attribute": "href",
+                            "transform": "slug"
+                        },
+                        "title": {
+                            "selector": ".flexbox2-title span:first-child"
+                        },
+                        "coverUrl": {
+                            "selector": ".flexbox2-thumb img",
+                            "attribute": "data-src"
+                        }
+                    },
+                    "pagination": {
+                        "next": ".next, a[rel=\"next\"]",
+                        "links": "a.page-numbers"
+                    }
+                }
+            },
+            "searchPage": {
+                "url": "/page/{page}/?s={query}",
+                "inherits": "search"
+            },
+            "genreSearch": {
+                "url": "/genre/{tag}/",
+                "inherits": "search"
+            },
+            "genreSearchPage": {
+                "url": "/genre/{tag}/page/{page}/",
+                "inherits": "search"
+            },
+            "detail": "/series/{id}",
+            "chapter": "/{id}"
+        },
+        "selectors": {
+            "list": {
+                "item": ".flexbox4 > .flexbox4-item",
+                "fields": {
+                    "id": {
+                        "selector": "a[href*='/series/']",
+                        "attribute": "href",
+                        "transform": "slug"
+                    },
+                    "title": {
+                        "selector": ".flexbox4-side .title a"
+                    },
+                    "coverUrl": {
+                        "selector": ".flexbox4-thumb img",
+                        "attribute": "data-src"
+                    }
+                }
+            },
+            "detail": {
+                "fields": {
+                    "title": {
+                        "selector": ".series-title h2, .series-titlex h2"
+                    },
+                    "coverUrl": {
+                        "selector": ".series-thumb img",
+                        "attribute": "src"
+                    },
+                    "description": {
+                        "selector": ".series-infoz, .series-infolist"
+                    },
+                    "author": {
+                        "selector": "a[href*='/author/']"
+                    },
+                    "artist": {
+                        "selector": "a[href*='/artist/']"
+                    },
+                    "genres": {
+                        "selector": "a[href*='/genre/']",
+                        "multi": true
+                    },
+                    "tags": {
+                        "selector": "a[href*='/tag/']",
+                        "multi": true
+                    },
+                    "status": {
+                        "selector": ".status"
+                    }
+                },
+                "chapters": {
+                    "container": ".series-chapterlist li",
+                    "fields": {
+                        "id": {
+                            "selector": "a",
+                            "attribute": "href"
+                        },
+                        "title": {
+                            "selector": ".flexch-infoz a",
+                            "regex": "^\\s*(.*?)(?=(?:[A-Za-z\u00c0-\u00ff]+\\s+\\d{1,2},\\s+\\d{4})|$)"
+                        }
+                    }
+                }
+            },
+            "reader": {
+                "container": ".reader-area",
+                "images": {
+                    "selector": "img",
+                    "attribute": "data-src"
+                }
+            }
+        }
+    },
+    "contentIdPattern": "/series/([^/]+)",
+    "navigation": {
+        "genreQueryPrefix": "genre:",
+        "genreTagType": "genre"
+    },
+    "notes": "ZManga theme. Title from .series-title h2, covers from ShortPixel CDN, chapter list from .series-chapterlist li.",
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "s",
+                "type": "text",
+                "placeholder": "Search by title..."
+            },
+            "page": {
+                "queryParam": "paged",
+                "type": "page"
+            }
+        }
+    },
+    "enabled": true
+}

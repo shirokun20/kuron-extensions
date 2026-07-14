@@ -1,0 +1,293 @@
+{
+  "source": "hentairead",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://hentairead.com",
+  "ui": {
+    "displayName": "HentaiRead",
+    "iconPath": "https://hentairead.com/hentairead-logo.png",
+    "brandColor": "#E14C7A",
+    "openInBrowserUrl": "https://hentairead.com"
+  },
+  "network": {
+    "requiresBypass": true,
+    "cloudflare": {
+      "bypassEnabled": true,
+      "antiDetection": false
+    },
+    "headers": {
+      "Referer": "https://hentairead.com/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "requiredPrimitives": [
+    "imageMode.directUrl",
+    "pagination.page",
+    "auth.none",
+    "headers.static"
+  ],
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/hentai/",
+        "list": {
+          "container": ".manga-item",
+          "fields": {
+            "id": {
+              "selector": "a.manga-item__link, a[href*='/hentai/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a[href*='/hentai/'], a.manga-item__link"
+            },
+            "coverUrl": {
+              "selector": ".manga-item__img img, .manga-item img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "current": "span[aria-current='page'], .current",
+            "next": "a[rel='next'], a.next",
+            "prev": "a[rel='prev'], a.prev",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/hentai/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=wp-manga&title-type=contains",
+        "list": {
+          "container": ".manga-item",
+          "fields": {
+            "id": {
+              "selector": "a.manga-item__link, a[href*='/hentai/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a[href*='/hentai/'], a.manga-item__link"
+            },
+            "coverUrl": {
+              "selector": ".manga-item__img img, .manga-item img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "current": "span[aria-current='page'], .current",
+            "next": "a[rel='next'], a.next",
+            "prev": "a[rel='prev'], a.prev",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga&title-type=contains",
+        "inherits": "search"
+      },
+      "tagSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "artistSearch": {
+        "url": "/artist/{tag}/",
+        "inherits": "home"
+      },
+      "artistSearchPage": {
+        "url": "/artist/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "publisherSearch": {
+        "url": "/circle/{tag}/",
+        "inherits": "home"
+      },
+      "publisherSearchPage": {
+        "url": "/circle/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "parodySearch": {
+        "url": "/parody/{tag}/",
+        "inherits": "home"
+      },
+      "parodySearchPage": {
+        "url": "/parody/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "languageSearch": {
+        "url": "/language/{tag}/",
+        "inherits": "home"
+      },
+      "languageSearchPage": {
+        "url": "/language/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "scanlatorSearch": {
+        "url": "/scanlator/{tag}/",
+        "inherits": "home"
+      },
+      "scanlatorSearchPage": {
+        "url": "/scanlator/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "releaseSearch": {
+        "url": "/release/{tag}/",
+        "inherits": "home"
+      },
+      "releaseSearchPage": {
+        "url": "/release/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/hentai/{id}/",
+      "chapter": "/hentai/{id}/english/p/1/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.clipboard-copy, .manga-titles h1, h1"
+          },
+          "altTitle": {
+            "selector": ".manga-titles h2, .post-title h2, .alternative-title"
+          },
+          "coverUrl": {
+            "selector": "img[src*='hencover.xyz/cover'], img[src*='mancover.xyz/cover']",
+            "attribute": "src"
+          },
+          "description": {
+            "selector": "#mangaSummary p, .manga-summary p, .description p, .summary__content p"
+          },
+          "artist": {
+            "selector": "a[href*='/artist/']",
+            "regex": "^(.+?)(?:\\s+\\d+[.0-9]*[kKmM]?)?$"
+          },
+          "publisher": {
+            "selector": "a[href*='/circle/']",
+            "regex": "^(.+?)(?:\\s+\\d+[.0-9]*[kKmM]?)?$"
+          },
+          "tags": {
+            "selector": "a[href*='/tag/'], a[href*='/parody/'], a[href*='/artist/'], a[href*='/circle/'], a[href*='/genre/'], a[href*='/language/'], a[href*='/scanlator/'], a[href*='/release/']",
+            "multi": true,
+            "extractTagObjects": true
+          }
+        }
+      },
+      "reader": {
+        "mode": "chapterDataScript",
+        "images": {
+          "selector": ".chapter-image-item img, .lazy-listing__item img, img[alt^='Page ']",
+          "attribute": "src"
+        },
+        "cdnHost": "henread.xyz"
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search hentai title..."
+      }
+    }
+  },
+  "navigation": {
+    "tagQueryMapping": {
+      "tag": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=tagSearch"
+      },
+      "parody": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=parodySearch"
+      },
+      "artist": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=artistSearch"
+      },
+      "circle": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=publisherSearch"
+      },
+      "genre": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=genreSearch"
+      },
+      "language": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=languageSearch"
+      },
+      "scanlator": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=scanlatorSearch"
+      },
+      "release": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=releaseSearch"
+      },
+      "publisher": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=publisherSearch"
+      },
+      "default": {
+        "mode": "rawParam",
+        "valueSource": "tagId",
+        "param": "tag",
+        "valueSuffix": "&patternKey=tagSearch"
+      }
+    }
+  },
+  "contentIdPattern": "/hentai/([^/]+)",
+  "features": {
+    "search": true,
+    "chapters": false,
+    "favorite": true,
+    "bookmark": false,
+    "supportsAuth": false,
+    "comments": false,
+    "related": false
+  }
+}

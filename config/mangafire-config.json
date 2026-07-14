@@ -1,0 +1,398 @@
+{
+  "source": "mangafire",
+  "version": "1.1.0",
+  "enabled": true,
+  "defaultLanguage": "en",
+  "baseUrl": "https://mangafire.to",
+  "ui": {
+    "displayName": "MangaFire",
+    "iconPath": "https://mangafire.to/favicon.ico",
+    "brandColor": "#ef4444",
+    "openInBrowserUrl": "https://mangafire.to"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+      "Referer": "https://mangafire.to/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 2,
+      "maxConcurrentRequests": 1
+    }
+  },
+  "api": {
+    "enabled": true,
+    "endpoints": {
+      "allGalleries": "/api/titles?page={page}&{sort}",
+      "search": "/api/titles?page={page}&keyword={query}&{sort}",
+      "detail": "/api/titles/{id}",
+      "contentUrl": "https://mangafire.to/manga/{id}",
+      "images": "/api/chapters/{chapterId}"
+    },
+    "list": {
+      "items": "$.items[*]",
+      "pagination": {
+        "currentPage": {
+          "path": "$.meta.page"
+        },
+        "totalPages": {
+          "path": "$.meta.lastPage"
+        }
+      },
+      "fields": {
+        "id": {
+          "selector": "$.hid"
+        },
+        "title": {
+          "selector": "$.title"
+        },
+        "coverUrl": {
+          "selector": "$.poster.large"
+        },
+        "status": {
+          "selector": "$.status"
+        },
+        "type": {
+          "selector": "$.type"
+        },
+        "pageCount": {
+          "selector": "$.latestChapter"
+        }
+      }
+    },
+    "detail": {
+      "tagRelations": {
+        "mappings": [
+          {
+            "sourcePath": "$.data.genres[*]",
+            "tagType": "tag",
+            "namePath": "title",
+            "idPath": "id"
+          },
+          {
+            "sourcePath": "$.data.authors[*]",
+            "tagType": "artist",
+            "namePath": "title",
+            "idPath": "id",
+            "appendToArtists": true
+          }
+        ]
+      },
+      "fields": {
+        "id": {
+          "selector": "$.data.hid"
+        },
+        "title": {
+          "selector": "$.data.title"
+        },
+        "description": {
+          "selector": "$.data.synopsisHtml"
+        },
+        "coverUrl": {
+          "selector": "$.data.poster.large"
+        },
+        "status": {
+          "selector": "$.data.status"
+        },
+        "type": {
+          "selector": "$.data.type"
+        },
+        "availableTranslatedLanguages": {
+          "selector": "$.data.languages[*]",
+          "multi": true
+        },
+        "language": {
+          "selector": "$.data.languages[0]"
+        },
+        "uploadDate": {
+          "selector": "$.data.createdAt"
+        }
+      },
+      "chapters": {
+        "endpoint": "/api/titles/{id}/chapters?language={language}&sort=number&order=asc&limit=100",
+        "autoPaginate": false,
+        "items": "$.items[*]",
+        "fields": {
+          "id": {
+            "selector": "$.id",
+            "prefix": "https://mangafire.to/api/chapters/"
+          },
+          "chapterNum": {
+            "selector": "$.number"
+          },
+          "title": {
+            "selector": "$.name"
+          },
+          "url": {
+            "selector": "$.id"
+          },
+          "date": {
+            "selector": "$.createdAt"
+          },
+          "language": {
+            "selector": "$.language"
+          },
+          "scanGroup": {
+            "value": "Chapter"
+          }
+        }
+      },
+      "volumes": {
+        "endpoint": "/api/titles/{id}/volumes?language={language}",
+        "autoPaginate": false,
+        "items": "$.items[*]",
+        "fields": {
+          "id": {
+            "selector": "$.id",
+            "prefix": "https://mangafire.to/api/volumes/"
+          },
+          "volume": {
+            "selector": "$.number"
+          },
+          "title": {
+            "selector": "$.name"
+          },
+          "url": {
+            "selector": "$.id"
+          },
+          "date": {
+            "selector": "$.createdAt"
+          },
+          "language": {
+            "selector": "$.language"
+          },
+          "scanGroup": {
+            "value": "Volume"
+          }
+        }
+      }
+    },
+    "images": {
+      "mode": "direct",
+      "items": "$.data.pages[*].url"
+    }
+  },
+  "navigation": {
+    "tagQueryMapping": {
+      "artist": {
+        "mode": "rawParam",
+        "param": "authors[]",
+        "valueSource": "tagId"
+      },
+      "tag": {
+        "mode": "rawParam",
+        "param": "genres_in[]",
+        "valueSource": "tagId"
+      },
+      "type": {
+        "mode": "rawParam",
+        "param": "types[]",
+        "valueSource": "tagName"
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "dataSources": {
+      "typesData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.types",
+        "valuePath": "value",
+        "labelPath": "label"
+      },
+      "statusesData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.statuses",
+        "valuePath": "value",
+        "labelPath": "label"
+      },
+      "genresData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.genres",
+        "valuePath": "id",
+        "labelPath": "name"
+      },
+      "themesData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.themes",
+        "valuePath": "id",
+        "labelPath": "name"
+      },
+      "demographicsData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.demographics",
+        "valuePath": "id",
+        "labelPath": "name"
+      },
+      "contentRatingsData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.contentRatings",
+        "valuePath": "value",
+        "labelPath": "label"
+      },
+      "formatsData": {
+        "endpoint": "/api/filter-options",
+        "itemsPath": "data.formats",
+        "valuePath": "id",
+        "labelPath": "name"
+      }
+    },
+    "params": {
+      "query": {
+        "queryParam": "keyword",
+        "type": "text",
+        "placeholder": "Search MangaFire..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      },
+      "type": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "types[]=",
+        "placeholder": "Choose Types",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "typesData"
+        }
+      },
+      "status": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "statuses[]=",
+        "placeholder": "Choose Status",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "statusesData"
+        }
+      },
+      "genres_in": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "genres_in[]=",
+        "placeholder": "Choose Genres",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "genresData"
+        }
+      },
+      "genres_ex": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "genres_ex[]=",
+        "placeholder": "Choose Genres",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "genresData"
+        }
+      },
+      "themes": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "theme_ids[]=",
+        "placeholder": "Choose Themes",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "themesData"
+        }
+      },
+      "demographics": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "demographics[]=",
+        "placeholder": "Choose Demographics",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "demographicsData"
+        }
+      },
+      "contentRating": {
+        "queryParam": "rawParam",
+        "type": "tag",
+        "valuePrefix": "content_rating[]=",
+        "placeholder": "Choose Content Rating",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "contentRatingsData"
+        }
+      },
+      "sort": {
+        "queryParam": "rawParam",
+        "type": "select",
+        "options": [
+          {
+            "value": "order[chapter_updated_at]=desc",
+            "name": "Latest update"
+          },
+          {
+            "value": "order[relevance]=desc",
+            "name": "Best match"
+          },
+          {
+            "value": "order[created_at]=desc",
+            "name": "Recently added"
+          },
+          {
+            "value": "order[title]=asc",
+            "name": "Title (A\u2013Z)"
+          },
+          {
+            "value": "order[title]=desc",
+            "name": "Title (Z\u2013A)"
+          },
+          {
+            "value": "order[year]=desc",
+            "name": "Year (newest)"
+          },
+          {
+            "value": "order[year]=asc",
+            "name": "Year (oldest)"
+          },
+          {
+            "value": "order[score]=desc",
+            "name": "Highest rated"
+          },
+          {
+            "value": "order[views_7d]=desc",
+            "name": "Most viewed \u00b7 7 days"
+          },
+          {
+            "value": "order[views_30d]=desc",
+            "name": "Most viewed \u00b7 30 days"
+          },
+          {
+            "value": "order[views_total]=desc",
+            "name": "Most viewed \u00b7 all time"
+          },
+          {
+            "value": "order[follows_total]=desc",
+            "name": "Most followed"
+          }
+        ]
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/?#]+)",
+  "features": {
+    "home": true,
+    "search": true,
+    "dynamicForm": true,
+    "contentByTag": true,
+    "detail": true,
+    "chapters": true,
+    "reader": true,
+    "related": true,
+    "comments": false,
+    "favorite": true
+  }
+}

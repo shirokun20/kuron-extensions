@@ -1,0 +1,222 @@
+{
+    "source": "vihentai",
+    "displayName": "ViHentai",
+    "schemaVersion": "2.0",
+    "version": "1.0.0",
+    "baseUrl": "https://vi-hentai.moe",
+    "enabled": true,
+    "defaultLanguage": "vi",
+    "ui": {
+        "displayName": "ViHentai",
+        "iconPath": "https://vi-hentai.moe/imgs/fav3.png",
+        "brandColor": "#8B5CF6",
+        "openInBrowserUrl": "https://vi-hentai.moe"
+    },
+    "network": {
+        "requiresBypass": true,
+        "headers": {
+            "Referer": "https://vi-hentai.moe/",
+            "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7"
+        },
+        "rateLimit": {
+            "enabled": true,
+            "requestsPerSecond": 5,
+            "maxConcurrentRequests": 3
+        }
+    },
+    "requiredPrimitives": [
+        "imageMode.directUrl",
+        "pagination.page",
+        "headers.static",
+        "network.requiresBypass"
+    ],
+    "auth": {
+        "type": "livewirePassword",
+        "requiresPlugin": true,
+        "plugin": "vihentai.livewire"
+    },
+    "decryption": {
+        "method": "vihentaiPackedJs",
+        "plugin": "vihentai.packedJs"
+    },
+    "scraper": {
+        "enabled": true,
+        "urlPatterns": {
+            "home": {
+                "url": "/danh-sach?sort=-views",
+                "list": {
+                    "container": ".manga-vertical",
+                    "fields": {
+                        "id": {
+                            "selector": "a[href^='/truyen/']",
+                            "attribute": "href",
+                            "transform": "slug"
+                        },
+                        "title": {
+                            "selector": ".p-2.w-full.truncate a[href^='/truyen/']"
+                        },
+                        "coverUrl": {
+                            "selector": ".cover-frame .cover, .rounded-lg.cover",
+                            "attribute": "style",
+                            "regex": "background-image:\\s*url\\('([^']+)'\\)"
+                        }
+                    },
+                    "pagination": {
+                        "next": "a[href*='page=']:not([href*='page=1'])",
+                        "links": "a[href*='page=']"
+                    }
+                }
+            },
+            "homePage": {
+                "url": "/danh-sach?sort=-views&page={page}",
+                "inherits": "home"
+            },
+            "latest": {
+                "url": "/danh-sach",
+                "inherits": "home"
+            },
+            "latestPage": {
+                "url": "/danh-sach?page={page}",
+                "inherits": "home"
+            },
+            "search": {
+                "url": "/tim-kiem?keyword={query}&page={page}",
+                "inherits": "home"
+            },
+            "searchPage": {
+                "url": "/tim-kiem?keyword={query}&page={page}",
+                "inherits": "home"
+            },
+            "genreSearch": {
+                "url": "/the-loai/{tag}",
+                "inherits": "home"
+            },
+            "genreSearchPage": {
+                "url": "/the-loai/{tag}?page={page}",
+                "inherits": "home"
+            },
+            "authorSearch": {
+                "url": "/tac-gia/{tag}",
+                "inherits": "home"
+            },
+            "authorSearchPage": {
+                "url": "/tac-gia/{tag}?page={page}",
+                "inherits": "home"
+            },
+            "detail": "/truyen/{id}",
+            "chapter": "/truyen/{id}/{ch}"
+        },
+        "selectors": {
+            "list": {
+                "item": ".manga-vertical",
+                "fields": {
+                    "id": {
+                        "selector": "a[href^='/truyen/']",
+                        "attribute": "href",
+                        "transform": "slug"
+                    },
+                    "title": {
+                        "selector": ".p-2.w-full.truncate a[href^='/truyen/']"
+                    },
+                    "coverUrl": {
+                        "selector": ".cover-frame .cover, .rounded-lg.cover",
+                        "attribute": "style",
+                        "regex": "background-image:\\s*url\\('([^']+)'\\)"
+                    }
+                }
+            },
+            "detail": {
+                "fields": {
+                    "title": {
+                        "selector": "meta[property='og:title']",
+                        "attribute": "content",
+                        "regex": "^(.*?)(?:\\s*-\\s*Vi\u1ec7t Hentai.*)?$"
+                    },
+                    "coverUrl": {
+                        "selector": ".cover-frame[style*='background-image']",
+                        "attribute": "style",
+                        "regex": "background-image:\\s*url\\('([^']+)'\\)"
+                    },
+                    "description": {
+                        "selector": "meta[name='description']",
+                        "attribute": "content"
+                    },
+                    "author": {
+                        "selector": "a[href*='/tac-gia/']"
+                    },
+                    "genres": {
+                        "selector": ".md\\:col-span-2 a[href*='/the-loai/']",
+                        "multi": true
+                    },
+                    "status": {
+                        "selector": "a[href*='filter'] span"
+                    }
+                },
+                "chapters": {
+                    "container": "ul[class*='overflow-y-auto'] li",
+                    "fields": {
+                        "id": {
+                            "selector": "a[href^='/truyen/']",
+                            "attribute": "href"
+                        },
+                        "title": {
+                            "selector": "span.truncate"
+                        }
+                    }
+                }
+            },
+            "reader": {
+                "mode": "chapterDataScript",
+                "images": {
+                    "selector": "script:contains(eval(function)",
+                    "attribute": "text",
+                    "regex": "KuroReader\\([^,]+,\\s*\\[([^\\]]+)\\]"
+                }
+            }
+        }
+    },
+    "contentIdPattern": "/truyen/([^/]+)",
+    "navigation": {
+        "genreQueryPrefix": "genre:",
+        "genreTagType": "genre",
+        "tagQueryMapping": {
+            "genre": {
+                "mode": "rawParam",
+                "valueSource": "tagId",
+                "param": "tag",
+                "valueSuffix": "&patternKey=genreSearch"
+            },
+            "author": {
+                "mode": "rawParam",
+                "valueSource": "tagId",
+                "param": "tag",
+                "valueSuffix": "&patternKey=authorSearch"
+            }
+        }
+    },
+    "features": {
+        "home": true,
+        "search": true,
+        "detail": true,
+        "chapters": true,
+        "reader": true,
+        "comments": true,
+        "favorite": true
+    },
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "keyword",
+                "type": "text",
+                "placeholder": "T\u00ecm ki\u1ebfm truy\u1ec7n..."
+            },
+            "page": {
+                "queryParam": "page",
+                "type": "page"
+            }
+        }
+    }
+}

@@ -1,0 +1,542 @@
+{
+  "source": "manhwaread",
+  "schemaVersion": "2.0",
+  "version": "1.1.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://manhwaread.com",
+  "configUrl": "",
+  "ui": {
+    "displayName": "ManhwaRead",
+    "iconPath": "https://manhwaread.com/wp-content/themes/manhwaread/logo.png",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://manhwaread.com"
+  },
+  "network": {
+    "requiresBypass": true,
+    "cloudflare": {
+      "bypassEnabled": true,
+      "antiDetection": false
+    },
+    "headers": {
+      "Referer": "https://manhwaread.com/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "requiredPrimitives": [
+    "imageMode.xhrProxy",
+    "pagination.page",
+    "auth.none",
+    "headers.static"
+  ],
+  "scraper": {
+    "enabled": true,
+    "randomUrl": "/?random_manga=1",
+    "urlPatterns": {
+      "home": {
+        "url": "/manhwa/",
+        "list": {
+          "container": ".manga-item",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manhwa/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a[href*='/manhwa/']"
+            },
+            "coverUrl": {
+              "selector": ".manga-item__img img, .manga-item img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "current": "span[aria-current='page'], .current",
+            "next": "a[rel='next'], a.next",
+            "prev": "a[rel='prev'], a.prev",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/manhwa/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".manga-item",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manhwa/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a[href*='/manhwa/']"
+            },
+            "coverUrl": {
+              "selector": ".manga-item__img img, .manga-item img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "current": "span[aria-current='page'], .current",
+            "next": "a[rel='next'], a.next",
+            "prev": "a[rel='prev'], a.prev",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "inherits": "search"
+      },
+      "genreSearch": {
+        "url": "/genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "tagSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "authorSearch": {
+        "url": "/author/{tag}/",
+        "inherits": "home"
+      },
+      "authorSearchPage": {
+        "url": "/author/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "artistSearch": {
+        "url": "/artist/{tag}/",
+        "inherits": "home"
+      },
+      "artistSearchPage": {
+        "url": "/artist/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "publisherSearch": {
+        "url": "/publisher/{tag}/",
+        "inherits": "home"
+      },
+      "publisherSearchPage": {
+        "url": "/publisher/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/manhwa/{id}",
+      "chapter": "/manhwa/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.clipboard-copy"
+          },
+          "altTitle": {
+            "selector": ".post-title h2, .alternative-title"
+          },
+          "coverUrl": {
+            "selector": "img[src*='mancover'][src*='manhwaread-'], img[src*='mancover.xyz/cover']",
+            "attribute": "src"
+          },
+          "description": {
+            "selector": "main p, .description p, .summary__content p"
+          },
+          "author": {
+            "selector": "a[href*='/author/']",
+            "regex": "^(.*?)\\s+\\d+$"
+          },
+          "artist": {
+            "selector": "a[href*='/artist/']",
+            "regex": "^(.*?)\\s+\\d+$"
+          },
+          "publisher": {
+            "selector": "a[href*='/publisher/']",
+            "regex": "^(.*?)\\s+\\d+$"
+          },
+          "genres": {
+            "selector": "a[href*='/genre/']",
+            "multi": true
+          },
+          "tags": {
+            "selector": "a[href*='/tag/']",
+            "regex": "^(.*?)\\s+[\\d.]+K?$",
+            "multi": true
+          },
+          "status": {
+            "selector": "[class*=\"status\"]"
+          },
+          "rating": {
+            "selector": "[class*=\"rating\"] .average, .post-ratings"
+          }
+        },
+        "chapters": {
+          "container": "#groupChapterList #chaptersList a.chapter-item",
+          "fields": {
+            "id": {
+              "selector": "self",
+              "attribute": "href",
+              "regex": "/manhwa/([^/?#]+/chapter-[^/?#]+)"
+            },
+            "title": {
+              "selector": ".chapter-item__name"
+            },
+            "date": {
+              "selector": ".chapter-item__date"
+            }
+          }
+        }
+      },
+      "reader": {
+        "mode": "chapterDataScript"
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search manhwa title..."
+      },
+      "sort": {
+        "queryParam": "sortby",
+        "type": "sort",
+        "label": "Sort By",
+        "options": [
+          {
+            "name": "Release",
+            "value": "release"
+          },
+          {
+            "name": "New",
+            "value": "new"
+          },
+          {
+            "name": "A-Z",
+            "value": "alphabet"
+          },
+          {
+            "name": "Rating",
+            "value": "rating"
+          },
+          {
+            "name": "Bookmarks",
+            "value": "bookmarks"
+          },
+          {
+            "name": "Chapters",
+            "value": "chapters"
+          },
+          {
+            "name": "Comments",
+            "value": "comments"
+          },
+          {
+            "name": "Daily Views",
+            "value": "daily_top"
+          },
+          {
+            "name": "Weekly Views",
+            "value": "weekly_top"
+          },
+          {
+            "name": "Monthly Views",
+            "value": "monthly_top"
+          },
+          {
+            "name": "Yearly Views",
+            "value": "yearly_top"
+          },
+          {
+            "name": "All Time Views",
+            "value": "all_top"
+          }
+        ]
+      },
+      "order": {
+        "queryParam": "order",
+        "type": "select",
+        "label": "Order",
+        "options": [
+          {
+            "name": "Descending",
+            "value": "desc"
+          },
+          {
+            "name": "Ascending",
+            "value": "asc"
+          }
+        ]
+      },
+      "status": {
+        "queryParam": "status",
+        "type": "select",
+        "label": "Status",
+        "options": [
+          {
+            "name": "Ongoing",
+            "value": "ongoing"
+          },
+          {
+            "name": "Completed",
+            "value": "completed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "canceled"
+          },
+          {
+            "name": "Hiatus",
+            "value": "on-hold"
+          },
+          {
+            "name": "Incomplete",
+            "value": "incomplete"
+          }
+        ]
+      },
+      "genre": {
+        "queryParam": "genres[]",
+        "type": "checkbox",
+        "label": "Genres",
+        "options": [
+          {
+            "name": "Action",
+            "value": "650"
+          },
+          {
+            "name": "Adult",
+            "value": "5507"
+          },
+          {
+            "name": "Adventure",
+            "value": "645"
+          },
+          {
+            "name": "Comedy",
+            "value": "536"
+          },
+          {
+            "name": "Drama",
+            "value": "530"
+          },
+          {
+            "name": "Ecchi",
+            "value": "537"
+          },
+          {
+            "name": "Fantasy",
+            "value": "646"
+          },
+          {
+            "name": "Gender Bender",
+            "value": "6283"
+          },
+          {
+            "name": "Harem",
+            "value": "5622"
+          },
+          {
+            "name": "Hentai",
+            "value": "531"
+          },
+          {
+            "name": "Historical",
+            "value": "6573"
+          },
+          {
+            "name": "Horror",
+            "value": "590"
+          },
+          {
+            "name": "Isekai",
+            "value": "2735"
+          },
+          {
+            "name": "Josei",
+            "value": "5508"
+          },
+          {
+            "name": "Mahou Shoujo",
+            "value": "2696"
+          },
+          {
+            "name": "Martial Arts",
+            "value": "6124"
+          },
+          {
+            "name": "Mature",
+            "value": "5795"
+          },
+          {
+            "name": "Mystery",
+            "value": "626"
+          },
+          {
+            "name": "Psychological",
+            "value": "591"
+          },
+          {
+            "name": "Romance",
+            "value": "538"
+          },
+          {
+            "name": "School Life",
+            "value": "5863"
+          },
+          {
+            "name": "Sci-Fi",
+            "value": "688"
+          },
+          {
+            "name": "Seinen",
+            "value": "5557"
+          },
+          {
+            "name": "Shounen",
+            "value": "5541"
+          },
+          {
+            "name": "Slice of Life",
+            "value": "532"
+          },
+          {
+            "name": "Smut",
+            "value": "5509"
+          },
+          {
+            "name": "Sports",
+            "value": "677"
+          },
+          {
+            "name": "Supernatural",
+            "value": "544"
+          },
+          {
+            "name": "Thriller",
+            "value": "580"
+          },
+          {
+            "name": "Tragedy",
+            "value": "5683"
+          },
+          {
+            "name": "Yaoi",
+            "value": "6046"
+          },
+          {
+            "name": "Yuri",
+            "value": "5732"
+          }
+        ]
+      },
+      "keyword_mode": {
+        "queryParam": "keyword_mode",
+        "type": "select",
+        "label": "Keyword Mode",
+        "options": [
+          {
+            "name": "Contain",
+            "value": "contains"
+          },
+          {
+            "name": "Start With",
+            "value": "start-with"
+          },
+          {
+            "name": "End With",
+            "value": "end-with"
+          }
+        ]
+      },
+      "artist": {
+        "queryParam": "artists[]",
+        "type": "text",
+        "label": "Artists",
+        "placeholder": "Search artists..."
+      },
+      "author": {
+        "queryParam": "authors[]",
+        "type": "text",
+        "label": "Authors",
+        "placeholder": "Search authors..."
+      },
+      "year_range": {
+        "queryParam": "year_range",
+        "type": "text",
+        "label": "Publish Year",
+        "placeholder": "e.g. 2006-2026"
+      },
+      "chapter_range": {
+        "queryParam": "chapter_range",
+        "type": "text",
+        "label": "Chapters",
+        "placeholder": "e.g. 1-345"
+      }
+    }
+  },
+  "navigation": {
+    "tagQueryMapping": {
+      "tag": {
+        "mode": "name"
+      },
+      "author": {
+        "mode": "name"
+      },
+      "artist": {
+        "mode": "name"
+      },
+      "publisher": {
+        "mode": "name"
+      }
+    },
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre"
+  },
+  "featurePages": {
+    "genreList": {
+      "url": "/genre-index/",
+      "pageUrl": "/genre-index/page/{page}/",
+      "container": "a[href*='/genre/']",
+      "fields": {
+        "name": {
+          "selector": "a"
+        },
+        "url": {
+          "selector": "a",
+          "attribute": "href"
+        }
+      }
+    }
+  },
+  "contentIdPattern": "/manhwa/([^/]+)",
+  "features": {
+    "search": true,
+    "randomGallery": true,
+    "chapters": true,
+    "favorite": true,
+    "bookmark": false,
+    "supportsAuth": false,
+    "comments": false,
+    "related": false
+  }
+}

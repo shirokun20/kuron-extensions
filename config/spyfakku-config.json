@@ -1,0 +1,289 @@
+{
+  "source": "spyfakku",
+  "version": "1.1.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://hentalk.pw",
+  "configUrl": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/config/spyfakku-config.json",
+  "ui": {
+    "displayName": "SpyFakku",
+    "iconPath": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/images/spyfakku.png",
+    "brandColor": "#FF7043",
+    "openInBrowserUrl": "https://hentalk.pw"
+  },
+  "network": {
+    "requiresBypass": true,
+    "headers": {
+      "Referer": "https://hentalk.pw/",
+      "Origin": "https://hentalk.pw",
+      "User-Agent": "Mozilla/5.0"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "navigation": {
+    "tagQueryMapping": {
+      "artist": {
+        "mode": "rawParam",
+        "param": "q",
+        "valueSource": "tagName",
+        "valuePrefix": "artist:\"",
+        "valueSuffix": "\""
+      },
+      "tag": {
+        "mode": "rawParam",
+        "param": "q",
+        "valueSource": "tagName",
+        "valuePrefix": "tag:\"",
+        "valueSuffix": "\""
+      },
+      "parody": {
+        "mode": "rawParam",
+        "param": "q",
+        "valueSource": "tagName",
+        "valuePrefix": "parody:\"",
+        "valueSuffix": "\""
+      },
+      "publisher": {
+        "mode": "rawParam",
+        "param": "q",
+        "valueSource": "tagName",
+        "valuePrefix": "publisher:\"",
+        "valueSuffix": "\""
+      },
+      "magazine": {
+        "mode": "rawParam",
+        "param": "q",
+        "valueSource": "tagName",
+        "valuePrefix": "magazine:\"",
+        "valueSuffix": "\""
+      },
+      "default": {
+        "mode": "rawParam",
+        "param": "q",
+        "valueSource": "tagName",
+        "valuePrefix": "tag:\"",
+        "valueSuffix": "\""
+      }
+    }
+  },
+  "api": {
+    "enabled": true,
+    "url": "https://hentalk.pw/api",
+    "endpoints": {
+      "allGalleries": {
+        "path": "/library",
+        "params": {
+          "sort": "released_at",
+          "page": "{page}"
+        }
+      },
+      "latest": {
+        "path": "/library",
+        "params": {
+          "sort": "created_at",
+          "page": "{page}"
+        }
+      },
+      "search": {
+        "path": "/library",
+        "params": {
+          "sort": "released_at",
+          "q": "{query}",
+          "page": "{page}"
+        }
+      },
+      "detail": {
+        "path": "/g/{id}"
+      }
+    },
+    "list": {
+      "items": "$.archives[*]",
+      "pagination": {
+        "currentPage": {
+          "path": "$.page"
+        },
+        "limit": {
+          "path": "$.limit"
+        },
+        "total": {
+          "path": "$.total"
+        }
+      },
+      "fields": {
+        "id": {
+          "selector": "$.id"
+        },
+        "mediaId": {
+          "selector": "$.hash"
+        },
+        "title": {
+          "selector": "$.title"
+        },
+        "description": {
+          "selector": "$.description"
+        },
+        "pageCount": {
+          "selector": "$.pages"
+        },
+        "uploadDate": {
+          "selector": "$.releasedAt"
+        },
+        "coverUrl": {
+          "type": "coverBuilder",
+          "mangaIdPath": "$.hash",
+          "filenamePath": "$.thumbnail",
+          "template": "https://hentalk.pw/image/{mangaId}/{fileName}?type=cover"
+        }
+      }
+    },
+    "detail": {
+      "fields": {
+        "id": {
+          "selector": "$.id"
+        },
+        "mediaId": {
+          "selector": "$.hash"
+        },
+        "title": {
+          "selector": "$.title"
+        },
+        "description": {
+          "selector": "$.description"
+        },
+        "pageCount": {
+          "selector": "$.pages"
+        },
+        "uploadDate": {
+          "selector": "$.releasedAt"
+        },
+        "status": {
+          "value": "completed"
+        },
+        "tagObjects": {
+          "type": "tagObjects",
+          "selector": "$.tags[*]"
+        },
+        "coverUrl": {
+          "type": "coverBuilder",
+          "mangaIdPath": "$.hash",
+          "filenamePath": "$.thumbnail",
+          "template": "https://hentalk.pw/image/{mangaId}/{fileName}?type=cover"
+        }
+      },
+      "images": {
+        "template": "https://hentalk.pw/image/{mediaId}/{page}",
+        "mediaIdSelector": "$.hash",
+        "pageCountSelector": "$.pages"
+      }
+    }
+  },
+  "features": {
+    "comments": false,
+    "related": false,
+    "favorite": true,
+    "chapters": false
+  },
+  "tagSource": {
+    "url": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/tags/tags_spyfakku.json",
+    "fallbackUrl": "https://cdn.jsdelivr.net/gh/shirokun20/nhasixapp@master/configs/tags/tags_spyfakku.json",
+    "format": "array",
+    "structure": [
+      "id",
+      "name",
+      "slug",
+      "typeCode",
+      "count"
+    ],
+    "multiSelectSupport": {
+      "tag": true,
+      "artist": true,
+      "parody": true
+    }
+  },
+  "notes": "SpyFakku is a single-gallery REST source. Numeric id is used for detail fetch, while hash is preserved as mediaId for cover and page image URL generation. Content-by-tag is routed through q namespace queries such as artist:\"Aka\" and tag:\"Mating Press\". Tag data for autocomplete is loaded from external JSON (4,423 tags extracted from hentalk.pw boot data).",
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search by title..."
+      },
+      "sort": {
+        "queryParam": "sort",
+        "type": "select",
+        "label": "Sort",
+        "options": [
+          {
+            "name": "Released At",
+            "value": "released_at"
+          },
+          {
+            "name": "Created At",
+            "value": "created_at"
+          },
+          {
+            "name": "Title",
+            "value": "title"
+          },
+          {
+            "name": "Pages",
+            "value": "pages"
+          },
+          {
+            "name": "Random",
+            "value": "random"
+          }
+        ]
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      },
+      "includeTag": {
+        "queryParam": "q",
+        "type": "tag",
+        "label": "Include Tags",
+        "placeholder": "tag:\"name\"",
+        "valuePrefix": "tag:",
+        "ui": {
+          "selector": "chips",
+          "multi": true
+        },
+        "joinMode": "space"
+      },
+      "excludeTag": {
+        "queryParam": "q",
+        "type": "tag",
+        "label": "Exclude Tags",
+        "placeholder": "-tag:\"name\"",
+        "valuePrefix": "-tag:",
+        "ui": {
+          "selector": "chips",
+          "multi": true
+        },
+        "joinMode": "space"
+      },
+      "artist": {
+        "queryParam": "q",
+        "type": "text",
+        "label": "Artist",
+        "placeholder": "artist:\"name\"",
+        "valuePrefix": "artist:",
+        "joinMode": "space"
+      },
+      "parody": {
+        "queryParam": "q",
+        "type": "text",
+        "label": "Parody",
+        "placeholder": "parody:\"name\"",
+        "valuePrefix": "parody:",
+        "joinMode": "space"
+      }
+    }
+  }
+}

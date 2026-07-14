@@ -1,0 +1,185 @@
+{
+  "source": "komiku",
+  "version": "1.0.1",
+  "enabled": true,
+  "defaultLanguage": "indonesian",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiku-config.json",
+  "baseUrl": "https://komiku.org",
+  "ui": {
+    "displayName": "Komiku",
+    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/komiku.png",
+    "brandColor": "#4164b2",
+    "openInBrowserUrl": "https://komiku.org"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+      "Referer": "https://komiku.org/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "https://api.komiku.org/manga/",
+        "list": {
+          "container": ".bge",
+          "fields": {
+            "id": {
+              "selector": ".bgei a, .kan a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".kan h3"
+            },
+            "coverUrl": {
+              "selector": ".bgei img",
+              "attribute": "src"
+            },
+            "latestChapter": {
+              "selector": ".new1 a span:last-child"
+            },
+            "views": {
+              "selector": ".new1"
+            }
+          },
+          "pagination": {
+            "next": "span[hx-get]"
+          }
+        }
+      },
+      "homePage": {
+        "url": "https://api.komiku.org/manga/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "https://api.komiku.org/?post_type=manga&s={query}",
+        "list": {
+          "container": ".bge",
+          "fields": {
+            "id": {
+              "selector": ".bgei a, .kan a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".kan h3"
+            },
+            "coverUrl": {
+              "selector": ".bgei img",
+              "attribute": "src"
+            },
+            "latestChapter": {
+              "selector": ".new1 a span:last-child"
+            },
+            "views": {
+              "selector": ".new1"
+            }
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "https://api.komiku.org/genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "https://api.komiku.org/genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "https://komiku.org/manga/{id}/",
+      "chapter": "https://komiku.org/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1 span[itemprop='name']"
+          },
+          "coverUrl": {
+            "selector": "img[itemprop='image']",
+            "attribute": "src"
+          },
+          "alternativeTitle": {
+            "selector": ".j2"
+          },
+          "type": {
+            "selector": "table.inftable tr:contains('Tipe:') td:nth-child(2)"
+          },
+          "author": {
+            "selector": "table.inftable tr:contains('Author:') td:nth-child(2)"
+          },
+          "status": {
+            "selector": "table.inftable tr:contains('Status:') td:nth-child(2)"
+          },
+          "rating": {
+            "selector": "table.inftable tr:contains('Rating:') td:nth-child(2)"
+          },
+          "views": {
+            "selector": "table.inftable tr:contains('Pembaca:') td:nth-child(2)"
+          },
+          "tags": {
+            "selector": "table.inftable ul.genre li.genre a span",
+            "multi": true
+          },
+          "synopsis": {
+            "selector": "p.desc[itemprop='description']"
+          }
+        },
+        "chapters": {
+          "container": "tr[itemprop='itemListElement']",
+          "fields": {
+            "id": {
+              "selector": "td.judulseries a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "td.judulseries a span[itemprop='name']"
+            },
+            "date": {
+              "selector": "td.tanggalseries"
+            }
+          }
+        }
+      },
+      "reader": {
+        "container": "#Baca_Komik",
+        "images": {
+          "selector": "img.klazy, img.ww",
+          "attribute": "src"
+        },
+        "nav": {
+          "next": ".toolbar a.btn[aria-label='Next']",
+          "prev": ".toolbar a.btn[aria-label='Prev']"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Cari manga, manhwa, manhua..."
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "comments": false,
+    "related": false,
+    "favorite": true,
+    "chapters": true,
+    "advancedSearch": true
+  }
+}

@@ -1,0 +1,163 @@
+{
+    "source": "manga18.club",
+    "version": "1.0.1",
+    "enabled": true,
+    "defaultLanguage": "english",
+    "baseUrl": "https://manga18.club",
+    "configUrl": "",
+    "ui": {
+        "displayName": "Manga18 Club",
+        "iconPath": "https://manga18.club/fav.png?v=1",
+        "brandColor": "#B71C1C"
+    },
+    "network": {
+        "requiresBypass": false,
+        "headers": {
+            "Referer": "https://manga18.club/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        },
+        "rateLimit": {
+            "enabled": true,
+            "requestsPerSecond": 1,
+            "maxConcurrentRequests": 2
+        }
+    },
+    "scraper": {
+        "enabled": true,
+        "urlPatterns": {
+            "home": {
+                "url": "/list-manga/{page}",
+                "list": {
+                    "container": ".recoment_box .col-md-3, .recoment_box .col-sm-3, .recoment_box .col-sm-4, .recoment_box .col-xs-6",
+                    "fields": {
+                        "id": {
+                            "selector": ".mg_name a, .story_images a[href*='/manhwa/']",
+                            "attribute": "href",
+                            "transform": "slug"
+                        },
+                        "title": {
+                            "selector": ".mg_name a"
+                        },
+                        "coverUrl": {
+                            "selector": ".story_images img",
+                            "attribute": "src"
+                        }
+                    },
+                    "idFallbackSelectors": [
+                        ".mg_name a",
+                        ".story_images a",
+                        "a[href*='/manhwa/']"
+                    ],
+                    "pagination": {
+                        "next": ".pagination li.active + li a",
+                        "links": ".pagination a"
+                    }
+                }
+            },
+            "homePage": {
+                "url": "/list-manga/{page}",
+                "inherits": "home"
+            },
+            "search": {
+                "url": "/list-manga/?search={query}",
+                "inherits": "home"
+            },
+            "searchPage": {
+                "url": "/list-manga/?search={query}&page={page}",
+                "inherits": "home"
+            },
+            "genreSearch": {
+                "url": "/manga-list/{tag}",
+                "inherits": "home"
+            },
+            "genreSearchPage": {
+                "url": "/manga-list/{tag}/{page}",
+                "inherits": "home"
+            },
+            "detail": "/manhwa/{id}",
+            "chapter": "/manhwa/{id}"
+        },
+        "selectors": {
+            "detail": {
+                "fields": {
+                    "title": {
+                        "selector": ".detail_name h1, h1, h1.entry-title"
+                    },
+                    "coverUrl": {
+                        "selector": ".detail_avatar img, img[src*='/cover/'], img.thumb",
+                        "attribute": "src"
+                    },
+                    "uploadDate": {
+                        "selector": ".meta time, .meta .date, time"
+                    },
+                    "views": {
+                        "selector": ".detail_listInfo .item .info_value span, .meta .views, .views, .post-views",
+                        "regex": "([\\d,.]+)"
+                    },
+                    "tags": {
+                        "selector": ".detail_listInfo .item .info_value a[href*='/manga-list/'], .genres a",
+                        "multi": true
+                    },
+                    "description": {
+                        "selector": ".detail_reviewContent, .detail_block .detail_reviewContent, .summary, .desc, .entry-content, .sinopsis"
+                    }
+                },
+                "chapters": {
+                    "container": ".chapter_box li, .detail_chapterContent .chapter_box li, .detail_chapterContent ul li",
+                    "fields": {
+                        "id": {
+                            "selector": "a.chapter_num, a",
+                            "attribute": "href",
+                            "regex": "/manhwa/([^/?#]+/[^/?#]+)"
+                        },
+                        "title": {
+                            "selector": "a.chapter_num, a"
+                        },
+                        "date": {
+                            "selector": ".chapter_info"
+                        }
+                    }
+                }
+            },
+            "reader": {
+                "container": ".chapter_boxImages, #chapter_boxImages",
+                "images": {
+                    "selector": ".chapter_boxImages img, #chapter_boxImages img",
+                    "attribute": "src"
+                },
+                "nav": {
+                    "next": {
+                        "selector": "script",
+                        "regex": "var\\s+next_chapter\\s*=\\s*\"https?://[^/]+/manhwa/([^\"?#]+/[^\"?#/]+)\""
+                    },
+                    "prev": {
+                        "selector": "script",
+                        "regex": "var\\s+prev_chapter\\s*=\\s*\"https?://[^/]+/manhwa/([^\"?#]+/[^\"?#/]+)\""
+                    }
+                }
+            }
+        }
+    },
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "search",
+                "type": "text",
+                "placeholder": "Search..."
+            },
+            "page": {
+                "queryParam": "page",
+                "type": "page"
+            }
+        }
+    },
+    "contentIdPattern": "/manhwa/([^/]+)",
+    "features": {
+        "comments": true,
+        "related": false,
+        "favorite": true,
+        "chapters": true
+    },
+    "notes": "Draft config using observed selectors. Selectors may need tuning after live testing; chapter images are served from the CDN at https://cdn.manga18.club. Use /list-manga and /latest-release/{page} for paginated listings."
+}

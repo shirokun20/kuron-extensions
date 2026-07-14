@@ -1,0 +1,253 @@
+{
+  "source": "doujindesuv2",
+  "version": "2.0.1",
+  "enabled": false,
+  "defaultLanguage": "indonesian",
+  "baseUrl": "https://doujindesu.tv",
+  "ui": {
+    "displayName": "DoujinDesu v2",
+    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/doujindesu.png",
+    "brandColor": "#d43726",
+    "openInBrowserUrl": "https://doujindesu.tv"
+  },
+  "network": {
+    "requiresBypass": true,
+    "rateLimit": {
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+      "Cache-Control": "no-cache",
+      "Pragma": "no-cache"
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "routing": {
+      "defaultCategory": "Doujinshi",
+      "categoryPatterns": {
+        "Doujinshi|Manga|Doujin & Manga": {
+          "firstPage": "doujinHome",
+          "paged": "doujinHomePage"
+        },
+        "Manhwa": {
+          "firstPage": "manhwaHome",
+          "paged": "manhwaHomePage"
+        }
+      }
+    },
+    "urlPatterns": {
+      "home": {
+        "url": "https://doujindesu.es/doujin/",
+        "list": {
+          "container": "article.entry",
+          "fields": {
+            "id": {
+              "selector": "a[href^='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".metadata h3.title > span"
+            },
+            "coverUrl": {
+              "selector": "figure.thumbnail img",
+              "attribute": "src"
+            },
+            "type": {
+              "selector": "figure.thumbnail .type"
+            },
+            "latestChapter": {
+              "selector": ".artists a span"
+            },
+            "uploadDate": {
+              "selector": ".artists .dtch"
+            }
+          },
+          "pagination": {
+            "next": "nav.pagination a[title='Next page']",
+            "alt": "nav.pagination a[title='Last page']",
+            "links": "nav.pagination a",
+            "last": "nav.pagination a[title='Last page']"
+          }
+        }
+      },
+      "homePage": {
+        "url": "https://doujindesu.es/doujin/page/{page}/",
+        "inherits": "home"
+      },
+      "doujinHome": {
+        "url": "https://doujindesu.es/doujin/",
+        "inherits": "home"
+      },
+      "doujinHomePage": {
+        "url": "https://doujindesu.es/doujin/page/{page}/",
+        "inherits": "home"
+      },
+      "manhwaHome": {
+        "url": "https://doujindesu.es/manhwa/",
+        "inherits": "home"
+      },
+      "manhwaHomePage": {
+        "url": "https://doujindesu.es/manhwa/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "https://doujindesu.es/?s={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "https://doujindesu.es/page/{page}/?s={query}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "https://doujindesu.es/genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "https://doujindesu.es/genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "https://doujindesu.es/manga/{id}/",
+      "chapter": "https://doujindesu.tv/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "section.metadata h1.title"
+          },
+          "altTitles": {
+            "selector": "section.metadata h1.title .alter i"
+          },
+          "coverUrl": {
+            "selector": "aside figure img",
+            "attribute": "src"
+          },
+          "status": {
+            "selector": "section.metadata table tr:contains(Status) td:nth-child(2)"
+          },
+          "type": {
+            "selector": "section.metadata table tr:contains(Type) td:nth-child(2)"
+          },
+          "parodies": {
+            "selector": "section.metadata table tr:contains(Series) td:nth-child(2) a",
+            "multi": true
+          },
+          "artist": {
+            "selector": "section.metadata table tr:contains(Author) td:nth-child(2) a"
+          },
+          "group": {
+            "selector": "section.metadata table tr:contains(Group) td:nth-child(2) a"
+          },
+          "rating": {
+            "selector": "section.metadata table tr:contains(Rating) .rating-prc"
+          },
+          "uploadDate": {
+            "selector": "section.metadata table tr:contains(Created Date) td:nth-child(2)"
+          },
+          "tags": {
+            "selector": "section.metadata .tags a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "#chapter_list li",
+          "fields": {
+            "id": {
+              "selector": ".epsright .eps a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".epsright .eps a chapter"
+            },
+            "date": {
+              "selector": ".epsleft .date"
+            }
+          }
+        }
+      },
+      "related": {
+        "container": "section.feed.related .entries article.entry",
+        "fields": {
+          "id": {
+            "selector": "a[href^='/manga/']",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": ".metadata h3.title > span"
+          },
+          "coverUrl": {
+            "selector": "figure.thumbnail img",
+            "attribute": "src"
+          },
+          "type": {
+            "selector": "figure.thumbnail .type"
+          }
+        }
+      },
+      "reader": {
+        "mode": "ajaxHtmlImages",
+        "container": "main#reader",
+        "request": {
+          "method": "POST",
+          "url": "/themes/ajax/ch.php",
+          "contentType": "application/x-www-form-urlencoded",
+          "headers": {
+            "X-Requested-With": "XMLHttpRequest",
+            "Accept": "text/html, */*; q=0.01"
+          },
+          "body": {
+            "id": {
+              "selector": "main#reader",
+              "attribute": "data-id"
+            }
+          }
+        },
+        "response": {
+          "images": {
+            "selector": "img",
+            "attribute": "src"
+          }
+        },
+        "nav": {
+          "prev": ".naveps .nvs:first-child a:not(.nonex)",
+          "next": ".naveps .nvs.rght a:not(.nonex)"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Cari judul..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "home": true,
+    "search": true,
+    "dynamicForm": true,
+    "contentByTag": true,
+    "detail": true,
+    "chapters": true,
+    "reader": true,
+    "related": true,
+    "comments": false,
+    "favorite": true
+  },
+  "maintenance": true
+}

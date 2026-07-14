@@ -1,0 +1,399 @@
+{
+  "source": "crotpedia",
+  "version": "1.0.11",
+  "enabled": true,
+  "defaultLanguage": "indonesian",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/crotpedia-config.json",
+  "baseUrl": "https://crotpedia.net",
+  "ui": {
+    "displayName": "Crotpedia",
+    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/crotpedia.png",
+    "themeColor": "#1E88E5",
+    "cardStyle": "standard",
+    "openInBrowserUrl": "https://crotpedia.net"
+  },
+  "network": {
+    "requiresBypass": true,
+    "cloudflare": {
+      "bypassEnabled": true,
+      "antiDetection": false
+    },
+    "headers": {
+      "Referer": "https://crotpedia.net/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "auth": {
+    "enabled": true,
+    "webviewLogin": {
+      "url": "https://crotpedia.net/login/",
+      "autoCloseCookie": "wordpress_logged_in"
+    },
+    "loginUrl": "https://crotpedia.net/login/",
+    "registerUrl": "https://crotpedia.net/register/",
+    "bookmarkUrl": "https://crotpedia.net/bookmark/",
+    "nonceRegex": "name=\"koi_login_nonce\"\\s+value=\"([^\"]+)\"",
+    "loginSuccessFilter": "/wp-admin"
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".flexbox4-item",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".flexbox4-side .title a"
+            },
+            "coverUrl": {
+              "selector": ".flexbox4-thumb img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "current": ".pagination .page-numbers.current",
+            "next": ".pagination .next.page-numbers",
+            "prev": ".pagination .prev.page-numbers",
+            "links": ".pagination a.page-numbers:not(.next):not(.prev)"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "list": {
+          "container": ".flexbox2-item",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".flexbox2-title span"
+            },
+            "coverUrl": {
+              "selector": ".flexbox2-thumb img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "current": ".pagination .page-numbers.current",
+            "next": ".pagination .next.page-numbers",
+            "prev": ".pagination .prev.page-numbers",
+            "links": ".pagination a.page-numbers:not(.next):not(.prev)"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "inherits": "search"
+      },
+      "genreSearch": {
+        "url": "/baca/genre/{tag}/",
+        "inherits": "search"
+      },
+      "genreSearchPage": {
+        "url": "/baca/genre/{tag}/page/{page}/",
+        "inherits": "search"
+      },
+      "advancedSearch": {
+        "url": "/advanced-search/?title={query}&order={order}&genre[]={tag}",
+        "inherits": "search"
+      },
+      "advancedSearchPage": {
+        "url": "/advanced-search/page/{page}/?title={query}&order={order}&genre[]={tag}",
+        "inherits": "search"
+      },
+      "detail": "/baca/series/{id}/",
+      "chapter": "/baca/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".series-titlex h2"
+          },
+          "coverUrl": {
+            "selector": ".series-thumb img",
+            "attribute": "src"
+          },
+          "uploadDate": {
+            "selector": ".series-infolist li:nth-child(2) span",
+            "regex": "(\\d{4})"
+          },
+          "tags": {
+            "selector": ".series-genres a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": ".series-chapterlist li",
+          "fields": {
+            "id": {
+              "selector": ".flexch-infoz a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".flexch-infoz a span"
+            },
+            "date": {
+              "selector": ".flexch-infoz .date"
+            }
+          }
+        },
+        "comments": {
+          "container": "#wpdcom .wpd-comment",
+          "fields": {
+            "id": {
+              "selector": ".wpd-comment-right",
+              "attribute": "id",
+              "regex": "comment-(\\d+)"
+            },
+            "username": {
+              "selector": ".wpd-comment-author"
+            },
+            "body": {
+              "selector": ".wpd-comment-text"
+            },
+            "avatarUrl": {
+              "selector": ".wpd-avatar img",
+              "attribute": "src"
+            },
+            "postDate": {
+              "selector": ".wpd-comment-date",
+              "attribute": "title"
+            }
+          }
+        }
+      },
+      "reader": {
+        "container": ".reader-area",
+        "images": {
+          "selector": "p img",
+          "attribute": "src"
+        },
+        "nav": {
+          "next": ".nextprev a.next, .nav-links a.next, a.next_page",
+          "prev": ".nextprev a.prev, .nav-links a.prev, a.prev_page"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "advancedSearch",
+    "params": {
+      "query": {
+        "queryParam": "title",
+        "type": "text",
+        "placeholder": "Cari series..."
+      },
+      "author": {
+        "queryParam": "author",
+        "type": "text",
+        "placeholder": "Search by author...",
+        "label": "Author"
+      },
+      "artist": {
+        "queryParam": "artist",
+        "type": "text",
+        "placeholder": "Search by artist...",
+        "label": "Artist"
+      },
+      "yearx": {
+        "queryParam": "yearx",
+        "type": "text",
+        "placeholder": "e.g., 2024",
+        "label": "Year"
+      },
+      "status": {
+        "queryParam": "status",
+        "type": "select",
+        "label": "Status",
+        "options": [
+          {
+            "name": "Ongoing",
+            "value": "ongoing"
+          },
+          {
+            "name": "Completed",
+            "value": "completed"
+          }
+        ]
+      },
+      "type": {
+        "queryParam": "type",
+        "type": "select",
+        "label": "Type",
+        "options": [
+          {
+            "name": "Manga",
+            "value": "Manga"
+          },
+          {
+            "name": "Image Set",
+            "value": "Image-set"
+          },
+          {
+            "name": "Manhwa",
+            "value": "Manhwa"
+          },
+          {
+            "name": "One Shot",
+            "value": "One-shot"
+          },
+          {
+            "name": "Doujinshi",
+            "value": "Doujinshi"
+          }
+        ]
+      },
+      "order": {
+        "queryParam": "order",
+        "type": "sort",
+        "label": "Order By",
+        "options": [
+          {
+            "name": "Latest Update",
+            "value": "update"
+          },
+          {
+            "name": "Latest Added",
+            "value": "latest"
+          },
+          {
+            "name": "Popular",
+            "value": "popular"
+          },
+          {
+            "name": "Rating",
+            "value": "rating"
+          },
+          {
+            "name": "A-Z",
+            "value": "title"
+          },
+          {
+            "name": "Z-A",
+            "value": "titlereverse"
+          }
+        ]
+      },
+      "genre": {
+        "queryParam": "genre[]",
+        "type": "checkbox",
+        "label": "Genre",
+        "loadFromTags": true,
+        "tagType": "genre",
+        "tagSourceUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/master/configs/tags/tags_crotpedia.json"
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "featurePages": {
+    "genreList": {
+      "url": "/genre-list/",
+      "container": "ul.achlist li",
+      "fields": {
+        "name": {
+          "selector": "a",
+          "type": "text"
+        },
+        "url": {
+          "selector": "a",
+          "attribute": "href"
+        },
+        "count": {
+          "selector": "span",
+          "type": "text",
+          "transform": "int"
+        }
+      }
+    },
+    "doujinList": {
+      "url": "/doujin-list/",
+      "container": ".mangalist-blc a.series",
+      "fields": {
+        "title": {
+          "type": "text"
+        },
+        "url": {
+          "attribute": "href"
+        },
+        "id": {
+          "attribute": "rel"
+        }
+      }
+    },
+    "requestList": {
+      "url": "/baca/publisher/request/",
+      "pageUrl": "/baca/publisher/request/page/{page}/",
+      "container": ".flexbox2-item",
+      "fields": {
+        "title": {
+          "selector": ".flexbox2-title span",
+          "type": "text"
+        },
+        "coverUrl": {
+          "selector": "img",
+          "attribute": "src"
+        },
+        "url": {
+          "selector": "a",
+          "attribute": "href"
+        },
+        "status": {
+          "selector": ".flexbox2-footer",
+          "type": "text"
+        }
+      }
+    }
+  },
+  "menuConfig": {
+    "genreList": {
+      "enabled": true,
+      "label": "Genres",
+      "icon": "category"
+    },
+    "doujinList": {
+      "enabled": true,
+      "label": "Doujin List",
+      "icon": "library_books"
+    },
+    "requestList": {
+      "enabled": true,
+      "label": "Request List",
+      "icon": "assignment"
+    }
+  },
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre"
+  },
+  "features": {
+    "search": true,
+    "chapters": true,
+    "favorite": true,
+    "bookmark": false,
+    "supportsAuth": true,
+    "comments": true,
+    "related": false
+  }
+}

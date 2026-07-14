@@ -1,0 +1,219 @@
+{
+  "source": "komikcast",
+  "version": "1.2.0",
+  "enabled": true,
+  "defaultLanguage": "indonesian",
+  "baseUrl": "https://v2.komikcast.fit",
+  "configUrl": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/config/komikcast-config.json",
+  "ui": {
+    "displayName": "Komikcast",
+    "iconPath": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/images/komikcast.png",
+    "brandColor": "#FF7043",
+    "browseUrlTemplate": "{baseUrl}/comics?sort={sort}&order=desc",
+    "searchUrlTemplate": "{baseUrl}/comics?search={query}&sort={sort}&order=desc"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://v2.komikcast.fit/",
+      "Origin": "https://v2.komikcast.fit",
+      "Accept": "application/json",
+      "Accept-language": "en-US,en;q=0.9,id;q=0.8"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "api": {
+    "enabled": true,
+    "url": "https://be.komikcast.cc",
+    "endpoints": {
+      "allGalleries": {
+        "path": "/series",
+        "params": {
+          "includeMeta": "true",
+          "sort": "latest",
+          "sortOrder": "desc",
+          "take": "12",
+          "page": "{page}"
+        }
+      },
+      "popular": {
+        "path": "/series",
+        "params": {
+          "includeMeta": "true",
+          "sort": "popularity",
+          "sortOrder": "desc",
+          "take": "12",
+          "page": "{page}"
+        }
+      },
+      "search": {
+        "path": "/series",
+        "params": {
+          "takeChapter": "2",
+          "includeMeta": "true",
+          "sort": "{sort}",
+          "sortOrder": "desc",
+          "take": "12",
+          "page": "{page}",
+          "filter": "title=like=\"{query}\",nativeTitle=like=\"{query}\""
+        }
+      },
+      "tagSearch": {
+        "path": "/series",
+        "params": {
+          "genreIds": "{tagId}",
+          "takeChapter": "2",
+          "includeMeta": "true",
+          "sort": "{sort}",
+          "sortOrder": "desc",
+          "take": "12",
+          "page": "{page}"
+        }
+      },
+      "genres": {
+        "path": "/genres"
+      },
+      "detail": {
+        "path": "/series/{id}"
+      },
+      "chapters": {
+        "path": "/series/{id}/chapters"
+      },
+      "images": {
+        "path": "/series/{id}/chapters/{chapter}"
+      }
+    },
+    "list": {
+      "items": "$.data[*]",
+      "pagination": {
+        "currentPage": {
+          "path": "$.meta.page"
+        },
+        "totalPages": {
+          "path": "$.meta.lastPage"
+        }
+      },
+      "fields": {
+        "id": {
+          "selector": "$.data.slug"
+        },
+        "title": {
+          "selector": "$.data.title"
+        },
+        "coverUrl": {
+          "selector": "$.data.coverImage"
+        },
+        "status": {
+          "selector": "$.data.status"
+        },
+        "tags": {
+          "selector": "$.data.genres[*].data.name",
+          "multi": true
+        }
+      }
+    },
+    "detail": {
+      "fields": {
+        "id": {
+          "selector": "$.data.data.slug"
+        },
+        "title": {
+          "selector": "$.data.data.title"
+        },
+        "description": {
+          "selector": "$.data.data.synopsis"
+        },
+        "coverUrl": {
+          "selector": "$.data.data.coverImage"
+        },
+        "status": {
+          "selector": "$.data.data.status"
+        },
+        "tags": {
+          "selector": "$.data.data.genres[*].data.name",
+          "multi": true
+        },
+        "pageCount": {
+          "selector": "$.data.data.totalChapters"
+        }
+      },
+      "chapters": {
+        "endpoint": "/series/{id}/chapters",
+        "items": "$.data[*]",
+        "fields": {
+          "id": {
+            "selector": "$.data.index"
+          },
+          "chapterNum": {
+            "selector": "$.data.index"
+          },
+          "url": {
+            "selector": "$.data.index"
+          },
+          "date": {
+            "selector": "$.createdAt"
+          }
+        },
+        "composeIdWithContentId": true,
+        "idJoiner": "/"
+      }
+    },
+    "images": {
+      "mode": "direct",
+      "items": "$.data.data.images[*]",
+      "urlPath": "$"
+    }
+  },
+  "navigation": {
+    "tagQueryMapping": {
+      "default": {
+        "mode": "rawParam",
+        "param": "genreIds",
+        "valueSource": "tagName"
+      }
+    }
+  },
+  "features": {
+    "search": true,
+    "chapters": true,
+    "favorite": true
+  },
+  "notes": "Komikcast REST config uses nested data payloads (data.data.*) and chapter IDs are composed as {slug}/{index} for reader image requests. Genre references come from /genres and tag browsing uses genreIds.",
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search by title..."
+      },
+      "order": {
+        "queryParam": "sort",
+        "type": "sort",
+        "label": "Sort By",
+        "options": [
+          {
+            "name": "Latest",
+            "value": "latest"
+          },
+          {
+            "name": "Popular",
+            "value": "popularity"
+          },
+          {
+            "name": "Rating",
+            "value": "rating"
+          }
+        ]
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  }
+}

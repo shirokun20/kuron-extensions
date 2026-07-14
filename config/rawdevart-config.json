@@ -1,0 +1,219 @@
+{
+    "source": "rawdevart",
+    "version": "1.0.0",
+    "enabled": true,
+    "defaultLanguage": "english",
+    "baseUrl": "https://rawdevart.art",
+    "ui": {
+        "displayName": "RawDevArt",
+        "iconPath": "https://rawdevart.art/logo.png",
+        "brandColor": "#FF6B35",
+        "openInBrowserUrl": "https://rawdevart.art"
+    },
+    "network": {
+        "requiresBypass": false,
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36",
+            "Referer": "https://rawdevart.art/"
+        }
+    },
+    "api": {
+        "enabled": true,
+        "url": "https://rawdevart.art/spa",
+        "endpoints": {
+            "allGalleries": {
+                "path": "/latest-manga",
+                "params": {
+                    "page": "{page}"
+                }
+            },
+            "latest": {
+                "path": "/latest-manga",
+                "params": {
+                    "page": "{page}"
+                }
+            },
+            "search": {
+                "path": "/search",
+                "params": {
+                    "query": "{query}",
+                    "page": "{page}"
+                }
+            },
+            "detail": {
+                "path": "/manga/{id}"
+            },
+            "images": {
+                "path": "/manga/{id}/{chapter}"
+            },
+            "tagSearch": {
+                "path": "/genre/{tagId}",
+                "params": {
+                    "sort": "{sort}",
+                    "page": "{page}",
+                    "status": ""
+                }
+            }
+        },
+        "list": {
+            "items": "$.manga_list[*]",
+            "pagination": {
+                "currentPage": {
+                    "path": "$.pagi.cur_page"
+                },
+                "hasNextPage": {
+                    "path": "$.pagi.button.next",
+                    "condition": ">0"
+                }
+            },
+            "fields": {
+                "id": {
+                    "selector": "$.manga_id"
+                },
+                "title": {
+                    "selector": "$.manga_name"
+                },
+                "coverUrl": {
+                    "selector": "$.manga_cover_img"
+                },
+                "pageCount": {
+                    "selector": "$.manga_chapters",
+                    "optional": true
+                }
+            }
+        },
+        "detail": {
+            "fields": {
+                "id": {
+                    "selector": "$.detail.manga_id"
+                },
+                "title": {
+                    "selector": "$.detail.manga_name"
+                },
+                "alternativeTitle": {
+                    "selector": "$.detail.manga_others_name",
+                    "optional": true
+                },
+                "description": {
+                    "selector": "$.detail.manga_description"
+                },
+                "coverUrl": {
+                    "selector": "$.detail.manga_cover_img_full",
+                    "optional": true
+                },
+                "status": {
+                    "selector": "$.detail.manga_status"
+                },
+                "uploadDate": {
+                    "selector": "$.detail.manga_date_published"
+                },
+                "updatedDate": {
+                    "selector": "$.detail.manga_updated",
+                    "optional": true
+                },
+                "pageCount": {
+                    "selector": "$.detail.manga_views",
+                    "optional": true
+                },
+                "tagObjects": {
+                    "type": "tagObjects",
+                    "selector": "$.tags[*]",
+                    "fields": {
+                        "name": {
+                            "selector": "$.tag_name"
+                        },
+                        "id": {
+                            "selector": "$.tag_id"
+                        }
+                    }
+                }
+            },
+            "chapters": {
+                "items": "$.chapters[*]",
+                "fields": {
+                    "id": {
+                        "selector": "$.chapter_number"
+                    },
+                    "chapterNum": {
+                        "selector": "$.chapter_number"
+                    },
+                    "title": {
+                        "selector": "$.chapter_title",
+                        "optional": true
+                    },
+                    "date": {
+                        "selector": "$.chapter_date_published"
+                    }
+                },
+                "composeIdWithContentId": true,
+                "idJoiner": "/"
+            }
+        },
+        "images": {
+            "mode": "htmlContent",
+            "items": "img[data-src]",
+            "attribute": "data-src",
+            "contentPath": "$.chapter_detail.chapter_content",
+            "serverPath": "$.chapter_detail.server"
+        }
+    },
+    "features": {
+        "comments": true,
+        "related": false,
+        "favorite": true,
+        "chapters": true
+    },
+    "schemaVersion": "2.0",
+    "contentIdPattern": "/manga/(\\d+)",
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "query",
+                "type": "text",
+                "placeholder": "Search by title..."
+            },
+            "page": {
+                "queryParam": "page",
+                "type": "page"
+            },
+            "sort": {
+                "queryParam": "sort",
+                "type": "select",
+                "label": "Sort",
+                "options": [
+                    {
+                        "name": "Latest",
+                        "value": "latest"
+                    },
+                    {
+                        "name": "Popular",
+                        "value": "popular"
+                    },
+                    {
+                        "name": "New",
+                        "value": "new"
+                    },
+                    {
+                        "name": "Name",
+                        "value": "name"
+                    }
+                ]
+            }
+        }
+    },
+    "navigation": {
+        "tagQueryMapping": {
+            "tag": {
+                "mode": "rawParam",
+                "param": "tag_id",
+                "valueSource": "tagId"
+            },
+            "default": {
+                "mode": "rawParam",
+                "param": "tag_id",
+                "valueSource": "tagId"
+            }
+        }
+    }
+}
