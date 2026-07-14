@@ -6,7 +6,7 @@
         {
             "id": "komiktap",
             "version": "1.1.5",
-            "url": "config/komiktap-config.json",
+            "url": "config/id/komiktap-config.json",
             "meta": {
                 "displayName": "KomikTap",
                 "description": "Manga reader with Indonesian content",
@@ -22,7 +22,7 @@
         {
             "id": "crotpedia",
             "version": "1.0.10",
-            "url": "config/crotpedia-config.json",
+            "url": "config/id/crotpedia-config.json",
             "meta": {
                 "displayName": "Crotpedia",
                 "description": "Manga reader with specialized Cloudflare bypass",
@@ -38,7 +38,7 @@
         {
             "id": "mangadex",
             "version": "1.1.10",
-            "url": "config/mangadex-config.json",
+            "url": "config/en/mangadex-config.json",
             "meta": {
                 "displayName": "MangaDex",
                 "description": "Manga reader featuring a large community and frequent updates",
@@ -54,7 +54,7 @@
         {
             "id": "hentaifox",
             "version": "1.0.1",
-            "url": "config/hentaifox-config.json",
+            "url": "config/en/hentaifox-config.json",
             "meta": {
                 "displayName": "HentaiFox",
                 "description": "High quality Hentai reader",
@@ -70,7 +70,7 @@
         {
             "id": "ehentai",
             "version": "1.0.6",
-            "url": "config/ehentai-config.json",
+            "url": "config/en/ehentai-config.json",
             "meta": {
                 "displayName": "E-Hentai",
                 "description": "Gallery source with session/cookie-aware fetching",
@@ -86,7 +86,7 @@
         {
             "id": "hentainexus",
             "version": "1.0.0",
-            "url": "config/hentainexus-config.json",
+            "url": "config/en/hentainexus-config.json",
             "meta": {
                 "displayName": "HentaiNexus",
                 "description": "Encrypted reader source with client-side decrypt adapter",
@@ -102,7 +102,7 @@
         {
             "id": "hitomi",
             "version": "1.0.5",
-            "url": "config/hitomi-config.json",
+            "url": "config/en/hitomi-config.json",
             "meta": {
                 "displayName": "Hitomi.la",
                 "description": "Gate-B fallback registration pending full protocol adapter",
@@ -118,7 +118,7 @@
         {
             "id": "komiku",
             "version": "1.0.1",
-            "url": "config/komiku-config.json",
+            "url": "config/id/komiku-config.json",
             "meta": {
                 "displayName": "Komiku",
                 "description": "Manga reader for komiku.id",
@@ -134,7 +134,7 @@
         {
             "id": "doujindesuv2",
             "version": "2.0.1",
-            "url": "config/doujindesuv2-config.json",
+            "url": "config/id/doujindesuv2-config.json",
             "meta": {
                 "displayName": "DoujinDesu v2 (Maintenance)",
                 "description": "Doujinshi reader with REST API support",
@@ -151,7 +151,7 @@
         {
             "id": "hentaicosplay",
             "version": "1.0.1",
-            "url": "config/hentaicosplay-config.json",
+            "url": "config/en/hentaicosplay-config.json",
             "meta": {
                 "displayName": "HentaiCosplay",
                 "description": "Hentai Cosplay reader with scraping and Cloudflare bypass",
@@ -167,7 +167,7 @@
         {
             "id": "manga18.club",
             "version": "1.0.0",
-            "url": "config/manga18.club-config.json",
+            "url": "config/en/manga18.club-config.json",
             "meta": {
                 "displayName": "Manga18.club",
                 "description": "Manga18.club reader with scraping and Cloudflare bypass",
@@ -183,7 +183,7 @@
         {
             "id": "komikcast",
             "version": "1.2.0",
-            "url": "config/komikcast-config.json",
+            "url": "config/id/komikcast-config.json",
             "meta": {
                 "displayName": "Komik Cast",
                 "description": "Komik Cast manga indonesia paling the best",
@@ -199,7 +199,7 @@
         {
             "id": "nicomanga",
             "version": "1.0.3",
-            "url": "config/nicomanga-config.json",
+            "url": "config/ja/nicomanga-config.json",
             "meta": {
                 "displayName": "Nicomanga",
                 "description": "Nicomanga adalah raw manga paling the best",
@@ -215,7 +215,7 @@
         {
             "id": "rawdevart",
             "version": "1.0.0",
-            "url": "config/rawdevart-config.json",
+            "url": "config/en/rawdevart-config.json",
             "meta": {
                 "displayName": "RawDevArt",
                 "description": "English raw manga reader with search, detail, and reader support",
@@ -231,7 +231,7 @@
         {
             "id": "schale-network",
             "version": "1.0.0",
-            "url": "config/schale-network-config.json",
+            "url": "config/en/schale-network-config.json",
             "meta": {
                 "displayName": "Schale Network",
                 "description": "Doujinshi reader via schale.network API",
@@ -247,7 +247,7 @@
         {
             "id": "spyfakku",
             "version": "1.1.0",
-            "url": "config/spyfakku-config.json",
+            "url": "config/en/spyfakku-config.json",
             "meta": {
                 "displayName": "Spy Fakku",
                 "description": "Sky Fakku adalah english doujinshi paling the best",
@@ -263,7 +263,7 @@
         {
             "id": "mangafire",
             "version": "1.1.0",
-            "url": "config/mangafire-config.json",
+            "url": "config/en/mangafire-config.json",
             "meta": {
                 "displayName": "MangaFire",
                 "description": "MangaFire adalah english doujinshi paling the best",
@@ -279,7 +279,7 @@
         {
             "id": "manhwaread",
             "version": "1.1.0",
-            "url": "config/manhwaread-config.json",
+            "url": "config/en/manhwaread-config.json",
             "meta": {
                 "displayName": "ManhwaRead",
                 "description": "Manhwa reader with WordPress Madara theme and XHR proxy reader",
@@ -295,7 +295,7 @@
         {
             "id": "shirodoujin",
             "version": "1.0.0",
-            "url": "config/shirodoujin-config.json",
+            "url": "config/en/shirodoujin-config.json",
             "meta": {
                 "displayName": "shirodoujin.com",
                 "description": "Doujinshi reader with search, detail, and reader support",
@@ -311,7 +311,7 @@
         {
             "id": "tooncubus",
             "version": "1.0.0",
-            "url": "config/tooncubus-config.json",
+            "url": "config/en/tooncubus-config.json",
             "meta": {
                 "displayName": "ToonCubus",
                 "description": "Blogger-based toon reader with JSON API and scraper fallback",
@@ -327,7 +327,7 @@
         {
             "id": "hentairead",
             "version": "1.0.0",
-            "url": "config/hentairead-config.json",
+            "url": "config/en/hentairead-config.json",
             "meta": {
                 "displayName": "HentaiRead",
                 "description": "Doujin reader with Madara theme, search, download, and offline mode",
@@ -343,7 +343,7 @@
         {
             "id": "vihentai",
             "version": "1.0.0",
-            "url": "config/vihentai-config.json",
+            "url": "config/vi/vihentai-config.json",
             "meta": {
                 "displayName": "ViHentai",
                 "description": "Vietnamese doujinshi reader with search, genre filter, and download",
