@@ -43,7 +43,7 @@ If you love **Kuron** and want to support its development, you can sponsor me on
 You can also scan the QRIS below to donate:
 
 <p align="center">
-  <img src="assets/images/donation_qris.jpeg" width="300" alt="QRIS Donation" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+  <img src="https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/assets/images/donation_qris.jpeg" width="300" alt="QRIS Donation" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
 </p>
 
 > **Note:** Your support helps keep the servers running and the updates coming! 🚀
