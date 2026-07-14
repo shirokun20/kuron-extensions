@@ -1,6 +1,6 @@
 # Kuron Extensions 🧩
 
-![GitHub repo size](https://img.shields.io/github/repo-size/shirokun20/kuron-extensions) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/shirokun20/kuron-extensions) ![License](https://img.shields.io/badge/License-MIT-blue.svg) ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=shirokun20.kuron-extensions)
 
 Official repository for content source extensions and JSON configurations for the **Kuron** reader app. 
 
