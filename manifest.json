@@ -16,7 +16,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
-            }
+            },
+            "checksum": "98e84e287933cd8c82945196ac9533a702c2d425e985b5a010863c1393ed7e02"
         },
         {
             "id": "crotpedia",
@@ -31,7 +32,8 @@
                 "requiresAuth": true,
                 "requiresSpecialAdapter": true,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "607592206bab36c79e1e0136103c52174a373db8258e32554e2a1a3ee3140bb2"
         },
         {
             "id": "mangadex",
@@ -46,7 +48,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "2e3af7c7d320ae9a4e13e456d4195e15250eaa0d9f07c233c18f1851f3489dc6"
         },
         {
             "id": "hentaifox",
@@ -61,7 +64,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "ef9520c4266f854ca3ce6c01384117754006a35071a474f2710b8aba7bb594c8"
         },
         {
             "id": "ehentai",
@@ -76,7 +80,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
                 "sizeKb": 7
-            }
+            },
+            "checksum": "b945a75b0b14c598e54b8688ab229ca96533c6f8b3c4141ea29ce32a03d738a0"
         },
         {
             "id": "hentainexus",
@@ -91,7 +96,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
                 "sizeKb": 7
-            }
+            },
+            "checksum": "df02e7feaa1f23db9d92c4358d5b66b19a11e57572ecc5669ffbc288b0417398"
         },
         {
             "id": "hitomi",
@@ -106,7 +112,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "ddb7b4db39a261ca5e083cc35c9e1ceecebdd1500b80bacbb0da21dd6d7ca8c2"
         },
         {
             "id": "komiku",
@@ -121,7 +128,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
-            }
+            },
+            "checksum": "b6581af7084cf6f79a906e25e9af84ae5493e16ecee414d2021af4b2af117b05"
         },
         {
             "id": "doujindesuv2",
@@ -137,7 +145,8 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6,
                 "maintenance": true
-            }
+            },
+            "checksum": "85f481487973cf6e0e564a2f74d596354afae4cd8d59a75704ea33f567a98e38"
         },
         {
             "id": "hentaicosplay",
@@ -152,7 +161,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "604401fa5b841839e853fc3a0f8e69f44181785fccf3832bb6ccbd76f72540cb"
         },
         {
             "id": "manga18.club",
@@ -167,7 +177,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "f3337659d9cd40535e6861d0ae28ed29fb7ab8802468bfae2da739dcc0604cb2"
         },
         {
             "id": "komikcast",
@@ -182,7 +193,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "6ce18ea17f1edbccd25f79b97a9cd77b05a63de98c5bf43a85e6e21af5334e87"
         },
         {
             "id": "nicomanga",
@@ -197,7 +209,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "6bb606bdbb8ee93f50a076b8db232be0772b1dd32ee2c6db91627d7292403a9b"
         },
         {
             "id": "rawdevart",
@@ -212,7 +225,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "3de6bf4d49fcbb7d4a8fb55d1e631128178adf541460f6fc1f1ba5952d6e1a7c"
         },
         {
             "id": "schale-network",
@@ -227,7 +241,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "03a68f4c37b3342fde779bcbc391aa5aa757ecb77ea1f15e61f099128c1e4740"
         },
         {
             "id": "spyfakku",
@@ -242,7 +257,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "beb4e1737e3642f7508a86008a02e5011abffe6e22e6c5923c41230cd2ee10ec"
         },
         {
             "id": "mangafire",
@@ -257,7 +273,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "2e3cd41b1a2d34e4a628d41af1c5eeaa926d499c32cbe61945ee2d42762a5898"
         },
         {
             "id": "manhwaread",
@@ -272,7 +289,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
-            }
+            },
+            "checksum": "812b1eddf5bd484accca33cef4ee8584720caf2d09e9923966ac32ac366ad2ba"
         },
         {
             "id": "shirodoujin",
@@ -287,7 +305,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "dee31f7c97014ff8bb99fc160645b26b42977732799bb88e898b9c712b800f54"
         },
         {
             "id": "tooncubus",
@@ -302,7 +321,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "eab39d5d41c7bf0258dca11fac29580d42f06bfc93af4d31acea5d9d015f8cbc"
         },
         {
             "id": "hentairead",
@@ -317,7 +337,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
-            }
+            },
+            "checksum": "3d0547e3109766bcec2954310696a80788888d6d805c5857dfeb5429562bb54f"
         },
         {
             "id": "vihentai",
@@ -332,7 +353,8 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
-            }
+            },
+            "checksum": "b285e84fd1f0eec8a7470edfac69e8af5e868edee61bf1a87407941201fdb07e"
         }
     ]
 }
