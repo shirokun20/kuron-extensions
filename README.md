@@ -35,5 +35,3 @@ You can also scan the QRIS below to donate:
 </p>
 
 > **Note:** Your support helps keep the servers running and the updates coming! 🚀
-
----
