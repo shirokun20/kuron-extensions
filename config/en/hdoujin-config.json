@@ -1,0 +1,176 @@
+{
+    "source": "hdoujin",
+    "version": "1.0.0",
+    "enabled": true,
+    "defaultLanguage": "english",
+    "baseUrl": "https://api.hdoujin.org",
+    "ui": {
+        "displayName": "HDoujin",
+        "iconPath": "https://hdoujin.org/favicon.ico",
+        "brandColor": "#7B68EE",
+        "openInBrowserUrl": "https://hdoujin.org/"
+    },
+    "network": {
+        "requiresBypass": false,
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
+            "Referer": "https://hdoujin.org/",
+            "Origin": "https://hdoujin.org"
+        },
+        "rateLimit": {
+            "enabled": true,
+            "requestsPerSecond": 2,
+            "maxConcurrentRequests": 2
+        }
+    },
+    "api": {
+        "enabled": true,
+        "url": "https://api.hdoujin.org",
+        "endpoints": {
+            "allGalleries": {
+                "path": "/books",
+                "params": {
+                    "page": "{page}"
+                }
+            },
+            "latest": {
+                "path": "/books",
+                "params": {
+                    "page": "{page}"
+                }
+            },
+            "search": {
+                "path": "/books",
+                "params": {
+                    "s": "{query}",
+                    "page": "{page}"
+                }
+            },
+            "detail": {
+                "path": "/books/detail/{id}"
+            }
+        },
+        "list": {
+            "items": "$.entries[*]",
+            "pagination": {
+                "currentPage": {
+                    "path": "$.page"
+                },
+                "limit": {
+                    "path": "$.limit"
+                },
+                "total": {
+                    "path": "$.total"
+                }
+            },
+            "fields": {
+                "id": {
+                    "selector": "$.id",
+                    "composeWith": {
+                        "field": "key",
+                        "joiner": "/"
+                    }
+                },
+                "key": {
+                    "selector": "$.key"
+                },
+                "title": {
+                    "selector": "$.title"
+                },
+                "coverUrl": {
+                    "selector": "$.thumbnail.path"
+                },
+                "pageCount": {
+                    "selector": "$.pages"
+                }
+            }
+        },
+        "detail": {
+            "fields": {
+                "title": {
+                    "selector": "$.title"
+                },
+                "key": {
+                    "selector": "$.key"
+                },
+                "uploadDate": {
+                    "selector": "$.created_at",
+                    "optional": true
+                },
+                "coverUrl": {
+                    "type": "coverBuilder",
+                    "template": "{mangaId}{fileName}",
+                    "mangaIdPath": "$.thumbnails.base",
+                    "filenamePath": "$.thumbnails.main.path"
+                },
+                "tagObjects": {
+                    "type": "tagObjects",
+                    "selector": "$.tags[*]",
+                    "fields": {
+                        "name": {
+                            "selector": "$.name"
+                        },
+                        "count": {
+                            "selector": "$.count"
+                        },
+                        "namespace": {
+                            "selector": "$.namespace"
+                        }
+                    }
+                }
+            }
+        },
+        "images": {
+            "mode": "schaleData",
+            "quality": "0",
+            "dataSelector": "$.data.0"
+        }
+    },
+    "features": {
+        "comments": false,
+        "related": false,
+        "favorite": true,
+        "chapters": false
+    },
+    "schemaVersion": "2.0",
+    "contentIdPattern": "/books/detail/(\\d+/[a-f0-9]+)",
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "s",
+                "type": "text",
+                "placeholder": "Search by title, tag:name, artist:name..."
+            },
+            "page": {
+                "queryParam": "page",
+                "type": "page"
+            }
+        }
+    },
+    "navigation": {
+        "tagQueryMapping": {
+            "tag": {
+                "mode": "rawParam",
+                "param": "s",
+                "valueSource": "tagName",
+                "valuePrefix": "tag:",
+                "valueSuffix": ""
+            },
+            "artist": {
+                "mode": "rawParam",
+                "param": "s",
+                "valueSource": "tagName",
+                "valuePrefix": "artist:\"",
+                "valueSuffix": "\""
+            },
+            "default": {
+                "mode": "rawParam",
+                "param": "s",
+                "valueSource": "tagName",
+                "valuePrefix": "tag:\"",
+                "valueSuffix": "\""
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-07-12T16:25:00+07:00",
+    "lastUpdated": "2026-07-17T09:35:00+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -82,6 +82,22 @@
                 "sizeKb": 7
             },
             "checksum": "b945a75b0b14c598e54b8688ab229ca96533c6f8b3c4141ea29ce32a03d738a0"
+        },
+        {
+            "id": "hdoujin",
+            "version": "1.0.0",
+            "url": "config/en/hdoujin-config.json",
+            "meta": {
+                "displayName": "HDoujin",
+                "description": "Doujinshi reader via hdoujin.org API",
+                "iconUrl": "images/hdoujin.png",
+                "contentType": "doujinshi",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 5
+            },
+            "checksum": "72a9566a7ec4d0ac865acd7eb73dd18d00ee6ebeb326a0aa1a42339551bbcf87"
         },
         {
             "id": "hentainexus",
