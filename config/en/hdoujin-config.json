@@ -82,6 +82,9 @@
                 },
                 "pageCount": {
                     "selector": "$.pages"
+                },
+                "tagIds": {
+                    "selector": "$.language"
                 }
             }
         },
@@ -125,6 +128,12 @@
             "quality": "0",
             "dataSelector": "$.data.0"
         }
+    },
+    "languageTagMap": {
+        "2": "english",
+        "4": "japanese",
+        "8": "chinese",
+        "16": "korean"
     },
     "features": {
         "comments": false,
