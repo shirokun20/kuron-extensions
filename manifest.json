@@ -85,7 +85,7 @@
         },
         {
             "id": "hdoujin",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "url": "config/en/hdoujin-config.json",
             "meta": {
                 "displayName": "HDoujin",
