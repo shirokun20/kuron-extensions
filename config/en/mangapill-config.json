@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-07-27T22:30:00+07:00",
+    "lastUpdated": "2026-07-27T22:17:00+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -258,7 +258,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "3091ff3e9fe3c43f64ff030dc4e97278d6917964d979f2d31215b4b6bea65687"
+            "checksum": "03a68f4c37b3342fde779bcbc391aa5aa757ecb77ea1f15e61f099128c1e4740"
         },
         {
             "id": "spyfakku",
@@ -272,8 +272,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6,
-                "maintenance": true
+                "sizeKb": 6
             },
             "checksum": "beb4e1737e3642f7508a86008a02e5011abffe6e22e6c5923c41230cd2ee10ec"
         },
@@ -289,8 +288,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6,
-                "maintenance": true
+                "sizeKb": 6
             },
             "checksum": "2e3cd41b1a2d34e4a628d41af1c5eeaa926d499c32cbe61945ee2d42762a5898"
         },
@@ -388,7 +386,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 8
             },
-            "checksum": "7385450fb9ede4f2bbce46d333c1dad3c0930a3a0886a904eb7a3da39bb1e39e"
+            "checksum": "af0e7bf2c6d1f8ed68fc1be52aa20e79cdca368a64dda6503dfa675fbb25cc23"
         }
     ]
 }
