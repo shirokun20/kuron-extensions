@@ -7,7 +7,7 @@
   "baseUrl": "https://hentainexus.com",
   "ui": {
     "displayName": "HentaiNexus",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/hentainexus.png",
+    "iconPath": "./images/hentainexus.png",
     "brandColor": "#2F7DDE",
     "openInBrowserUrl": "https://hentainexus.com"
   },
@@ -331,9 +331,12 @@
   "features": {
     "search": true,
     "chapters": false,
+    "download": true,
     "favorite": true,
     "supportsAuth": false,
     "comments": false,
-    "related": false
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
   }
 }

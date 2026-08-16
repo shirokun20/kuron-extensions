@@ -1,0 +1,180 @@
+{
+  "source": "areakomik",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "indonesian",
+  "baseUrl": "https://areakomik.com",
+  "configUrl": "",
+  "ui": {
+    "displayName": "Areakomik",
+    "iconPath": "./images/areakomik.png",
+    "brandColor": "#D32F2F",
+    "openInBrowserUrl": "https://areakomik.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "requiredPrimitives": [
+    "imageMode.directUrl",
+    "pagination.page",
+    "auth.none",
+    "headers.static"
+  ],
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "#lin-update-terbaru + .status-filter + .komik-grid .komik-card",
+          "fields": {
+            "id": {
+              "selector": "a.thumb-wrap",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".card-title"
+            },
+            "coverUrl": {
+              "selector": ".thumb-wrap img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a.next.page-numbers",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "list": {
+          "container": ".komik-card",
+          "fields": {
+            "id": {
+              "selector": "a.thumb-wrap",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".card-title"
+            },
+            "coverUrl": {
+              "selector": ".thumb-wrap img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a.next.page-numbers",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "inherits": "search"
+      },
+      "genreSearch": {
+        "url": "/genre/{tag}/",
+        "list": {
+          "container": ".komik-card",
+          "fields": {
+            "id": {
+              "selector": "a.thumb-wrap",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".card-title"
+            },
+            "coverUrl": {
+              "selector": ".thumb-wrap img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a.next.page-numbers",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "genreSearchPage": {
+        "url": "/genre/{tag}/page/{page}/",
+        "inherits": "genreSearch"
+      },
+      "detail": "/series/{id}/",
+      "chapter": "/chapter/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1"
+          },
+          "coverUrl": {
+            "selector": "meta[property='og:image']",
+            "attribute": "content"
+          },
+          "description": {
+            "selector": ".series-sinopsis"
+          },
+          "genres": {
+            "selector": ".genre-list a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": ".chapter-grid .chapter-row",
+          "fields": {
+            "id": {
+              "selector": "a.chapter-link:not(.lin-bonus-chapter-link)",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".chap-num"
+            },
+            "date": {
+              "selector": ".chap-date"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": "img[src*='gudangkomik'], img[src*='warungkomikcdn']",
+          "attribute": "src"
+        }
+      }
+    }
+  },
+  "features": {
+    "search": true,
+    "randomGallery": false,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "bookmark": false,
+    "supportsAuth": false,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

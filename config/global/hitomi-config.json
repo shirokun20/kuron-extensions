@@ -6,7 +6,7 @@
   "baseUrl": "https://hitomi.la",
   "ui": {
     "displayName": "Hitomi.la",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/hitomi.png",
+    "iconPath": "./images/hitomi.png",
     "brandColor": "#F25E32",
     "openInBrowserUrl": "https://hitomi.la"
   },
@@ -95,9 +95,12 @@
   "features": {
     "search": true,
     "chapters": false,
+    "download": true,
     "favorite": true,
     "supportsAuth": false,
     "comments": false,
-    "related": true
+    "related": true,
+    "generatePdf": true,
+    "offlineMode": true
   }
 }

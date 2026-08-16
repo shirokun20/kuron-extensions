@@ -6,7 +6,7 @@
   "baseUrl": "https://hentai-cosplay-xxx.com",
   "ui": {
     "displayName": "Hentai Cosplay",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/hentaicosplay.png",
+    "iconPath": "./images/hentaicosplay.png",
     "brandColor": "#E91E63",
     "openInBrowserUrl": "https://hentai-cosplay-xxx.com"
   },
@@ -126,7 +126,10 @@
   "features": {
     "comments": false,
     "related": false,
+    "download": true,
     "favorite": true,
-    "chapters": false
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
   }
 }

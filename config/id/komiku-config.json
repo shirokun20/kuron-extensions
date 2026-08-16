@@ -7,7 +7,7 @@
   "baseUrl": "https://komiku.org",
   "ui": {
     "displayName": "Komiku",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/komiku.png",
+    "iconPath": "./images/komiku.png",
     "brandColor": "#4164b2",
     "openInBrowserUrl": "https://komiku.org"
   },
@@ -178,8 +178,11 @@
   "features": {
     "comments": false,
     "related": false,
+    "download": true,
     "favorite": true,
     "chapters": true,
+    "generatePdf": true,
+    "offlineMode": true,
     "advancedSearch": true
   }
 }

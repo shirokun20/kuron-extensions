@@ -7,7 +7,7 @@
   "configUrl": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/config/komikcast-config.json",
   "ui": {
     "displayName": "Komikcast",
-    "iconPath": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/images/komikcast.png",
+    "iconPath": "./images/komikcast.png",
     "brandColor": "#FF7043",
     "browseUrlTemplate": "{baseUrl}/comics?sort={sort}&order=desc",
     "searchUrlTemplate": "{baseUrl}/comics?search={query}&sort={sort}&order=desc"
@@ -180,7 +180,10 @@
   "features": {
     "search": true,
     "chapters": true,
-    "favorite": true
+    "download": true,
+    "favorite": true,
+    "offlineMode": true,
+    "generatePdf": true
   },
   "notes": "Komikcast REST config uses nested data payloads (data.data.*) and chapter IDs are composed as {slug}/{index} for reader image requests. Genre references come from /genres and tag browsing uses genreIds.",
   "searchForm": {

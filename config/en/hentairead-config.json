@@ -7,7 +7,7 @@
   "baseUrl": "https://hentairead.com",
   "ui": {
     "displayName": "HentaiRead",
-    "iconPath": "https://hentairead.com/hentairead-logo.png",
+    "iconPath": "./images/hentairead.png",
     "brandColor": "#E14C7A",
     "openInBrowserUrl": "https://hentairead.com"
   },
@@ -27,6 +27,13 @@
       "enabled": true,
       "requestsPerSecond": 1,
       "maxConcurrentRequests": 2
+    },
+    "imageHeaders": {
+      "Accept": "image/webp,image/*,*/*;q=0.8",
+      "Origin": "https://hentairead.com",
+      "Sec-Fetch-Dest": "image",
+      "Sec-Fetch-Mode": "no-cors",
+      "Sec-Fetch-Site": "cross-site"
     }
   },
   "requiredPrimitives": [
@@ -284,10 +291,13 @@
   "features": {
     "search": true,
     "chapters": false,
+    "download": true,
     "favorite": true,
     "bookmark": false,
     "supportsAuth": false,
     "comments": false,
-    "related": false
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
   }
 }

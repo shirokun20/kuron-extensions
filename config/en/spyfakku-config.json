@@ -1,13 +1,13 @@
 {
   "source": "spyfakku",
   "version": "1.1.0",
-  "enabled": true,
+  "enabled": false,
   "defaultLanguage": "english",
   "baseUrl": "https://hentalk.pw",
   "configUrl": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/config/spyfakku-config.json",
   "ui": {
     "displayName": "SpyFakku",
-    "iconPath": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/images/spyfakku.png",
+    "iconPath": "./images/spyfakku.png",
     "brandColor": "#FF7043",
     "openInBrowserUrl": "https://hentalk.pw"
   },
@@ -184,8 +184,11 @@
   "features": {
     "comments": false,
     "related": false,
+    "download": true,
     "favorite": true,
-    "chapters": false
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
   },
   "tagSource": {
     "url": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/tags/tags_spyfakku.json",
@@ -285,5 +288,7 @@
         "joinMode": "space"
       }
     }
-  }
+  },
+  "maintenance": true,
+  "maintenanceMessage": "spyfakku sedang dalam perbaikan, mohon tunggu"
 }

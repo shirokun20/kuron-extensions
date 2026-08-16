@@ -6,7 +6,7 @@
   "baseUrl": "https://doujindesu.tv",
   "ui": {
     "displayName": "DoujinDesu v2",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/doujindesu.png",
+    "iconPath": "./images/doujindesuv2.png",
     "brandColor": "#d43726",
     "openInBrowserUrl": "https://doujindesu.tv"
   },
@@ -245,9 +245,13 @@
     "detail": true,
     "chapters": true,
     "reader": true,
+    "download": true,
     "related": true,
     "comments": false,
-    "favorite": true
+    "favorite": true,
+    "offlineMode": true,
+    "generatePdf": true
   },
-  "maintenance": true
+  "maintenance": true,
+  "maintenanceMessage": "doujindesuv2 sedang dalam perbaikan, mohon tunggu"
 }

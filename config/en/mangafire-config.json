@@ -1,17 +1,17 @@
 {
   "source": "mangafire",
   "version": "1.1.0",
-  "enabled": true,
+  "enabled": false,
   "defaultLanguage": "en",
   "baseUrl": "https://mangafire.to",
   "ui": {
     "displayName": "MangaFire",
-    "iconPath": "https://mangafire.to/favicon.ico",
+    "iconPath": "./images/mangafire.png",
     "brandColor": "#ef4444",
     "openInBrowserUrl": "https://mangafire.to"
   },
   "network": {
-    "requiresBypass": false,
+    "requiresBypass": true,
     "headers": {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
       "Referer": "https://mangafire.to/"
@@ -20,6 +20,18 @@
       "enabled": true,
       "requestsPerSecond": 2,
       "maxConcurrentRequests": 1
+    },
+    "auth": {
+      "enabled": true,
+      "authType": "vrf",
+      "captureUrl": "https://mangafire.to/",
+      "vrfParam": "vrf",
+      "ttlSeconds": 300,
+      "cacheMaxEntries": 20,
+      "interceptEndpoints": [
+        "/api/titles",
+        "/api/chapters"
+      ]
     }
   },
   "api": {
@@ -344,11 +356,11 @@
           },
           {
             "value": "order[title]=asc",
-            "name": "Title (A\u2013Z)"
+            "name": "Title (A–Z)"
           },
           {
             "value": "order[title]=desc",
-            "name": "Title (Z\u2013A)"
+            "name": "Title (Z–A)"
           },
           {
             "value": "order[year]=desc",
@@ -364,15 +376,15 @@
           },
           {
             "value": "order[views_7d]=desc",
-            "name": "Most viewed \u00b7 7 days"
+            "name": "Most viewed · 7 days"
           },
           {
             "value": "order[views_30d]=desc",
-            "name": "Most viewed \u00b7 30 days"
+            "name": "Most viewed · 30 days"
           },
           {
             "value": "order[views_total]=desc",
-            "name": "Most viewed \u00b7 all time"
+            "name": "Most viewed · all time"
           },
           {
             "value": "order[follows_total]=desc",
@@ -391,8 +403,13 @@
     "detail": true,
     "chapters": true,
     "reader": true,
+    "download": true,
     "related": true,
     "comments": false,
-    "favorite": true
-  }
+    "favorite": true,
+    "offlineMode": true,
+    "generatePdf": true
+  },
+  "maintenance": true,
+  "maintenanceMessage": "mangafire sedang dalam perbaikan, mohon tunggu"
 }

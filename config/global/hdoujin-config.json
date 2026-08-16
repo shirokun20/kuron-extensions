@@ -1,21 +1,21 @@
 {
-  "source": "schale-network",
+  "source": "hdoujin",
   "version": "1.0.0",
   "enabled": true,
   "defaultLanguage": "english",
-  "baseUrl": "https://api.schale.network",
+  "baseUrl": "https://api.hdoujin.org",
   "ui": {
-    "displayName": "Schale Network",
-    "iconPath": "./images/schale-network.png",
+    "displayName": "HDoujin",
+    "iconPath": "./images/hdoujin.png",
     "brandColor": "#7B68EE",
-    "openInBrowserUrl": "https://niyaniya.moe/"
+    "openInBrowserUrl": "https://hdoujin.org/"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
       "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
-      "Referer": "https://niyaniya.moe/",
-      "Origin": "https://niyaniya.moe"
+      "Referer": "https://hdoujin.org/",
+      "Origin": "https://hdoujin.org"
     },
     "rateLimit": {
       "enabled": true,
@@ -25,7 +25,7 @@
   },
   "api": {
     "enabled": true,
-    "url": "https://api.schale.network",
+    "url": "https://api.hdoujin.org",
     "endpoints": {
       "allGalleries": {
         "path": "/books",
@@ -82,6 +82,9 @@
         },
         "pageCount": {
           "selector": "$.pages"
+        },
+        "tagIds": {
+          "selector": "$.language"
         }
       }
     },
@@ -125,6 +128,12 @@
       "quality": "0",
       "dataSelector": "$.data.0"
     }
+  },
+  "languageTagMap": {
+    "2": "english",
+    "4": "japanese",
+    "8": "chinese",
+    "16": "korean"
   },
   "features": {
     "comments": false,

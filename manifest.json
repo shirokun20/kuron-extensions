@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-07-27T22:30:00+07:00",
+    "lastUpdated": "2026-08-16T00:00:00+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -15,13 +15,13 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "98e84e287933cd8c82945196ac9533a702c2d425e985b5a010863c1393ed7e02"
+            "checksum": "261408fcf9476de49ad01af940b75b794365d7ec5b3fcffb00281c4e2cc15b51"
         },
         {
             "id": "crotpedia",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "url": "config/id/crotpedia-config.json",
             "meta": {
                 "displayName": "Crotpedia",
@@ -31,23 +31,23 @@
                 "language": "id",
                 "requiresAuth": true,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 6
+                "sizeKb": 10
             },
-            "checksum": "607592206bab36c79e1e0136103c52174a373db8258e32554e2a1a3ee3140bb2"
+            "checksum": "e2734d12ea8857daa22112bd982655ed924b3b844303d7b5f02f339935a4202a"
         },
         {
             "id": "mangadex",
             "version": "1.1.10",
-            "url": "config/en/mangadex-config.json",
+            "url": "config/global/mangadex-config.json",
             "meta": {
                 "displayName": "MangaDex",
                 "description": "Manga reader featuring a large community and frequent updates",
                 "iconUrl": "images/mangadex.png",
                 "contentType": "manga",
-                "language": "en",
+                "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 17
             },
             "checksum": "2e3af7c7d320ae9a4e13e456d4195e15250eaa0d9f07c233c18f1851f3489dc6"
         },
@@ -63,45 +63,45 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "ef9520c4266f854ca3ce6c01384117754006a35071a474f2710b8aba7bb594c8"
+            "checksum": "5c35e4d8c89984277074b71874e236a3648562f7137e512dbea2f2cb6782226f"
         },
         {
             "id": "ehentai",
             "version": "1.0.6",
-            "url": "config/en/ehentai-config.json",
+            "url": "config/global/ehentai-config.json",
             "meta": {
                 "displayName": "E-Hentai",
                 "description": "Gallery source with session/cookie-aware fetching",
                 "iconUrl": "images/ehentai.png",
                 "contentType": "doujinshi",
-                "language": "en",
+                "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 7
+                "sizeKb": 6
             },
-            "checksum": "b945a75b0b14c598e54b8688ab229ca96533c6f8b3c4141ea29ce32a03d738a0"
+            "checksum": "65801ecec6b61e48f3d2c494d2055b712f074a97d68f72b046c9067f9f84a0e9"
         },
         {
             "id": "hdoujin",
-            "version": "1.1.0",
-            "url": "config/en/hdoujin-config.json",
+            "version": "1.0.0",
+            "url": "config/global/hdoujin-config.json",
             "meta": {
                 "displayName": "HDoujin",
                 "description": "Doujinshi reader via hdoujin.org API",
                 "iconUrl": "images/hdoujin.png",
                 "contentType": "doujinshi",
-                "language": "en",
+                "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "63493d8adf8c3ceeda9cca5196dbfd3cf5a9e866353b1cd9a409c163ad171d40"
+            "checksum": "e789e08e85651256caf6e20793418376ed1fac842445c2f8cdebdbb0f36b05c2"
         },
         {
             "id": "hentainexus",
-            "version": "1.0.0",
+            "version": "1.0.10",
             "url": "config/en/hentainexus-config.json",
             "meta": {
                 "displayName": "HentaiNexus",
@@ -111,25 +111,25 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 7
+                "sizeKb": 9
             },
-            "checksum": "df02e7feaa1f23db9d92c4358d5b66b19a11e57572ecc5669ffbc288b0417398"
+            "checksum": "ebeeedca2ea8c7b52c2be2edef918821ff33cf9f450d3ae82e13a3f156ffb06f"
         },
         {
             "id": "hitomi",
             "version": "1.0.5",
-            "url": "config/en/hitomi-config.json",
+            "url": "config/global/hitomi-config.json",
             "meta": {
                 "displayName": "Hitomi.la",
                 "description": "Gate-B fallback registration pending full protocol adapter",
                 "iconUrl": "images/hitomi.png",
                 "contentType": "doujinshi",
-                "language": "en",
+                "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 6
+                "sizeKb": 3
             },
-            "checksum": "ddb7b4db39a261ca5e083cc35c9e1ceecebdd1500b80bacbb0da21dd6d7ca8c2"
+            "checksum": "865014f3d037b8ad9cc95c40fac8cd96ea4e0215788b123a56bca91e1ffe9acb"
         },
         {
             "id": "komiku",
@@ -143,9 +143,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "b6581af7084cf6f79a906e25e9af84ae5493e16ecee414d2021af4b2af117b05"
+            "checksum": "007d57456bec50a6dd748ab459b016d99e5bebb7cdb8f72fbf78341f24259fb0"
         },
         {
             "id": "doujindesuv2",
@@ -159,42 +159,42 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6,
+                "sizeKb": 7,
                 "maintenance": true
             },
-            "checksum": "85f481487973cf6e0e564a2f74d596354afae4cd8d59a75704ea33f567a98e38"
+            "checksum": "a9836d6f115b08a5b934c01b796608fe602011b83317341c2cfa659e31c0773e"
         },
         {
             "id": "hentaicosplay",
-            "version": "1.0.1",
-            "url": "config/en/hentaicosplay-config.json",
+            "version": "1.0.0",
+            "url": "config/global/hentaicosplay-config.json",
             "meta": {
                 "displayName": "HentaiCosplay",
                 "description": "Hentai Cosplay reader with scraping and Cloudflare bypass",
                 "iconUrl": "images/hentaicosplay.png",
                 "contentType": "cosplay",
-                "language": "en",
+                "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 3
             },
-            "checksum": "604401fa5b841839e853fc3a0f8e69f44181785fccf3832bb6ccbd76f72540cb"
+            "checksum": "421535a7379f2508aa04c63b6d660004754bc739d6f74a9dd843df6e5e5cfb50"
         },
         {
             "id": "manga18.club",
-            "version": "1.0.0",
-            "url": "config/en/manga18.club-config.json",
+            "version": "1.0.1",
+            "url": "config/global/manga18.club-config.json",
             "meta": {
                 "displayName": "Manga18.club",
                 "description": "Manga18.club reader with scraping and Cloudflare bypass",
                 "iconUrl": "images/manga18.png",
                 "contentType": "manga",
-                "language": "en",
+                "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "f3337659d9cd40535e6861d0ae28ed29fb7ab8802468bfae2da739dcc0604cb2"
+            "checksum": "c4baedf76f74bf7b583afc6345cd11209274845fa3e40c3c8982d5b7fbb8ab07"
         },
         {
             "id": "komikcast",
@@ -208,13 +208,13 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "6ce18ea17f1edbccd25f79b97a9cd77b05a63de98c5bf43a85e6e21af5334e87"
+            "checksum": "d82e13cec9024ef73f0fb2f584101bb916eba424ef6bf4a231f58587e7ea1a44"
         },
         {
             "id": "nicomanga",
-            "version": "1.0.3",
+            "version": "1.2.0",
             "url": "config/ja/nicomanga-config.json",
             "meta": {
                 "displayName": "Nicomanga",
@@ -224,25 +224,25 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 4
             },
-            "checksum": "6bb606bdbb8ee93f50a076b8db232be0772b1dd32ee2c6db91627d7292403a9b"
+            "checksum": "7cc8800c25122fb2c4b1ec4921a8160130d1b50ea56a80d66b4aac04abbff46a"
         },
         {
             "id": "rawdevart",
             "version": "1.0.0",
-            "url": "config/en/rawdevart-config.json",
+            "url": "config/ja/rawdevart-config.json",
             "meta": {
                 "displayName": "RawDevArt",
                 "description": "English raw manga reader with search, detail, and reader support",
                 "iconUrl": "images/rawdevart.png",
                 "contentType": "manga",
-                "language": "en",
+                "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "3de6bf4d49fcbb7d4a8fb55d1e631128178adf541460f6fc1f1ba5952d6e1a7c"
+            "checksum": "311b0b81dd61e807e472e28834b299a93f18e0d0a14c57e83c7fda0ef9c98acf"
         },
         {
             "id": "schale-network",
@@ -256,9 +256,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "3091ff3e9fe3c43f64ff030dc4e97278d6917964d979f2d31215b4b6bea65687"
+            "checksum": "770e9fc0ea98b02429da4b3de4d1ce1ca497f058742f840a24ee168bcef40dff"
         },
         {
             "id": "spyfakku",
@@ -272,10 +272,10 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6,
+                "sizeKb": 7,
                 "maintenance": true
             },
-            "checksum": "beb4e1737e3642f7508a86008a02e5011abffe6e22e6c5923c41230cd2ee10ec"
+            "checksum": "5664278281dba5d64bb632afb1fb439e7aa0e98211d6a40f03d6c3bd58b9bfaa"
         },
         {
             "id": "mangafire",
@@ -289,10 +289,10 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6,
+                "sizeKb": 10,
                 "maintenance": true
             },
-            "checksum": "2e3cd41b1a2d34e4a628d41af1c5eeaa926d499c32cbe61945ee2d42762a5898"
+            "checksum": "0892df33067534b44e5242dd95a6dedb1723cdf19482f40a4958640a66e82d64"
         },
         {
             "id": "manhwaread",
@@ -306,41 +306,41 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 13
             },
-            "checksum": "812b1eddf5bd484accca33cef4ee8584720caf2d09e9923966ac32ac366ad2ba"
+            "checksum": "61f8c7e33146e0ce721f7699c3ad8fc2a42eaad9c7b79a2aae70fc99f548bc9a"
         },
         {
             "id": "shirodoujin",
             "version": "1.0.0",
-            "url": "config/en/shirodoujin-config.json",
+            "url": "config/id/shirodoujin-config.json",
             "meta": {
                 "displayName": "shirodoujin.com",
                 "description": "Doujinshi reader with search, detail, and reader support",
                 "iconUrl": "images/shirodoujin.png",
                 "contentType": "doujinshi",
-                "language": "en",
+                "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "dee31f7c97014ff8bb99fc160645b26b42977732799bb88e898b9c712b800f54"
+            "checksum": "a5ff566c977cc9504a496dae74133802692ab1f57f19e0238dc44af5ea42c28c"
         },
         {
             "id": "tooncubus",
-            "version": "1.0.0",
-            "url": "config/en/tooncubus-config.json",
+            "version": "1.0.1",
+            "url": "config/id/tooncubus-config.json",
             "meta": {
                 "displayName": "ToonCubus",
                 "description": "Blogger-based toon reader with JSON API and scraper fallback",
                 "iconUrl": "images/tooncubus.png",
                 "contentType": "manga",
-                "language": "en",
+                "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "eab39d5d41c7bf0258dca11fac29580d42f06bfc93af4d31acea5d9d015f8cbc"
+            "checksum": "4a2d567bd87dd955fdeab52ed5999f0583e6e51c2e78e80560eecc97acd75963"
         },
         {
             "id": "hentairead",
@@ -354,9 +354,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 8
             },
-            "checksum": "3d0547e3109766bcec2954310696a80788888d6d805c5857dfeb5429562bb54f"
+            "checksum": "52259c8d2593b1b7b9747e6b9e18fcc00dba3c66e9eb2bc9e4a367bc17da6af5"
         },
         {
             "id": "vihentai",
@@ -370,9 +370,9 @@
                 "language": "vi",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "b285e84fd1f0eec8a7470edfac69e8af5e868edee61bf1a87407941201fdb07e"
+            "checksum": "8e52b2cc026941811cf9c5892aeb162d2db928e31d06ee3c0d1857fb077c4e44"
         },
         {
             "id": "mangapill",
@@ -386,9 +386,41 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 8
+                "sizeKb": 7
             },
-            "checksum": "7385450fb9ede4f2bbce46d333c1dad3c0930a3a0886a904eb7a3da39bb1e39e"
+            "checksum": "01b9f84070d2e2e13d65f032ac7cd5424e4f528e2f91a23c9d8ae73c9733b183"
+        },
+        {
+            "id": "areakomik",
+            "version": "1.0.0",
+            "url": "config/id/areakomik-config.json",
+            "meta": {
+                "displayName": "Areakomik",
+                "description": "Areakomik",
+                "iconUrl": "images/areakomik.png",
+                "contentType": "manga",
+                "language": "id",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 5
+            },
+            "checksum": "29afbbab4b0bd09254f2fce7da60acefb0d1224ad7bd1f05a43207205a827b99"
+        },
+        {
+            "id": "doujindesuxxx",
+            "version": "1.1.0",
+            "url": "config/id/doujindesuxxx-config.json",
+            "meta": {
+                "displayName": "DoujinDesu.xxx",
+                "description": "DoujinDesu.xxx",
+                "iconUrl": "images/doujindesuxxx.png",
+                "contentType": "manga",
+                "language": "id",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 3
+            },
+            "checksum": "a6097048641f4427d03b31cf23b3523a1e5189ecaad852452cd9e04ab90b08dc"
         }
     ]
 }

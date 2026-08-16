@@ -7,7 +7,7 @@
   "baseUrl": "https://komiktap.info",
   "ui": {
     "displayName": "KomikTap",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/komiktap.png",
+    "iconPath": "./images/komiktap.png",
     "brandColor": "#4CAF50",
     "openInBrowserUrl": "https://komiktap.info"
   },
@@ -208,7 +208,10 @@
   "features": {
     "comments": true,
     "related": false,
+    "download": true,
     "favorite": true,
-    "chapters": true
+    "chapters": true,
+    "generatePdf": true,
+    "offlineMode": true
   }
 }

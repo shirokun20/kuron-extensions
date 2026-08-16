@@ -1,392 +1,275 @@
 {
-    "schemaVersion": 2,
-    "lastUpdated": "2026-07-27T22:17:00+07:00",
-    "minimumAppVersion": "0.9.0",
-    "installableSources": [
-        {
-            "id": "komiktap",
-            "version": "1.1.5",
-            "url": "config/id/komiktap-config.json",
-            "meta": {
-                "displayName": "KomikTap",
-                "description": "Manga reader with Indonesian content",
-                "iconUrl": "images/komiktap.png",
-                "contentType": "manga",
-                "language": "id",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 4
+  "source": "mangapill",
+  "displayName": "MangaPill",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://mangapill.com",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/mangapill-config.json",
+  "ui": {
+    "displayName": "MangaPill",
+    "iconPath": "./images/mangapill.png",
+    "brandColor": "#a855f7",
+    "openInBrowserUrl": "https://mangapill.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://mangapill.com/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 2,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/mangas/new",
+        "list": {
+          "container": ".grid.justify-end.gap-3 > div",
+          "pagination": {
+            "next": "a.btn.btn-sm"
+          },
+          "fields": {
+            "id": {
+              "selector": "a[href^=\"/manga/\"]",
+              "attribute": "href",
+              "transform": "slug"
             },
-            "checksum": "98e84e287933cd8c82945196ac9533a702c2d425e985b5a010863c1393ed7e02"
-        },
-        {
-            "id": "crotpedia",
-            "version": "1.0.10",
-            "url": "config/id/crotpedia-config.json",
-            "meta": {
-                "displayName": "Crotpedia",
-                "description": "Manga reader with specialized Cloudflare bypass",
-                "iconUrl": "images/crotpedia.png",
-                "contentType": "manga",
-                "language": "id",
-                "requiresAuth": true,
-                "requiresSpecialAdapter": true,
-                "sizeKb": 6
+            "title": {
+              "selector": ".mt-3.font-black.leading-tight.line-clamp-2"
             },
-            "checksum": "607592206bab36c79e1e0136103c52174a373db8258e32554e2a1a3ee3140bb2"
-        },
-        {
-            "id": "mangadex",
-            "version": "1.1.10",
-            "url": "config/en/mangadex-config.json",
-            "meta": {
-                "displayName": "MangaDex",
-                "description": "Manga reader featuring a large community and frequent updates",
-                "iconUrl": "images/mangadex.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "2e3af7c7d320ae9a4e13e456d4195e15250eaa0d9f07c233c18f1851f3489dc6"
-        },
-        {
-            "id": "hentaifox",
-            "version": "1.0.1",
-            "url": "config/en/hentaifox-config.json",
-            "meta": {
-                "displayName": "HentaiFox",
-                "description": "High quality Hentai reader",
-                "iconUrl": "images/hentaifox.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "ef9520c4266f854ca3ce6c01384117754006a35071a474f2710b8aba7bb594c8"
-        },
-        {
-            "id": "ehentai",
-            "version": "1.0.6",
-            "url": "config/en/ehentai-config.json",
-            "meta": {
-                "displayName": "E-Hentai",
-                "description": "Gallery source with session/cookie-aware fetching",
-                "iconUrl": "images/ehentai.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": true,
-                "sizeKb": 7
-            },
-            "checksum": "b945a75b0b14c598e54b8688ab229ca96533c6f8b3c4141ea29ce32a03d738a0"
-        },
-        {
-            "id": "hdoujin",
-            "version": "1.1.0",
-            "url": "config/en/hdoujin-config.json",
-            "meta": {
-                "displayName": "HDoujin",
-                "description": "Doujinshi reader via hdoujin.org API",
-                "iconUrl": "images/hdoujin.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "63493d8adf8c3ceeda9cca5196dbfd3cf5a9e866353b1cd9a409c163ad171d40"
-        },
-        {
-            "id": "hentainexus",
-            "version": "1.0.0",
-            "url": "config/en/hentainexus-config.json",
-            "meta": {
-                "displayName": "HentaiNexus",
-                "description": "Encrypted reader source with client-side decrypt adapter",
-                "iconUrl": "images/hentainexus.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": true,
-                "sizeKb": 7
-            },
-            "checksum": "df02e7feaa1f23db9d92c4358d5b66b19a11e57572ecc5669ffbc288b0417398"
-        },
-        {
-            "id": "hitomi",
-            "version": "1.0.5",
-            "url": "config/en/hitomi-config.json",
-            "meta": {
-                "displayName": "Hitomi.la",
-                "description": "Gate-B fallback registration pending full protocol adapter",
-                "iconUrl": "images/hitomi.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": true,
-                "sizeKb": 6
-            },
-            "checksum": "ddb7b4db39a261ca5e083cc35c9e1ceecebdd1500b80bacbb0da21dd6d7ca8c2"
-        },
-        {
-            "id": "komiku",
-            "version": "1.0.1",
-            "url": "config/id/komiku-config.json",
-            "meta": {
-                "displayName": "Komiku",
-                "description": "Manga reader for komiku.id",
-                "iconUrl": "images/komiku.png",
-                "contentType": "manga",
-                "language": "id",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 4
-            },
-            "checksum": "b6581af7084cf6f79a906e25e9af84ae5493e16ecee414d2021af4b2af117b05"
-        },
-        {
-            "id": "doujindesuv2",
-            "version": "2.0.1",
-            "url": "config/id/doujindesuv2-config.json",
-            "meta": {
-                "displayName": "DoujinDesu v2 (Maintenance)",
-                "description": "Doujinshi reader with REST API support",
-                "iconUrl": "images/doujindesuv2.png",
-                "contentType": "doujinshi",
-                "language": "id",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6,
-                "maintenance": true
-            },
-            "checksum": "85f481487973cf6e0e564a2f74d596354afae4cd8d59a75704ea33f567a98e38"
-        },
-        {
-            "id": "hentaicosplay",
-            "version": "1.0.1",
-            "url": "config/en/hentaicosplay-config.json",
-            "meta": {
-                "displayName": "HentaiCosplay",
-                "description": "Hentai Cosplay reader with scraping and Cloudflare bypass",
-                "iconUrl": "images/hentaicosplay.png",
-                "contentType": "cosplay",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "604401fa5b841839e853fc3a0f8e69f44181785fccf3832bb6ccbd76f72540cb"
-        },
-        {
-            "id": "manga18.club",
-            "version": "1.0.0",
-            "url": "config/en/manga18.club-config.json",
-            "meta": {
-                "displayName": "Manga18.club",
-                "description": "Manga18.club reader with scraping and Cloudflare bypass",
-                "iconUrl": "images/manga18.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "f3337659d9cd40535e6861d0ae28ed29fb7ab8802468bfae2da739dcc0604cb2"
-        },
-        {
-            "id": "komikcast",
-            "version": "1.2.0",
-            "url": "config/id/komikcast-config.json",
-            "meta": {
-                "displayName": "Komik Cast",
-                "description": "Komik Cast manga indonesia paling the best",
-                "iconUrl": "images/komikcast.png",
-                "contentType": "manga",
-                "language": "id",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "6ce18ea17f1edbccd25f79b97a9cd77b05a63de98c5bf43a85e6e21af5334e87"
-        },
-        {
-            "id": "nicomanga",
-            "version": "1.0.3",
-            "url": "config/ja/nicomanga-config.json",
-            "meta": {
-                "displayName": "Nicomanga",
-                "description": "Nicomanga adalah raw manga paling the best",
-                "iconUrl": "images/nicomanga.png",
-                "contentType": "manga",
-                "language": "ja",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "6bb606bdbb8ee93f50a076b8db232be0772b1dd32ee2c6db91627d7292403a9b"
-        },
-        {
-            "id": "rawdevart",
-            "version": "1.0.0",
-            "url": "config/en/rawdevart-config.json",
-            "meta": {
-                "displayName": "RawDevArt",
-                "description": "English raw manga reader with search, detail, and reader support",
-                "iconUrl": "images/rawdevart.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "3de6bf4d49fcbb7d4a8fb55d1e631128178adf541460f6fc1f1ba5952d6e1a7c"
-        },
-        {
-            "id": "schale-network",
-            "version": "1.0.0",
-            "url": "config/en/schale-network-config.json",
-            "meta": {
-                "displayName": "Schale Network",
-                "description": "Doujinshi reader via schale.network API",
-                "iconUrl": "images/schale-network.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "03a68f4c37b3342fde779bcbc391aa5aa757ecb77ea1f15e61f099128c1e4740"
-        },
-        {
-            "id": "spyfakku",
-            "version": "1.1.0",
-            "url": "config/en/spyfakku-config.json",
-            "meta": {
-                "displayName": "Spy Fakku",
-                "description": "Sky Fakku adalah english doujinshi paling the best",
-                "iconUrl": "images/spyfakku.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "beb4e1737e3642f7508a86008a02e5011abffe6e22e6c5923c41230cd2ee10ec"
-        },
-        {
-            "id": "mangafire",
-            "version": "1.1.0",
-            "url": "config/en/mangafire-config.json",
-            "meta": {
-                "displayName": "MangaFire",
-                "description": "MangaFire adalah english doujinshi paling the best",
-                "iconUrl": "images/mangafire.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "2e3cd41b1a2d34e4a628d41af1c5eeaa926d499c32cbe61945ee2d42762a5898"
-        },
-        {
-            "id": "manhwaread",
-            "version": "1.1.0",
-            "url": "config/en/manhwaread-config.json",
-            "meta": {
-                "displayName": "ManhwaRead",
-                "description": "Manhwa reader with WordPress Madara theme and XHR proxy reader",
-                "iconUrl": "images/manhwaread.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 6
-            },
-            "checksum": "812b1eddf5bd484accca33cef4ee8584720caf2d09e9923966ac32ac366ad2ba"
-        },
-        {
-            "id": "shirodoujin",
-            "version": "1.0.0",
-            "url": "config/en/shirodoujin-config.json",
-            "meta": {
-                "displayName": "shirodoujin.com",
-                "description": "Doujinshi reader with search, detail, and reader support",
-                "iconUrl": "images/shirodoujin.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "dee31f7c97014ff8bb99fc160645b26b42977732799bb88e898b9c712b800f54"
-        },
-        {
-            "id": "tooncubus",
-            "version": "1.0.0",
-            "url": "config/en/tooncubus-config.json",
-            "meta": {
-                "displayName": "ToonCubus",
-                "description": "Blogger-based toon reader with JSON API and scraper fallback",
-                "iconUrl": "images/tooncubus.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "eab39d5d41c7bf0258dca11fac29580d42f06bfc93af4d31acea5d9d015f8cbc"
-        },
-        {
-            "id": "hentairead",
-            "version": "1.0.0",
-            "url": "config/en/hentairead-config.json",
-            "meta": {
-                "displayName": "HentaiRead",
-                "description": "Doujin reader with Madara theme, search, download, and offline mode",
-                "iconUrl": "images/hentairead.png",
-                "contentType": "doujinshi",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 4
-            },
-            "checksum": "3d0547e3109766bcec2954310696a80788888d6d805c5857dfeb5429562bb54f"
-        },
-        {
-            "id": "vihentai",
-            "version": "1.0.0",
-            "url": "config/vi/vihentai-config.json",
-            "meta": {
-                "displayName": "ViHentai",
-                "description": "Vietnamese doujinshi reader with search, genre filter, and download",
-                "iconUrl": "images/vihentai.png",
-                "contentType": "doujinshi",
-                "language": "vi",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 5
-            },
-            "checksum": "b285e84fd1f0eec8a7470edfac69e8af5e868edee61bf1a87407941201fdb07e"
-        },
-        {
-            "id": "mangapill",
-            "version": "1.0.0",
-            "url": "config/en/mangapill-config.json",
-            "meta": {
-                "displayName": "MangaPill",
-                "description": "Manga reader featuring Tailwind CSS scraper with search, detail, and reader support",
-                "iconUrl": "images/mangapill.png",
-                "contentType": "manga",
-                "language": "en",
-                "requiresAuth": false,
-                "requiresSpecialAdapter": false,
-                "sizeKb": 8
-            },
-            "checksum": "af0e7bf2c6d1f8ed68fc1be52aa20e79cdca368a64dda6503dfa675fbb25cc23"
+            "coverUrl": {
+              "selector": "img.lazy.object-cover",
+              "attribute": "src"
+            }
+          }
         }
-    ]
+      },
+      "search": {
+        "url": "/search?q={query}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/search?genre={tag}",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/search?genre={tag}&page={page}",
+        "inherits": "home"
+      },
+      "detail": "/manga/{id}",
+      "chapter": "/chapters/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "meta[property=\"og:title\"]",
+            "attribute": "content",
+            "regex": "^(.*?)\\s*-\\s*Mangapill$"
+          },
+          "coverUrl": {
+            "selector": "img.lazy.absolute.inset-0",
+            "attribute": "src"
+          },
+          "description": {
+            "selector": "meta[property=\"og:description\"]",
+            "attribute": "content"
+          },
+          "tags": {
+            "selector": "a[href*=\"/search?genre=\"]",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "div#chapters a.border.border-border.p-1",
+          "fields": {
+            "id": {
+              "selector": "a.border.border-border.p-1",
+              "attribute": "href"
+            },
+            "title": {
+              "selector": "a.border.border-border.p-1"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": "img.js-page",
+          "attribute": "data-src"
+        },
+        "nav": {
+          "next": "a[data-hotkey=\"ArrowRight\"]",
+          "prev": "a[data-hotkey=\"ArrowLeft\"]"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search manga title..."
+      },
+      "type": {
+        "queryParam": "type",
+        "type": "select",
+        "label": "Type",
+        "options": [
+          {
+            "name": "All",
+            "value": ""
+          },
+          {
+            "name": "Manga",
+            "value": "manga"
+          },
+          {
+            "name": "Novel",
+            "value": "novel"
+          },
+          {
+            "name": "One-shot",
+            "value": "one-shot"
+          },
+          {
+            "name": "Doujinshi",
+            "value": "doujinshi"
+          },
+          {
+            "name": "Manhua",
+            "value": "manhua"
+          },
+          {
+            "name": "OEL",
+            "value": "oel"
+          }
+        ]
+      },
+      "status": {
+        "queryParam": "status",
+        "type": "select",
+        "label": "Status",
+        "options": [
+          {
+            "name": "All",
+            "value": ""
+          },
+          {
+            "name": "Publishing",
+            "value": "publishing"
+          },
+          {
+            "name": "Finished",
+            "value": "finished"
+          },
+          {
+            "name": "On Hiatus",
+            "value": "on hiatus"
+          },
+          {
+            "name": "Discontinued",
+            "value": "discontinued"
+          },
+          {
+            "name": "Not Yet Published",
+            "value": "not yet published"
+          }
+        ]
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      },
+      "genre": {
+        "queryParam": "genre",
+        "type": "checkbox",
+        "label": "Genre",
+        "options": [
+          "Action",
+          "Adventure",
+          "Cars",
+          "Comedy",
+          "Dementia",
+          "Demons",
+          "Doujinshi",
+          "Drama",
+          "Ecchi",
+          "Fantasy",
+          "Game",
+          "Gender Bender",
+          "Harem",
+          "Historical",
+          "Horror",
+          "Isekai",
+          "Josei",
+          "Kids",
+          "Magic",
+          "Martial Arts",
+          "Mecha",
+          "Military",
+          "Music",
+          "Mystery",
+          "Parody",
+          "Police",
+          "Psychological",
+          "Romance",
+          "Samurai",
+          "School",
+          "Sci-Fi",
+          "Seinen",
+          "Shoujo",
+          "Shoujo Ai",
+          "Shounen",
+          "Shounen Ai",
+          "Slice of Life",
+          "Space",
+          "Sports",
+          "Super Power",
+          "Supernatural",
+          "Thriller",
+          "Tragedy",
+          "Vampire",
+          "Yaoi",
+          "Yuri"
+        ]
+      }
+    }
+  },
+  "contentIdPattern": "^\\d+$",
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre",
+    "tagQueryMapping": {
+      "genre": {
+        "mode": "rawParam",
+        "param": "genre",
+        "valueSource": "tagId"
+      }
+    }
+  },
+  "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "reader": true,
+    "download": true,
+    "chapters": true,
+    "comments": false,
+    "offlineMode": true,
+    "favorite": true,
+    "generatePdf": true
+  },
+  "notes": "MangaPill — pure HTML scraper. Tailwind CSS. Images on cdn.readdetectiveconan.com CDN. Trending manga grid on home page. Search via /search?q={query}. No Cloudflare protection. Chapter IDs follow /chapters/{mangaId}-{chapterNum}/{slug} format. Chapter page images extracted via img.js-page[data-src]."
 }

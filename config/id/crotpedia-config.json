@@ -7,7 +7,7 @@
   "baseUrl": "https://crotpedia.net",
   "ui": {
     "displayName": "Crotpedia",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/crotpedia.png",
+    "iconPath": "./images/crotpedia.png",
     "themeColor": "#1E88E5",
     "cardStyle": "standard",
     "openInBrowserUrl": "https://crotpedia.net"
@@ -390,10 +390,13 @@
   "features": {
     "search": true,
     "chapters": true,
+    "download": true,
     "favorite": true,
     "bookmark": false,
     "supportsAuth": true,
     "comments": true,
-    "related": false
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
   }
 }
