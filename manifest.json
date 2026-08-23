@@ -321,9 +321,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
-            "checksum": "a594c7fba4c503e05d5cbdb9019d1f65b95624cf03812522c054f35bfbaba0c9"
+            "checksum": "9df17ad0d0f8db12142e4c4c5a1cea15671d827a7bac45a094f9813314c750c6"
         },
         {
             "id": "komiktap",
@@ -565,7 +565,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "fa2abf24712d5be849739189d70aef4c3395bdd30abf8e18526edd927e26f15f"
+            "checksum": "72bb467dec6d2f9251965ea32ad94f9d21070cd02a8a835f586f5295db4310c8"
         },
         {
             "id": "nicomanga",
@@ -661,7 +661,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "6759f732a554edbbc8ff384d3898b762da324e5393d8331959539f8e87eecd77"
+            "checksum": "25ee95fff7e062bf7ffcd819e985a941619c87f39e494997f4ed1d71ed5b33b0"
         },
         {
             "id": "shirodoujin",

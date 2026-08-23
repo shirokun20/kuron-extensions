@@ -30,7 +30,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".utao .uta",
+          "container": ".listupd .bs .bsx, .listupd .utao",
           "fields": {
             "id": {
               "selector": "a[href]",

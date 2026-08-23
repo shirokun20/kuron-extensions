@@ -30,7 +30,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".listupd .bs.styletere .bsx",
+          "container": ".listupd .bs .bsx",
           "fields": {
             "id": {
               "selector": "a[href]",

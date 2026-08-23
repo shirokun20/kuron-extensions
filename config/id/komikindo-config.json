@@ -30,7 +30,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".listupd .bsx",
+          "container": "div.bixbox:contains(Latest Update) .listupd .bsx",
           "fields": {
             "id": {
               "selector": "a[href]",
@@ -56,15 +56,24 @@
       },
       "search": {
         "url": "/?s={query}&paged={page}",
-        "inherits": "home"
+        "inherits": "home",
+        "list": {
+          "container": ".listupd .bsx"
+        }
       },
       "genreSearch": {
         "url": "/genres/{tag}/",
-        "inherits": "home"
+        "inherits": "home",
+        "list": {
+          "container": ".listupd .bsx"
+        }
       },
       "genreSearchPage": {
         "url": "/genres/{tag}/page/{page}/",
-        "inherits": "home"
+        "inherits": "home",
+        "list": {
+          "container": ".listupd .bsx"
+        }
       },
       "detail": "/manga/{id}/",
       "chapter": "/{id}"
@@ -130,6 +139,7 @@
     }
   },
   "contentIdPattern": "/manga/([^/]+)",
+  "notes": "Mangathemesia. Home MUST scope to div.bixbox:contains(Latest Update): page has 7 bixbox sections (Popular/Project pollute, 71 vs 20 items). search/genreSearch/genreSearchPage override container back to plain .listupd .bsx (their pages have no Latest Update bixbox). Search uses ?s={query}&paged={page}.",
   "features": {
     "search": true,
     "chapters": true,
