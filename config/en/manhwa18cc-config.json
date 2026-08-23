@@ -1,0 +1,193 @@
+{
+  "source": "manhwa18cc",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "configUrl": "",
+  "baseUrl": "https://manhwa18.cc",
+  "ui": {
+    "displayName": "Manhwa18CC",
+    "iconPath": "./images/manhwa18cc.png",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://manhwa18.cc"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://manhwa18.cc/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".bsx",
+          "fields": {
+            "id": {
+              "selector": ".thumb a, a[href*='/webtoon/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".thumb a",
+              "attribute": "title"
+            },
+            "coverUrl": {
+              "selector": ".thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next, .blog-pager a:last-child"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search?q={query}",
+        "list": {
+          "container": ".bsx",
+          "fields": {
+            "id": {
+              "selector": ".thumb a, a[href*='/webtoon/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".thumb a",
+              "attribute": "title"
+            },
+            "coverUrl": {
+              "selector": ".thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next, .blog-pager a:last-child"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/search?q={query}&page={page}",
+        "list": {
+          "container": ".bsx",
+          "fields": {
+            "id": {
+              "selector": ".thumb a, a[href*='/webtoon/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".thumb a",
+              "attribute": "title"
+            },
+            "coverUrl": {
+              "selector": ".thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next, .blog-pager a:last-child"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/webtoon-genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/webtoon-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/webtoon/{id}/",
+      "chapter": "/webtoon/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".post-title h1",
+            "regex": "^\\s*(?:(?:18\\+|16\\+|ADULT|RAW|COMPLETED|WEB\\s?COMIC|NEW)\\s*)*(.+)$"
+          },
+          "coverUrl": {
+            "selector": ".summary_image img",
+            "attribute": "data-src"
+          },
+          "description": {
+            "selector": ".panel-story-description .dsct p, .panel-story-description p"
+          },
+          "author": {
+            "selector": ".author-content a",
+            "multi": true
+          },
+          "artist": {
+            "selector": ".artist-content a",
+            "multi": true
+          },
+          "status": {
+            "selector": ".post-status .summary-content:last-child"
+          },
+          "tags": {
+            "selector": ".genres-content a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "ul.row-content-chapter li.a-h",
+          "fields": {
+            "id": {
+              "selector": "a.chapter-name",
+              "attribute": "href",
+              "regex": "/webtoon/([^?#]+)"
+            },
+            "title": {
+              "selector": "a.chapter-name"
+            },
+            "date": {
+              "selector": ".chapter-time"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": "img.loading",
+          "attribute": "data-src"
+        },
+        "nav": {
+          "prev": ".navi-change-chapter-btn-prev",
+          "next": ".navi-change-chapter-btn-next"
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": false
+    }
+  },
+  "contentIdPattern": "/webtoon/([^/]+)",
+  "features": {
+    "search": true,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

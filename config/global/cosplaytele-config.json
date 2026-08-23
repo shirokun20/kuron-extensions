@@ -1,0 +1,143 @@
+{
+  "source": "cosplaytele",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "global",
+  "baseUrl": "https://cosplaytele.com",
+  "ui": {
+    "displayName": "Cosplaytele",
+    "iconPath": "./images/cosplaytele.png",
+    "brandColor": "#9C27B0",
+    "openInBrowserUrl": "https://cosplaytele.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://cosplaytele.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "#post-list .col.post-item",
+          "fields": {
+            "id": {
+              "selector": "a.plain",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h5.post-title a"
+            },
+            "coverUrl": {
+              "selector": ".image-cover img",
+              "attribute": "src"
+            }
+          },
+          "idFallbackSelectors": [
+            "h5.post-title a",
+            "#post-list a[href]"
+          ],
+          "pagination": {
+            "next": ".page-numbers.nav-pagination a.next.page-number",
+            "links": "#post-list ul.page-numbers li a.page-number"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/category/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/category/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "tagSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/{id}",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.entry-title"
+          },
+          "coverUrl": {
+            "selector": ".entry-content.single-page img",
+            "attribute": "src"
+          },
+          "uploadDate": {
+            "selector": "time[datetime]",
+            "attribute": "datetime"
+          },
+          "tags": {
+            "selector": ".entry-content.single-page a[href*='/category/'], .entry-content.single-page a[href*='/tag/']",
+            "multi": true,
+            "extractTagObjects": true
+          }
+        }
+      },
+      "reader": {
+        "container": ".entry-content.single-page",
+        "images": {
+          "selector": ".entry-content.single-page .gallery-item img",
+          "attribute": "src"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search cosplay..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/([^/?#]+)/",
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "tagQueryPrefix": "tag:",
+    "genreTagType": "category"
+  },
+  "notes": "WP/Flatsome. MUST scope to #post-list: footer widgets render 55 decoy .col.post-item cards. Search is Ajax Search Lite - server renders up to 62 results, no searchPage pagination (page-2 URL = 404). Reader imgs MUST scope to .gallery-item: crp_related 'Recommend For You' thumbnails live INSIDE .entry-content.single-page (unscoped selector picked 100 non-gallery imgs on sparkle-hanabi-6). Tags are mixed-taxonomy: /category/ (cosplayer) + /tag/ (character, series) - tagSearch pattern routes /tag/ slugs; category chips route genreSearch.",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

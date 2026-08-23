@@ -1,0 +1,129 @@
+{
+  "source": "misskon",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "global",
+  "baseUrl": "https://misskon.com",
+  "ui": {
+    "displayName": "MissKon",
+    "iconPath": "./images/misskon.png",
+    "brandColor": "#F44336",
+    "openInBrowserUrl": "https://misskon.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://misskon.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "article.item-list",
+          "fields": {
+            "id": {
+              "selector": ".post-thumbnail a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-box-title a"
+            },
+            "coverUrl": {
+              "selector": ".post-thumbnail img",
+              "attribute": "src"
+            }
+          },
+          "idFallbackSelectors": [
+            ".post-box-title a",
+            "article.item-list a[href]"
+          ],
+          "pagination": {
+            "mode": "paged",
+            "links": ".pagination a.page"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/{id}",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.post-title, h1.entry-title"
+          },
+          "coverUrl": {
+            "selector": ".entry img.aligncenter",
+            "attribute": "src"
+          },
+          "tags": {
+            "selector": "p.post-tag a[rel='tag']",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "container": ".entry",
+        "images": {
+          "selector": ".entry img.aligncenter",
+          "attribute": "src"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search MissKon..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/([0-9]+-[^/?#]+)/",
+  "notes": "WP/sahifa theme. Lazy-load SVG placeholders resolved by parser fallback chain (data-src). Pagination: mode=paged (sahifa has NO next arrow - tie-next-page span is empty; a.page links are number buttons where the first match on p2+ is the BACK link to page 1, unusable as next cursor). All list patterns are /page/N/ addressable. Gallery paginates detail into /2/ /3/ sub-pages (~12 demo imgs each) - engine reads page 1 only. Images: tez.misskon.com webp.",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

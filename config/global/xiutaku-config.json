@@ -1,0 +1,122 @@
+{
+  "source": "xiutaku",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "chinese",
+  "baseUrl": "https://xiutaku.com",
+  "ui": {
+    "displayName": "XiuTaku",
+    "iconPath": "./images/xiutaku.png",
+    "brandColor": "#E91E63",
+    "openInBrowserUrl": "https://xiutaku.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://xiutaku.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".blog .items-row",
+          "fields": {
+            "id": {
+              "selector": "a.item-link",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".page-header h2 a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "src"
+            }
+          },
+          "idFallbackSelectors": [
+            ".item-thumb a.item-link",
+            ".blog .items-row a[href]"
+          ],
+          "pagination": {
+            "next": "a.pagination-next[href]"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/?start={page}",
+        "inherits": "home",
+        "pageOverrides": {
+          "2": "/?start=20",
+          "3": "/?start=40",
+          "4": "/?start=60",
+          "5": "/?start=80"
+        }
+      },
+      "search": {
+        "url": "/?search={query}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/?search={tag}",
+        "inherits": "home"
+      },
+      "detail": "/{id}",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.title, .article-header h1, h1"
+          },
+          "coverUrl": {
+            "selector": ".article-fulltext img",
+            "attribute": "src"
+          },
+          "tags": {
+            "selector": ".article-tags span, a[href*='/girl/'] span",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "container": ".article-fulltext",
+        "images": {
+          "selector": ".article-fulltext img",
+          "attribute": "src"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search XiuTaku..."
+      }
+    }
+  },
+  "contentIdPattern": "/(\\d+)",
+  "notes": "Custom HTML (bulma). Offset pagination 20/page: {page} substitutes LITERALLY, so pageOverrides map page2..5 -> start=20/40/60/80; pages beyond 5 fall back to start=N (overlaps tail - acceptable ceiling, add more overrides when needed). Search requires URL-encoded non-ASCII (?search=). Detail galleries split /{id}?page=2..N at ~20 imgs each - engine reads page 1 only. Tags are girl/brand names; tap routes to text search.",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

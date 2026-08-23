@@ -1,0 +1,132 @@
+{
+  "source": "hentaiera",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "configUrl": "",
+  "baseUrl": "https://hentaiera.com",
+  "ui": {
+    "displayName": "HentaiEra",
+    "iconPath": "./images/hentaiera.png",
+    "brandColor": "#E3456F",
+    "openInBrowserUrl": "https://hentaiera.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://hentaiera.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://hentaiera.com/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".thumb",
+          "fields": {
+            "id": {
+              "selector": ".inner_thumb a[href*='/gallery/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".gallery_title a"
+            },
+            "coverUrl": {
+              "selector": ".inner_thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": ".pagination .pgi_itm.active + .pgi_itm a, .pagination a[rel='next']"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/?page={page}",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search/?key={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/search/?key={query}&page={page}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/tag/{tag}/?page={page}",
+        "inherits": "home"
+      },
+      "languageSearch": {
+        "url": "/language/{tag}/",
+        "inherits": "home"
+      },
+      "languageSearchPage": {
+        "url": "/language/{tag}/?page={page}",
+        "inherits": "home"
+      },
+      "detail": "/gallery/{id}/",
+      "chapter": "/gallery/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1, #gallery_title"
+          },
+          "coverUrl": {
+            "selector": ".left_cover img",
+            "attribute": "data-src"
+          },
+          "pageCount": {
+            "selector": "#pages_btn",
+            "regex": "(\\d+)"
+          },
+          "tags": {
+            "selector": ".info_tags a.tag[href^='/tag/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "mode": "hentaifoxCdn",
+        "readerPageUrlPattern": "/view/{id}/1/",
+        "readerImageSelector": "#gimg",
+        "readerImageAttr": "data-src",
+        "readerPageCountSelector": "#pages",
+        "readerPageCountAttr": "value",
+        "thumbSelector": ".inner_thumb img",
+        "thumbSrcAttr": "data-src",
+        "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)"
+      }
+    }
+  },
+  "contentIdPattern": "/gallery/(\\d+)",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "offlineMode": true,
+    "generatePdf": true
+  }
+}

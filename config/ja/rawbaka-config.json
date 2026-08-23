@@ -1,0 +1,169 @@
+{
+  "source": "rawbaka",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "japanese",
+  "configUrl": "",
+  "baseUrl": "https://rawbaka.com",
+  "ui": {
+    "displayName": "RawBaka",
+    "iconPath": "./images/rawbaka.png",
+    "brandColor": "#EB3349",
+    "openInBrowserUrl": "https://rawbaka.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://rawbaka.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "article.manga-card",
+          "fields": {
+            "id": {
+              "selector": "a.cover, h3 a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a"
+            },
+            "coverUrl": {
+              "selector": ".cover img, a.cover img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a.next.page-numbers, .pagination .next"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "list": {
+          "container": "article.search-result-card, article.manga-card",
+          "fields": {
+            "id": {
+              "selector": "a.cover, h3 a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a"
+            },
+            "coverUrl": {
+              "selector": ".cover img, a.cover img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a.next.page-numbers, .pagination .next"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "list": {
+          "container": "article.search-result-card, article.manga-card",
+          "fields": {
+            "id": {
+              "selector": "a.cover, h3 a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3 a"
+            },
+            "coverUrl": {
+              "selector": ".cover img, a.cover img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a.next.page-numbers, .pagination .next"
+          }
+        }
+      },
+      "detail": "/manga/{id}/",
+      "chapter": "/manga/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".manga-title, h1.manga-title"
+          },
+          "coverUrl": {
+            "selector": ".manga-hero .cover img, .cover img",
+            "attribute": "src"
+          },
+          "description": {
+            "selector": ".entry-content.manga-summary p, .manga-summary p"
+          },
+          "status": {
+            "selector": ".status-pill"
+          }
+        },
+        "chapters": {
+          "container": ".chapter-row",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/manga/(.+)"
+            },
+            "title": {
+              "selector": "a"
+            },
+            "date": {
+              "selector": "time"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": ".reader-images img",
+          "attribute": "src"
+        },
+        "nav": {
+          "prev": ".chapter-navigation a[href*='?chapter=']",
+          "next": ""
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": false
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "search": true,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

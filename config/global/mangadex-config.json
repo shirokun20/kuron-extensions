@@ -6,7 +6,7 @@
   "baseUrl": "https://api.mangadex.org",
   "ui": {
     "displayName": "MangaDex",
-    "iconPath": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/app/images/mangadex.png",
+    "iconPath": "./images/mangadex.png",
     "brandColor": "#FF6740",
     "openInBrowserUrl": "https://mangadex.org"
   },
@@ -644,8 +644,11 @@
   "features": {
     "comments": false,
     "related": false,
+    "download": true,
     "favorite": true,
-    "chapters": true
+    "chapters": true,
+    "generatePdf": true,
+    "offlineMode": true
   },
   "navigation": {
     "tagQueryMapping": {

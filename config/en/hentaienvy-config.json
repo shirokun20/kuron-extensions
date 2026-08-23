@@ -1,0 +1,133 @@
+{
+  "source": "hentaienvy",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "configUrl": "",
+  "baseUrl": "https://hentaienvy.com",
+  "ui": {
+    "displayName": "HentaiEnvy",
+    "iconPath": "./images/hentaienvy.png",
+    "brandColor": "#EC4899",
+    "openInBrowserUrl": "https://hentaienvy.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://hentaienvy.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://hentaienvy.com/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".thumb",
+          "fields": {
+            "id": {
+              "selector": ".thumb > a[href*='/gallery/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".thumb > a[title]",
+              "attribute": "title"
+            },
+            "coverUrl": {
+              "selector": ".th_img img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": ".pagination .page-item a[rel='next'], .pagination li:last-child a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/?page={page}",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search/?s_key={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/search/?s_key={query}&page={page}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/tag/{tag}/?page={page}",
+        "inherits": "home"
+      },
+      "languageSearch": {
+        "url": "/language/{tag}/",
+        "inherits": "home"
+      },
+      "languageSearchPage": {
+        "url": "/language/{tag}/?page={page}",
+        "inherits": "home"
+      },
+      "detail": "/gallery/{id}/",
+      "chapter": "/gallery/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1"
+          },
+          "coverUrl": {
+            "selector": ".gt_left img",
+            "attribute": "data-src"
+          },
+          "pageCount": {
+            "selector": "ul:contains('Pages')",
+            "regex": "(\\d+)"
+          },
+          "tags": {
+            "selector": "a.gp_tag[href^='/tag/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "mode": "hentaifoxCdn",
+        "readerPageUrlPattern": "/g/{id}/1/",
+        "readerImageSelector": "#fimg",
+        "readerImageAttr": "data-src",
+        "readerPageCountSelector": "#pages",
+        "readerPageCountAttr": "value",
+        "thumbSelector": ".th_img img",
+        "thumbSrcAttr": "data-src",
+        "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)"
+      }
+    }
+  },
+  "contentIdPattern": "/gallery/(\\d+)",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "offlineMode": true,
+    "generatePdf": true
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "source": "beauty3600000",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "global",
+  "baseUrl": "https://3600000.xyz",
+  "ui": {
+    "displayName": "3600000 Beauty",
+    "iconPath": "./images/beauty3600000.png",
+    "brandColor": "#FF5722",
+    "openInBrowserUrl": "https://3600000.xyz"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://3600000.xyz/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "article[class*='post-']",
+          "fields": {
+            "id": {
+              "selector": "h2.entry-title a[rel='bookmark'], a[rel='bookmark']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h2.entry-title a"
+            },
+            "coverUrl": {
+              "selector": ".blog-entry-content img.ls_lazyimg",
+              "attribute": "file"
+            }
+          },
+          "idFallbackSelectors": [
+            "h2.entry-title a",
+            "a[rel='bookmark']"
+          ],
+          "pagination": {
+            "next": "a.next.page-numbers"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/category/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/category/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/{id}/",
+      "chapter": "/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.entry-title"
+          },
+          "uploadDate": {
+            "selector": "time[datetime]",
+            "attribute": "datetime"
+          },
+          "tags": {
+            "selector": ".tags-links a[rel='tag']",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "container": ".entry-content",
+        "images": {
+          "selector": ".entry-content img.ls_lazyimg",
+          "attribute": "file"
+        }
+      }
+    }
+  },
+  "contentIdPattern": "/([0-9]+-[^/?#]+)/",
+  "notes": "WP + images-lazyload-and-slideshow plugin: imgs carry real URL in non-standard file= attr, src = blank GIF placeholder. Config reads attribute:'file' directly. Search DISABLED: site returns 521 for /?s= (blocks). Tag pages intermittently 502; category pages reliable. Reader imgs: reiobox.top/wakobox.top webp.",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

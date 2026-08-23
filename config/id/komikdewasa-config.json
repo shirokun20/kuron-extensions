@@ -1,0 +1,185 @@
+{
+  "source": "komikdewasa",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "indonesian",
+  "configUrl": "",
+  "baseUrl": "https://komikdewasa.mom",
+  "ui": {
+    "displayName": "KomikDewasa",
+    "iconPath": "./images/komikdewasa.png",
+    "brandColor": "#F44336",
+    "openInBrowserUrl": "https://komikdewasa.mom"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://komikdewasa.mom/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://komikdewasa.mom/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".listupd .uta",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/komik/'], a.series[href]",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".l .series, h4, .tt"
+            },
+            "coverUrl": {
+              "selector": ".imgu img, .limit img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&paged={page}",
+        "list": {
+          "container": ".listupd .bsx",
+          "fields": {
+            "id": {
+              "selector": "a[href]",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": ".limit img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/genres/{tag}/",
+        "list": {
+          "container": ".listupd .bsx",
+          "fields": {
+            "id": {
+              "selector": "a[href]",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": ".limit img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']"
+          }
+        }
+      },
+      "genreSearchPage": {
+        "url": "/genres/{tag}/page/{page}/",
+        "inherits": "genreSearch"
+      },
+      "detail": "/komik/{id}/",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".entry-title, h1.post-title"
+          },
+          "coverUrl": {
+            "selector": ".thumb img",
+            "attribute": "src"
+          },
+          "tags": {
+            "selector": ".seriestugenre a, .mgen a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "#chapterlist li",
+          "fields": {
+            "id": {
+              "selector": ".chbox .eph-num a, a[href]",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".chbox .chapternum, .chapternum"
+            },
+            "date": {
+              "selector": ".chbox .chapterdate, .chapterdate"
+            }
+          }
+        }
+      },
+      "reader": {
+        "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
+        "container": "#readerarea",
+        "images": {
+          "selector": "img",
+          "attribute": "src"
+        },
+        "nav": {
+          "next": ".nextprev a.next, .nav-links a.next, .ch-next-btn",
+          "prev": ".nextprev a.prev, .nav-links a.prev, .ch-prev-btn"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Cari komik dewasa..."
+      },
+      "page": {
+        "queryParam": "paged",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/komik/([^/]+)",
+  "features": {
+    "search": true,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

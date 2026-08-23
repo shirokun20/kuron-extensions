@@ -1,0 +1,187 @@
+{
+  "source": "manhwaclubnet",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "configUrl": "",
+  "baseUrl": "https://manhwaclub.net",
+  "ui": {
+    "displayName": "ManhwaClub",
+    "iconPath": "./images/manhwaclubnet.png",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://manhwaclub.net"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://manhwaclub.net/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".page-item-detail",
+          "fields": {
+            "id": {
+              "selector": ".item-thumb a[href*='/manga/'], .post-title a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/manga-genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/manga-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/manga/{id}/",
+      "chapter": "/manga/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".post-title h1, h1",
+            "regex": "^\\s*(?:18\\+|16\\+|ADULT|RAW|COMPLETED|WEB COMIC)?\\s*(.+)$"
+          },
+          "coverUrl": {
+            "selector": ".summary_image img",
+            "attribute": "data-src"
+          },
+          "description": {
+            "selector": ".summary__content, .description-summary .summary__content"
+          },
+          "author": {
+            "selector": ".author-content a",
+            "multi": true
+          },
+          "artist": {
+            "selector": ".artist-content a",
+            "multi": true
+          },
+          "tags": {
+            "selector": ".genres-content a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "mode": "ajaxHtml",
+          "container": "li.wp-manga-chapter",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/manga/([^?#]+)"
+            },
+            "title": {
+              "selector": "a"
+            },
+            "date": {
+              "selector": ".post-on, .chapter-release-date i, .chapter-release-date a"
+            }
+          }
+        }
+      },
+      "reader": {
+        "mode": "chapterDataScript",
+        "images": {
+          "selector": ".reading-content img.wp-manga-chapter-img, .reading-content .page-break img",
+          "attribute": "data-src"
+        },
+        "nav": {
+          "next": ".next_page, .nav-links .next",
+          "prev": ".prev_page, .nav-links .prev"
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": false
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "search": true,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

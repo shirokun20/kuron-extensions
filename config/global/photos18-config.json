@@ -1,0 +1,128 @@
+{
+  "source": "photos18",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "chinese",
+  "baseUrl": "https://www.photos18.com",
+  "ui": {
+    "displayName": "Photos18",
+    "iconPath": "./images/photos18.png",
+    "brandColor": "#212121",
+    "openInBrowserUrl": "https://www.photos18.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://www.photos18.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/?per-page=100",
+        "list": {
+          "container": "#videos .card",
+          "fields": {
+            "id": {
+              "selector": ".card-body a[href^='/v/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".card-body a"
+            },
+            "coverUrl": {
+              "selector": ".card-img-top img",
+              "attribute": "src"
+            }
+          },
+          "idFallbackSelectors": [
+            "a.visited[href^='/v/']",
+            "#videos a[href^='/v/']"
+          ],
+          "pagination": {
+            "next": ".pagination li.page-item.next a.page-link"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/?page={page}&per-page=100",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/q/{query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/q/{query}?page={page}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/q/{tag}",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/q/{tag}?page={page}",
+        "inherits": "home"
+      },
+      "detail": "/v/{id}",
+      "chapter": "/v/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.title"
+          },
+          "coverUrl": {
+            "selector": ".imgHolder img",
+            "attribute": "src"
+          },
+          "tags": {
+            "selector": ".card-body label.badge",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "container": "#content",
+        "images": {
+          "selector": "#content .imgHolder img",
+          "attribute": "src"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search photos..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/v/([^/?#]+)",
+  "notes": "Yii2 app. Covers are relative /images/node/... avif - urlBuilder resolves against baseUrl. Detail page shows ~30 of N images; 'older' images load via JS infinite scroll (no URL pagination) - engine reads server-rendered set only. Reader imgs: img.photos18.com/*.avif.",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

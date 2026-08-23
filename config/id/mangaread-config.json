@@ -1,0 +1,202 @@
+{
+  "source": "mangaread",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "configUrl": "",
+  "baseUrl": "https://www.mangaread.org",
+  "ui": {
+    "displayName": "MangaRead",
+    "iconPath": "./images/mangaread.png",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://www.mangaread.org"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://www.mangaread.org/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".page-item-detail",
+          "fields": {
+            "id": {
+              "selector": ".item-thumb a[href*='/manga/'], .post-title a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title h5 a"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title h5 a"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/genres/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/genres/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/manga/{id}/",
+      "chapter": "/manga/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".post-title h1, h1"
+          },
+          "altTitle": {
+            "selector": ".alternative-title, .post-content_item:contains('Alt') .summary-content"
+          },
+          "coverUrl": {
+            "selector": ".summary_image img",
+            "attribute": "data-src"
+          },
+          "description": {
+            "selector": ".summary__content, .description-summary .summary__content"
+          },
+          "author": {
+            "selector": ".author-content a",
+            "multi": true
+          },
+          "artist": {
+            "selector": ".artist-content a",
+            "multi": true
+          },
+          "status": {
+            "selector": ".post-status .summary-content:last-child"
+          },
+          "tags": {
+            "selector": ".genres-content a",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "li.wp-manga-chapter",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/manga/([^?#]+)"
+            },
+            "title": {
+              "selector": "a"
+            },
+            "date": {
+              "selector": ".chapter-release-date i, .chapter-release-date a"
+            }
+          }
+        }
+      },
+      "reader": {
+        "mode": "chapterDataScript",
+        "images": {
+          "selector": ".reading-content img.wp-manga-chapter-img, .reading-content .page-break img",
+          "attribute": "data-src"
+        },
+        "nav": {
+          "next": ".next_page, a[href]:contains('Next'), .nav-links .next",
+          "prev": ".prev_page, a[href]:contains('Prev'), .nav-links .prev"
+        }
+      }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search manga..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "search": true,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

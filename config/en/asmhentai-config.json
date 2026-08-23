@@ -1,0 +1,127 @@
+{
+  "source": "asmhentai",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "configUrl": "",
+  "baseUrl": "https://asmhentai.com",
+  "ui": {
+    "displayName": "AsmHentai",
+    "iconPath": "./images/asmhentai.png",
+    "brandColor": "#F43F5E",
+    "openInBrowserUrl": "https://asmhentai.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://asmhentai.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://asmhentai.com/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".preview_item",
+          "fields": {
+            "id": {
+              "selector": ".image a[href*='/g/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".cpt h2.caption"
+            },
+            "coverUrl": {
+              "selector": ".image img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": ".pagination li:last-child a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/?page={page}",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search/?q={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/search/?q={query}&page={page}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/tag/{tag}/?page={page}",
+        "inherits": "home"
+      },
+      "detail": "/g/{id}/",
+      "chapter": "/g/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".info h1, h1"
+          },
+          "altTitle": {
+            "selector": ".info h2"
+          },
+          "coverUrl": {
+            "selector": ".left .cover img",
+            "attribute": "data-src"
+          },
+          "pageCount": {
+            "selector": ".pages h3:contains('Pages')",
+            "regex": "(\\d+)"
+          },
+          "tags": {
+            "selector": ".tags .tag_list a[href^='/tag/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "mode": "hentaifoxCdn",
+        "readerPageUrlPattern": "/gallery/{id}/1/",
+        "readerImageSelector": "#fimg",
+        "readerImageAttr": "data-src",
+        "readerPageCountSelector": "#pages",
+        "readerPageCountAttr": "value",
+        "thumbSelector": ".preview_item .image img",
+        "thumbSrcAttr": "data-src",
+        "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)"
+      }
+    }
+  },
+  "contentIdPattern": "/(?:gallery|g)/(\\d+)",
+  "features": {
+    "comments": false,
+    "related": false,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "offlineMode": true,
+    "generatePdf": true
+  }
+}

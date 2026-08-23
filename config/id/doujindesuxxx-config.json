@@ -96,6 +96,7 @@
     "chapters": true,
     "reader": true,
     "download": true,
+    "offlineMode": true,
     "comments": false,
     "favorite": true,
     "generatePdf": true

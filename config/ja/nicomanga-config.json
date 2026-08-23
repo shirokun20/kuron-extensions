@@ -1,6 +1,6 @@
 {
   "source": "nicomanga",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://nicomanga.com",
@@ -26,7 +26,7 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/manga-list.html?p={page}",
+        "url": "/manga-list.html?p={page}&v=grid",
         "list": {
           "container": ".manga-grid .manga-card",
           "fields": {
@@ -49,29 +49,27 @@
         }
       },
       "popular": {
-        "url": "/manga-list.html?pr=popular&p={page}",
+        "url": "/manga-list.html?pr=popular&p={page}&v=grid",
         "inherits": "home"
       },
       "latest": {
-        "url": "/manga-list.html?pr=new&p={page}",
+        "url": "/manga-list.html?pr=new&p={page}&v=grid",
         "inherits": "home"
       },
       "search": {
-        "url": "/manga-list.html?n={query}&p={page}",
+        "url": "/manga-list.html?n={query}&p={page}&v=grid",
         "inherits": "home"
       },
       "searchPage": {
-        "url": "/manga-list.html?n={query}&p={page}",
+        "url": "/manga-list.html?n={query}&p={page}&v=grid",
         "inherits": "home"
       },
       "genreSearch": {
-        "url": "/g/{tag}.html",
-        "tagTransform": "base64",
+        "url": "/manga-list.html?g={tag}&v=grid",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/g/{tag}.html",
-        "tagTransform": "base64",
+        "url": "/manga-list.html?g={tag}&v=grid",
         "inherits": "home"
       },
       "detail": "/{id}",

@@ -209,7 +209,9 @@
           "selector": ".chapter-image-item img, .lazy-listing__item img, img[alt^='Page ']",
           "attribute": "src"
         },
-        "cdnHost": "henread.xyz"
+        "cdnHost": "henread.xyz",
+        "previewHost": "hencover.xyz",
+        "imagePrefix": "hr_"
       }
     }
   },

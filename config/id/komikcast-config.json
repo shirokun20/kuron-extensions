@@ -28,7 +28,7 @@
   },
   "api": {
     "enabled": true,
-    "url": "https://be.komikcast.cc",
+    "url": "https://api.voratoon.com",
     "endpoints": {
       "allGalleries": {
         "path": "/series",
@@ -59,7 +59,7 @@
           "sortOrder": "desc",
           "take": "12",
           "page": "{page}",
-          "filter": "title=like=\"{query}\",nativeTitle=like=\"{query}\""
+          "filter": "title=ilike=\"{query}\",nativeTitle=ilike=\"{query}\""
         }
       },
       "tagSearch": {
