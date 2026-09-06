@@ -50,6 +50,10 @@
             },
             "views": {
               "selector": ".new1"
+            },
+            "uploadDate": {
+              "selector": ".judul2",
+              "optional": true
             }
           },
           "pagination": {
@@ -77,6 +81,10 @@
             "coverUrl": {
               "selector": ".bgei img",
               "attribute": "src"
+            },
+            "uploadDate": {
+              "selector": ".judul2",
+              "optional": true
             },
             "latestChapter": {
               "selector": ".new1 a span:last-child"

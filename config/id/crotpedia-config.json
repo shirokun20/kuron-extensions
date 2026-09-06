@@ -388,7 +388,6 @@
     "genreTagType": "genre"
   },
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

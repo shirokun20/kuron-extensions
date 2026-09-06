@@ -1,6 +1,6 @@
 {
   "source": "hentaifox",
-  "version": "1.0.1",
+  "version": "1.0.1.sf1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentaifox.com",
@@ -163,5 +163,75 @@
     "chapters": false,
     "offlineMode": true,
     "generatePdf": true
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search title or tag..."
+      },
+      "sort": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Sort by",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "Latest",
+            "value": "lt"
+          },
+          {
+            "name": "Popular",
+            "value": "pp"
+          },
+          {
+            "name": "Top Rated",
+            "value": "tr"
+          },
+          {
+            "name": "Downloaded",
+            "value": "dl"
+          }
+        ]
+      },
+      "category": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Category",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "All",
+            "value": ""
+          },
+          {
+            "name": "Manga",
+            "value": "m"
+          },
+          {
+            "name": "Doujinshi",
+            "value": "d"
+          },
+          {
+            "name": "Western",
+            "value": "w"
+          },
+          {
+            "name": "Image Set",
+            "value": "i"
+          },
+          {
+            "name": "Artist CG",
+            "value": "cg"
+          },
+          {
+            "name": "Game CG",
+            "value": "gc"
+          }
+        ]
+      }
+    }
   }
 }

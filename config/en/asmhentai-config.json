@@ -1,7 +1,7 @@
 {
   "source": "asmhentai",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.0.sf1",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -46,6 +46,11 @@
             "coverUrl": {
               "selector": ".image img",
               "attribute": "data-src"
+            },
+            "language": {
+              "selector": ".cl a[href*='/language/'], a[href*='/language/']",
+              "attribute": "href",
+              "transform": "slug"
             }
           },
           "pagination": {
@@ -101,6 +106,28 @@
           }
         }
       },
+      "related": {
+        "container": ".ov_item .preview_item",
+        "fields": {
+          "id": {
+            "selector": ".image a, .cpt a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": ".cpt h2.caption, .cpt a"
+          },
+          "coverUrl": {
+            "selector": ".image img",
+            "attribute": "data-src"
+          },
+          "language": {
+            "selector": ".cl a[href*='/language/'], a[href*='/language/']",
+            "attribute": "href",
+            "transform": "slug"
+          }
+        }
+      },
       "reader": {
         "mode": "hentaifoxCdn",
         "readerPageUrlPattern": "/gallery/{id}/1/",
@@ -117,11 +144,81 @@
   "contentIdPattern": "/(?:gallery|g)/(\\d+)",
   "features": {
     "comments": false,
-    "related": false,
+    "related": true,
     "download": true,
     "favorite": true,
     "chapters": false,
     "offlineMode": true,
     "generatePdf": true
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search title or tag..."
+      },
+      "sort": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Sort by",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "Latest",
+            "value": "lt"
+          },
+          {
+            "name": "Popular",
+            "value": "pp"
+          },
+          {
+            "name": "Top Rated",
+            "value": "tr"
+          },
+          {
+            "name": "Downloaded",
+            "value": "dl"
+          }
+        ]
+      },
+      "category": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Category",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "All",
+            "value": ""
+          },
+          {
+            "name": "Manga",
+            "value": "m"
+          },
+          {
+            "name": "Doujinshi",
+            "value": "d"
+          },
+          {
+            "name": "Western",
+            "value": "w"
+          },
+          {
+            "name": "Image Set",
+            "value": "i"
+          },
+          {
+            "name": "Artist CG",
+            "value": "cg"
+          },
+          {
+            "name": "Game CG",
+            "value": "gc"
+          }
+        ]
+      }
+    }
   }
 }

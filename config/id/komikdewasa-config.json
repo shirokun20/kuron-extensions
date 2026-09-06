@@ -33,7 +33,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".listupd .uta",
+          "container": "div.bixbox:contains(Latest Update) .listupd .utao",
           "fields": {
             "id": {
               "selector": "a[href*='/komik/'], a.series[href]",
@@ -41,7 +41,7 @@
               "transform": "slug"
             },
             "title": {
-              "selector": ".l .series, h4, .tt"
+              "selector": ".luf h4, h4, .tt"
             },
             "coverUrl": {
               "selector": ".imgu img, .limit img",
@@ -50,7 +50,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']"
+            "next": ".pagination a.next.page-numbers, .hpage a.r"
           }
         }
       },
@@ -147,7 +147,7 @@
         "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
         "container": "#readerarea",
         "images": {
-          "selector": "img",
+          "selector": "#readerarea img",
           "attribute": "src"
         },
         "nav": {
@@ -181,5 +181,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "Home/homePage MUST scope to div.bixbox:contains(Latest Update): home renders utao cards there, while Popular Today/Project Update/Recommendation render bsx cards (old .listupd .bs .bsx container matched zero items in LU -> empty home). search/genreSearch keep plain .listupd .bsx. | Reader images selector self-scoped (img -> #readerarea img): engine ignores reader.container; unscoped selector let a SERIES-slug download scrape junk imgs from detail page."
 }

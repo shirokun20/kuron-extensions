@@ -1,6 +1,6 @@
 {
   "source": "xiutaku",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "enabled": true,
   "defaultLanguage": "chinese",
   "baseUrl": "https://xiutaku.com",
@@ -87,6 +87,24 @@
             "selector": ".article-tags span, a[href*='/girl/'] span",
             "multi": true
           }
+        },
+        "chapters": {
+          "addCurrentPageAsChapter": true,
+          "container": "nav.pagination a.pagination-link",
+          "fields": {
+            "id": {
+              "selector": "self",
+              "attribute": "href",
+              "regex": "(?:https?://[^/]+)?(/.*)"
+            },
+            "url": {
+              "selector": "self",
+              "attribute": "href"
+            },
+            "title": {
+              "selector": "self"
+            }
+          }
         }
       },
       "reader": {
@@ -115,7 +133,7 @@
     "related": false,
     "download": true,
     "favorite": true,
-    "chapters": false,
+    "chapters": true,
     "generatePdf": true,
     "offlineMode": true
   }

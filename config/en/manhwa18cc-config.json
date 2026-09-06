@@ -48,7 +48,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next, .blog-pager a:last-child"
+            "next": ".pagination li.next a"
           }
         }
       },
@@ -77,7 +77,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next, .blog-pager a:last-child"
+            "next": ".pagination li.next a"
           }
         }
       },
@@ -102,7 +102,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next, .blog-pager a:last-child"
+            "next": ".pagination li.next a"
           }
         }
       },
@@ -166,7 +166,7 @@
       },
       "reader": {
         "images": {
-          "selector": "img.loading",
+          "selector": ".read-content img.loading",
           "attribute": "data-src"
         },
         "nav": {
@@ -176,12 +176,19 @@
       }
     },
     "searchForm": {
-      "enabled": false
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "q",
+          "type": "text",
+          "placeholder": "Search..."
+        }
+      }
     }
   },
   "contentIdPattern": "/webtoon/([^/]+)",
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
@@ -189,5 +196,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "Custom mangathemesia-like theme. Pagination next selector MUST be '.pagination li.next a': theme's ul.pagination makes every <li>'s anchor the last-child of its li, so '.blog-pager a:last-child' matched the PAGE-1 back-link first (querySelector document order) — cursor cache poisoned with /search?q=a&page=1, page 2 returned page-1 items. | Reader images selector self-scoped (img.loading -> .read-content img.loading): engine ignores reader.container; unscoped selector let a SERIES-slug download scrape junk imgs from detail page."
 }

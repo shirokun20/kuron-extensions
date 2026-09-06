@@ -30,18 +30,18 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".listupd .bs .bsx, .listupd .utao",
+          "container": ".listupd .utao",
           "fields": {
             "id": {
-              "selector": "a[href]",
+              "selector": "a.series[href*='/manga/'], .imgu a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".tt, .luf a h4"
+              "selector": ".luf h4, .luf a h4"
             },
             "coverUrl": {
-              "selector": ".limit img, img.ts-post-image",
+              "selector": ".imgu img, img.ts-post-image",
               "attribute": "src"
             }
           },
@@ -56,9 +56,8 @@
       },
       "search": {
         "url": "/?s={query}&paged={page}",
-        "inherits": "home",
         "list": {
-          "container": ".listupd .bsx",
+          "container": ".listupd .bs .bsx",
           "fields": {
             "id": {
               "selector": "a[href]",
@@ -66,10 +65,10 @@
               "transform": "slug"
             },
             "title": {
-              "selector": ".tt, a[title]"
+              "selector": ".tt"
             },
             "coverUrl": {
-              "selector": ".limit img, img",
+              "selector": ".limit img",
               "attribute": "src"
             }
           },
@@ -80,9 +79,8 @@
       },
       "genreSearch": {
         "url": "/genres/{tag}/",
-        "inherits": "home",
         "list": {
-          "container": ".listupd .bsx",
+          "container": ".listupd .bs .bsx",
           "fields": {
             "id": {
               "selector": "a[href]",
@@ -90,10 +88,10 @@
               "transform": "slug"
             },
             "title": {
-              "selector": ".tt, a[title]"
+              "selector": ".tt"
             },
             "coverUrl": {
-              "selector": ".limit img, img",
+              "selector": ".limit img",
               "attribute": "src"
             }
           },
@@ -104,7 +102,26 @@
       },
       "genreSearchPage": {
         "url": "/genres/{tag}/page/{page}/",
-        "inherits": "home"
+        "list": {
+          "container": ".listupd .bs .bsx",
+          "fields": {
+            "id": {
+              "selector": "a[href]",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": ".limit img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": ".hpage a.r, .pagination .next.page-numbers"
+          }
+        }
       },
       "detail": "/manga/{id}/",
       "chapter": "/{id}"
@@ -145,7 +162,7 @@
         "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
         "container": "#readerarea",
         "images": {
-          "selector": "img",
+          "selector": "#readerarea img",
           "attribute": "src"
         },
         "nav": {
@@ -171,7 +188,6 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
@@ -179,5 +195,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "| Reader images selector self-scoped (img -> #readerarea img): engine ignores reader.container; unscoped selector let a SERIES-slug download scrape junk imgs from detail page."
 }

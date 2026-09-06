@@ -12,7 +12,6 @@
   },
   "features": {
     "home": true,
-    "search": true,
     "detail": true,
     "reader": true,
     "download": true,

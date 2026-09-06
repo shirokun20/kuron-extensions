@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "enabled": true,
   "defaultLanguage": "indonesian",
-  "baseUrl": "https://v2.komikcast.fit",
+  "baseUrl": "https://api.voratoon.com",
   "configUrl": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/config/komikcast-config.json",
   "ui": {
     "displayName": "Komikcast",
@@ -15,8 +15,8 @@
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://v2.komikcast.fit/",
-      "Origin": "https://v2.komikcast.fit",
+      "Referer": "https://api.voratoon.com/",
+      "Origin": "https://api.voratoon.com",
       "Accept": "application/json",
       "Accept-language": "en-US,en;q=0.9,id;q=0.8"
     },
@@ -113,6 +113,14 @@
         "tags": {
           "selector": "$.data.genres[*].data.name",
           "multi": true
+        },
+        "uploadDate": {
+          "selector": "$.updatedAt",
+          "optional": true
+        },
+        "updatedDate": {
+          "selector": "$.createdAt",
+          "optional": true
         }
       }
     },
@@ -178,12 +186,12 @@
     }
   },
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
     "offlineMode": true,
-    "generatePdf": true
+    "generatePdf": true,
+    "related": false
   },
   "notes": "Komikcast REST config uses nested data payloads (data.data.*) and chapter IDs are composed as {slug}/{index} for reader image requests. Genre references come from /genres and tag browsing uses genreIds.",
   "searchForm": {

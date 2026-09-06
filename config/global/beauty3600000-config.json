@@ -1,6 +1,6 @@
 {
   "source": "beauty3600000",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://3600000.xyz",
@@ -11,7 +11,11 @@
     "openInBrowserUrl": "https://3600000.xyz"
   },
   "network": {
-    "requiresBypass": false,
+    "requiresBypass": true,
+    "cloudflare": {
+      "bypassEnabled": true,
+      "antiDetection": false
+    },
     "headers": {
       "Referer": "https://3600000.xyz/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -88,6 +92,10 @@
         "images": {
           "selector": ".entry-content img.ls_lazyimg",
           "attribute": "file"
+        },
+        "pagination": {
+          "next": "div.page-link a.post-page-numbers, .page-link a.post-page-numbers",
+          "maxPages": 8
         }
       }
     }

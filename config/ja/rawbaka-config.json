@@ -61,12 +61,12 @@
           "container": "article.search-result-card, article.manga-card",
           "fields": {
             "id": {
-              "selector": "a.cover, h3 a",
+              "selector": "a.cover, h2 a, h3 a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": "h3 a"
+              "selector": "h2 a, h3 a"
             },
             "coverUrl": {
               "selector": ".cover img, a.cover img",
@@ -85,12 +85,12 @@
           "container": "article.search-result-card, article.manga-card",
           "fields": {
             "id": {
-              "selector": "a.cover, h3 a",
+              "selector": "a.cover, h2 a, h3 a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": "h3 a"
+              "selector": "h2 a, h3 a"
             },
             "coverUrl": {
               "selector": ".cover img, a.cover img",
@@ -152,12 +152,19 @@
       }
     },
     "searchForm": {
-      "enabled": false
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "s",
+          "type": "text",
+          "placeholder": "Search..."
+        }
+      }
     }
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

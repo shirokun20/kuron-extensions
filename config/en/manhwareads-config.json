@@ -172,7 +172,42 @@
       }
     },
     "searchForm": {
-      "enabled": false
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "s",
+          "type": "text",
+          "placeholder": "Search manga..."
+        },
+        "sort": {
+          "queryParam": "m_orderby",
+          "type": "select",
+          "label": "Sort by",
+          "options": [
+            {
+              "name": "Relevance",
+              "value": ""
+            },
+            {
+              "name": "Popular",
+              "value": "popular"
+            },
+            {
+              "name": "Latest",
+              "value": "latest"
+            },
+            {
+              "name": "A-Z",
+              "value": "alphabet"
+            },
+            {
+              "name": "Rating",
+              "value": "rating"
+            }
+          ]
+        }
+      }
     }
   },
   "contentIdPattern": "/manga/([^/]+)",

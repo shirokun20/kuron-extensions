@@ -30,7 +30,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".listupd .bs .bsx",
+          "container": ".bixbox:contains(Rilisan Terbaru) .listupd .bs .bsx",
           "fields": {
             "id": {
               "selector": "a[href]",
@@ -52,7 +52,26 @@
       },
       "homePage": {
         "url": "/page/{page}/",
-        "inherits": "home"
+        "list": {
+          "container": ".bixbox:contains(Rilisan Terbaru) .listupd .bs .bsx",
+          "fields": {
+            "id": {
+              "selector": "a[href]",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": ".limit img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": ".hpage a.r, .pagination .next.page-numbers"
+          }
+        }
       },
       "search": {
         "url": "/?s={query}&paged={page}",
@@ -145,7 +164,7 @@
         "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
         "container": "#readerarea",
         "images": {
-          "selector": "img",
+          "selector": "#readerarea img",
           "attribute": "src"
         },
         "nav": {
@@ -171,7 +190,6 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
@@ -179,5 +197,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "| Reader images selector self-scoped (img -> #readerarea img): engine ignores reader.container; unscoped selector let a SERIES-slug download scrape junk imgs from detail page."
 }

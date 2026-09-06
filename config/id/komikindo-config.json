@@ -30,7 +30,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": "div.bixbox:contains(Latest Update) .listupd .bsx",
+          "container": "div.bixbox:contains(Latest Update) .listupd .bs .bsx",
           "fields": {
             "id": {
               "selector": "a[href]",
@@ -114,7 +114,7 @@
         "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
         "container": "#readerarea",
         "images": {
-          "selector": "img",
+          "selector": "#readerarea img",
           "attribute": "src"
         },
         "nav": {
@@ -139,7 +139,7 @@
     }
   },
   "contentIdPattern": "/manga/([^/]+)",
-  "notes": "Mangathemesia. Home MUST scope to div.bixbox:contains(Latest Update): page has 7 bixbox sections (Popular/Project pollute, 71 vs 20 items). search/genreSearch/genreSearchPage override container back to plain .listupd .bsx (their pages have no Latest Update bixbox). Search uses ?s={query}&paged={page}.",
+  "notes": "Mangathemesia. Home/homePage MUST scope to div.bixbox:contains(Latest Update): page has 7 bixbox sections (Popular Today/Project Update/Manhwa+Manhua Terbaru/Recommendation pollute, 78 vs 20 items on page 2). search/genreSearch/genreSearchPage override container back to plain .listupd .bsx (their pages have no Latest Update bixbox). Search uses ?s={query}&paged={page}. | Reader images selector MUST be self-scoped (#readerarea img): engine never applies reader.container as scoping, and unscoped \"img\" made a SERIES-slug download (detail page has no ts_reader) fall back to scraping every page img - logo, sidebar thumbnails, btn_close.gif - saved as page_001..018 junk.",
   "features": {
     "search": true,
     "chapters": true,

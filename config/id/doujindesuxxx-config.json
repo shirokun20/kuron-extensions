@@ -1,6 +1,6 @@
 {
   "source": "doujindesuxxx",
-  "version": "1.1.0",
+  "version": "1.1.0.sf1",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujin.desu.xxx",
@@ -91,7 +91,6 @@
   },
   "features": {
     "home": true,
-    "search": true,
     "detail": true,
     "chapters": true,
     "reader": true,
@@ -102,5 +101,53 @@
     "generatePdf": true
   },
   "notes": "Standalone source for the doujin.desu.xxx React SPA API. Encrypted _enc_resp_ payloads are decoded by the DoujinDesuXxxSourceFactory adapter (time-windowed hourly key, retry slot ±1) using only the static x-app-secret header — no WebView, no cookie warmup. THIS source uses a custom Dart adapter (adapterOverride); the api block is documentation only. Pagination = offset (0-based, 30/page), NOT page. Genre filter = genre=<slug> (ids resolved via /api/genres). Tags come from manga_genres + term_list. Reader pages come from chapter content_urls (WebP on amz-ch.desu.pics, requires Referer; signed URLs expire after 24h). Kept separate from the legacy doujindesuv2 HTML-scraper source.",
-  "schemaVersion": "2.0"
+  "schemaVersion": "2.0",
+  "searchForm": {
+    "urlPattern": "search",
+    "dataSources": {
+      "genres": {
+        "endpoint": "/api/genres?limit=1000",
+        "itemsPath": "data",
+        "valuePath": "id",
+        "labelPath": "name"
+      }
+    },
+    "params": {
+      "query": {
+        "queryParam": "search",
+        "type": "text",
+        "placeholder": "Search doujin..."
+      },
+      "genre": {
+        "queryParam": "genre",
+        "type": "tag",
+        "label": "Genre",
+        "ui": {
+          "selector": "picker",
+          "multi": true,
+          "dataSource": "genres"
+        }
+      },
+      "sort": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Sort by",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "Latest",
+            "value": "order[createdAt]=desc"
+          },
+          {
+            "name": "Popular",
+            "value": "order[views]=desc"
+          },
+          {
+            "name": "Top Rated",
+            "value": "order[rating]=desc"
+          }
+        ]
+      }
+    }
+  }
 }

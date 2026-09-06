@@ -79,6 +79,14 @@
         "pageCount": {
           "selector": "$.manga_chapters",
           "optional": true
+        },
+        "uploadDate": {
+          "selector": "$.manga_chapters[0].chapter_date_published",
+          "optional": true
+        },
+        "updatedDate": {
+          "selector": "$.manga_chapters[0].chapter_date_published",
+          "optional": true
         }
       }
     },

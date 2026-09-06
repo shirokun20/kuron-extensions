@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-08-23T00:00:00+07:00",
+    "lastUpdated": "2026-09-06T22:27:35.399513+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -17,7 +17,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "29afbbab4b0bd09254f2fce7da60acefb0d1224ad7bd1f05a43207205a827b99"
+            "checksum": "8d2fc2bd8b927b1c1966aed0d01f546375513b48db87ff2fc97b13011c91da2c"
         },
         {
             "id": "asmhentai",
@@ -31,9 +31,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 5
             },
-            "checksum": "ef6b24dffb5c0e53061ca119ca99ac0c7167c0d3319b1ecf28089be3db504897"
+            "checksum": "a94bd47babaa8489803873f852ce89122c29a668d67eea377bdc5167fe559d08"
         },
         {
             "id": "beauty3600000",
@@ -49,7 +49,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 3
             },
-            "checksum": "9ee41d5de743172b8a792216d42090c9d302bc39d5330547859faf42b8e61b16"
+            "checksum": "a0d111f9cd34fb2b5ef0ad2bd864ee3b7043717a98db1d2f857b800939a7f517"
         },
         {
             "id": "cosplaytele",
@@ -79,9 +79,9 @@
                 "language": "id",
                 "requiresAuth": true,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 10
+                "sizeKb": 9
             },
-            "checksum": "e2734d12ea8857daa22112bd982655ed924b3b844303d7b5f02f339935a4202a"
+            "checksum": "5c5bac44a5d0caef0fa8b1078515d7cb10d41c244d50390e59303f7b82b10494"
         },
         {
             "id": "doujindesuv2",
@@ -113,9 +113,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
-            "checksum": "50cc553e85d33841fa32ef1c1dd35dbd59bda6a2e4f9ec1b0ecf679233bda832"
+            "checksum": "6b94f8c0ac02764f4fee96437506be6d16633e78397a7d969ee530ad60fa2596"
         },
         {
             "id": "ehentai",
@@ -129,9 +129,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "65801ecec6b61e48f3d2c494d2055b712f074a97d68f72b046c9067f9f84a0e9"
+            "checksum": "5a1382b3d6d7afd7637ae766939f18d162ff720561884ec20ce2606fe0f6744b"
         },
         {
             "id": "hdoujin",
@@ -177,9 +177,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
-            "checksum": "bb4faaa986d17bc688c9e54b6cd27687ad8dc4b85233922e844327f2ab0eb2b7"
+            "checksum": "1de49fa57f854ca88bf0fab893b2a56d5fba820e5618e97975bee424b7b3727f"
         },
         {
             "id": "hentaiera",
@@ -193,9 +193,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 5
             },
-            "checksum": "1fbb842aa131e935274b6dacede4c7b14237c81431752f94532e031ec060181c"
+            "checksum": "1914064f4849489e0d4f4cd5c3e30f6c818274874a957cd976a95b8e633e1ea8"
         },
         {
             "id": "hentaifox",
@@ -209,9 +209,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "5c35e4d8c89984277074b71874e236a3648562f7137e512dbea2f2cb6782226f"
+            "checksum": "06b990078c926287672670580f97f82e89ca526a97835409af8162a3d6ef6282"
         },
         {
             "id": "hentainexus",
@@ -225,9 +225,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 9
+                "sizeKb": 8
             },
-            "checksum": "ebeeedca2ea8c7b52c2be2edef918821ff33cf9f450d3ae82e13a3f156ffb06f"
+            "checksum": "9572cf49f84d8466cdb5b0434d74064d1155aad3f136dd00e74e83283b7f70b4"
         },
         {
             "id": "hentairead",
@@ -243,7 +243,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 8
             },
-            "checksum": "932a52c92d75562a30931c9dd85d48964d898b33b1de976346ce193135ed3c71"
+            "checksum": "5b1ad18de5d5882d9b3261ae930769fedce24c6034ba1f70b2461b165ad39708"
         },
         {
             "id": "hentaizap",
@@ -257,9 +257,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "a3b38ab73ed621a8ae930da6d5c7002205a3bcee93979690423a2862f2e76d0c"
+            "checksum": "3bfd00d1e739d509c77123c46f580859374dcd5eb9473a4788504dc4ec2c10b6"
         },
         {
             "id": "hitomi",
@@ -273,9 +273,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 3
+                "sizeKb": 2
             },
-            "checksum": "865014f3d037b8ad9cc95c40fac8cd96ea4e0215788b123a56bca91e1ffe9acb"
+            "checksum": "83e6fb1812ca6bac2e51720ef0d271c726ab9775be1ff226b5811c4d87cdbc75"
         },
         {
             "id": "komikcast",
@@ -291,7 +291,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "77d018242496cda6893607acaadcbc1566591060924c636ddab1ca67e28a178c"
+            "checksum": "3617d757d7e4691a88000b165357253ce161a588b2ab70f439e02c8867d195f4"
         },
         {
             "id": "komikdewasa",
@@ -307,7 +307,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "d1d316fd6a11c09ff4f16f37d451e284df057c3519d3c9bd1478c60ee8787e9e"
+            "checksum": "cb54a08bdcfa6a04b31b5a4504a4acbc3e3eb996be231916922726625920d818"
         },
         {
             "id": "komikindo",
@@ -323,7 +323,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "9df17ad0d0f8db12142e4c4c5a1cea15671d827a7bac45a094f9813314c750c6"
+            "checksum": "8248aac8b73ac95c4bd5dc60b68c516f863377fd65972ebc95af9415aad6f8f4"
         },
         {
             "id": "komiktap",
@@ -355,7 +355,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "007d57456bec50a6dd748ab459b016d99e5bebb7cdb8f72fbf78341f24259fb0"
+            "checksum": "ac249906ffd7d2bf38e6b95e78be9c2ae96eb9a74d0c2ad08861ad20d11aebc8"
         },
         {
             "id": "manga18.club",
@@ -369,7 +369,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
             "checksum": "c4baedf76f74bf7b583afc6345cd11209274845fa3e40c3c8982d5b7fbb8ab07"
         },
@@ -387,7 +387,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 17
             },
-            "checksum": "c370c32f40561b112b7b1937a58d49ec759c76acfdf3fe91645a9da7e84c4be7"
+            "checksum": "fc056b079ab9e1d31df51c32e644028ab3dca1136459f3945e6291b86da1a0bf"
         },
         {
             "id": "mangafire",
@@ -419,9 +419,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "c2ec397f3245698c746114dfd255bb8e90e5e63afa2ce8ad6024c5466b8649be"
+            "checksum": "5bda2c491fda86387882eb3cb2897ef3114c30131a9aff4bc0bc32dcd0af8a82"
         },
         {
             "id": "mangapill",
@@ -435,9 +435,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 6
             },
-            "checksum": "01b9f84070d2e2e13d65f032ac7cd5424e4f528e2f91a23c9d8ae73c9733b183"
+            "checksum": "bd79cf02e572863f3a9dfaf44bd6f77743a3307a1ac46f34b88662ec0bc68463"
         },
         {
             "id": "mangaread",
@@ -453,7 +453,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "392af488a405d069455b0ce1b46a22ad4abb2ef07abc9afca5940a7d9352ec2a"
+            "checksum": "73f20eda72a7fb148c29efba758cc6219924b9fe638da649da0beb2be33054b9"
         },
         {
             "id": "manhwa18cc",
@@ -469,7 +469,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "bbbb1cddb06e53c5de55ad469ac85219d802ae2b8468416f3f8ad0dfce0559e5"
+            "checksum": "e924f4ceee2c2e97c8320b9cc336445fefc2b046f8758e83cd2788f22f220064"
         },
         {
             "id": "manhwaclubnet",
@@ -483,9 +483,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "5a8a1519b495f7196cf2478b158387aa46b9c3764ca86bcf5ccc990aefc952af"
+            "checksum": "c68dc8edd5c072c6f3c2d24c12ab1be997e9ad8ee02bd34e5258f343e7c65034"
         },
         {
             "id": "manhwaread",
@@ -501,7 +501,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 13
             },
-            "checksum": "61f8c7e33146e0ce721f7699c3ad8fc2a42eaad9c7b79a2aae70fc99f548bc9a"
+            "checksum": "9e6ac159cfb17cff3720470badd838b5cc08a253c041bdfc9f1ebe658ab221bf"
         },
         {
             "id": "manhwareads",
@@ -517,7 +517,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "49095643b7ac35fbf3587fd70df52527f24e3e0dab80cce08b1027e0c185143b"
+            "checksum": "e2153474da4946485d92c271739bfcaaa214bcb423bdc8eee6d3a1b9f55c2283"
         },
         {
             "id": "mihentai",
@@ -531,9 +531,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 5
             },
-            "checksum": "a7dfeb12fdb324a58d0e34da7684dfef2b5f296f7d244f28b27401930a247ee3"
+            "checksum": "715e81e6247a770e3384f436143d0f3e1d7b61c54a07e90d4e6d7fa93797a57c"
         },
         {
             "id": "misskon",
@@ -549,7 +549,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 3
             },
-            "checksum": "bb1547bcbe4d59b3cf609e5cac8d1d7dfff66c928529003c7dbcd3749d78f2d6"
+            "checksum": "53ebd834eadfb4a28a05b52319fe67988febe557c2d8866508e6f47fa7779c29"
         },
         {
             "id": "ngomik",
@@ -563,9 +563,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "72bb467dec6d2f9251965ea32ad94f9d21070cd02a8a835f586f5295db4310c8"
+            "checksum": "7d340249d4a7fc10713f2e11cf9290e1cd9a3e2fb9495bdda99f37e2b7d1dfb0"
         },
         {
             "id": "nicomanga",
@@ -613,7 +613,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "1377d6026146e526290e464f3f5851e6eb405b3ca9b7eeb69de8d30d911511d4"
+            "checksum": "358d92e8e47431c3be21571d5683ee8a59c69aa66f165579f643453196e8110f"
         },
         {
             "id": "rawdevart",
@@ -629,7 +629,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "311b0b81dd61e807e472e28834b299a93f18e0d0a14c57e83c7fda0ef9c98acf"
+            "checksum": "2ee4e3a3b9759d37e28dab3651d4251b4acacd68ec6ff29139751940a5bf0f59"
         },
         {
             "id": "schale-network",
@@ -643,7 +643,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 3
             },
             "checksum": "770e9fc0ea98b02429da4b3de4d1ce1ca497f058742f840a24ee168bcef40dff"
         },
@@ -661,7 +661,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "25ee95fff7e062bf7ffcd819e985a941619c87f39e494997f4ed1d71ed5b33b0"
+            "checksum": "83515d3f6ea2f662fa1197ac8065b02f5918366ad2a6a0f47f74479881fafdaf"
         },
         {
             "id": "shirodoujin",
@@ -675,9 +675,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "a5ff566c977cc9504a496dae74133802692ab1f57f19e0238dc44af5ea42c28c"
+            "checksum": "59456e6d0f8771e82a57b8c8efda787788527dbb31fd884eb6f57ff79fe6310e"
         },
         {
             "id": "spyfakku",
@@ -711,7 +711,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "4a2d567bd87dd955fdeab52ed5999f0583e6e51c2e78e80560eecc97acd75963"
+            "checksum": "4fe594620f62cc168e0ab69c0718a8652a83ffe5acc389a375801951e7a7c8e7"
         },
         {
             "id": "vihentai",
@@ -725,9 +725,9 @@
                 "language": "vi",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "8e52b2cc026941811cf9c5892aeb162d2db928e31d06ee3c0d1857fb077c4e44"
+            "checksum": "f985c791df04b98b5f2feaf02549e56bd51243c3770d70b8884e1b9e4687d3d2"
         },
         {
             "id": "xiutaku",
@@ -743,7 +743,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 3
             },
-            "checksum": "a6ad90caf7c41f10c81ffeb403f843eab50e1add76e9f911fb717962d58aad8e"
+            "checksum": "ae0ab4e62fc7dd1ea55ace908c93da4ee22a7b5a2ff63c7136bae8a61c8abfc8"
         }
     ]
 }

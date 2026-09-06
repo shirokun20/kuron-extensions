@@ -544,7 +544,6 @@
   },
   "contentIdPattern": "/manhwa/([^/]+(?:/[^/]+)?)",
   "features": {
-    "search": true,
     "randomGallery": true,
     "chapters": true,
     "download": true,

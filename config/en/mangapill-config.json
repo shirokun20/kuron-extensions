@@ -261,7 +261,6 @@
   },
   "features": {
     "home": true,
-    "search": true,
     "detail": true,
     "reader": true,
     "download": true,
@@ -269,7 +268,8 @@
     "comments": false,
     "offlineMode": true,
     "favorite": true,
-    "generatePdf": true
+    "generatePdf": true,
+    "related": false
   },
   "notes": "MangaPill — pure HTML scraper. Tailwind CSS. Images on cdn.readdetectiveconan.com CDN. Trending manga grid on home page. Search via /search?q={query}. No Cloudflare protection. Chapter IDs follow /chapters/{mangaId}-{chapterNum}/{slug} format. Chapter page images extracted via img.js-page[data-src]."
 }

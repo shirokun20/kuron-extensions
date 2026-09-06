@@ -1,6 +1,6 @@
 {
   "source": "misskon",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://misskon.com",
@@ -90,13 +90,31 @@
             "selector": "p.post-tag a[rel='tag']",
             "multi": true
           }
+        },
+        "chapters": {
+          "addCurrentPageAsChapter": true,
+          "container": "div.page-link a.post-page-numbers",
+          "fields": {
+            "id": {
+              "selector": "self",
+              "attribute": "href",
+              "regex": "https?://[^/]+(/.*)"
+            },
+            "url": {
+              "selector": "self",
+              "attribute": "href"
+            },
+            "title": {
+              "selector": "self"
+            }
+          }
         }
       },
       "reader": {
         "container": ".entry",
         "images": {
           "selector": ".entry img.aligncenter",
-          "attribute": "src"
+          "attribute": "data-src"
         }
       }
     }
@@ -122,7 +140,7 @@
     "related": false,
     "download": true,
     "favorite": true,
-    "chapters": false,
+    "chapters": true,
     "generatePdf": true,
     "offlineMode": true
   }

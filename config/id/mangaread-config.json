@@ -150,7 +150,7 @@
             "id": {
               "selector": "a",
               "attribute": "href",
-              "regex": "/manga/([^?#]+)"
+              "regex": "/manga/([^?#]+)/"
             },
             "title": {
               "selector": "a"
@@ -158,6 +158,23 @@
             "date": {
               "selector": ".chapter-release-date i, .chapter-release-date a"
             }
+          }
+        }
+      },
+      "related": {
+        "container": ".related-manga .related-reading-wrap",
+        "fields": {
+          "id": {
+            "selector": ".related-reading-img a, .widget-title a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": ".widget-title a, .related-reading-content a"
+          },
+          "coverUrl": {
+            "selector": ".related-reading-img img",
+            "attribute": "src"
           }
         }
       },
@@ -190,12 +207,11 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
     "comments": false,
-    "related": false,
+    "related": true,
     "generatePdf": true,
     "offlineMode": true
   }

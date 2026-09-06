@@ -1,7 +1,7 @@
 {
   "source": "areakomik",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.0.sf1",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://areakomik.com",
@@ -165,7 +165,6 @@
     }
   },
   "features": {
-    "search": true,
     "randomGallery": false,
     "chapters": true,
     "download": true,
@@ -176,5 +175,34 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search komik..."
+      },
+      "sort": {
+        "queryParam": "orderby",
+        "type": "select",
+        "label": "Sort by",
+        "options": [
+          {
+            "name": "Relevance",
+            "value": ""
+          },
+          {
+            "name": "Latest",
+            "value": "date"
+          },
+          {
+            "name": "Title A-Z",
+            "value": "title"
+          }
+        ]
+      }
+    }
   }
 }

@@ -93,7 +93,6 @@
     }
   },
   "features": {
-    "search": true,
     "chapters": false,
     "download": true,
     "favorite": true,
