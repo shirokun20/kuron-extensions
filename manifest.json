@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-06T22:27:35.399513+07:00",
+    "lastUpdated": "2026-09-26T20:15:44.107093+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -17,7 +17,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "8d2fc2bd8b927b1c1966aed0d01f546375513b48db87ff2fc97b13011c91da2c"
+            "checksum": "a105b6f297e4b913d5a870d322972e5e170a4915d90baf5b1d50cf98491a8668"
         },
         {
             "id": "asmhentai",
@@ -33,11 +33,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "a94bd47babaa8489803873f852ce89122c29a668d67eea377bdc5167fe559d08"
+            "checksum": "b7dfc13a9b19015ce4f63e300c37bfe48663feb42981e310b41da2f001fa7ca3"
         },
         {
             "id": "beauty3600000",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "url": "config/global/beauty3600000-config.json",
             "meta": {
                 "displayName": "3600000 Beauty",
@@ -79,7 +79,7 @@
                 "language": "id",
                 "requiresAuth": true,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 9
+                "sizeKb": 10
             },
             "checksum": "5c5bac44a5d0caef0fa8b1078515d7cb10d41c244d50390e59303f7b82b10494"
         },
@@ -113,9 +113,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "6b94f8c0ac02764f4fee96437506be6d16633e78397a7d969ee530ad60fa2596"
+            "checksum": "c90186f2f1c7e801f426c570cc292f87782c3cbf3becc29faca374efdaa4e0b0"
         },
         {
             "id": "ehentai",
@@ -129,7 +129,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 5
+                "sizeKb": 6
             },
             "checksum": "5a1382b3d6d7afd7637ae766939f18d162ff720561884ec20ce2606fe0f6744b"
         },
@@ -177,9 +177,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "1de49fa57f854ca88bf0fab893b2a56d5fba820e5618e97975bee424b7b3727f"
+            "checksum": "b924a34b79e607ac4b41610c272bbc21b0985dae4b1998d6e43ececb6e7ff068"
         },
         {
             "id": "hentaiera",
@@ -193,9 +193,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "1914064f4849489e0d4f4cd5c3e30f6c818274874a957cd976a95b8e633e1ea8"
+            "checksum": "4a1dbefe86113453f2d31e07618cb6974f4bf62b110b1b40320d466f14812b0c"
         },
         {
             "id": "hentaifox",
@@ -209,9 +209,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "06b990078c926287672670580f97f82e89ca526a97835409af8162a3d6ef6282"
+            "checksum": "55950ce6597456d0abeec994326ae00d686f83bd7121680c074e3da796bf8c98"
         },
         {
             "id": "hentainexus",
@@ -225,7 +225,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 8
+                "sizeKb": 9
             },
             "checksum": "9572cf49f84d8466cdb5b0434d74064d1155aad3f136dd00e74e83283b7f70b4"
         },
@@ -257,9 +257,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "3bfd00d1e739d509c77123c46f580859374dcd5eb9473a4788504dc4ec2c10b6"
+            "checksum": "06e4aec14ad9e4905a70b2a3c054874f0c3d69e3f9c6534b9198095e7ff7ed8c"
         },
         {
             "id": "hitomi",
@@ -273,7 +273,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 2
+                "sizeKb": 3
             },
             "checksum": "83e6fb1812ca6bac2e51720ef0d271c726ab9775be1ff226b5811c4d87cdbc75"
         },
@@ -369,7 +369,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
             "checksum": "c4baedf76f74bf7b583afc6345cd11209274845fa3e40c3c8982d5b7fbb8ab07"
         },
@@ -385,7 +385,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 17
+                "sizeKb": 18
             },
             "checksum": "fc056b079ab9e1d31df51c32e644028ab3dca1136459f3945e6291b86da1a0bf"
         },
@@ -435,7 +435,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 7
             },
             "checksum": "bd79cf02e572863f3a9dfaf44bd6f77743a3307a1ac46f34b88662ec0bc68463"
         },
@@ -451,7 +451,7 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
             "checksum": "73f20eda72a7fb148c29efba758cc6219924b9fe638da649da0beb2be33054b9"
         },
@@ -467,7 +467,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
             "checksum": "e924f4ceee2c2e97c8320b9cc336445fefc2b046f8758e83cd2788f22f220064"
         },
@@ -515,7 +515,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
             "checksum": "e2153474da4946485d92c271739bfcaaa214bcb423bdc8eee6d3a1b9f55c2283"
         },
@@ -531,13 +531,13 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
             "checksum": "715e81e6247a770e3384f436143d0f3e1d7b61c54a07e90d4e6d7fa93797a57c"
         },
         {
             "id": "misskon",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "url": "config/global/misskon-config.json",
             "meta": {
                 "displayName": "MissKon",
@@ -547,7 +547,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
             "checksum": "53ebd834eadfb4a28a05b52319fe67988febe557c2d8866508e6f47fa7779c29"
         },
@@ -643,7 +643,7 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
             "checksum": "770e9fc0ea98b02429da4b3de4d1ce1ca497f058742f840a24ee168bcef40dff"
         },
@@ -675,7 +675,7 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
             "checksum": "59456e6d0f8771e82a57b8c8efda787788527dbb31fd884eb6f57ff79fe6310e"
         },
@@ -725,13 +725,13 @@
                 "language": "vi",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
             "checksum": "f985c791df04b98b5f2feaf02549e56bd51243c3770d70b8884e1b9e4687d3d2"
         },
         {
             "id": "xiutaku",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "url": "config/global/xiutaku-config.json",
             "meta": {
                 "displayName": "XiuTaku",
@@ -741,7 +741,7 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
             "checksum": "ae0ab4e62fc7dd1ea55ace908c93da4ee22a7b5a2ff63c7136bae8a61c8abfc8"
         }
