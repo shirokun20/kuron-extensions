@@ -1,0 +1,199 @@
+{
+  "source": "hentai4freenet",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://hentai4free.net",
+  "ui": {
+    "displayName": "ManhwaReads",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://manhwareads.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://hentai4free.net/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://hentai4free.net/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".page-item-detail",
+          "fields": {
+            "id": {
+              "selector": ".item-thumb a[href*='/hentai/'], .post-title a[href*='/hentai/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".h4f-manga-grid-cell",
+          "fields": {
+            "id": {
+              "selector": ".item-thumb a[href*='/hentai/'], .post-title a[href*='/hentai/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".h4f-manga-grid-cell",
+          "fields": {
+            "id": {
+              "selector": ".item-thumb a[href*='/hentai/'], .post-title a[href*='/hentai/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/manga-genre/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/manga-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/hentai/{id}/",
+      "chapter": "/hentai/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".post-title h1, h1"
+          }
+        },
+        "chapters": {
+          "container": "a.h4f-oneshot-read-direct",
+          "fields": {
+            "id": {
+              "selector": "self",
+              "attribute": "href",
+              "regex": "/hentai/([^?#]+?)/?$"
+            },
+            "title": {
+              "selector": "self"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "scriptJson": {
+            "id": "h4f-r2-data",
+            "items": "images",
+            "url": "src"
+          }
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "s",
+          "type": "text",
+          "placeholder": "Search manga..."
+        },
+        "sort": {
+          "queryParam": "m_orderby",
+          "type": "select",
+          "label": "Sort by",
+          "options": [
+            {
+              "name": "Relevance",
+              "value": ""
+            },
+            {
+              "name": "Popular",
+              "value": "popular"
+            },
+            {
+              "name": "Latest",
+              "value": "latest"
+            },
+            {
+              "name": "A-Z",
+              "value": "alphabet"
+            },
+            {
+              "name": "Rating",
+              "value": "rating"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "search": false,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  }
+}

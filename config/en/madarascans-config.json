@@ -1,0 +1,198 @@
+{
+  "source": "madarascans",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://madarascans.org",
+  "ui": {
+    "displayName": "Akaza Scans",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://manhwareads.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://madarascans.org/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://madarascans.org/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/series/",
+        "list": {
+          "container": ".listupd .bsx",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": "img.ts-post-image",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/manga/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "list": {
+          "container": ".listupd .bsx",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": "img.ts-post-image",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "list": {
+          "container": ".listupd .bsx",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt"
+            },
+            "coverUrl": {
+              "selector": "img.ts-post-image",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/genres/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/manga-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/series/{id}/",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.entry-title"
+          }
+        },
+        "chapters": {
+          "container": "#chapterlist li",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/([^?#/]+)/?$"
+            },
+            "title": {
+              "selector": ".chapternum"
+            }
+          }
+        }
+      },
+      "reader": {
+        "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);</script>",
+        "images": {
+          "selector": "#readerarea img",
+          "attribute": "src"
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "s",
+          "type": "text",
+          "placeholder": "Search manga..."
+        },
+        "sort": {
+          "queryParam": "m_orderby",
+          "type": "select",
+          "label": "Sort by",
+          "options": [
+            {
+              "name": "Relevance",
+              "value": ""
+            },
+            {
+              "name": "Popular",
+              "value": "popular"
+            },
+            {
+              "name": "Latest",
+              "value": "latest"
+            },
+            {
+              "name": "A-Z",
+              "value": "alphabet"
+            },
+            {
+              "name": "Rating",
+              "value": "rating"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "search": false,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  },
+  "displayName": "EvaScans"
+}
