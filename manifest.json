@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-27T18:48:18.947726+07:00",
+    "lastUpdated": "2026-09-27T19:12:25.397407+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1461,7 +1461,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "406800f1d239fe5ce5579a518f12392ce57a15a92019cf330b112d10e9c9dc41"
+            "checksum": "6f78fd11de549703fcf8b79d7b2855b417f914a6da475cf38e48b22eca75fdeb"
         },
         {
             "id": "mangaforfreecom",
