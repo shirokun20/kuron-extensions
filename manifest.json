@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-26T20:15:44.107093+07:00",
+    "lastUpdated": "2026-09-27T11:45:53.514901+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -391,7 +391,7 @@
         },
         {
             "id": "mangafire",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "url": "config/en/mangafire-config.json",
             "meta": {
                 "displayName": "MangaFire",
@@ -401,11 +401,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 10,
-                "maintenance": true,
-                "maintenanceMessage": "mangafire sedang dalam perbaikan, mohon tunggu"
+                "sizeKb": 10
             },
-            "checksum": "0892df33067534b44e5242dd95a6dedb1723cdf19482f40a4958640a66e82d64"
+            "checksum": "8f9e944d4c9809b49ce2b612e59668cfc655c3ba8011270ff2991e5f5b16c81f"
         },
         {
             "id": "mangaforfree",
@@ -744,6 +742,86 @@
                 "sizeKb": 4
             },
             "checksum": "ae0ab4e62fc7dd1ea55ace908c93da4ee22a7b5a2ff63c7136bae8a61c8abfc8"
+        },
+        {
+            "id": "hentai3",
+            "version": "1.0.0",
+            "url": "config/en/hentai3-config.json",
+            "meta": {
+                "displayName": "3Hentai",
+                "description": "3Hentai gallery reader with search, detail, and reader support",
+                "iconUrl": "images/hentai3.png",
+                "contentType": "doujinshi",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 3
+            },
+            "checksum": "810aff5cf93ad788389b57f33aeab76a1c47eceb058ca9cedb98c487955b1160"
+        },
+        {
+            "id": "hentairox",
+            "version": "1.0.1",
+            "url": "config/en/hentairox-config.json",
+            "meta": {
+                "displayName": "HentaiRox",
+                "description": "HentaiRox gallery reader with search, detail, and reader support",
+                "iconUrl": "images/hentairox.png",
+                "contentType": "doujinshi",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 5
+            },
+            "checksum": "0d014c0943ce178c2dc25e72849d8be5c32a2db7a18f1e35c34795a539226e9e"
+        },
+        {
+            "id": "hentailoop",
+            "version": "1.0.0",
+            "url": "config/en/hentailoop-config.json",
+            "meta": {
+                "displayName": "HentaiLoop",
+                "description": "HentaiLoop manga reader with search, detail, and reader support",
+                "iconUrl": "images/hentailoop.png",
+                "contentType": "doujinshi",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 4
+            },
+            "checksum": "9ecb5bb20c4653e8984b614563137a0bfd1b073a68193bcb615d85c23f3d7241"
+        },
+        {
+            "id": "hentairead",
+            "version": "1.0.0",
+            "url": "config/en/hentairead-config.json",
+            "meta": {
+                "displayName": "HentaiRead",
+                "description": "HentaiRead manga reader with search, detail, and reader support",
+                "iconUrl": "images/hentairead.png",
+                "contentType": "doujinshi",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 3
+            },
+            "checksum": "e00587064d0a6695a6604b9407bc3bcfb8a49c1e8a50e99ba1d7bfd84a27509b"
+        },
+        {
+            "id": "hentaikun",
+            "version": "1.0.0",
+            "url": "config/en/hentaikun-config.json",
+            "meta": {
+                "displayName": "HentaiKun",
+                "description": "HentaiKun manga reader with search, detail, and reader support",
+                "iconUrl": "images/hentaikun.png",
+                "contentType": "doujinshi",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 3
+            },
+            "checksum": "1857fa44e472f3de03fdca9dd3c67e661afa6c81d1acbd20eed4a8c10a8be9bb"
         }
     ]
 }

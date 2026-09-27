@@ -1,7 +1,7 @@
 {
   "source": "mangafire",
-  "version": "1.1.0",
-  "enabled": false,
+  "version": "1.1.1",
+  "enabled": true,
   "defaultLanguage": "en",
   "baseUrl": "https://mangafire.to",
   "ui": {
@@ -410,6 +410,5 @@
     "offlineMode": true,
     "generatePdf": true
   },
-  "maintenance": true,
-  "maintenanceMessage": "mangafire sedang dalam perbaikan, mohon tunggu"
+  "maintenance": false
 }

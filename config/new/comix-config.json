@@ -1,0 +1,51 @@
+{
+  "source": "comix",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://comix.to",
+  "ui": {
+    "displayName": "Comix",
+    "iconPath": "./images/comix.png",
+    "brandColor": "#7C4DFF",
+    "openInBrowserUrl": "https://comix.to"
+  },
+  "network": {
+    "requiresBypass": true,
+    "headers": {
+      "Accept": "*/*",
+      "Referer": "https://comix.to/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 5,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "api": {
+    "enabled": true,
+    "endpoints": {
+      "browse": "/api/v1/manga",
+      "chapters": "/api/v1/manga/{id}/chapters",
+      "pages": "/api/v1/chapters/{id}",
+      "tagsSearch": "/api/v1/tags/search?type={type}&q={query}"
+    }
+  },
+  "contentIdPattern": "/title/([^/?#]+)",
+  "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "chapters": true,
+    "reader": true,
+    "download": true,
+    "related": true,
+    "dynamicForm": false,
+    "contentByTag": false,
+    "comments": false,
+    "favorite": false,
+    "offlineMode": true,
+    "generatePdf": false
+  }
+}

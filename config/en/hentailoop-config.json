@@ -1,21 +1,21 @@
 {
- "source": "hentairead",
- "displayName": "HentaiRead",
+ "source": "hentailoop",
+ "displayName": "HentaiLoop",
  "schemaVersion": "2.0",
  "version": "1.0.0",
- "baseUrl": "https://hentairead.io",
+ "baseUrl": "https://hentailoop.com",
  "enabled": true,
  "defaultLanguage": "english",
  "ui": {
-  "displayName": "HentaiRead",
+  "displayName": "HentaiLoop",
   "iconPath": "/favicon-32x32.png",
   "brandColor": "#ffffff",
-  "openInBrowserUrl": "https://hentairead.io"
+  "openInBrowserUrl": "https://hentailoop.com"
  },
  "network": {
   "requiresBypass": false,
   "headers": {
-   "Referer": "https://hentairead.io/",
+   "Referer": "https://hentailoop.com/",
    "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
   },
   "rateLimit": {
@@ -36,7 +36,7 @@
    "home": {
     "url": "/",
     "list": {
-     "container": "div.item",
+     "container": "div.manga-card",
      "fields": {
       "id": {
        "selector": "a",
@@ -44,20 +44,41 @@
        "transform": "slug"
       },
       "title": {
-       "selector": ".slide-caption h3 a"
+       "selector": "h2.title"
       },
       "coverUrl": {
        "selector": "img",
-       "attribute": "src",
-       "prefix": "https://hentairead.io/"
+       "attribute": "data-src"
       }
+     },
+     "pagination": {
+      "next": "a.next.page-numbers",
+      "links": "a.page-numbers"
      }
     }
    },
+   "homePage": {
+    "url": "/page/{page}/",
+    "inherits": "home"
+   },
+   "latest": {
+    "url": "/",
+    "inherits": "home"
+   },
    "search": {
-    "url": "/search/{query}",
+    "url": "/?s={query}&post_type=manga",
+    "inherits": "home"
+   },
+   "searchPage": {
+    "url": "/page/{page}/?s={query}&post_type=manga",
+    "inherits": "home"
+   },
+   "detail": "/manga/{id}/",
+   "chapter": "/manga/{id}",
+   "genreSearch": {
+    "url": "/tags/{tag}/",
     "list": {
-     "container": "div.card",
+     "container": ".best-card",
      "fields": {
       "id": {
        "selector": "a",
@@ -65,21 +86,18 @@
        "transform": "slug"
       },
       "title": {
-       "selector": "p.title-manga a"
+       "selector": ".best-title"
       },
       "coverUrl": {
-       "selector": "img.card-img-top",
-       "attribute": "src",
-       "prefix": "https://hentairead.io/"
+       "selector": "img",
+       "attribute": "data-src"
       }
      }
     }
    },
-   "detail": "/{id}/",
-   "chapter": "/{id}",
-   "genreSearch": {
-    "url": "/genres/{tag}/",
-    "inherits": "search"
+   "genreSearchPage": {
+    "url": "/tags/{tag}/page/{page}/",
+    "inherits": "genreSearch"
    }
   },
   "selectors": {
@@ -110,29 +128,31 @@
       "attribute": "content"
      },
      "tags": {
-      "selector": "a[href*='/genres/']",
+      "selector": "a[href*='/tag/']",
       "attribute": "href",
       "transform": "slug",
       "multi": true
      }
     },
     "chapters": {
-     "container": "#nt_listchapter",
+     "container": "div.previews",
      "fields": {
       "id": {
        "selector": "a",
        "attribute": "href",
-       "regex": "/([^?#]+/chapter-\\d+-\\d+)"
+       "regex": "manga/([^?#]+/read/p/\\d+)"
       },
       "title": {
-       "selector": "a"
+       "selector": "a",
+       "attribute": "href",
+       "regex": "/read/p/(\\d+)"
       }
      }
     }
    },
    "reader": {
     "images": {
-     "selector": "img[data-index]",
+     "selector": "img.attachment-full",
      "attribute": "src"
     }
    }
@@ -148,7 +168,7 @@
    }
   }
  },
- "contentIdPattern": "/([a-z0-9-]+-\\d+)/?",
+ "contentIdPattern": "/manga/([^/]+)",
  "navigation": {
   "genreQueryPrefix": "genre:",
   "genreTagType": "genre"

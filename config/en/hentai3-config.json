@@ -1,21 +1,21 @@
 {
- "source": "hentairead",
- "displayName": "HentaiRead",
+ "source": "hentai3",
+ "displayName": "3Hentai",
  "schemaVersion": "2.0",
  "version": "1.0.0",
- "baseUrl": "https://hentairead.io",
+ "baseUrl": "https://3hentai.net",
  "enabled": true,
  "defaultLanguage": "english",
  "ui": {
-  "displayName": "HentaiRead",
+  "displayName": "3Hentai",
   "iconPath": "/favicon-32x32.png",
   "brandColor": "#ffffff",
-  "openInBrowserUrl": "https://hentairead.io"
+  "openInBrowserUrl": "https://3hentai.net"
  },
  "network": {
   "requiresBypass": false,
   "headers": {
-   "Referer": "https://hentairead.io/",
+   "Referer": "https://3hentai.net/",
    "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
   },
   "rateLimit": {
@@ -36,50 +36,52 @@
    "home": {
     "url": "/",
     "list": {
-     "container": "div.item",
+     "container": ".doujin",
      "fields": {
       "id": {
-       "selector": "a",
+       "selector": "a.cover",
        "attribute": "href",
        "transform": "slug"
       },
       "title": {
-       "selector": ".slide-caption h3 a"
+       "selector": "div.title"
       },
       "coverUrl": {
        "selector": "img",
-       "attribute": "src",
-       "prefix": "https://hentairead.io/"
+       "attribute": "data-src"
       }
+     },
+     "pagination": {
+      "next": "a.page-link[rel=\"next\"]",
+      "links": "a.page-link"
      }
     }
+   },
+   "homePage": {
+    "url": "/{page}/",
+    "inherits": "home"
+   },
+   "latest": {
+    "url": "/",
+    "inherits": "home"
    },
    "search": {
-    "url": "/search/{query}",
-    "list": {
-     "container": "div.card",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": "p.title-manga a"
-      },
-      "coverUrl": {
-       "selector": "img.card-img-top",
-       "attribute": "src",
-       "prefix": "https://hentairead.io/"
-      }
-     }
-    }
+    "url": "/search?q={query}",
+    "inherits": "home"
    },
-   "detail": "/{id}/",
-   "chapter": "/{id}",
+   "searchPage": {
+    "url": "/search?q={query}&page={page}",
+    "inherits": "home"
+   },
+   "detail": "/d/{id}/",
+   "chapter": "/d/{id}",
    "genreSearch": {
-    "url": "/genres/{tag}/",
-    "inherits": "search"
+    "url": "/tags/{tag}/",
+    "inherits": "home"
+   },
+   "genreSearchPage": {
+    "url": "/tags/{tag}/{page}/",
+    "inherits": "home"
    }
   },
   "selectors": {
@@ -106,33 +108,35 @@
       "selector": "h1"
      },
      "coverUrl": {
-      "selector": "meta[property=\"og:image\"]",
-      "attribute": "content"
+      "selector": ".main-cover img",
+      "attribute": "data-src"
      },
      "tags": {
-      "selector": "a[href*='/genres/']",
+      "selector": "a[href*='/tags/']",
       "attribute": "href",
       "transform": "slug",
       "multi": true
      }
     },
     "chapters": {
-     "container": "#nt_listchapter",
+     "container": ".single-thumb",
      "fields": {
       "id": {
        "selector": "a",
        "attribute": "href",
-       "regex": "/([^?#]+/chapter-\\d+-\\d+)"
+       "regex": "/d/(\\d+/\\d+)"
       },
       "title": {
-       "selector": "a"
+       "selector": "a",
+       "attribute": "href",
+       "regex": "/d/\\d+/(\\d+)"
       }
      }
     }
    },
    "reader": {
     "images": {
-     "selector": "img[data-index]",
+     "selector": "img.js-main-img",
      "attribute": "src"
     }
    }
@@ -148,7 +152,7 @@
    }
   }
  },
- "contentIdPattern": "/([a-z0-9-]+-\\d+)/?",
+ "contentIdPattern": "/d/(\\d+)",
  "navigation": {
   "genreQueryPrefix": "genre:",
   "genreTagType": "genre"
