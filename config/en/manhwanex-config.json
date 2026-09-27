@@ -59,19 +59,15 @@
       "search": {
         "url": "/?s={query}&post_type=wp-manga",
         "list": {
-          "container": ".row.c-tabs-item__content",
+          "container": ".tab-summary",
           "fields": {
             "id": {
-              "selector": "a[href*='/manga/']",
+              "selector": ".post-title a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
-            },
-            "coverUrl": {
-              "selector": ".tab-thumb img",
-              "attribute": "src"
+              "selector": ".post-title a"
             }
           },
           "pagination": {
@@ -82,19 +78,15 @@
       "searchPage": {
         "url": "/page/{page}/?s={query}&post_type=wp-manga",
         "list": {
-          "container": ".row.c-tabs-item__content",
+          "container": ".tab-summary",
           "fields": {
             "id": {
-              "selector": "a[href*='/manga/']",
+              "selector": ".post-title a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
-            },
-            "coverUrl": {
-              "selector": ".tab-thumb img",
-              "attribute": "data-src"
+              "selector": ".post-title a"
             }
           },
           "pagination": {
@@ -111,7 +103,15 @@
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
-      "chapter": "/manga/{id}/"
+      "chapter": "/manga/{id}/",
+      "tagSearch": {
+        "url": "/manga-tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/manga-tag/{tag}/page/{page}/",
+        "inherits": "home"
+      }
     },
     "selectors": {
       "detail": {
@@ -135,7 +135,7 @@
             "multi": true
           },
           "tags": {
-            "selector": ".genres-content a",
+            "selector": ".genres-content a, .tags-content a",
             "multi": true
           }
         },

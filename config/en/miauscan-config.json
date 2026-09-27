@@ -117,11 +117,12 @@
           "title": {
             "selector": "h1"
           },
-          "tags": {
-            "selector": "a[rel='tag']",
-            "attribute": "href",
-            "transform": "slug",
-            "multi": true
+          "coverUrl": {
+            "selector": ".lm4-poster-image",
+            "attribute": "src"
+          },
+          "description": {
+            "selector": ".lm4-summary-full p, .lm4-summary-short"
           }
         },
         "chapters": {

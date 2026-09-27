@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-27T19:12:25.397407+07:00",
+    "lastUpdated": "2026-09-27T19:14:13.791229+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1589,7 +1589,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "1dd2df20f05e3a37fe15829ae2cc210a311db319260e1429944a213abaa0c6fb"
+            "checksum": "1fc34c2a3f2fde5d1a7c336d666bc36f9927cce86b09842499190d00049c3234"
         },
         {
             "id": "orchisasia",
@@ -1653,7 +1653,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "7317b11c1df31cb2456fee30d6f45a1b94ed0a9e9ed8a2710a85999c9c4d2d97"
+            "checksum": "37fe79e9759b35d86927775a0ed3d6d2b1e3c842eff5dbf070afd5ea9bc2aa79"
         },
         {
             "id": "manhwaden",
@@ -1669,7 +1669,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "4a123562f168cf29734140d15b92679ec818494ba8c4558bd96023e57297cc85"
+            "checksum": "8383288f8fb1e485728b561522b2256cd791d4f13496f3cd6e445ffdb99aba82"
         },
         {
             "id": "milftoon",
@@ -1685,7 +1685,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "d63e4a683767869b9ea4408d8d2c87227998ade9e3787ec58984b86239ecb733"
+            "checksum": "2c3688e603e2f454d3d9b9976fbbe6eab9cad3feb80f287a4ef61fd2ddfc65e5"
         }
     ]
 }

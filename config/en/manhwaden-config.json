@@ -111,7 +111,15 @@
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
-      "chapter": "/manga/{id}/"
+      "chapter": "/manga/{id}/",
+      "tagSearch": {
+        "url": "/manga-tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/manga-tag/{tag}/page/{page}/",
+        "inherits": "home"
+      }
     },
     "selectors": {
       "detail": {
@@ -135,7 +143,7 @@
             "multi": true
           },
           "tags": {
-            "selector": ".genres-content a",
+            "selector": ".genres-content a, .tags-content a",
             "multi": true
           }
         },
