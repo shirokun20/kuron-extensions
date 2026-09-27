@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://mangasushi.org",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangasushi",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://mangasushi.org"
   },
   "network": {
     "requiresBypass": false,

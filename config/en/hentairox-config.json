@@ -1,238 +1,238 @@
 {
- "source": "hentairox",
- "version": "1.0.1",
- "enabled": true,
- "defaultLanguage": "english",
- "baseUrl": "https://hentairox.com",
- "ui": {
-  "displayName": "HentaiRox",
-  "brandColor": "#E3456F",
-  "openInBrowserUrl": "https://hentaifox.com"
- },
- "network": {
-  "requiresBypass": false,
-  "headers": {
-   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-  },
-  "rateLimit": {
-   "enabled": true,
-   "requestsPerSecond": 1,
-   "maxConcurrentRequests": 2
-  }
- },
- "scraper": {
+  "source": "hentairox",
+  "version": "1.0.1",
   "enabled": true,
-  "urlPatterns": {
-   "base": "https://hentaifox.com/",
-   "home": {
-    "url": "/",
-    "list": {
-     "container": ".thumb",
-     "fields": {
-      "id": {
-       "selector": ".inner_thumb a",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": ".caption a"
-      },
-      "coverUrl": {
-       "selector": "img",
-       "attribute": "data-src"
-      }
-     },
-     "pagination": {
-      "next": ".pagination .page-item:last-child a",
-      "links": ".pagination .page-link"
-     }
-    }
-   },
-   "homePage": {
-    "url": "/pag/{page}/",
-    "pageOverrides": {
-     "2": "/page/2/"
-    },
-    "inherits": "home"
-   },
-   "search": {
-    "url": "/search/?key={query}",
-    "inherits": "home"
-   },
-   "searchPage": {
-    "url": "/search/?key={query}&page={page}",
-    "inherits": "home"
-   },
-   "genreSearch": {
-    "url": "/category/{tag}/",
-    "inherits": "home"
-   },
-   "genreSearchPage": {
-    "url": "/category/{tag}/pag/{page}/",
-    "inherits": "home"
-   },
-   "detail": "/gallery/{id}/",
-   "chapter": "/gallery/{id}/"
+  "defaultLanguage": "english",
+  "baseUrl": "https://hentairox.com",
+  "ui": {
+    "displayName": "Hentairox",
+    "brandColor": "#E3456F",
+    "openInBrowserUrl": "https://hentairox.com"
   },
-  "selectors": {
-   "detail": {
-    "fields": {
-     "title": {
-      "selector": ".info h1"
-     },
-     "coverUrl": {
-      "selector": ".cover img",
-      "attribute": "src"
-     },
-     "uploadDate": {
-      "selector": ".info .i_text.pages",
-      "regex": "Posted:\\s*(.+)$"
-     },
-     "favorites": {
-      "selector": "#thumbs_up",
-      "regex": "(\\d+)"
-     },
-     "tags": {
-      "selector": ".tags .tag_btn",
-      "attribute": "href",
-      "transform": "slug",
-      "multi": true
-     },
-     "pageCount": {
-      "selector": "li.pages",
-      "regex": "(\\d+)"
-     }
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
     }
-   },
-   "related": {
-    "container": ".related_galleries .thumb",
-    "fields": {
-     "id": {
-      "selector": ".inner_thumb a",
-      "attribute": "href",
-      "transform": "slug"
-     },
-     "title": {
-      "selector": ".g_title a"
-     },
-     "coverUrl": {
-      "selector": ".inner_thumb img",
-      "attribute": "data-src"
-     }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "base": "https://hentairox.com/",
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".thumb",
+          "fields": {
+            "id": {
+              "selector": ".inner_thumb a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".caption a"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": ".pagination .page-item:last-child a",
+            "links": ".pagination .page-link"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/pag/{page}/",
+        "pageOverrides": {
+          "2": "/page/2/"
+        },
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search/?key={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/search/?key={query}&page={page}",
+        "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/category/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/category/{tag}/pag/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/gallery/{id}/",
+      "chapter": "/gallery/{id}/"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": ".right_details h1"
+          },
+          "coverUrl": {
+            "selector": ".left_cover img",
+            "attribute": "data-src"
+          },
+          "uploadDate": {
+            "selector": ".galleries_info .posted",
+            "regex": "Posted:\\s*(.+)$"
+          },
+          "favorites": {
+            "selector": "#like_btn",
+            "regex": "(\\d+)"
+          },
+          "tags": {
+            "selector": ".galleries_info a.tag",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          },
+          "pageCount": {
+            "selector": "li.pages",
+            "regex": "(\\d+)"
+          }
+        }
+      },
+      "related": {
+        "container": ".related_galleries .thumb",
+        "fields": {
+          "id": {
+            "selector": ".inner_thumb a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": ".g_title a"
+          },
+          "coverUrl": {
+            "selector": ".inner_thumb img",
+            "attribute": "data-src"
+          }
+        }
+      },
+      "comments": {
+        "endpoint": "/includes/comments.php",
+        "galleryIdParam": "gallery_id",
+        "container": "#comments_list .comment",
+        "fields": {
+          "id": {
+            "selector": ".like_comment",
+            "attribute": "comment_id"
+          },
+          "username": {
+            "selector": ".head span[id^='user_text_'] a"
+          },
+          "body": {
+            "selector": ".comment_body .text"
+          },
+          "avatarUrl": {
+            "selector": ".avatar img",
+            "attribute": "src"
+          },
+          "postDate": {
+            "selector": ".comment_body .head .posted"
+          }
+        }
+      },
+      "reader": {
+        "mode": "hentaifoxCdn",
+        "thumbSelector": ".gallery_thumb img",
+        "thumbSrcAttr": "data-src",
+        "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)",
+        "pageCountSelector": ".i_text.pages",
+        "readerPageUrlPattern": "/view/{id}/1/"
+      }
     }
-   },
-   "comments": {
-    "endpoint": "/includes/comments.php",
-    "galleryIdParam": "gallery_id",
-    "container": "#comments_list .comment",
-    "fields": {
-     "id": {
-      "selector": ".like_comment",
-      "attribute": "comment_id"
-     },
-     "username": {
-      "selector": ".head span[id^='user_text_'] a"
-     },
-     "body": {
-      "selector": ".comment_body .text"
-     },
-     "avatarUrl": {
-      "selector": ".avatar img",
-      "attribute": "src"
-     },
-     "postDate": {
-      "selector": ".comment_body .head .posted"
-     }
+  },
+  "features": {
+    "comments": true,
+    "related": true,
+    "download": true,
+    "favorite": true,
+    "chapters": false,
+    "offlineMode": true,
+    "generatePdf": true
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search title or tag..."
+      },
+      "sort": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Sort by",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "Latest",
+            "value": "lt"
+          },
+          {
+            "name": "Popular",
+            "value": "pp"
+          },
+          {
+            "name": "Top Rated",
+            "value": "tr"
+          },
+          {
+            "name": "Downloaded",
+            "value": "dl"
+          }
+        ]
+      },
+      "category": {
+        "queryParam": "",
+        "type": "select",
+        "label": "Category",
+        "rawParam": true,
+        "options": [
+          {
+            "name": "All",
+            "value": ""
+          },
+          {
+            "name": "Manga",
+            "value": "m"
+          },
+          {
+            "name": "Doujinshi",
+            "value": "d"
+          },
+          {
+            "name": "Western",
+            "value": "w"
+          },
+          {
+            "name": "Image Set",
+            "value": "i"
+          },
+          {
+            "name": "Artist CG",
+            "value": "cg"
+          },
+          {
+            "name": "Game CG",
+            "value": "gc"
+          }
+        ]
+      }
     }
-   },
-   "reader": {
-    "mode": "hentaifoxCdn",
-    "thumbSelector": ".gallery_thumb img",
-    "thumbSrcAttr": "data-src",
-    "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)",
-    "pageCountSelector": ".i_text.pages",
-    "readerPageUrlPattern": "/view/{id}/1/"
-   }
-  }
- },
- "features": {
-  "comments": true,
-  "related": true,
-  "download": true,
-  "favorite": true,
-  "chapters": false,
-  "offlineMode": true,
-  "generatePdf": true
- },
- "searchForm": {
-  "urlPattern": "search",
-  "params": {
-   "query": {
-    "queryParam": "q",
-    "type": "text",
-    "placeholder": "Search title or tag..."
-   },
-   "sort": {
-    "queryParam": "",
-    "type": "select",
-    "label": "Sort by",
-    "rawParam": true,
-    "options": [
-     {
-      "name": "Latest",
-      "value": "lt"
-     },
-     {
-      "name": "Popular",
-      "value": "pp"
-     },
-     {
-      "name": "Top Rated",
-      "value": "tr"
-     },
-     {
-      "name": "Downloaded",
-      "value": "dl"
-     }
-    ]
-   },
-   "category": {
-    "queryParam": "",
-    "type": "select",
-    "label": "Category",
-    "rawParam": true,
-    "options": [
-     {
-      "name": "All",
-      "value": ""
-     },
-     {
-      "name": "Manga",
-      "value": "m"
-     },
-     {
-      "name": "Doujinshi",
-      "value": "d"
-     },
-     {
-      "name": "Western",
-      "value": "w"
-     },
-     {
-      "name": "Image Set",
-      "value": "i"
-     },
-     {
-      "name": "Artist CG",
-      "value": "cg"
-     },
-     {
-      "name": "Game CG",
-      "value": "gc"
-     }
-    ]
-   }
-  }
- },
- "displayName": "HentaiRox"
+  },
+  "displayName": "HentaiRox"
 }

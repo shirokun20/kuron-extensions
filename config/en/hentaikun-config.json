@@ -1,151 +1,150 @@
 {
- "source": "hentaikun",
- "displayName": "HentaiKun",
- "schemaVersion": "2.0",
- "version": "1.0.0",
- "baseUrl": "https://hentaikun.com/manga",
- "enabled": true,
- "defaultLanguage": "english",
- "ui": {
+  "source": "hentaikun",
   "displayName": "HentaiKun",
-  "brandColor": "#ffffff",
-  "openInBrowserUrl": "https://hentaikun.com/manga"
- },
- "network": {
-  "requiresBypass": false,
-  "headers": {
-   "Referer": "https://hentaikun.com/manga/",
-   "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
-  },
-  "rateLimit": {
-   "enabled": true,
-   "requestsPerSecond": 2,
-   "maxConcurrentRequests": 2
-  }
- },
- "requiredPrimitives": [
-  "imageMode.directUrl",
-  "pagination.page",
-  "auth.none"
- ],
- "scraper": {
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "baseUrl": "https://hentaikun.com/manga",
   "enabled": true,
-  "urlPatterns": {
-   "home": {
-    "url": "/",
-    "list": {
-     "container": "div.thumbnail",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "regex": "manga/([^?#]+?)/?$"
-      },
-      "title": {
-       "selector": "img",
-       "attribute": "alt"
-      },
-      "coverUrl": {
-       "selector": "img",
-       "attribute": "src"
-      }
-     },
-     "pagination": {
-      "next": "a.next",
-      "links": "a.page-numbers"
-     }
-    }
-   },
-   "homePage": {
-    "url": "/page/{page}/",
-    "inherits": "home"
-   },
-   "search": {
-    "url": "/index.php?do=search&subaction=search&story={query}",
-    "inherits": "home"
-   },
-   "detail": "/{id}/",
-   "chapter": "/{id}",
-   "genreSearch": {
-    "url": "/tag/{tag}/",
-    "inherits": "home"
-   },
-   "genreSearchPage": {
-    "url": "/tag/{tag}/page/{page}/",
-    "inherits": "home"
-   }
+  "defaultLanguage": "english",
+  "ui": {
+    "displayName": "Hentaikun",
+    "brandColor": "#ffffff",
+    "openInBrowserUrl": "https://hentaikun.com/manga"
   },
-  "selectors": {
-   "list": {
-    "item": ".page-item-detail, .page-item, .grid-item",
-    "fields": {
-     "id": {
-      "selector": "a",
-      "attribute": "href",
-      "transform": "slug"
-     },
-     "title": {
-      "selector": "a"
-     },
-     "coverUrl": {
-      "selector": "img",
-      "attribute": "src"
-     }
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://hentaikun.com/manga/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 2,
+      "maxConcurrentRequests": 2
     }
-   },
-   "detail": {
-    "fields": {
-     "title": {
-      "selector": "meta[property=\"og:title\"]",
-      "attribute": "content"
-     },
-     "coverUrl": {
-      "selector": "meta[property=\"og:image\"]",
-      "attribute": "content"
-     },
-     "tags": {
-      "selector": "a[href*='/manga/tag/']",
-      "attribute": "href",
-      "transform": "slug",
-      "multi": true
-     }
+  },
+  "requiredPrimitives": [
+    "imageMode.directUrl",
+    "pagination.page",
+    "auth.none"
+  ],
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "div.thumbnail",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "manga/([^?#]+?)/?$"
+            },
+            "title": {
+              "selector": "img",
+              "attribute": "alt"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a.next",
+            "links": "a.page-numbers"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/index.php?do=search&subaction=search&story={query}",
+        "inherits": "home"
+      },
+      "detail": "/{id}/",
+      "chapter": "/{id}/read/",
+      "genreSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      }
+    },
+    "selectors": {
+      "list": {
+        "item": ".page-item-detail, .page-item, .grid-item",
+        "fields": {
+          "id": {
+            "selector": "a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": "a"
+          },
+          "coverUrl": {
+            "selector": "img",
+            "attribute": "src"
+          }
+        }
+      },
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "meta[property=\"og:title\"]",
+            "attribute": "content"
+          },
+          "coverUrl": {
+            "selector": "meta[property=\"og:image\"]",
+            "attribute": "content"
+          },
+          "tags": {
+            "selector": "a[href*='/manga/tag/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": ".image-show img, .r_thumb img",
+          "attribute": "src"
+        }
+      }
     }
-   },
-   "reader": {
-    "container": "div.r_thumb",
-    "images": {
-     "selector": "img.img-responsive",
-     "attribute": "src"
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search..."
+      }
     }
-   }
-  }
- },
- "searchForm": {
-  "urlPattern": "search",
-  "params": {
-   "query": {
-    "queryParam": "q",
-    "type": "text",
-    "placeholder": "Search..."
-   }
-  }
- },
- "contentIdPattern": "manga/([^?#]+)",
- "navigation": {
-  "genreQueryPrefix": "genre:",
-  "genreTagType": "genre"
- },
- "features": {
-  "home": true,
-  "search": true,
-  "detail": true,
-  "reader": true,
-  "download": true,
-  "chapters": false,
-  "comments": false,
-  "favorite": true,
-  "offlineMode": true,
-  "related": false
- },
- "notes": "WordPress Madara theme."
+  },
+  "contentIdPattern": "manga/([^?#]+)",
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre"
+  },
+  "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "reader": true,
+    "download": true,
+    "chapters": false,
+    "comments": false,
+    "favorite": true,
+    "offlineMode": true,
+    "related": false
+  },
+  "notes": "WordPress Madara theme."
 }

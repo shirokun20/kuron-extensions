@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://mangamaniacs.org",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangamaniacs",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://mangamaniacs.org"
   },
   "network": {
     "requiresBypass": false,

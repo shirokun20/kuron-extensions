@@ -1,173 +1,163 @@
 {
- "source": "hentai3",
- "displayName": "3Hentai",
- "schemaVersion": "2.0",
- "version": "1.0.0",
- "baseUrl": "https://3hentai.net",
- "enabled": true,
- "defaultLanguage": "english",
- "ui": {
+  "source": "hentai3",
   "displayName": "3Hentai",
-  "iconPath": "/favicon-32x32.png",
-  "brandColor": "#ffffff",
-  "openInBrowserUrl": "https://3hentai.net"
- },
- "network": {
-  "requiresBypass": false,
-  "headers": {
-   "Referer": "https://3hentai.net/",
-   "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
-  },
-  "rateLimit": {
-   "enabled": true,
-   "requestsPerSecond": 2,
-   "maxConcurrentRequests": 2
-  }
- },
- "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
- "requiredPrimitives": [
-  "imageMode.directUrl",
-  "pagination.page",
-  "auth.none"
- ],
- "scraper": {
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "baseUrl": "https://3hentai.net",
   "enabled": true,
-  "urlPatterns": {
-   "home": {
-    "url": "/",
-    "list": {
-     "container": ".doujin",
-     "fields": {
-      "id": {
-       "selector": "a.cover",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": "div.title"
-      },
-      "coverUrl": {
-       "selector": "img",
-       "attribute": "data-src"
-      }
-     },
-     "pagination": {
-      "next": "a.page-link[rel=\"next\"]",
-      "links": "a.page-link"
-     }
-    }
-   },
-   "homePage": {
-    "url": "/{page}/",
-    "inherits": "home"
-   },
-   "latest": {
-    "url": "/",
-    "inherits": "home"
-   },
-   "search": {
-    "url": "/search?q={query}",
-    "inherits": "home"
-   },
-   "searchPage": {
-    "url": "/search?q={query}&page={page}",
-    "inherits": "home"
-   },
-   "detail": "/d/{id}/",
-   "chapter": "/d/{id}",
-   "genreSearch": {
-    "url": "/tags/{tag}/",
-    "inherits": "home"
-   },
-   "genreSearchPage": {
-    "url": "/tags/{tag}/{page}/",
-    "inherits": "home"
-   }
+  "defaultLanguage": "english",
+  "ui": {
+    "displayName": "3hentai",
+    "iconPath": "/favicon-32x32.png",
+    "brandColor": "#ffffff",
+    "openInBrowserUrl": "https://3hentai.net"
   },
-  "selectors": {
-   "list": {
-    "item": ".page-item-detail, .page-item, .grid-item",
-    "fields": {
-     "id": {
-      "selector": "a",
-      "attribute": "href",
-      "transform": "slug"
-     },
-     "title": {
-      "selector": "a"
-     },
-     "coverUrl": {
-      "selector": "img",
-      "attribute": "src"
-     }
-    }
-   },
-   "detail": {
-    "fields": {
-     "title": {
-      "selector": "h1"
-     },
-     "coverUrl": {
-      "selector": ".main-cover img",
-      "attribute": "data-src"
-     },
-     "tags": {
-      "selector": "a[href*='/tags/']",
-      "attribute": "href",
-      "transform": "slug",
-      "multi": true
-     }
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://3hentai.net/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
     },
-    "chapters": {
-     "container": ".single-thumb",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "regex": "/d/(\\d+/\\d+)"
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 2,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
+  "requiredPrimitives": [
+    "imageMode.directUrl",
+    "pagination.page",
+    "auth.none"
+  ],
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": ".doujin",
+          "fields": {
+            "id": {
+              "selector": "a.cover",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "div.title"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a.page-link[rel=\"next\"]",
+            "links": "a.page-link"
+          }
+        }
       },
-      "title": {
-       "selector": "a",
-       "attribute": "href",
-       "regex": "/d/\\d+/(\\d+)"
+      "homePage": {
+        "url": "/{page}/",
+        "inherits": "home"
+      },
+      "latest": {
+        "url": "/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/search?q={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/search?q={query}&page={page}",
+        "inherits": "home"
+      },
+      "detail": "/d/{id}/",
+      "chapter": "/d/{id}",
+      "genreSearch": {
+        "url": "/tags/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/tags/{tag}/{page}/",
+        "inherits": "home"
       }
-     }
+    },
+    "selectors": {
+      "list": {
+        "item": ".page-item-detail, .page-item, .grid-item",
+        "fields": {
+          "id": {
+            "selector": "a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": "a"
+          },
+          "coverUrl": {
+            "selector": "img",
+            "attribute": "src"
+          }
+        }
+      },
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1"
+          },
+          "coverUrl": {
+            "selector": ".main-cover img",
+            "attribute": "data-src"
+          },
+          "tags": {
+            "selector": "a[href*='/tags/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          },
+          "pageCount": {
+            "selector": ".field-light-text",
+            "regex": "(\\d+)"
+          }
+        }
+      },
+      "reader": {
+        "mode": "hentaifoxCdn",
+        "thumbSelector": ".single-thumb img",
+        "thumbSrcAttr": "data-src",
+        "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)",
+        "pageCountSelector": ".field-light-text"
+      }
     }
-   },
-   "reader": {
-    "images": {
-     "selector": "img.js-main-img",
-     "attribute": "src"
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search..."
+      }
     }
-   }
-  }
- },
- "searchForm": {
-  "urlPattern": "search",
-  "params": {
-   "query": {
-    "queryParam": "q",
-    "type": "text",
-    "placeholder": "Search..."
-   }
-  }
- },
- "contentIdPattern": "/d/(\\d+)",
- "navigation": {
-  "genreQueryPrefix": "genre:",
-  "genreTagType": "genre"
- },
- "features": {
-  "home": true,
-  "search": true,
-  "detail": true,
-  "reader": true,
-  "download": true,
-  "chapters": true,
-  "comments": false,
-  "favorite": true,
-  "offlineMode": true,
-  "related": false
- },
- "notes": "WordPress Madara theme."
+  },
+  "contentIdPattern": "/d/(\\d+)",
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre"
+  },
+  "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "reader": true,
+    "download": true,
+    "chapters": false,
+    "comments": false,
+    "favorite": true,
+    "offlineMode": true,
+    "related": false
+  },
+  "notes": "WordPress Madara theme."
 }

@@ -6,7 +6,7 @@
   "defaultLanguage": "english",
   "baseUrl": "https://leemiau.com",
   "ui": {
-    "displayName": "MiauScan",
+    "displayName": "Leemiau",
     "brandColor": "#FF6B35",
     "openInBrowserUrl": "https://leemiau.com"
   },

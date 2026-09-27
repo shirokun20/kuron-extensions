@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-27T16:56:44.538783+07:00",
+    "lastUpdated": "2026-09-27T18:23:48.790263+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -65,7 +65,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 1
             },
-            "checksum": "8bf54cb89fb3abbc8a7a8884566e8de364590651de6e34d4b842f4f427836bb2"
+            "checksum": "615481ed932f06a30f92c3eb9d932842d4966ff79ede7f38615fee24075943dd"
         },
         {
             "id": "cosplaytele",
@@ -218,7 +218,7 @@
             "version": "1.0.1",
             "url": "config/en/hentaifox-config.json",
             "meta": {
-                "displayName": "HentaiFox",
+                "displayName": "Hentaifox",
                 "description": "High quality Hentai reader",
                 "iconUrl": "images/hentaifox.png",
                 "contentType": "doujinshi",
@@ -227,7 +227,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "55950ce6597456d0abeec994326ae00d686f83bd7121680c074e3da796bf8c98"
+            "checksum": "7bcb1cf06037a320bfbd84f6938aa7412768ef06770f2fc06506c0bb34e80a8e"
         },
         {
             "id": "hentainexus",
@@ -522,7 +522,7 @@
             "version": "1.0.0",
             "url": "config/en/manhwareads-config.json",
             "meta": {
-                "displayName": "ManhwaReads",
+                "displayName": "Manhwareads",
                 "description": "ManhwaReads manga reader with search, detail, and reader support",
                 "iconUrl": "images/manhwareads.png",
                 "contentType": "manga",
@@ -531,7 +531,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "e2153474da4946485d92c271739bfcaaa214bcb423bdc8eee6d3a1b9f55c2283"
+            "checksum": "d1993f97da5f399a1f55550e7186c56921f80e746d2aeda8b45ba85eb402c0ea"
         },
         {
             "id": "mihentai",
@@ -764,39 +764,39 @@
             "version": "1.0.0",
             "url": "config/en/hentai3-config.json",
             "meta": {
-                "displayName": "3Hentai",
+                "displayName": "3hentai",
                 "description": "3Hentai gallery reader with search, detail, and reader support",
                 "iconUrl": "images/hentai3.png",
                 "contentType": "doujinshi",
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
-            "checksum": "810aff5cf93ad788389b57f33aeab76a1c47eceb058ca9cedb98c487955b1160"
+            "checksum": "5958cdd610db598819e867499be3937bc188784771d77a59fe64448f1c0f0768"
         },
         {
             "id": "hentairox",
             "version": "1.0.1",
             "url": "config/en/hentairox-config.json",
             "meta": {
-                "displayName": "HentaiRox",
+                "displayName": "Hentairox",
                 "description": "HentaiRox gallery reader with search, detail, and reader support",
                 "iconUrl": "images/hentairox.png",
                 "contentType": "doujinshi",
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "0d014c0943ce178c2dc25e72849d8be5c32a2db7a18f1e35c34795a539226e9e"
+            "checksum": "1c544db6b38b9edfa7ec163a7ef5fa78f6ae8b6f000b593c73637fc29dac54d4"
         },
         {
             "id": "hentailoop",
             "version": "1.0.0",
             "url": "config/en/hentailoop-config.json",
             "meta": {
-                "displayName": "HentaiLoop",
+                "displayName": "Hentailoop",
                 "description": "HentaiLoop manga reader with search, detail, and reader support",
                 "iconUrl": "images/hentailoop.png",
                 "contentType": "doujinshi",
@@ -805,30 +805,30 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "9ecb5bb20c4653e8984b614563137a0bfd1b073a68193bcb615d85c23f3d7241"
+            "checksum": "2b8d4eeb0772f0d9a0f0b660b24703d293aaf67a20a67db833bd36174b0abf2e"
         },
         {
             "id": "hentairead",
             "version": "1.0.0",
             "url": "config/en/hentairead-config.json",
             "meta": {
-                "displayName": "HentaiRead",
+                "displayName": "Hentairead",
                 "description": "HentaiRead manga reader with search, detail, and reader support",
                 "iconUrl": "images/hentairead.png",
                 "contentType": "doujinshi",
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 4
             },
-            "checksum": "e00587064d0a6695a6604b9407bc3bcfb8a49c1e8a50e99ba1d7bfd84a27509b"
+            "checksum": "a7299b3acc61a79d9fb0e8ab7bc643ef9913ad267add0525b4223b80b7f72c76"
         },
         {
             "id": "hentaikun",
             "version": "1.0.0",
             "url": "config/en/hentaikun-config.json",
             "meta": {
-                "displayName": "HentaiKun",
+                "displayName": "Hentaikun",
                 "description": "HentaiKun manga reader with search, detail, and reader support",
                 "iconUrl": "images/hentaikun.png",
                 "contentType": "doujinshi",
@@ -837,14 +837,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 3
             },
-            "checksum": "1857fa44e472f3de03fdca9dd3c67e661afa6c81d1acbd20eed4a8c10a8be9bb"
+            "checksum": "bb702a129457d56d0891b3d3055ec803eaf1ba0f40ad19294b8bd44ed9fc5587"
         },
         {
             "id": "akazascans",
             "version": "1.0.0",
             "url": "config/en/akazascans-config.json",
             "meta": {
-                "displayName": "AkazaScans",
+                "displayName": "Akazascans",
                 "description": "AkazaScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/akazascans.png",
                 "contentType": "manga",
@@ -853,14 +853,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "246ce12bddab9aab64b4e26be754bb1a855781dad9c0cd70bc718f4ab06a9ffe"
+            "checksum": "548fadc3f95f4e99d351f3537c743c501798cf5afcb0c2bb37df983022db13dc"
         },
         {
             "id": "allporncomicio",
             "version": "1.0.0",
             "url": "config/en/allporncomicio-config.json",
             "meta": {
-                "displayName": "AllPornComic",
+                "displayName": "Allporncomic",
                 "description": "AllPornComic manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/allporncomicio.png",
                 "contentType": "manga",
@@ -869,14 +869,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "1f30b1253abc4a69a8597066bc21df46b71b42686fea38e5711b3eb598b57ed9"
+            "checksum": "a1c8e0e28dca7902c1c361c7be087e6915063694a23e0a425d263fd906235bcf"
         },
         {
             "id": "anisascansin",
             "version": "1.0.0",
             "url": "config/en/anisascansin-config.json",
             "meta": {
-                "displayName": "AnisaScans",
+                "displayName": "Anisascans",
                 "description": "AnisaScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/anisascansin.png",
                 "contentType": "manga",
@@ -885,14 +885,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "0ed4bae0f249df66cf2fe2ea690d47ea75f17bc874164f1278c7f2032b7f6462"
+            "checksum": "55ab5325140dbb875f073f5afc338bef9f6ce6db2cc238ca37084b5d472d6956"
         },
         {
             "id": "apcomicsorg",
             "version": "1.0.0",
             "url": "config/en/apcomicsorg-config.json",
             "meta": {
-                "displayName": "APComics",
+                "displayName": "Apcomics",
                 "description": "APComics manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/apcomicsorg.png",
                 "contentType": "manga",
@@ -901,14 +901,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "fe8b0e533b4463e351c3792ca9050f678d443b367db1af1cacc7132a76ff892b"
+            "checksum": "589891940d148cd8cfe7595a6a1b92fa600849bded770b2f44adc56b4bdbfdf2"
         },
         {
             "id": "arenascancom",
             "version": "1.0.0",
             "url": "config/en/arenascancom-config.json",
             "meta": {
-                "displayName": "ArenaScan",
+                "displayName": "Arenascan",
                 "description": "ArenaScan manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/arenascancom.png",
                 "contentType": "manga",
@@ -917,14 +917,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "12d8291f7b705c9044f19c684e1c4c1372183bc80cd5d47a7278abd3cf9ac8eb"
+            "checksum": "2d8742b8aae8365106d80f60e8f603baada4bf50bf64a052ef17e9320802ee36"
         },
         {
             "id": "athreascanscom",
             "version": "1.0.0",
             "url": "config/en/athreascanscom-config.json",
             "meta": {
-                "displayName": "AthreaScans",
+                "displayName": "Athreascans",
                 "description": "AthreaScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/athreascanscom.png",
                 "contentType": "manga",
@@ -933,14 +933,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "183697204eab2b950cb6a4dc7a43d1c5fb2280c9d15f3a105af907a0f0ab107b"
+            "checksum": "74cdc0be7f9b12a417b5db11ab0daf0aaf8b5cbfff3f8971f9a555170e4b3121"
         },
         {
             "id": "bunmangacom",
             "version": "1.0.0",
             "url": "config/en/bunmangacom-config.json",
             "meta": {
-                "displayName": "BunManga",
+                "displayName": "Bunmanga",
                 "description": "BunManga manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/bunmangacom.png",
                 "contentType": "manga",
@@ -949,14 +949,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "6a0e3505ad3ce825c88630a49b34498a811b6ccffc6ac7b5d2f1a3f32e2e6372"
+            "checksum": "0ce218544b62df12aa98fe2ba2fcd6034385e212df3b30a08703411bfaac6b54"
         },
         {
             "id": "cocomicco",
             "version": "1.0.0",
             "url": "config/en/cocomicco-config.json",
             "meta": {
-                "displayName": "CoComic",
+                "displayName": "Cocomic",
                 "description": "CoComic manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/cocomicco.png",
                 "contentType": "manga",
@@ -965,7 +965,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "d6ffe1673de49ce9267edfd398adb198068d9dd0b59e35abe30e2d61ee594938"
+            "checksum": "cb23f705ce8f018f06e75bba071b2f7acc9e71a8b954621aec25fe13a13e286a"
         },
         {
             "id": "comicasuranet",
@@ -981,14 +981,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "3f4d1e761ca80aaedf74da93c728045b668cf7e6b238e6beb14c594d6c52ea0e"
+            "checksum": "e65a4363201736418a5438a92239dfca7f472552e78cfdf8a22439f3058dd6d1"
         },
         {
             "id": "culturedworkscom",
             "version": "1.0.0",
             "url": "config/en/culturedworkscom-config.json",
             "meta": {
-                "displayName": "CulturedWorks",
+                "displayName": "Culturedworks",
                 "description": "CulturedWorks manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/culturedworkscom.png",
                 "contentType": "manga",
@@ -997,14 +997,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "fd7d492265709192d05cd08997ac26f0560c6c538e97580add8a398fd55f948d"
+            "checksum": "ec1802cbe3adb49465dfa386c0e172c95fd24ec27fca423c18281d9b761fa162"
         },
         {
             "id": "readerdecadencescanscom",
             "version": "1.0.0",
             "url": "config/en/readerdecadencescanscom-config.json",
             "meta": {
-                "displayName": "DecadenceScans",
+                "displayName": "Decadencescans",
                 "description": "DecadenceScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/readerdecadencescanscom.png",
                 "contentType": "manga",
@@ -1013,14 +1013,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "cb9412df2820e1e04e1ae56718f91a78f748bedf16324da6eb6a309598a466a2"
+            "checksum": "d4a5ee7e7c533ddc2730c5016eced5f5964b2694b02d070f7563b3f6d5a0e733"
         },
         {
             "id": "elftooncom",
             "version": "1.0.0",
             "url": "config/en/elftooncom-config.json",
             "meta": {
-                "displayName": "ElfToon",
+                "displayName": "Elftoon",
                 "description": "ElfToon manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/elftooncom.png",
                 "contentType": "manga",
@@ -1029,14 +1029,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "0741a6ec38b1f53e6b319840615957117a2f30d7a82efb2e3ad9b936dc8846aa"
+            "checksum": "0ae60ee70520e445ec1d051ab04c2bcab2f2dc5b6eec496a5010fe3b2907c502"
         },
         {
             "id": "scythescanscom",
             "version": "1.0.0",
             "url": "config/en/scythescanscom-config.json",
             "meta": {
-                "displayName": "ScytheScans",
+                "displayName": "Scythescans",
                 "description": "ScytheScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/scythescanscom.png",
                 "contentType": "manga",
@@ -1045,14 +1045,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "ed68f68d6bbc93199a579bdb61c6a227652602a93579660104719c2606f61a8e"
+            "checksum": "fa106305315634e89d15a0c7e5f7a2efc2032b8053ca6e1500c5b6c307b77c2e"
         },
         {
             "id": "evascansnet",
             "version": "1.0.0",
             "url": "config/en/evascansnet-config.json",
             "meta": {
-                "displayName": "EvaScans",
+                "displayName": "Evascans",
                 "description": "EvaScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/evascansnet.png",
                 "contentType": "manga",
@@ -1061,14 +1061,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "e2b889c15f9f814feef7a1e5f465e3342eac2e569bf25c7d4f2ba3669c21aade"
+            "checksum": "d8286211aa4f992d952bf03bf0598931b09168bd2a08ea11694f3a503577de3a"
         },
         {
             "id": "gakamangascom",
             "version": "1.0.0",
             "url": "config/en/gakamangascom-config.json",
             "meta": {
-                "displayName": "GakaMangas",
+                "displayName": "Gakamangas",
                 "description": "GakaMangas manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/gakamangascom.png",
                 "contentType": "manga",
@@ -1077,14 +1077,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "bbde0aff4d95cccf7aaa2ebbb387e6ad1d362d41b93de155fdfcf5899e94823c"
+            "checksum": "56450795604ca9c81c56268870a6cd69ee470e930be7369a526381233eb7a3a7"
         },
         {
             "id": "gdscanscom",
             "version": "1.0.0",
             "url": "config/en/gdscanscom-config.json",
             "meta": {
-                "displayName": "GDScans",
+                "displayName": "Gdscans",
                 "description": "GDScans manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/gdscanscom.png",
                 "contentType": "manga",
@@ -1093,14 +1093,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "9dc4555ba7923c9335ccb0e6c42fd7234620f25e9ea0c88d489a961f82772925"
+            "checksum": "85993d874f0e6763fbc76df9299825a7c3261a9284781e83ef80cc5c36379c35"
         },
         {
             "id": "galaxymangaio",
             "version": "1.0.0",
             "url": "config/en/galaxymangaio-config.json",
             "meta": {
-                "displayName": "GalaxyManga",
+                "displayName": "Galaxymanga",
                 "description": "GalaxyManga manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/galaxymangaio.png",
                 "contentType": "manga",
@@ -1109,14 +1109,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "542db69d60bc90a77b8974b3caae5bf30f75120e01660b64ea4d794367af4c7d"
+            "checksum": "ba90eec857d30fb4e6a2900f31f8c05a02519ac005243a60aa9c06f7ada8ce20"
         },
         {
             "id": "gedecomixcom",
             "version": "1.0.0",
             "url": "config/en/gedecomixcom-config.json",
             "meta": {
-                "displayName": "GedeComix",
+                "displayName": "Gedecomix",
                 "description": "GedeComix manga reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/gedecomixcom.png",
                 "contentType": "manga",
@@ -1125,14 +1125,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "73df8a9c5adc395273ef4840fa6004b877bce8cd66e95d83428c70efacd8940f"
+            "checksum": "bdcd05c7fc1299a893ca42e320530730e1974f426bf261d02c67b37e21f37426"
         },
         {
             "id": "grabberzone",
             "version": "1.0.0",
             "url": "config/en/grabberzone-config.json",
             "meta": {
-                "displayName": "GrabberZone",
+                "displayName": "Grabber",
                 "description": "GrabberZone comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/grabberzone.png",
                 "contentType": "manga",
@@ -1141,30 +1141,30 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "92d4b5158685d792e12ed94158af170f361505850c0f824caa1b252587a4e75b"
+            "checksum": "bb8f6aeb0dee7bd173421fa652ef7b658259b9812fc269ce61e64d1e9ce89f03"
         },
         {
             "id": "hentai4freenet",
             "version": "1.0.0",
             "url": "config/en/hentai4freenet-config.json",
             "meta": {
-                "displayName": "Hentai4Free",
+                "displayName": "Hentai4free",
                 "description": "Hentai4Free comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/hentai4freenet.png",
                 "contentType": "manga",
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "a9603b728b084f3f3aa87d4e37907fd769332671a9b108d11d1c3258ce9d4b7f"
+            "checksum": "b72b21b7e8aa6038a24a4a065836b039a12840a8918d308faf25fe9ae96910a2"
         },
         {
             "id": "hentaixcomic",
             "version": "1.0.0",
             "url": "config/en/hentaixcomic-config.json",
             "meta": {
-                "displayName": "HentaiXComic",
+                "displayName": "Hentaixcomic",
                 "description": "HentaiXComic comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/hentaixcomic.png",
                 "contentType": "manga",
@@ -1173,14 +1173,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "4ded6cb99599a91c3aecd5427a94e8add7c0936a4981547d11bb930fac7fd2a0"
+            "checksum": "d99a07a1a8727108f74732a6b0595f337d52fba408cd25d713a89ed506c84dad"
         },
         {
             "id": "hentaixdickgirl",
             "version": "1.0.0",
             "url": "config/en/hentaixdickgirl-config.json",
             "meta": {
-                "displayName": "HentaiXDickgirl",
+                "displayName": "Hentaixdickgirl",
                 "description": "HentaiXDickgirl comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/hentaixdickgirl.png",
                 "contentType": "manga",
@@ -1189,14 +1189,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "3d05b179ccca41eaaf6ff2eb129ed6eaf10f680fd4add413f492d77a648277cc"
+            "checksum": "386b33a66348310874bd3c1b35f8ff250d494380736fe1da477cb0d4eae39b27"
         },
         {
             "id": "hentaixyuri",
             "version": "1.0.0",
             "url": "config/en/hentaixyuri-config.json",
             "meta": {
-                "displayName": "HentaiXYuri",
+                "displayName": "Hentaixyuri",
                 "description": "HentaiXYuri comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/hentaixyuri.png",
                 "contentType": "manga",
@@ -1205,14 +1205,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "0fccae61f4ecb438fd86de8114eb8749bce6be4a48814214429425ff80a00a8f"
+            "checksum": "24533984c874a97bfb0d802baf05942c982b5c8d4b84d7590fd2bc93108d9f30"
         },
         {
             "id": "hm2d",
             "version": "1.0.0",
             "url": "config/en/hm2d-config.json",
             "meta": {
-                "displayName": "HM2D Doujin District",
+                "displayName": "Doujindistrict",
                 "description": "HM2D Doujin District comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/hm2d.png",
                 "contentType": "manga",
@@ -1221,14 +1221,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "c580c5e2af1f7eaef8f94a421c0c6b09b643cbc0c08cc1fcf96b7852bbae17ef"
+            "checksum": "4c2ec4059efaaef07eabfd76832e250b7860bc116ee147915718ab5a678f4e69"
         },
         {
             "id": "kmansin09",
             "version": "1.0.0",
             "url": "config/en/kmansin09-config.json",
             "meta": {
-                "displayName": "KMansin09",
+                "displayName": "Kmansin09",
                 "description": "KMansin09 comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/kmansin09.png",
                 "contentType": "manga",
@@ -1237,14 +1237,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "eab9fa2f16e3250bd85af472a853cd17205e44f3d8bbe3e34115f7be71f92937"
+            "checksum": "7cd60f441b5de28cb08a8f45affe1d89400999b9daf24f387f939595ffde1ea4"
         },
         {
             "id": "ksgroupscans",
             "version": "1.0.0",
             "url": "config/en/ksgroupscans-config.json",
             "meta": {
-                "displayName": "KS Group Scans",
+                "displayName": "Ksgroupscans",
                 "description": "KS Group Scans comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/ksgroupscans.png",
                 "contentType": "manga",
@@ -1253,14 +1253,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "1d77ce44eded484ce3534407dc90e44ab61600b536a438a49bbd5ed1b42eb549"
+            "checksum": "d9177df2ecf596002aa4ba136e07a68b6fdfe982c81d2c0086152100428f4289"
         },
         {
             "id": "lhtranslation",
             "version": "1.0.0",
             "url": "config/en/lhtranslation-config.json",
             "meta": {
-                "displayName": "LHTranslation",
+                "displayName": "Lhtranslation",
                 "description": "LHTranslation comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/lhtranslation.png",
                 "contentType": "manga",
@@ -1269,14 +1269,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "1862e7f16d877c999e73bf877f8de162033ba16f43dffe2010f397bc26dada0f"
+            "checksum": "22c236febcf7830dee4e21f0919c365990d4c5038e4058feec3df983693ece8a"
         },
         {
             "id": "manga18free",
             "version": "1.0.0",
             "url": "config/en/manga18free-config.json",
             "meta": {
-                "displayName": "Manga18Free",
+                "displayName": "Manga18free",
                 "description": "Manga18Free comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/manga18free.png",
                 "contentType": "manga",
@@ -1285,14 +1285,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "6f67c59c90ef81a1bc3e28d13713300653211f7a16fb594bf7423479972e93da"
+            "checksum": "65a128f02481078643e68ca5cc576e7a7cb2e284b8ee90c89f1a74fe897600ac"
         },
         {
             "id": "likemangain",
             "version": "1.0.0",
             "url": "config/en/likemangain-config.json",
             "meta": {
-                "displayName": "LikeMangain",
+                "displayName": "Mangayy",
                 "description": "LikeMangain comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/likemangain.png",
                 "contentType": "manga",
@@ -1301,14 +1301,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "de6d1d68ce3173c2fd449ddda01d6269f246c657ebbe9bd3f894142652ebe020"
+            "checksum": "6b68eea3a502e0822851b3c16f94487671362bd116683c17102319dda7c98ed7"
         },
         {
             "id": "lilymanga",
             "version": "1.0.0",
             "url": "config/en/lilymanga-config.json",
             "meta": {
-                "displayName": "LilyManga",
+                "displayName": "Lilymanga",
                 "description": "LilyManga comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/lilymanga.png",
                 "contentType": "manga",
@@ -1317,7 +1317,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "db952c0617769df57072d033eb1f111681c9ae75c021e312b1d137e42b534787"
+            "checksum": "c3c6b4ced431f3dbd1d0ccdafa29718d8ae22dbe66af13b5c75e5e2b329893ba"
         },
         {
             "id": "kingofshojo",
@@ -1333,14 +1333,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "b6452f2397605d6f633a5c75009b714282bab05397ad96a8a1bae912686cfddf"
+            "checksum": "1ae5ca3947a93a9f4ef670ebd578883e613d60c0c957ed94b31348155571e0c9"
         },
         {
             "id": "lagoonscans",
             "version": "1.0.0",
             "url": "config/en/lagoonscans-config.json",
             "meta": {
-                "displayName": "Lagoon Scans",
+                "displayName": "Lagoonscans",
                 "description": "Lagoon Scans comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/lagoonscans.png",
                 "contentType": "manga",
@@ -1349,7 +1349,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "6c4be6d24e7ec8f3d58e5e2ac46e0da18d286127b3a3b2adbe4da95739646ecb"
+            "checksum": "d8c0a4c49b036827e09a4d4d635abcb9c7e8aea7b2b07046f022f147ec7884f6"
         },
         {
             "id": "manga18fx",
@@ -1365,7 +1365,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "78dc7211ed4f61fd1b506da893a42d1507ed5854be606488efc8080be41f30cd"
+            "checksum": "45334c0b85a202e2f9b29bc84237ed7df40a7f95c650e0518d7d72e63865a210"
         },
         {
             "id": "madarascans",
@@ -1381,14 +1381,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "79558bc9b55c5868f7b7d83dbe3fd9404b251a5b4e6772759132497d4ccc11a7"
+            "checksum": "0272c0ab5665c53450fac4242e86c05b5bf1698699e5fdb8ff66117f80439896"
         },
         {
             "id": "hunlightcomics",
             "version": "1.0.0",
             "url": "config/en/hunlightcomics-config.json",
             "meta": {
-                "displayName": "Hunlight Comics",
+                "displayName": "Hunlightcomics",
                 "description": "Hunlight Comics comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/hunlightcomics.png",
                 "contentType": "manga",
@@ -1397,7 +1397,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "dc694cd3e48a564d78f0e42a89b27eeeef1013a00445c48146d94a04cc5f7866"
+            "checksum": "0950d06c93c6620b4b3631f0f5385bb7efe4ccc07ee5e95bdb8f60d38ac77447"
         },
         {
             "id": "manga18x",
@@ -1413,14 +1413,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "5d8575d1fe9c1dac4809c2f7474ad1bfabeb3f51be736e4f3431345d8c30c579"
+            "checksum": "bb6a476f92033d56ab3bfe52274dbd51e005b79c7a1c8bb0f49b76c6e9ec3343"
         },
         {
             "id": "mangacrazy",
             "version": "1.0.0",
             "url": "config/en/mangacrazy-config.json",
             "meta": {
-                "displayName": "MangaCrazy",
+                "displayName": "Mangacrazy",
                 "description": "MangaCrazy comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangacrazy.png",
                 "contentType": "manga",
@@ -1429,14 +1429,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "36754ec6ce8e7f230fd14dd4293963d09c9b2bd7349fc9108dc55a6038a75604"
+            "checksum": "f93da2a13031e3aca6aa498c92d0539744fd9f7b040b19c46639a7f4a5ddf4eb"
         },
         {
             "id": "mangadass",
             "version": "1.0.0",
             "url": "config/en/mangadass-config.json",
             "meta": {
-                "displayName": "MangaDass",
+                "displayName": "Mangadass",
                 "description": "MangaDass comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangadass.png",
                 "contentType": "manga",
@@ -1445,14 +1445,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "401bd4377706b3b84df115e6a6fb7ee299d1f8b31f53bd78d09194fa853602ec"
+            "checksum": "9fd4d4e20ec441fc80a0fed45c7cfc5f1cdb52e9a6c91a9a926cda7fa1dfdae6"
         },
         {
             "id": "mangadistrict",
             "version": "1.0.0",
             "url": "config/en/mangadistrict-config.json",
             "meta": {
-                "displayName": "Manga District",
+                "displayName": "Mangadistrict",
                 "description": "Manga District comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangadistrict.png",
                 "contentType": "manga",
@@ -1461,7 +1461,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "414198f8d39a1dee5366115409e77186e0513af84a8ec9bf982762a6010a623d"
+            "checksum": "406800f1d239fe5ce5579a518f12392ce57a15a92019cf330b112d10e9c9dc41"
         },
         {
             "id": "mangaforfreecom",
@@ -1477,14 +1477,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "c750a204593d00d0f1d6ff2efb17186fcf8315cae70015a5546022a5294efa2d"
+            "checksum": "c2dba69bd68114db55a7b6e80011f09cc323add196158074d2d323409fc0ff22"
         },
         {
             "id": "mangafree",
             "version": "1.0.0",
             "url": "config/en/mangafree-config.json",
             "meta": {
-                "displayName": "MangaFree",
+                "displayName": "Mangafree",
                 "description": "MangaFree comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangafree.png",
                 "contentType": "manga",
@@ -1493,14 +1493,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "ea515ca3e60e64c2bf866fb807eaf5d89d4b3c785bc8d4ad40f1b8614c90bdf0"
+            "checksum": "a93ec1f16bd16cc0110f8cd99dd21a6f2cbfae453875ee45671664dcc151c809"
         },
         {
             "id": "mangamaniacs",
             "version": "1.0.0",
             "url": "config/en/mangamaniacs-config.json",
             "meta": {
-                "displayName": "MangaManiacs",
+                "displayName": "Mangamaniacs",
                 "description": "MangaManiacs comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangamaniacs.png",
                 "contentType": "manga",
@@ -1509,14 +1509,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "e797f932d3cc8cd6ab50a46bc5bd28a474c679deb12010d471b9762064ac0f9c"
+            "checksum": "53f2c3d877779d4450538098ac68d283720ad2cdd227a86baccf69f404f90d65"
         },
         {
             "id": "mangaowlio",
             "version": "1.0.0",
             "url": "config/en/mangaowlio-config.json",
             "meta": {
-                "displayName": "MangaOwl",
+                "displayName": "Mangaowl",
                 "description": "MangaOwl comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangaowlio.png",
                 "contentType": "manga",
@@ -1525,7 +1525,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "e45bb1728056ede445505ef3a6e9ee67e7e91399234cbda81a343f01ca6cc8e6"
+            "checksum": "6ba38f4a0d7c9a5be5e2eda74a5aca0c8cc7319c1d8ce9782e73f9985eb336dc"
         },
         {
             "id": "mangareadorg",
@@ -1541,14 +1541,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "7a9d79358649b747f3ba54f6ec814a60ab502172ff6fb503ebc6435d1a12bf9a"
+            "checksum": "4458bb7705536d7a2a287b9be72531e4d817329badd0524575fbeb7c482f0235"
         },
         {
             "id": "mangasushi",
             "version": "1.0.0",
             "url": "config/en/mangasushi-config.json",
             "meta": {
-                "displayName": "MangaSushi",
+                "displayName": "Mangasushi",
                 "description": "MangaSushi comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/mangasushi.png",
                 "contentType": "manga",
@@ -1557,14 +1557,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "36cf1b77632fda33abf0e925898eb28a3e929facf72df32c56c762bb6008e722"
+            "checksum": "fc93f44f97e069702efb40876e0dee71109d3d1a2126f34eba2cfddbcb327dfe"
         },
         {
             "id": "manhuanext",
             "version": "1.0.0",
             "url": "config/en/manhuanext-config.json",
             "meta": {
-                "displayName": "ManhuaNext",
+                "displayName": "Manhuanext",
                 "description": "ManhuaNext comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/manhuanext.png",
                 "contentType": "manga",
@@ -1573,7 +1573,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "523f6bb216c48584cd2c15a171bda787a52a41f623307d86a8682d1ddc0ac237"
+            "checksum": "ef0e3b81fc34cf217936463108c0da88a71ef57f455e22319e439158a706cc3d"
         },
         {
             "id": "manhwanex",
@@ -1589,14 +1589,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "0859d9dc64c386b2de6ce19ce2e54f7a706ef08f424f78c1590569287269f883"
+            "checksum": "1dd2df20f05e3a37fe15829ae2cc210a311db319260e1429944a213abaa0c6fb"
         },
         {
             "id": "orchisasia",
             "version": "1.0.0",
             "url": "config/en/orchisasia-config.json",
             "meta": {
-                "displayName": "OrchisAsia",
+                "displayName": "Orchisasia",
                 "description": "OrchisAsia comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/orchisasia.png",
                 "contentType": "manga",
@@ -1605,7 +1605,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "243ed4a6541594d5aa036da6002474300e3770c4a757154983c5e99ec04e58b2"
+            "checksum": "09aef4945d166cd8cd5d24fbbd638997f2ade5982b03bee7de272e475e613953"
         },
         {
             "id": "paritehaber",
@@ -1621,14 +1621,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "e3614fb52584b9eb8e1f90ec8ef071dc1292279cda4a6cdf4c4e032ead8ca820"
+            "checksum": "4790e52be0bb2c6d5e961c0e02957ca28576298abbe4a731a3c87245e2a4a17d"
         },
         {
             "id": "manhwatoon",
             "version": "1.0.0",
             "url": "config/en/manhwatoon-config.json",
             "meta": {
-                "displayName": "ManhwaToon",
+                "displayName": "Manhwatoon",
                 "description": "ManhwaToon comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/manhwatoon.png",
                 "contentType": "manga",
@@ -1637,14 +1637,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "78723d9250fb35085c79221ec5e39acf37e2de48932dd090df000960f4d397d1"
+            "checksum": "ff76bf65f6f32c3cb3d922dc2f03d6c2ff461adccf27fb845e5a538f30e2be50"
         },
         {
             "id": "miauscan",
             "version": "1.0.0",
             "url": "config/en/miauscan-config.json",
             "meta": {
-                "displayName": "MiauScan",
+                "displayName": "Leemiau",
                 "description": "MiauScan comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/miauscan.png",
                 "contentType": "manga",
@@ -1653,14 +1653,14 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "c14aba40ac65f5f19100caeac417edad1763a4ea38d28e65b39a9689c3f1afd3"
+            "checksum": "253c40d231b603817bd930785bee2cee507cb413437b3797ebce4e399c6456a9"
         },
         {
             "id": "manhwaden",
             "version": "1.0.0",
             "url": "config/en/manhwaden-config.json",
             "meta": {
-                "displayName": "ManhwaDen",
+                "displayName": "Manhwaden",
                 "description": "ManhwaDen comics reader with search, detail, chapters, and reader support",
                 "iconUrl": "images/manhwaden.png",
                 "contentType": "manga",
@@ -1669,7 +1669,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "5a2e35fb98a9fd7bac7ef800b9f4fa1b5aaa21c7eaa9ac39df200ad2b70c3e9f"
+            "checksum": "4a123562f168cf29734140d15b92679ec818494ba8c4558bd96023e57297cc85"
         },
         {
             "id": "milftoon",

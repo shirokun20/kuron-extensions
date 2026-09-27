@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://mangacrazy.net",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangacrazy",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://mangacrazy.net"
   },
   "network": {
     "requiresBypass": false,

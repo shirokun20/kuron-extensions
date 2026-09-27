@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://kmansin09.top",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Kmansin09",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://kmansin09.top"
   },
   "network": {
     "requiresBypass": false,

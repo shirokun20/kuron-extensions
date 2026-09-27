@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://manhuanext.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Manhuanext",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://manhuanext.com"
   },
   "network": {
     "requiresBypass": false,
@@ -48,7 +48,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a[rel='next'], .nav-links .nav-previous a, .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },

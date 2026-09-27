@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://cocomic.co",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Cocomic",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://cocomic.co"
   },
   "network": {
     "requiresBypass": false,

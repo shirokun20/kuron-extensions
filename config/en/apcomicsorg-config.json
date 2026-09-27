@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://apcomics.org",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Apcomics",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://apcomics.org"
   },
   "network": {
     "requiresBypass": false,

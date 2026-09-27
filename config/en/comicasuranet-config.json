@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://comicasura.net",
   "ui": {
-    "displayName": "Akaza Scans",
+    "displayName": "Comicasura",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://comicasura.net"
   },
   "network": {
     "requiresBypass": false,
@@ -120,6 +120,10 @@
         "fields": {
           "title": {
             "selector": "h1.comic-title-content"
+          },
+          "coverUrl": {
+            "selector": "meta[property=\"og:image\"]",
+            "attribute": "content"
           }
         },
         "chapters": {

@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://anisascans.in",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Anisascans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://anisascans.in"
   },
   "network": {
     "requiresBypass": false,

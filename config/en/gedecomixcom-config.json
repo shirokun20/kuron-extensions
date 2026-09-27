@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://gedecomix.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Gedecomix",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://gedecomix.com"
   },
   "network": {
     "requiresBypass": false,
@@ -43,7 +43,7 @@
             },
             "coverUrl": {
               "selector": ".item-thumb img",
-              "attribute": "data-src"
+              "attribute": "src"
             }
           },
           "pagination": {
@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/comics-genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/comics-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/porncomic/{id}/",
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"

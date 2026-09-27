@@ -47,5 +47,15 @@
     "favorite": false,
     "offlineMode": true,
     "generatePdf": false
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "keyword",
+        "type": "text",
+        "placeholder": "Search Comix..."
+      }
+    }
   }
 }

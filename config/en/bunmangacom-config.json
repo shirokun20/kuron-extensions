@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://bunmanga.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Bunmanga",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://bunmanga.com"
   },
   "network": {
     "requiresBypass": false,

@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://lagoonscans.com",
   "ui": {
-    "displayName": "Akaza Scans",
+    "displayName": "Lagoonscans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://lagoonscans.com"
   },
   "network": {
     "requiresBypass": false,
@@ -116,17 +116,34 @@
       "detail": {
         "fields": {
           "title": {
-            "selector": "h1"
+            "selector": "h1.entry-title"
+          },
+          "coverUrl": {
+            "selector": ".thumb img",
+            "attribute": "src"
           },
           "tags": {
-            "selector": "a[rel='tag']",
+            "selector": ".seriestugenre a",
             "attribute": "href",
             "transform": "slug",
             "multi": true
           }
         },
         "chapters": {
-          "mode": "adminAjax"
+          "container": "#chapterlist li",
+          "fields": {
+            "id": {
+              "selector": ".eph-num a",
+              "attribute": "href",
+              "regex": "/([^?#/]+)/?$"
+            },
+            "title": {
+              "selector": ".chapternum"
+            },
+            "date": {
+              "selector": ".chapterdate"
+            }
+          }
         }
       },
       "reader": {

@@ -1,189 +1,189 @@
 {
- "source": "hentailoop",
- "displayName": "HentaiLoop",
- "schemaVersion": "2.0",
- "version": "1.0.0",
- "baseUrl": "https://hentailoop.com",
- "enabled": true,
- "defaultLanguage": "english",
- "ui": {
+  "source": "hentailoop",
   "displayName": "HentaiLoop",
-  "iconPath": "/favicon-32x32.png",
-  "brandColor": "#ffffff",
-  "openInBrowserUrl": "https://hentailoop.com"
- },
- "network": {
-  "requiresBypass": false,
-  "headers": {
-   "Referer": "https://hentailoop.com/",
-   "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
-  },
-  "rateLimit": {
-   "enabled": true,
-   "requestsPerSecond": 2,
-   "maxConcurrentRequests": 2
-  }
- },
- "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
- "requiredPrimitives": [
-  "imageMode.directUrl",
-  "pagination.page",
-  "auth.none"
- ],
- "scraper": {
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "baseUrl": "https://hentailoop.com",
   "enabled": true,
-  "urlPatterns": {
-   "home": {
-    "url": "/",
-    "list": {
-     "container": "div.manga-card",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": "h2.title"
-      },
-      "coverUrl": {
-       "selector": "img",
-       "attribute": "data-src"
-      }
-     },
-     "pagination": {
-      "next": "a.next.page-numbers",
-      "links": "a.page-numbers"
-     }
-    }
-   },
-   "homePage": {
-    "url": "/page/{page}/",
-    "inherits": "home"
-   },
-   "latest": {
-    "url": "/",
-    "inherits": "home"
-   },
-   "search": {
-    "url": "/?s={query}&post_type=manga",
-    "inherits": "home"
-   },
-   "searchPage": {
-    "url": "/page/{page}/?s={query}&post_type=manga",
-    "inherits": "home"
-   },
-   "detail": "/manga/{id}/",
-   "chapter": "/manga/{id}",
-   "genreSearch": {
-    "url": "/tags/{tag}/",
-    "list": {
-     "container": ".best-card",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": ".best-title"
-      },
-      "coverUrl": {
-       "selector": "img",
-       "attribute": "data-src"
-      }
-     }
-    }
-   },
-   "genreSearchPage": {
-    "url": "/tags/{tag}/page/{page}/",
-    "inherits": "genreSearch"
-   }
+  "defaultLanguage": "english",
+  "ui": {
+    "displayName": "Hentailoop",
+    "iconPath": "/favicon-32x32.png",
+    "brandColor": "#ffffff",
+    "openInBrowserUrl": "https://hentailoop.com"
   },
-  "selectors": {
-   "list": {
-    "item": ".page-item-detail, .page-item, .grid-item",
-    "fields": {
-     "id": {
-      "selector": "a",
-      "attribute": "href",
-      "transform": "slug"
-     },
-     "title": {
-      "selector": "a"
-     },
-     "coverUrl": {
-      "selector": "img",
-      "attribute": "src"
-     }
-    }
-   },
-   "detail": {
-    "fields": {
-     "title": {
-      "selector": "h1"
-     },
-     "coverUrl": {
-      "selector": "meta[property=\"og:image\"]",
-      "attribute": "content"
-     },
-     "tags": {
-      "selector": "a[href*='/tag/']",
-      "attribute": "href",
-      "transform": "slug",
-      "multi": true
-     }
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://hentailoop.com/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
     },
-    "chapters": {
-     "container": "div.previews",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "regex": "manga/([^?#]+/read/p/\\d+)"
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 2,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
+  "requiredPrimitives": [
+    "imageMode.directUrl",
+    "pagination.page",
+    "auth.none"
+  ],
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "div.manga-card",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h2.title"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a.next.page-numbers",
+            "links": "a.page-numbers"
+          }
+        }
       },
-      "title": {
-       "selector": "a",
-       "attribute": "href",
-       "regex": "/read/p/(\\d+)"
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "latest": {
+        "url": "/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=manga",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=manga",
+        "inherits": "home"
+      },
+      "detail": "/manga/{id}/",
+      "chapter": "/manga/{id}",
+      "genreSearch": {
+        "url": "/tags/{tag}/",
+        "list": {
+          "container": ".best-card",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".best-title"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "data-src"
+            }
+          }
+        }
+      },
+      "genreSearchPage": {
+        "url": "/tags/{tag}/page/{page}/",
+        "inherits": "genreSearch"
       }
-     }
+    },
+    "selectors": {
+      "list": {
+        "item": ".page-item-detail, .page-item, .grid-item",
+        "fields": {
+          "id": {
+            "selector": "a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": "a"
+          },
+          "coverUrl": {
+            "selector": "img",
+            "attribute": "src"
+          }
+        }
+      },
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1"
+          },
+          "coverUrl": {
+            "selector": "meta[property=\"og:image\"]",
+            "attribute": "content"
+          },
+          "tags": {
+            "selector": "a[href*='/tag/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "div.previews a",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "manga/([^?#]+/read/p/\\d+)"
+            },
+            "title": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/read/p/(\\d+)"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": "img.attachment-full",
+          "attribute": "src"
+        }
+      }
     }
-   },
-   "reader": {
-    "images": {
-     "selector": "img.attachment-full",
-     "attribute": "src"
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search..."
+      }
     }
-   }
-  }
- },
- "searchForm": {
-  "urlPattern": "search",
-  "params": {
-   "query": {
-    "queryParam": "q",
-    "type": "text",
-    "placeholder": "Search..."
-   }
-  }
- },
- "contentIdPattern": "/manga/([^/]+)",
- "navigation": {
-  "genreQueryPrefix": "genre:",
-  "genreTagType": "genre"
- },
- "features": {
-  "home": true,
-  "search": true,
-  "detail": true,
-  "reader": true,
-  "download": true,
-  "chapters": true,
-  "comments": false,
-  "favorite": true,
-  "offlineMode": true,
-  "related": false
- },
- "notes": "WordPress Madara theme."
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre"
+  },
+  "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "reader": true,
+    "download": true,
+    "chapters": true,
+    "comments": false,
+    "favorite": true,
+    "offlineMode": true,
+    "related": false
+  },
+  "notes": "WordPress Madara theme."
 }

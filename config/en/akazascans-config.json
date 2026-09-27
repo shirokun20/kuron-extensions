@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://akazascans.org",
   "ui": {
-    "displayName": "Akaza Scans",
+    "displayName": "Akazascans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://akazascans.org"
   },
   "network": {
     "requiresBypass": false,

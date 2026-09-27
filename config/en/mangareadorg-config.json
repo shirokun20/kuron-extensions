@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://www.mangaread.org",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangaread",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://www.mangaread.org"
   },
   "network": {
     "requiresBypass": false,
@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/genres/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/genres/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"

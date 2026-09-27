@@ -6,7 +6,7 @@
   "defaultLanguage": "english",
   "baseUrl": "https://www.manhwaden.com",
   "ui": {
-    "displayName": "ManhwaDen",
+    "displayName": "Manhwaden",
     "brandColor": "#FF6B35",
     "openInBrowserUrl": "https://www.manhwaden.com"
   },

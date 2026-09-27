@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://manga18free.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Manga18free",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://manga18free.com"
   },
   "network": {
     "requiresBypass": false,
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"

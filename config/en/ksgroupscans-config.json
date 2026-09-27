@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://ksgroupscans.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Ksgroupscans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://ksgroupscans.com"
   },
   "network": {
     "requiresBypass": false,

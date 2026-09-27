@@ -1,169 +1,169 @@
 {
- "source": "hentairead",
- "displayName": "HentaiRead",
- "schemaVersion": "2.0",
- "version": "1.0.0",
- "baseUrl": "https://hentairead.io",
- "enabled": true,
- "defaultLanguage": "english",
- "ui": {
+  "source": "hentairead",
   "displayName": "HentaiRead",
-  "iconPath": "/favicon-32x32.png",
-  "brandColor": "#ffffff",
-  "openInBrowserUrl": "https://hentairead.io"
- },
- "network": {
-  "requiresBypass": false,
-  "headers": {
-   "Referer": "https://hentairead.io/",
-   "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
-  },
-  "rateLimit": {
-   "enabled": true,
-   "requestsPerSecond": 2,
-   "maxConcurrentRequests": 2
-  }
- },
- "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
- "requiredPrimitives": [
-  "imageMode.directUrl",
-  "pagination.page",
-  "auth.none"
- ],
- "scraper": {
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "baseUrl": "https://hentairead.io",
   "enabled": true,
-  "urlPatterns": {
-   "home": {
-    "url": "/",
-    "list": {
-     "container": "div.item",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": ".slide-caption h3 a"
-      },
-      "coverUrl": {
-       "selector": "img",
-       "attribute": "src",
-       "prefix": "https://hentairead.io/"
-      }
-     }
-    }
-   },
-   "search": {
-    "url": "/search/{query}",
-    "list": {
-     "container": "div.card",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "transform": "slug"
-      },
-      "title": {
-       "selector": "p.title-manga a"
-      },
-      "coverUrl": {
-       "selector": "img.card-img-top",
-       "attribute": "src",
-       "prefix": "https://hentairead.io/"
-      }
-     }
-    }
-   },
-   "detail": "/{id}/",
-   "chapter": "/{id}",
-   "genreSearch": {
-    "url": "/genres/{tag}/",
-    "inherits": "search"
-   }
+  "defaultLanguage": "english",
+  "ui": {
+    "displayName": "Hentairead",
+    "iconPath": "/favicon-32x32.png",
+    "brandColor": "#ffffff",
+    "openInBrowserUrl": "https://hentairead.io"
   },
-  "selectors": {
-   "list": {
-    "item": ".page-item-detail, .page-item, .grid-item",
-    "fields": {
-     "id": {
-      "selector": "a",
-      "attribute": "href",
-      "transform": "slug"
-     },
-     "title": {
-      "selector": "a"
-     },
-     "coverUrl": {
-      "selector": "img",
-      "attribute": "src"
-     }
-    }
-   },
-   "detail": {
-    "fields": {
-     "title": {
-      "selector": "h1"
-     },
-     "coverUrl": {
-      "selector": "meta[property=\"og:image\"]",
-      "attribute": "content"
-     },
-     "tags": {
-      "selector": "a[href*='/genres/']",
-      "attribute": "href",
-      "transform": "slug",
-      "multi": true
-     }
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://hentairead.io/",
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
     },
-    "chapters": {
-     "container": "#nt_listchapter",
-     "fields": {
-      "id": {
-       "selector": "a",
-       "attribute": "href",
-       "regex": "/([^?#]+/chapter-\\d+-\\d+)"
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 2,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
+  "requiredPrimitives": [
+    "imageMode.directUrl",
+    "pagination.page",
+    "auth.none"
+  ],
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "div.item",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".slide-caption h3 a"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "src",
+              "prefix": "https://hentairead.io/"
+            }
+          }
+        }
       },
-      "title": {
-       "selector": "a"
+      "search": {
+        "url": "/search/{query}",
+        "list": {
+          "container": "div.card",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "p.title-manga a"
+            },
+            "coverUrl": {
+              "selector": "img.card-img-top",
+              "attribute": "src",
+              "prefix": "https://hentairead.io/"
+            }
+          }
+        }
+      },
+      "detail": "/{id}/",
+      "chapter": "/{id}",
+      "genreSearch": {
+        "url": "/genres/{tag}/",
+        "inherits": "search"
       }
-     }
+    },
+    "selectors": {
+      "list": {
+        "item": ".page-item-detail, .page-item, .grid-item",
+        "fields": {
+          "id": {
+            "selector": "a",
+            "attribute": "href",
+            "transform": "slug"
+          },
+          "title": {
+            "selector": "a"
+          },
+          "coverUrl": {
+            "selector": "img",
+            "attribute": "src"
+          }
+        }
+      },
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1"
+          },
+          "coverUrl": {
+            "selector": "meta[property=\"og:image\"]",
+            "attribute": "content"
+          },
+          "tags": {
+            "selector": "a[href*='/genres/']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "#nt_listchapter",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "regex": "/([^?#]+/chapter-\\d+-\\d+)"
+            },
+            "title": {
+              "selector": "a"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": "img[data-index]",
+          "attribute": "src"
+        }
+      }
     }
-   },
-   "reader": {
-    "images": {
-     "selector": "img[data-index]",
-     "attribute": "src"
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "q",
+        "type": "text",
+        "placeholder": "Search..."
+      }
     }
-   }
-  }
- },
- "searchForm": {
-  "urlPattern": "search",
-  "params": {
-   "query": {
-    "queryParam": "q",
-    "type": "text",
-    "placeholder": "Search..."
-   }
-  }
- },
- "contentIdPattern": "/([a-z0-9-]+-\\d+)/?",
- "navigation": {
-  "genreQueryPrefix": "genre:",
-  "genreTagType": "genre"
- },
- "features": {
-  "home": true,
-  "search": true,
-  "detail": true,
-  "reader": true,
-  "download": true,
-  "chapters": true,
-  "comments": false,
-  "favorite": true,
-  "offlineMode": true,
-  "related": false
- },
- "notes": "WordPress Madara theme."
+  },
+  "contentIdPattern": "/([a-z0-9-]+-\\d+)/?",
+  "navigation": {
+    "genreQueryPrefix": "genre:",
+    "genreTagType": "genre"
+  },
+  "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "reader": true,
+    "download": true,
+    "chapters": true,
+    "comments": false,
+    "favorite": true,
+    "offlineMode": true,
+    "related": false
+  },
+  "notes": "WordPress Madara theme."
 }

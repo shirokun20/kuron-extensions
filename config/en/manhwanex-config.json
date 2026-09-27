@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://manhwanex.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Manhwanex",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://manhwanex.com"
   },
   "network": {
     "requiresBypass": false,

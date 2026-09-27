@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://doujindistrict.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Doujindistrict",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://doujindistrict.com"
   },
   "network": {
     "requiresBypass": false,
@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/book-genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/book-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/read/{id}/",
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"
@@ -135,7 +135,7 @@
             "multi": true
           },
           "tags": {
-            "selector": ".genres-content a",
+            "selector": ".genres-content a, .tags-content a",
             "multi": true
           }
         },

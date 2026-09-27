@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://mangadass.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangadass",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://mangadass.com"
   },
   "network": {
     "requiresBypass": false,
@@ -34,12 +34,12 @@
           "container": ".page-item-detail",
           "fields": {
             "id": {
-              "selector": ".item-thumb a[href*='/manga/'], .post-title a[href*='/manga/']",
+              "selector": ".item-thumb a[href*='/manga/'], .item-title a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": ".item-title h3 a, .item-title a, .post-title h3 a, .post-title a"
             },
             "coverUrl": {
               "selector": ".item-thumb img",
@@ -48,26 +48,26 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".blog-pager ul.pagination li.next a, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "homePage": {
-        "url": "/manga/page/{page}/",
+        "url": "/manga/{page}",
         "inherits": "home"
       },
       "search": {
-        "url": "/?s={query}&post_type=wp-manga",
+        "url": "/search?q={query}",
         "list": {
           "container": ".page-item-detail",
           "fields": {
             "id": {
-              "selector": ".item-thumb a[href*='/manga/'], .post-title a[href*='/manga/']",
+              "selector": ".item-thumb a[href*='/manga/'], .item-title a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": ".item-title h3 a, .item-title a, .post-title h3 a, .post-title a"
             },
             "coverUrl": {
               "selector": ".item-thumb img",
@@ -75,30 +75,30 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".blog-pager ul.pagination li.next a, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "searchPage": {
-        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "url": "/search?q={query}&page={page}",
         "list": {
-          "container": ".row.c-tabs-item__content",
+          "container": ".page-item-detail",
           "fields": {
             "id": {
-              "selector": "a[href*='/manga/']",
+              "selector": ".item-thumb a[href*='/manga/'], .item-title a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": ".item-title h3 a, .item-title a, .post-title h3 a, .post-title a"
             },
             "coverUrl": {
-              "selector": ".tab-thumb img",
+              "selector": ".item-thumb img",
               "attribute": "data-src"
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".blog-pager ul.pagination li.next a, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
@@ -107,7 +107,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/manga-genre/{tag}/{page}",
         "inherits": "home"
       },
       "detail": "/manga/{id}",
@@ -124,7 +124,7 @@
             "attribute": "data-src"
           },
           "description": {
-            "selector": ".summary__content, .description-summary .summary__content"
+            "selector": ".panel-story-description .ss-manga, .summary__content, .description-summary .summary__content"
           },
           "author": {
             "selector": ".author-content a",
@@ -173,7 +173,7 @@
       "urlPattern": "search",
       "params": {
         "query": {
-          "queryParam": "s",
+          "queryParam": "q",
           "type": "text",
           "placeholder": "Search manga..."
         },

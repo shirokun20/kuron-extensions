@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Hentai4free",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://hentai4free.net"
   },
   "network": {
     "requiresBypass": false,
@@ -43,7 +43,7 @@
             },
             "coverUrl": {
               "selector": ".item-thumb img",
-              "attribute": "data-src"
+              "attribute": "src"
             }
           },
           "pagination": {
@@ -71,7 +71,7 @@
             },
             "coverUrl": {
               "selector": ".item-thumb img",
-              "attribute": "data-src"
+              "attribute": "src"
             }
           },
           "pagination": {
@@ -95,7 +95,7 @@
             },
             "coverUrl": {
               "selector": ".item-thumb img",
-              "attribute": "data-src"
+              "attribute": "src"
             }
           },
           "pagination": {
@@ -105,12 +105,32 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
-        "inherits": "home"
+        "url": "/hentai-genre/{tag}/",
+        "list": {
+          "container": "article.h4f-genre-card",
+          "fields": {
+            "id": {
+              "selector": "a.h4f-genre-card__cover",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h2.h4f-genre-card__title a"
+            },
+            "coverUrl": {
+              "selector": "a.h4f-genre-card__cover img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
-        "inherits": "home"
+        "url": "/hentai-genre/{tag}/page/{page}/",
+        "inherits": "genreSearch"
       },
       "detail": "/hentai/{id}/",
       "chapter": "/hentai/{id}/"
@@ -120,6 +140,22 @@
         "fields": {
           "title": {
             "selector": ".post-title h1, h1"
+          },
+          "coverUrl": {
+            "selector": ".summary_image img",
+            "attribute": "data-src"
+          },
+          "author": {
+            "selector": ".author-content a",
+            "multi": true
+          },
+          "artist": {
+            "selector": ".artist-content a",
+            "multi": true
+          },
+          "tags": {
+            "selector": ".genres-content a",
+            "multi": true
           }
         },
         "chapters": {

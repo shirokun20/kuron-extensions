@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://www.paritehaber.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Paritehaber",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://www.paritehaber.com"
   },
   "network": {
     "requiresBypass": false,

@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://lhtranslation.net",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Lhtranslation",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://lhtranslation.net"
   },
   "network": {
     "requiresBypass": false,

@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://mangadistrict.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangadistrict",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://mangadistrict.com"
   },
   "network": {
     "requiresBypass": false,
@@ -48,7 +48,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".wp-pagenavi a.page.larger"
           }
         }
       },
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"
@@ -140,7 +140,6 @@
           }
         },
         "chapters": {
-          "mode": "ajaxHtml",
           "container": "li.wp-manga-chapter",
           "fields": {
             "id": {

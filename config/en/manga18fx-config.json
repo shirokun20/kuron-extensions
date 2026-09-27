@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://manga18fx.com",
   "ui": {
-    "displayName": "Akaza Scans",
+    "displayName": "Manga18fx",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://manga18fx.com"
   },
   "network": {
     "requiresBypass": false,
@@ -49,7 +49,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a, .pagination li.next a"
           }
         }
       },
@@ -102,11 +102,11 @@
         }
       },
       "genreSearch": {
-        "url": "/genres/{tag}/",
+        "url": "/manga-genre/{tag}",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/manga-genre/{tag}/{page}",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
@@ -118,10 +118,20 @@
           "title": {
             "selector": "h1"
           },
+          "coverUrl": {
+            "selector": ".summary_image img",
+            "attribute": "src"
+          },
+          "author": {
+            "selector": ".author-content a",
+            "multi": true
+          },
+          "artist": {
+            "selector": ".artist-content a",
+            "multi": true
+          },
           "tags": {
-            "selector": "a[rel='tag']",
-            "attribute": "href",
-            "transform": "slug",
+            "selector": ".genres-content a",
             "multi": true
           }
         },

@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://culturedworks.com",
   "ui": {
-    "displayName": "Akaza Scans",
+    "displayName": "Culturedworks",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://culturedworks.com"
   },
   "network": {
     "requiresBypass": false,
@@ -120,6 +120,14 @@
         "fields": {
           "title": {
             "selector": "h1.entry-title"
+          },
+          "coverUrl": {
+            "selector": ".thumb img",
+            "attribute": "src"
+          },
+          "tags": {
+            "selector": ".genres.mt-10 .genre-name",
+            "multi": true
           }
         },
         "chapters": {

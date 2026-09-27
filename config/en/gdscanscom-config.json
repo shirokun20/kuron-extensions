@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://gdscans.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Gdscans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://gdscans.com"
   },
   "network": {
     "requiresBypass": false,

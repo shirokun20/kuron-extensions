@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://lilymanga.net",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Lilymanga",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://lilymanga.net"
   },
   "network": {
     "requiresBypass": false,
@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/gl-genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/gl-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/gl/{id}/",
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"

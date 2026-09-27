@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://athreascans.com",
   "ui": {
-    "displayName": "Akaza Scans",
+    "displayName": "Athreascans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://athreascans.com"
   },
   "network": {
     "requiresBypass": false,
@@ -120,6 +120,16 @@
         "fields": {
           "title": {
             "selector": "h1.entry-title"
+          },
+          "coverUrl": {
+            "selector": ".thumb img",
+            "attribute": "src"
+          },
+          "tags": {
+            "selector": ".seriestugenre a",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
           }
         },
         "chapters": {

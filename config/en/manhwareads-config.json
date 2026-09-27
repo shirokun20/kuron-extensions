@@ -7,7 +7,7 @@
   "configUrl": "",
   "baseUrl": "https://manhwareads.com",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Manhwareads",
     "iconPath": "./images/manhwareads.png",
     "brandColor": "#FF6B35",
     "openInBrowserUrl": "https://manhwareads.com"

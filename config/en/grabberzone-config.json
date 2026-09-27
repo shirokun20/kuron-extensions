@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://grabber.zone",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Grabber",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://grabber.zone"
   },
   "network": {
     "requiresBypass": false,
@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/type/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/type/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/comics/{id}/",
@@ -135,7 +135,7 @@
             "multi": true
           },
           "tags": {
-            "selector": ".genres-content a",
+            "selector": ".genres-content a, .tags-content a",
             "multi": true
           }
         },

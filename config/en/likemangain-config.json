@@ -6,9 +6,9 @@
   "defaultLanguage": "english",
   "baseUrl": "https://mangayy.org",
   "ui": {
-    "displayName": "ManhwaReads",
+    "displayName": "Mangayy",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://manhwareads.com"
+    "openInBrowserUrl": "https://mangayy.org"
   },
   "network": {
     "requiresBypass": false,
