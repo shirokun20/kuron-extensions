@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-27T18:23:48.790263+07:00",
+    "lastUpdated": "2026-09-27T18:48:18.947726+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -773,7 +773,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "5958cdd610db598819e867499be3937bc188784771d77a59fe64448f1c0f0768"
+            "checksum": "704ffcf145f831b18cbfbd80e2ca7d6f648f9d7e3a3235abc5a99f30ffb91bdc"
         },
         {
             "id": "hentairox",
@@ -789,7 +789,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "1c544db6b38b9edfa7ec163a7ef5fa78f6ae8b6f000b593c73637fc29dac54d4"
+            "checksum": "67c9e4af551685c374697ee72a3b733638e70d00688017e09712077e1f74533b"
         },
         {
             "id": "hentailoop",
@@ -805,7 +805,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "2b8d4eeb0772f0d9a0f0b660b24703d293aaf67a20a67db833bd36174b0abf2e"
+            "checksum": "f2f971a9a7b42f4a75a77f88e5927feae657bc110a0ea8e602a833ce903fc4b9"
         },
         {
             "id": "hentairead",
@@ -821,7 +821,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "a7299b3acc61a79d9fb0e8ab7bc643ef9913ad267add0525b4223b80b7f72c76"
+            "checksum": "7d20407f1e3adfba3004241bff3873eeab96fb54e406319cf34aea2e82dc7e6a"
         },
         {
             "id": "hentaikun",
@@ -837,7 +837,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 3
             },
-            "checksum": "bb702a129457d56d0891b3d3055ec803eaf1ba0f40ad19294b8bd44ed9fc5587"
+            "checksum": "004c14748a590eb821d521ded5c28fecfc405e1b380bc0e913990ae8ddf5ee4d"
         },
         {
             "id": "akazascans",
@@ -853,7 +853,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "548fadc3f95f4e99d351f3537c743c501798cf5afcb0c2bb37df983022db13dc"
+            "checksum": "5f36c6aaf76125192084bc29b2edb92262c4e5ca734513ba3a71a5ac96c430cc"
         },
         {
             "id": "allporncomicio",
@@ -917,7 +917,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "2d8742b8aae8365106d80f60e8f603baada4bf50bf64a052ef17e9320802ee36"
+            "checksum": "34b3ee0c159bb7b7fc8c3bd7a6e3c0384e3a243542997a15f0d99ce89bb96a78"
         },
         {
             "id": "athreascanscom",
@@ -933,7 +933,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "74cdc0be7f9b12a417b5db11ab0daf0aaf8b5cbfff3f8971f9a555170e4b3121"
+            "checksum": "62429d42a71e27148fbf183a9ba9ed1b6e85c24d2fb668107db61290392ea69b"
         },
         {
             "id": "bunmangacom",
@@ -997,7 +997,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "ec1802cbe3adb49465dfa386c0e172c95fd24ec27fca423c18281d9b761fa162"
+            "checksum": "c8930c02025f9636ca4ed57ef04f415f1e9538e75561eb2dd03447da8b598acc"
         },
         {
             "id": "readerdecadencescanscom",
@@ -1029,7 +1029,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "0ae60ee70520e445ec1d051ab04c2bcab2f2dc5b6eec496a5010fe3b2907c502"
+            "checksum": "94fa673fe382a72531f39690c0f41ac9ac319f795c92ef80cdbec5c67227751f"
         },
         {
             "id": "scythescanscom",
@@ -1045,7 +1045,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "fa106305315634e89d15a0c7e5f7a2efc2032b8053ca6e1500c5b6c307b77c2e"
+            "checksum": "ae69869a47c11d459d2858a8aeb986f362c2b1849b9f6a09641e6d50737959b6"
         },
         {
             "id": "evascansnet",
@@ -1061,7 +1061,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "d8286211aa4f992d952bf03bf0598931b09168bd2a08ea11694f3a503577de3a"
+            "checksum": "7059baa31bb74f2ae5603acd052837e530324e1cd3fab2050030afc02cd815cb"
         },
         {
             "id": "gakamangascom",
@@ -1109,7 +1109,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "ba90eec857d30fb4e6a2900f31f8c05a02519ac005243a60aa9c06f7ada8ce20"
+            "checksum": "dcb033ff8ff57e09aff9cf87760b827edc0574b6c3c0a61dfbd2a0b50b74ea35"
         },
         {
             "id": "gedecomixcom",
@@ -1333,7 +1333,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "1ae5ca3947a93a9f4ef670ebd578883e613d60c0c957ed94b31348155571e0c9"
+            "checksum": "fe9c04c2a90e162e82cc179cf3dc3e9fc5306a5e7c37d497996bdf0b9046d1a5"
         },
         {
             "id": "lagoonscans",
@@ -1349,7 +1349,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "d8c0a4c49b036827e09a4d4d635abcb9c7e8aea7b2b07046f022f147ec7884f6"
+            "checksum": "820ee5f994779e63338731db709c891ef5f9410722e4a78bf542cf00243537aa"
         },
         {
             "id": "manga18fx",
@@ -1365,7 +1365,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "45334c0b85a202e2f9b29bc84237ed7df40a7f95c650e0518d7d72e63865a210"
+            "checksum": "f40ee280463a1976e146784e4df821f95d711c3f16508133e068730c23c26084"
         },
         {
             "id": "madarascans",
@@ -1381,7 +1381,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "0272c0ab5665c53450fac4242e86c05b5bf1698699e5fdb8ff66117f80439896"
+            "checksum": "cfee007d52b6232de35c4b7db6054a449015fac19932489b51f3b2f73d01fe30"
         },
         {
             "id": "hunlightcomics",
@@ -1653,7 +1653,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "253c40d231b603817bd930785bee2cee507cb413437b3797ebce4e399c6456a9"
+            "checksum": "7317b11c1df31cb2456fee30d6f45a1b94ed0a9e9ed8a2710a85999c9c4d2d97"
         },
         {
             "id": "manhwaden",
