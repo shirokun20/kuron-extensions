@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/manhwa-genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/manhwa-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/manhwa/{id}/",

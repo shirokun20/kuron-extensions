@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-27T19:14:13.791229+07:00",
+    "lastUpdated": "2026-09-27T21:59:21.404812+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1637,7 +1637,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "ff76bf65f6f32c3cb3d922dc2f03d6c2ff461adccf27fb845e5a538f30e2be50"
+            "checksum": "24f61dbde9c99ff479fb09fff2ac3fb76bf1b6c5abf0c96e24f2840284da4743"
         },
         {
             "id": "miauscan",
