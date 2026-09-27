@@ -1,0 +1,195 @@
+{
+  "source": "miauscan",
+  "schemaVersion": "2.0",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "english",
+  "baseUrl": "https://leemiau.com",
+  "ui": {
+    "displayName": "MiauScan",
+    "brandColor": "#FF6B35",
+    "openInBrowserUrl": "https://leemiau.com"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "Referer": "https://leemiau.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "imageHeaders": {
+      "Referer": "https://leemiau.com/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "article.lm-hot-card",
+          "fields": {
+            "id": {
+              "selector": "a.lm-hot-card-link",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".lm-hot-card-title"
+            },
+            "coverUrl": {
+              "selector": ".lm-hot-card-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".imgseries",
+          "fields": {
+            "id": {
+              "selector": "a.series",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "img",
+              "attribute": "alt"
+            },
+            "coverUrl": {
+              "selector": "img",
+              "attribute": "src"
+            }
+          }
+        }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/genres/{tag}/",
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/manga-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "detail": "/manga/{id}/",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1"
+          },
+          "tags": {
+            "selector": "a[rel='tag']",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "mode": "adminAjax"
+        }
+      },
+      "reader": {
+        "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
+        "container": "#readerarea",
+        "images": {
+          "selector": "img",
+          "attribute": "src"
+        },
+        "nav": {
+          "next": ".nextprev a.next, .nav-links a.next, .ch-next-btn",
+          "prev": ".nextprev a.prev, .nav-links a.prev, .ch-prev-btn"
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "s",
+          "type": "text",
+          "placeholder": "Search manga..."
+        },
+        "sort": {
+          "queryParam": "m_orderby",
+          "type": "select",
+          "label": "Sort by",
+          "options": [
+            {
+              "name": "Relevance",
+              "value": ""
+            },
+            {
+              "name": "Popular",
+              "value": "popular"
+            },
+            {
+              "name": "Latest",
+              "value": "latest"
+            },
+            {
+              "name": "A-Z",
+              "value": "alphabet"
+            },
+            {
+              "name": "Rating",
+              "value": "rating"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "contentIdPattern": "/manga/([^/]+)",
+  "features": {
+    "search": false,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true
+  },
+  "displayName": "Akaza Scans"
+}

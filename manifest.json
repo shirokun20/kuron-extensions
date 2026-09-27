@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-27T15:01:55.792636+07:00",
+    "lastUpdated": "2026-09-27T16:56:44.538783+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -50,6 +50,22 @@
                 "sizeKb": 3
             },
             "checksum": "a0d111f9cd34fb2b5ef0ad2bd864ee3b7043717a98db1d2f857b800939a7f517"
+        },
+        {
+            "id": "comix",
+            "version": "1.0.0",
+            "url": "config/en/comix-config.json",
+            "meta": {
+                "displayName": "Comix",
+                "description": "Comix community-upload manga reader with signed API and WebView cipher capture",
+                "iconUrl": "images/comix.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": true,
+                "sizeKb": 1
+            },
+            "checksum": "8bf54cb89fb3abbc8a7a8884566e8de364590651de6e34d4b842f4f427836bb2"
         },
         {
             "id": "cosplaytele",
@@ -1558,6 +1574,118 @@
                 "sizeKb": 6
             },
             "checksum": "523f6bb216c48584cd2c15a171bda787a52a41f623307d86a8682d1ddc0ac237"
+        },
+        {
+            "id": "manhwanex",
+            "version": "1.0.0",
+            "url": "config/en/manhwanex-config.json",
+            "meta": {
+                "displayName": "Manhwanex",
+                "description": "Manhwanex comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/manhwanex.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 6
+            },
+            "checksum": "0859d9dc64c386b2de6ce19ce2e54f7a706ef08f424f78c1590569287269f883"
+        },
+        {
+            "id": "orchisasia",
+            "version": "1.0.0",
+            "url": "config/en/orchisasia-config.json",
+            "meta": {
+                "displayName": "OrchisAsia",
+                "description": "OrchisAsia comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/orchisasia.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 6
+            },
+            "checksum": "243ed4a6541594d5aa036da6002474300e3770c4a757154983c5e99ec04e58b2"
+        },
+        {
+            "id": "paritehaber",
+            "version": "1.0.0",
+            "url": "config/en/paritehaber-config.json",
+            "meta": {
+                "displayName": "Paritehaber",
+                "description": "Paritehaber comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/paritehaber.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 6
+            },
+            "checksum": "e3614fb52584b9eb8e1f90ec8ef071dc1292279cda4a6cdf4c4e032ead8ca820"
+        },
+        {
+            "id": "manhwatoon",
+            "version": "1.0.0",
+            "url": "config/en/manhwatoon-config.json",
+            "meta": {
+                "displayName": "ManhwaToon",
+                "description": "ManhwaToon comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/manhwatoon.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 6
+            },
+            "checksum": "78723d9250fb35085c79221ec5e39acf37e2de48932dd090df000960f4d397d1"
+        },
+        {
+            "id": "miauscan",
+            "version": "1.0.0",
+            "url": "config/en/miauscan-config.json",
+            "meta": {
+                "displayName": "MiauScan",
+                "description": "MiauScan comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/miauscan.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 5
+            },
+            "checksum": "c14aba40ac65f5f19100caeac417edad1763a4ea38d28e65b39a9689c3f1afd3"
+        },
+        {
+            "id": "manhwaden",
+            "version": "1.0.0",
+            "url": "config/en/manhwaden-config.json",
+            "meta": {
+                "displayName": "ManhwaDen",
+                "description": "ManhwaDen comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/manhwaden.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 6
+            },
+            "checksum": "5a2e35fb98a9fd7bac7ef800b9f4fa1b5aaa21c7eaa9ac39df200ad2b70c3e9f"
+        },
+        {
+            "id": "milftoon",
+            "version": "1.0.0",
+            "url": "config/en/milftoon-config.json",
+            "meta": {
+                "displayName": "Milftoon",
+                "description": "Milftoon comics reader with search, detail, chapters, and reader support",
+                "iconUrl": "images/milftoon.png",
+                "contentType": "manga",
+                "language": "en",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 6
+            },
+            "checksum": "d63e4a683767869b9ea4408d8d2c87227998ade9e3787ec58984b86239ecb733"
         }
     ]
 }
