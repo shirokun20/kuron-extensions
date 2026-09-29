@@ -1,7 +1,7 @@
 {
   "source": "mangadistrict",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangadistrict.com",
@@ -75,32 +75,13 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".wp-pagenavi a.page.larger"
           }
         }
       },
       "searchPage": {
         "url": "/page/{page}/?s={query}&post_type=wp-manga",
-        "list": {
-          "container": ".row.c-tabs-item__content",
-          "fields": {
-            "id": {
-              "selector": "a[href*='/series/']",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".post-title h3 a, .post-title a"
-            },
-            "coverUrl": {
-              "selector": ".tab-thumb img",
-              "attribute": "data-src"
-            }
-          },
-          "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
-          }
-        }
+        "inherits": "search"
       },
       "genreSearch": {
         "url": "/publication-genre/{tag}/",
@@ -110,8 +91,16 @@
         "url": "/publication-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
+      "tagSearch": {
+        "url": "/publication-tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/publication-tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
       "detail": "/series/{id}/",
-      "chapter": "/series/{id}/"
+      "chapter": "/series/{id}"
     },
     "selectors": {
       "detail": {
@@ -159,8 +148,15 @@
       "reader": {
         "mode": "chapterDataScript",
         "images": {
-          "selector": ".reading-content img.wp-manga-chapter-img, .reading-content .page-break img",
+          "selector": ".reading-content img.wp-manga-chapter-img:not(#image-99999), .reading-content .page-break img:not(#image-99999)",
           "attribute": "data-src"
+        },
+        "video": {
+          "container": ".chapter-video-frame",
+          "selector": "video source, video",
+          "attribute": "src",
+          "dataAttribute": "data-vvl-src",
+          "requireChapterType": "chapter-type-video"
         },
         "nav": {
           "next": ".next_page, .nav-links .next",
@@ -169,7 +165,6 @@
       }
     },
     "searchForm": {
-      "enabled": true,
       "urlPattern": "search",
       "params": {
         "query": {
@@ -187,10 +182,6 @@
               "value": ""
             },
             {
-              "name": "Popular",
-              "value": "popular"
-            },
-            {
               "name": "Latest",
               "value": "latest"
             },
@@ -201,6 +192,18 @@
             {
               "name": "Rating",
               "value": "rating"
+            },
+            {
+              "name": "Trending",
+              "value": "trending"
+            },
+            {
+              "name": "Views",
+              "value": "views"
+            },
+            {
+              "name": "Newest",
+              "value": "new-manga"
             }
           ]
         }
@@ -209,8 +212,12 @@
   },
   "contentIdPattern": "/series/([^/]+)",
   "features": {
-    "search": false,
+    "home": true,
+    "search": true,
+    "detail": true,
     "chapters": true,
+    "reader": true,
+    "contentByTag": true,
     "download": true,
     "favorite": true,
     "comments": false,

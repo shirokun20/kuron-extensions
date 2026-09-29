@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-29T21:12:14.911009+07:00",
+    "lastUpdated": "2026-09-29T22:37:17.125956+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1449,7 +1449,7 @@
         },
         {
             "id": "mangadistrict",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/mangadistrict-config.json",
             "meta": {
                 "displayName": "Mangadistrict",
@@ -1461,7 +1461,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "6f78fd11de549703fcf8b79d7b2855b417f914a6da475cf38e48b22eca75fdeb"
+            "checksum": "509bbf33bc4b01f439a189ce325fe26615b2fbe89718f622bc4b083b63f00bc4"
         },
         {
             "id": "mangaforfreecom",
