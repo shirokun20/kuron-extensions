@@ -1,6 +1,6 @@
 {
   "source": "komiktap",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiktap-config.json",
@@ -162,7 +162,8 @@
         "nav": {
           "next": ".nextprev a.next, .nav-links a.next, .ch-next-btn",
           "prev": ".nextprev a.prev, .nav-links a.prev, .ch-prev-btn"
-        }
+        },
+        "heavyImageAutoSwitch": false
       }
     }
   },

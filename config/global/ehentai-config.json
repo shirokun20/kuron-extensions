@@ -1,6 +1,6 @@
 {
   "source": "ehentai",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "unknown",
   "baseUrl": "https://e-hentai.org",
@@ -99,6 +99,9 @@
           "mode": "ehentai_page_fetch",
           "imageSelector": "#img"
         }
+      },
+      "reader": {
+        "heavyImageAutoSwitch": false
       }
     }
   },

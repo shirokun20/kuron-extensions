@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-29T22:37:17.125956+07:00",
+    "lastUpdated": "2026-09-30T00:03:31.790220+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -135,7 +135,7 @@
         },
         {
             "id": "ehentai",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "url": "config/global/ehentai-config.json",
             "meta": {
                 "displayName": "E-Hentai",
@@ -147,7 +147,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 6
             },
-            "checksum": "5a1382b3d6d7afd7637ae766939f18d162ff720561884ec20ce2606fe0f6744b"
+            "checksum": "3830f1363321b70b32cde139981236d4b7d3a9340e76c1cdad05a259435f4732"
         },
         {
             "id": "hdoujin",
@@ -343,7 +343,7 @@
         },
         {
             "id": "komiktap",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "url": "config/id/komiktap-config.json",
             "meta": {
                 "displayName": "KomikTap",
@@ -355,7 +355,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "261408fcf9476de49ad01af940b75b794365d7ec5b3fcffb00281c4e2cc15b51"
+            "checksum": "4448e70b299281ec332a71033080bd475ad374464d060cc6dc6df12c7acda688"
         },
         {
             "id": "komiku",
@@ -375,7 +375,7 @@
         },
         {
             "id": "manga18.club",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/global/manga18.club-config.json",
             "meta": {
                 "displayName": "Manga18 Club",
@@ -387,7 +387,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "c4baedf76f74bf7b583afc6345cd11209274845fa3e40c3c8982d5b7fbb8ab07"
+            "checksum": "dce4b2ce0c33a81ae5b1ed8c33baf0f1cddd4c1f74ea78ec9ce46f6b7dcbb283"
         },
         {
             "id": "mangadex",

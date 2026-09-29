@@ -36,10 +36,31 @@ Dikerjakan lewat skill `kuron-config-verify`. Intinya:
 2. Genre / Tag / Author / Artist **terpisah** — ada yang support cuma salah satu; pagination dinilai terpisah juga (ada route `...Page` → `+pag`, tidak → remark).
 3. Emoji: ✅ support, ⚠️ partial, ✖️ error/tidak ada, **🚫 config menyatakan bisa tapi aktualnya tidak ada** (`features.X=true` tanpa route/selector pendukung, atau live: situsnya tak punya fitur itu) — wajib dicatat di **Note** dengan bukti (`<kolom>: features.X=true tapi …` / `live: …`).
 4. Status **statis** (dari config) = dugaan. Status **live** (Playwright/curl/web search) = kebenaran; live menang, tulis selisihnya di Note.
-5. Tiap ✖️/⚠️ berarti bug config → wajib GitHub issue (`gh issue create --label config-verify`, cari duplikat dulu), dan **tutup hanya setelah re-verify ✅**.
+5. Tiap ✖️/⚠️ berarti bug config → wajib GitHub issue (`gh issue create --label config-verify`, cari duplikat dulu), dan **tutup hanya setelah re-verify ✅**. Issue dari user boleh lewat template `.github/ISSUE_TEMPLATE/` (lihat Rules: issue).
 6. `SUPPORT-CONFIG.md` berisi 4 blok: Legend, Ringkasan per kolom (kolom 🚫), **Masalah terbuka** (berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag → ⚠️ partial dikelompokkan per jenis masalah → statistik gap author/artist), Support Matrix. Bagian "Masalah terbuka" = daftar kandidat issue, urut prioritas.
 7. Sync dengan skill: marker `<!-- matrix-columns: ... -->` ada di `AGENTS.md` + `SKILL.md`, dicek `python3 scripts/generate_support_table.py --check` (exit 1 bila marker beda / matrix stale). Kalau ubah urutan kolom, ubah **ketiganya** (COLUMNS di script, marker di AGENTS.md, marker + tabel kolom di SKILL.md).
 8. Setelah verifikasi selesai → catat di `MEMORY.md` (lihat Rules: MEMORY.md). Matrix hasil edit manual jangan ditimpa regenerate; kalau memang regenerate, gabungkan temuan live dulu. Baris yang sudah diverifikasi live ditandai teks `live` di kolom **Note** — `--check` otomatis mengabaikan baris config begitu (jadi edit live tidak dianggap stale), tapi **isi baris tetap hilang saat regenerate** → simpan dulu temuan live-nya.
+
+## Rules: issue (GitHub)
+
+Issue form lives in `.github/ISSUE_TEMPLATE/`. **Pilih satu sesuai tipe + bahasa** — jangan campur bahasa dalam satu issue.
+
+| File | Untuk | Label otomatis |
+|---|---|---|
+| `config-bug-id.yml` | config rusak, laporan Bahasa Indonesia | `config-verify`, `bug` |
+| `config-bug-en.yml` | config rusak, laporan English | `config-verify`, `bug` |
+| `config-bug-zh.yml` | 配置错误报告（中文） | `config-verify`, `bug` |
+| `feature-id.yml` | feature request / perbaikan tooling, ID | `enhancement` |
+| `feature-en.yml` | feature request / tooling, English | `enhancement` |
+| `feature-zh.yml` | 功能请求（中文） | `enhancement` |
+| `config.yml` | matikan blank issue + link ke `SUPPORT-CONFIG.md` & `AGENTS.md` | - |
+
+1. Satu issue = satu config + satu kelompok masalah. Kalau config punya banyak kolom rusak, pilih **semua** kolomnya di dropdown (field-nya multi-select), jangan buka issue terpisah per kolom.
+2. Isi minimal untuk bug config: source id, path config, baseUrl, kolom fitur, status (✅/⚠️/✖️/🚫), yang diharapkan, yang terjadi, **bukti** (curl/log/screenshot).
+3. Nama kolom fitur di ketiga bahasa **wajib sama persis** (Home, Home+Pag+Total, …, Artist+Pag) supaya issue bisa dicari/difilter lintas bahasa.
+4. Prefix title otomatis: `[bug][id]`, `[bug][en]`, `[bug][zh]`, `[feat][id]`, `[feat][en]`, `[feat][zh]`. Jangan hapus prefixnya.
+5. Bukti wajib bisa direproduksi (max 2 percobaan sesuai skill); issue tanpa bukti → closet dengan alasan, bukan `config-verify` baru.
+6. Issue dari agent boleh dibuat via `gh issue create --label config-verify` (bypass template, isi body mengikuti field template yang sama).
 
 ## Rules: MEMORY.md
 

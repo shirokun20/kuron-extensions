@@ -1,0 +1,73 @@
+name: ✨ Permintaan fitur / perbaikan (Bahasa Indonesia)
+description: Usulan fitur baru, perbaikan alur kerja, atau peningkatan tooling repo config.
+title: "[feat][id] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Untuk **bug config** gunakan template “🐞 Bug config (Bahasa Indonesia)”.
+        Form ini untuk fitur/alat baru, bukan laporan error.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Config sumber ( authoring / validasi )
+        - manifest.json / registry / versi & checksum
+        - Script (`scripts/`)
+        - Skill & dokumentasi (`AGENTS.md`, `SKILL.md`, `SUPPORT-CONFIG.md`)
+        - Alur verifikasi (`kuron-config-verify`)
+        - Ikon / metadata / tampilan
+        - Lainnya
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Masalah yang ditemui
+      description: Apa yang sulit atau tidak bisa dilakukan sekarang?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Usulan solusi
+      description: Apa yang sebaiknya ditambahkan/diubah, dan bagaimana bentuknya?
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Alternatif yang dipertimbangkan
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Dampaknya untuk config
+      multiple: true
+      options:
+        - Hanya 1 config
+        - Beberapa config (sekelompok)
+        - Semua config
+        - Tidak menyentuh config (tooling/dokumentasi saja)
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Contoh hoped-for
+      description: Opsional. Contoh output YAML, perintah, atau markup yang diharapkan.
+      render: text
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: Sudah cek issue & PR existing, belum ada duplikat
+          required: true
+        - label: Usulan ini tidak melanggar aturan di `AGENTS.md`
+          required: false

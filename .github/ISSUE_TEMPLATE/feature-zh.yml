@@ -1,0 +1,73 @@
+name: ✨ 功能请求（中文）
+description: 提议新功能、改进工作流，或增强配置仓库的工具能力。
+title: "[feat][zh] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        如需报告**配置错误**，请改用“🐞 配置错误（中文）”模板。
+        本表单用于新功能/工具建议，不用于报告 bug。
+  - type: dropdown
+    id: area
+    attributes:
+      label: 领域
+      options:
+        - 源配置（编写 / 校验）
+        - manifest.json / 注册表 / 版本与校验和
+        - 脚本（`scripts/`）
+        - Skill 与文档（`AGENTS.md`、`SKILL.md`、`SUPPORT-CONFIG.md`）
+        - 验证流程（`kuron-config-verify`）
+        - 图标 / 元数据 / 展示
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题
+      description: 目前做法中哪些环节困难或无法完成？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 应该新增或修改什么？期望的形态是什么样？
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: 考虑过的其他方案
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: 对配置的影响范围（可多选）
+      multiple: true
+      options:
+        - 仅 1 个配置
+        - 一组配置
+        - 全部配置
+        - 不涉及配置（仅工具/文档）
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: 期望结果示例
+      description: 可选。示例 YAML、命令或标记片段。
+      render: text
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认清单
+      options:
+        - label: 我已搜索过现有 issue 和 PR，这不是重复提交
+          required: true
+        - label: 该建议不违反 `AGENTS.md` 中的规则
+          required: false

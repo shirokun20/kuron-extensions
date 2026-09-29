@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Lihat support matrix (Support Matrix per config)
+    url: https://github.com/shirokun20/kuron-extensions/blob/master/SUPPORT-CONFIG.md
+    about: Cek dulu status ✅/⚠️/✖️/🚫 config yang dilaporkan sebelum membuka issue.
+  - name: Aturan repo (AGENTS.md)
+    url: https://github.com/shirokun20/kuron-extensions/blob/master/AGENTS.md
+    about: Cara authoring config, verifikasi fitur, dan penulisan MEMORY.md.

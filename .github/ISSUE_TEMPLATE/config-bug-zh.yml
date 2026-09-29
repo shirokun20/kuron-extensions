@@ -1,0 +1,130 @@
+name: 🐞 配置错误（中文）
+description: 报告失效的源配置，或配置与实际网站已不一致的情况。
+title: "[bug][zh] "
+labels: ["config-verify", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        报告**源配置**问题（不是应用本身的 bug）。
+        状态符号：`✅` 正常 · `⚠️` 部分可用 · `✖️` 缺失 · `🚫` 配置声称支持，但网站实际不提供该功能。
+        功能列名沿用英文（与 `SUPPORT-CONFIG.md` 的列头一致，便于跨语言检索）：
+        Home、Home+Pag+Total、Search、Search+Pag+Total、Detail+Chapters、Reader、Genre+Pag、Tag+Pag、Author+Pag、Artist+Pag。
+  - type: input
+    id: source
+    attributes:
+      label: 源 ID
+      description: 出问题的配置 ID，例如 `komiku`、`hentairead`
+      placeholder: komiku
+    validations:
+      required: true
+  - type: input
+    id: path
+    attributes:
+      label: 配置路径
+      description: 本仓库中的配置文件路径
+      placeholder: config/id/komiku-config.json
+    validations:
+      required: true
+  - type: input
+    id: baseurl
+    attributes:
+      label: baseUrl
+      placeholder: https://komiku.org
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 配置版本
+      description: 配置中的 `version` 字段（完整 semver）
+      placeholder: 1.0.1
+    validations:
+      required: false
+  - type: dropdown
+    id: column
+    attributes:
+      label: 出问题的功能列（可多选，列名与 SUPPORT-CONFIG.md 一致）
+      multiple: true
+      options:
+        - Home
+        - Home + Pag + Total
+        - Search
+        - Search + Pag + Total
+        - Detail + Chapters
+        - Reader (image/video)
+        - Genre + Pag
+        - Tag + Pag
+        - Author + Pag
+        - Artist + Pag
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: 功能状态
+      description: 与 `SUPPORT-CONFIG.md` 中的取值一致
+      options:
+        - "⚠️ 部分可用 - 能用但有缺陷"
+        - "✖️ 缺失 - 找不到路由/选择器"
+        - "🚫 配置声称支持，但网站实际不提供"
+        - "✅ 实际已损坏，但矩阵中标记为 ✅"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - 路由 / URL 规则错误
+        - 选择器与网站 HTML 不匹配
+        - 分页失效 / 后续页为空
+        - 总页数或总条目数读不到
+        - 章节列表读不到
+        - 阅读器图片加载失败（403/防盗链）
+        - 源站关闭 / 域名变更 / 被拦截
+        - 配置与 manifest.json 不同步
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 观察到的现象，并附上实际请求的路由
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据
+      description: |
+        粘贴 `curl` 输出（HTTP 状态码 + HTML 片段）、应用日志或截图。
+        示例：`curl -sI -o /dev/null -w '%{http_code}\n' -A 'Mozilla/5.0' <url>`
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: 修复建议
+      description: 可选。建议修改的路由/选择器及原因。
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认清单
+      options:
+        - label: 我已搜索过现有 issue，这不是重复提交
+          required: true
+        - label: 该配置仍在其所属 bucket 中（不在 `config/new/`）
+          required: true
+        - label: 证据可复现（至少尝试两次，非偶发失败）
+          required: false

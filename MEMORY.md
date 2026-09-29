@@ -16,6 +16,8 @@ Kolom:
 
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-09-30 00:02 | rules | `.github/ISSUE_TEMPLATE/` | dibuat 7 file: `config-bug-{id,en,zh}.yml` (label `config-verify`,`bug`), `feature-{id,en,zh}.yml` (label `enhancement`), `config.yml` (blank issue dimatikan + link matrix/AGENTS); kolom fitur wajib identik di 3 bahasa; prefix title otomatis `[bug][id|en|zh]` / `[feat][id|en|zh]` ✅ | user + opencode |
+| 2026-09-30 00:02 | rules | `AGENTS.md` bagian Rules: issue | tabel pemetaan template↔bahasa↔label + 6 aturan pemakaian template ✅ | opencode |
 | 2026-09-29 23:48 | fix | `scripts/generate_support_table.py` | false positive 🚫 diperbaiki: chapter config API dibaca dari `api.detail.chapters` (bukan cuma `api.endpoints.chapters`) → config API (comix, mangadex, doujindesuxxx, rawdevart) tak lagi salah ditandai; sisa 🚫 = **2 config** (mangafire genre, ehentai chapters) ✅ | opencode |
 | 2026-09-29 23:48 | fix | `scripts/generate_support_table.py --check` | `--check` kini toleran edit live: baris matrix + sub-bullet config yang Note-nya bertanda `live` dikecualikan dari deteksi stale (kedua sisi dinormalisasi by key config) → check hijau tanpa hilangin temuan live ✅ | opencode |
 | 2026-09-29 23:44 | decision | emoji khusus "dinyatakan bisa tapi tidak ada" | dipilih `🚫` (user minta emot khusus);bedanya dari ✖️: ✖️ = config tak mengklaim, 🚫 = config mengklaim tapi tak ada | user + opencode |

@@ -1,0 +1,73 @@
+name: ✨ Feature request (English)
+description: Propose a new feature, a workflow improvement, or better tooling for the config repo.
+title: "[feat][en] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For **config bugs** use the “🐞 Config bug (English)” template instead.
+        This form is for new features/tools, not bug reports.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Source config (authoring / validation)
+        - manifest.json / registry / versioning & checksums
+        - Scripts (`scripts/`)
+        - Skills & docs (`AGENTS.md`, `SKILL.md`, `SUPPORT-CONFIG.md`)
+        - Verification workflow (`kuron-config-verify`)
+        - Icons / metadata / presentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is hard or impossible with the current setup?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should be added or changed, and what should it look like?
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Config impact
+      multiple: true
+      options:
+        - Single config
+        - A group of configs
+        - All configs
+        - No config change (tooling/docs only)
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example of the expected result
+      description: Optional. Sample YAML, command, or markup.
+      render: text
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked existing issues and PRs, this is not a duplicate
+          required: true
+        - label: The proposal does not break the rules in `AGENTS.md`
+          required: false
