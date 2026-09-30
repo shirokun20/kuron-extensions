@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-30T21:03:13.627579+07:00",
+    "lastUpdated": "2026-09-30T21:41:13.595631+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -69,7 +69,7 @@
         },
         {
             "id": "cosplaytele",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/global/cosplaytele-config.json",
             "meta": {
                 "displayName": "Cosplaytele",
@@ -81,7 +81,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "4ca5a3cb99bdd0fd6265e89fe6d85c24fc6477bb3a6ea926b8b748c5b3f089b2"
+            "checksum": "a865e21b806b1f151d4fb2a677dd01e1e106c4adeab0166e9f1a8beb74308423"
         },
         {
             "id": "crotpedia",
