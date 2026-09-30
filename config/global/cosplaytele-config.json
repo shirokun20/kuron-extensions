@@ -1,6 +1,6 @@
 {
   "source": "cosplaytele",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://cosplaytele.com",
@@ -105,6 +105,11 @@
         "container": ".entry-content.single-page",
         "images": {
           "selector": ".entry-content.single-page .gallery-item img",
+          "attribute": "src"
+        },
+        "video": {
+          "container": ".entry-content.single-page",
+          "selector": "iframe[src*=\"cossora.stream\"]",
           "attribute": "src"
         }
       }

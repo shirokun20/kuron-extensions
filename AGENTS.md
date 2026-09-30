@@ -1,7 +1,8 @@
 # AGENTS.md — Aturan Kerja Repo kuron-extensions
 
 Repo ini berisi **config source** Kuron + registry `manifest.json`. Baca skill di `.agents/skills/`
-sebelum kerja: `kuron-source-config` (authoring/publish config) dan `kuron-config-verify` (verifikasi fitur).
+sebelum kerja: `kuron-source-config` (authoring/publish config), `kuron-config-verify` (verifikasi fitur),
+`kuron-issue` (buat/lapor issue lewat form `.github/ISSUE_TEMPLATE/`).
 
 ## Peta repo
 
@@ -13,7 +14,7 @@ manifest.json                      # registry yang dibaca aplikasi (schemaVersio
 SUPPORT-CONFIG.md                  # MATRIX support fitur per config (hasil verifikasi) - JANGAN dihapus barisnya
 scripts/generate_support_table.py  # generator statis matrix dari config
 scripts/refresh_manifest.py        # sync versi/checksum/sizeKb/lastUpdated
-docs/                              # gitignored, kerja lokal saja
+scripts/issue_body.py              # isi issue dari form .github/ISSUE_TEMPLATE (--list/--check)
 .agents/skills/                    # skills (gitignored)
 ```
 
@@ -60,7 +61,8 @@ Issue form lives in `.github/ISSUE_TEMPLATE/`. **Pilih satu sesuai tipe + bahasa
 3. Nama kolom fitur di ketiga bahasa **wajib sama persis** (Home, Home+Pag+Total, …, Artist+Pag) supaya issue bisa dicari/difilter lintas bahasa.
 4. Prefix title otomatis: `[bug][id]`, `[bug][en]`, `[bug][zh]`, `[feat][id]`, `[feat][en]`, `[feat][zh]`. Jangan hapus prefixnya.
 5. Bukti wajib bisa direproduksi (max 2 percobaan sesuai skill); issue tanpa bukti → closet dengan alasan, bukan `config-verify` baru.
-6. Issue dari agent boleh dibuat via `gh issue create --label config-verify` (bypass template, isi body mengikuti field template yang sama).
+6. Issue dari agent lewat skill `.agents/skills/kuron-issue/SKILL.md` — renderer `python3 scripts/issue_body.py --form bug:id --set …` mengisi body dari form yang sama (`--list` menampilkan field, `--check` menggigit form yang tidak sinkron), lalu `gh issue create` mengirim title ber-prefix + label dari form.
+7. Jejak issue: `MEMORY.md` (baris `| Jam | issue | #N + form | … | kuron-issue |`) + `(issue #N)` di kolom Note baris matrix yang sudah bertanda `live` (baris non-live dibiarkan agar `generate_support_table.py --check` hijau). Issue ditutup hanya setelah re-verify live ✅.
 
 ## Rules: MEMORY.md
 
