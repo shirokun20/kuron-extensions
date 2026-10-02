@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-10-03 05:45 | fix | `manifest.json` + `refresh_manifest.py` | manifest diurutkan (bucket,id): 104 entri unik; buang duplikat basi `hentairead` v1.0.0; script kini self-sorting + `--check` gagal bila tak urut + guard duplikat manifest ✅ | opencode |
 | 2026-10-03 05:30 | decision | crotpedia `advancedSearch` | user konfirmasi search asli memang pakai advancedSearch; route tetap hidup (`?title=` 41 item, `?genre[]=ahegao` 62 item, value = slug) tapi belum di-wire (butuh multi-param di app) → dicatat TUNDA di matrix, bukan rusak ✅ | opencode |
 | 2026-10-03 05:15 | fix | 16 config batch-2 (C1+C3+C4, 3 subagent edit paralel) | C1 taksonomi 7 issue + C3 search-pagination 5 issue + C4 query-param 4 issue (#13,#16,#17,#18,#19,#20,#38,#26,#27,#28,#35,#44,+4 bg); render Chromium per pola; hentairead search container dikoreksi li (simulasi 10/10); C2 dibatalkan (403 tak terreproduksi, #21 tetap open); 16 issue ditutup ✅ | kuron-config-verify |
 | 2026-10-03 04:55 | decision | change `enable-requires-bypass-cloudflare` + issue #21 | DIBATALKAN: curl 200/200 (2 run, home+genre+search) + render 200 di kedua situs — 403 tidak terreproduksi di route mana pun; matrix diperbarui ke bukti 200, #21 dikomentari tetap OPEN, change dir dihapus (0 task jalan) ✅ | opencode |

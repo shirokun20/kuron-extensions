@@ -23,11 +23,19 @@ from datetime import datetime, timezone, timedelta
 SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 BUCKETS = ("id", "en", "ja", "vi", "ch", "global")
 STAGING = os.path.join("config", "new")
+BUCKET_ORDER = {b: i for i, b in enumerate(BUCKETS)}
 
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def entry_key(e):
+    url = e.get("url", "")
+    parts = url.split("/")
+    bucket = parts[1] if len(parts) > 1 else ""
+    return (BUCKET_ORDER.get(bucket, 99), e.get("id", ""))
 
 
 def main():
@@ -39,7 +47,11 @@ def main():
     except (OSError, ValueError) as e:
         print(f"ERROR: cannot read manifest.json: {e}")
         return 2
-    entries = {e["id"]: e for e in manifest.get("installableSources", [])}
+    entries = {}
+    for e in manifest.get("installableSources", []):
+        if e.get("id") in entries:
+            errors.append(f"manifest: duplicate id {e.get('id')!r} — delete the stale entry, then re-run")
+        entries[e["id"]] = e
 
     # Collect config files per bucket (staging excluded from manifest).
     files = {}
@@ -137,12 +149,10 @@ def main():
             )
 
     staged = []
-    if os.path.isdir(STAGING):
-        staged = sorted(
-            f for f in os.listdir(STAGING) if f.endswith(".json")
-        )
-    for name in staged:
-        warnings.append(f"config/new/{name}: staging only, not in manifest")
+    if check_only:
+        order = [entry_key(e) for e in manifest.get("installableSources", [])]
+        if order != sorted(order):
+            errors.append("installableSources not sorted by (bucket, id) — run without --check")
 
     for w in warnings:
         print(f"WARN: {w}")
@@ -156,6 +166,9 @@ def main():
         print(f"OK: {len(entries)} entries consistent, {len(warnings)} warning(s).")
         return 0
 
+    manifest["installableSources"] = sorted(
+        manifest.get("installableSources", []), key=entry_key
+    )
     manifest["lastUpdated"] = datetime.now(
         timezone(timedelta(hours=7))
     ).isoformat()
