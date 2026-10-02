@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-10-03 00:30 | archive | 2 OpenSpec change | `fix-genre-search-page-family` + `reactivate-spyfakku-source` di-archive → `openspec/specs/` kini punya 2 capability (route-integrity 3 req, availability-flags 4 req), `openspec list` kosong, kedua spec `validate --strict` hijau ✅ | opencode |
 | 2026-10-03 00:25 | fix | 7 config `genreSearchPage` (issue #15) + probe 3 subagent paralel | `genreSearchPage` `/manga-genre/…` → `/genres/{tag}/page/{page}/` (v1.0.1 ×7), probe 7/7 LULUS 200 + overlap 0 (akaza 10/3, lainnya 10/10), matrix Genre+Pag ⚠️→✅ ×7, `refresh_manifest` 8 entri, issue #15 ditutup ✅ | kuron-config-verify |
 | 2026-10-03 00:25 | fix | `config/en/spyfakku-config.json` (issue #36) | `enabled`→true, `maintenance`→false, `maintenanceMessage` dihapus (v1.1.1); re-probe GO (library 200 total 18293, image PNG 3,25MB, tag overlap 0, author total 0); Author tetap ✖️ + bukti; `mediaIdSelector` tetap `$.hash`; issue #36 ditutup ✅ | kuron-config-verify |
 | 2026-09-30 09:05 | setup | OpenSpec | `openspec init` (CLI 1.13.2, schema `spec-driven`, bahasa id) → `openspec/` + 5 skill/command OpenCode di `.opencode/`. Dua change plan dibuat untuk fix termudah dari 50 issue terbuka: `fix-genre-search-page-family` (#15, 7 config, 1 string `genreSearchPage.url` per file) dan `reactivate-spyfakku-source` (#36, `enabled`/`maintenance` + hapus `maintenanceMessage`). Masing-masing 4/4 artefak (proposal/specs/design/tasks) + `openspec validate --strict` hijau ✅ | opencode |
