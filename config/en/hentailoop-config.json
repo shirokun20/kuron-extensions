@@ -2,7 +2,7 @@
   "source": "hentailoop",
   "displayName": "Hentailoop",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "baseUrl": "https://hentailoop.com",
   "enabled": true,
   "defaultLanguage": "english",
@@ -76,7 +76,7 @@
       "detail": "/manga/{id}/",
       "chapter": "/manga/{id}",
       "genreSearch": {
-        "url": "/tags/{tag}/",
+        "url": "/genres/{tag}/",
         "list": {
           "container": ".best-card",
           "fields": {
@@ -96,8 +96,24 @@
         }
       },
       "genreSearchPage": {
-        "url": "/tags/{tag}/page/{page}/",
+        "url": "/genres/{tag}/page/{page}/",
         "inherits": "genreSearch"
+      },
+      "tagSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "genreSearch"
+      },
+      "tagSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "tagSearch"
+      },
+      "artistSearch": {
+        "url": "/artists/{slug}/",
+        "inherits": "genreSearch"
+      },
+      "artistSearchPage": {
+        "url": "/artists/{slug}/page/{page}/",
+        "inherits": "artistSearch"
       }
     },
     "selectors": {

@@ -1,7 +1,7 @@
 {
   "source": "mangaread",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -78,29 +78,6 @@
           }
         }
       },
-      "searchPage": {
-        "url": "/page/{page}/?s={query}&post_type=wp-manga",
-        "list": {
-          "container": ".row.c-tabs-item__content",
-          "fields": {
-            "id": {
-              "selector": "a[href*='/manga/']",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".post-title h3 a, .post-title h5 a"
-            },
-            "coverUrl": {
-              "selector": "img",
-              "attribute": "src"
-            }
-          },
-          "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
-          }
-        }
-      },
       "genreSearch": {
         "url": "/genres/{tag}/",
         "inherits": "home"
@@ -123,7 +100,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "data-src"
+            "attribute": "src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"
@@ -182,7 +159,7 @@
         "mode": "chapterDataScript",
         "images": {
           "selector": ".reading-content img.wp-manga-chapter-img, .reading-content .page-break img",
-          "attribute": "data-src"
+          "attribute": "src"
         },
         "nav": {
           "next": ".next_page, a[href]:contains('Next'), .nav-links .next",

@@ -1,6 +1,6 @@
 {
   "source": "xiutaku",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "enabled": true,
   "defaultLanguage": "chinese",
   "baseUrl": "https://xiutaku.com",
@@ -66,9 +66,29 @@
         "url": "/?search={query}",
         "inherits": "home"
       },
+      "searchPage": {
+        "url": "/?search={query}&start={page}",
+        "inherits": "home",
+        "pageOverrides": {
+          "2": "/?search={query}&start=20",
+          "3": "/?search={query}&start=40",
+          "4": "/?search={query}&start=60",
+          "5": "/?search={query}&start=80"
+        }
+      },
       "genreSearch": {
         "url": "/?search={tag}",
         "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/?search={tag}&start={page}",
+        "inherits": "home",
+        "pageOverrides": {
+          "2": "/?search={tag}&start=20",
+          "3": "/?search={tag}&start=40",
+          "4": "/?search={tag}&start=60",
+          "5": "/?search={tag}&start=80"
+        }
       },
       "detail": "/{id}",
       "chapter": "/{id}"

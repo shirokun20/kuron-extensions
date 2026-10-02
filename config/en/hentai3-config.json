@@ -2,7 +2,7 @@
   "source": "hentai3",
   "displayName": "3hentai",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "baseUrl": "https://3hentai.net",
   "enabled": true,
   "defaultLanguage": "english",
@@ -75,12 +75,8 @@
       },
       "detail": "/d/{id}/",
       "chapter": "/d/{id}",
-      "genreSearch": {
-        "url": "/tags/{tag}/",
-        "inherits": "home"
-      },
-      "genreSearchPage": {
-        "url": "/tags/{tag}/{page}/",
+      "tagSearch": {
+        "url": "/tags/{tag}",
         "inherits": "home"
       }
     },

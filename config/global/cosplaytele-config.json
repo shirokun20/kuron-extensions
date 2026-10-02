@@ -1,6 +1,6 @@
 {
   "source": "cosplaytele",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://cosplaytele.com",
@@ -59,6 +59,10 @@
       },
       "search": {
         "url": "/?s={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
         "inherits": "home"
       },
       "genreSearch": {
@@ -136,7 +140,7 @@
     "tagQueryPrefix": "tag:",
     "genreTagType": "category"
   },
-  "notes": "WP/Flatsome. MUST scope to #post-list: footer widgets render 55 decoy .col.post-item cards. Search is Ajax Search Lite - server renders up to 62 results, no searchPage pagination (page-2 URL = 404). Reader imgs MUST scope to .gallery-item: crp_related 'Recommend For You' thumbnails live INSIDE .entry-content.single-page (unscoped selector picked 100 non-gallery imgs on sparkle-hanabi-6). Tags are mixed-taxonomy: /category/ (cosplayer) + /tag/ (character, series) - tagSearch pattern routes /tag/ slugs; category chips route genreSearch.",
+  "notes": "WP/Flatsome. MUST scope to #post-list: footer widgets render 55 decoy .col.post-item cards. Reader imgs MUST scope to .gallery-item: crp_related 'Recommend For You' thumbnails live INSIDE .entry-content.single-page (unscoped selector picked 100 non-gallery imgs on sparkle-hanabi-6). Tags are mixed-taxonomy: /category/ (cosplayer) + /tag/ (character, series) - tagSearch pattern routes /tag/ slugs; category chips route genreSearch.",
   "features": {
     "comments": false,
     "related": false,

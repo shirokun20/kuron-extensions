@@ -1,6 +1,6 @@
 {
   "source": "crotpedia",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/crotpedia-config.json",
@@ -99,7 +99,7 @@
         }
       },
       "searchPage": {
-        "url": "/page/{page}/?s={query}",
+        "url": "/?s={query}&paged={page}",
         "inherits": "search"
       },
       "genreSearch": {
@@ -195,72 +195,12 @@
     }
   },
   "searchForm": {
-    "urlPattern": "advancedSearch",
+    "urlPattern": "search",
     "params": {
       "query": {
-        "queryParam": "title",
+        "queryParam": "s",
         "type": "text",
         "placeholder": "Cari series..."
-      },
-      "author": {
-        "queryParam": "author",
-        "type": "text",
-        "placeholder": "Search by author...",
-        "label": "Author"
-      },
-      "artist": {
-        "queryParam": "artist",
-        "type": "text",
-        "placeholder": "Search by artist...",
-        "label": "Artist"
-      },
-      "yearx": {
-        "queryParam": "yearx",
-        "type": "text",
-        "placeholder": "e.g., 2024",
-        "label": "Year"
-      },
-      "status": {
-        "queryParam": "status",
-        "type": "select",
-        "label": "Status",
-        "options": [
-          {
-            "name": "Ongoing",
-            "value": "ongoing"
-          },
-          {
-            "name": "Completed",
-            "value": "completed"
-          }
-        ]
-      },
-      "type": {
-        "queryParam": "type",
-        "type": "select",
-        "label": "Type",
-        "options": [
-          {
-            "name": "Manga",
-            "value": "Manga"
-          },
-          {
-            "name": "Image Set",
-            "value": "Image-set"
-          },
-          {
-            "name": "Manhwa",
-            "value": "Manhwa"
-          },
-          {
-            "name": "One Shot",
-            "value": "One-shot"
-          },
-          {
-            "name": "Doujinshi",
-            "value": "Doujinshi"
-          }
-        ]
       },
       "order": {
         "queryParam": "order",

@@ -1,6 +1,6 @@
 {
   "source": "photos18",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "chinese",
   "baseUrl": "https://www.photos18.com",
@@ -65,10 +65,18 @@
         "inherits": "home"
       },
       "genreSearch": {
-        "url": "/q/{tag}",
+        "url": "/cat/{tag}?page=&per-page=",
         "inherits": "home"
       },
       "genreSearchPage": {
+        "url": "/cat/{tag}?page={page}&per-page=",
+        "inherits": "home"
+      },
+      "tagSearch": {
+        "url": "/q/{tag}",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
         "url": "/q/{tag}?page={page}",
         "inherits": "home"
       },

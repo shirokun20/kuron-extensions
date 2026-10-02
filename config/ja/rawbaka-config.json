@@ -1,21 +1,21 @@
 {
   "source": "rawbaka",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "japanese",
   "configUrl": "",
-  "baseUrl": "https://rawbaka.com",
+  "baseUrl": "https://rawbaka.site",
   "ui": {
     "displayName": "RawBaka",
     "iconPath": "./images/rawbaka.png",
     "brandColor": "#EB3349",
-    "openInBrowserUrl": "https://rawbaka.com"
+    "openInBrowserUrl": "https://rawbaka.site"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://rawbaka.com/",
+      "Referer": "https://rawbaka.site/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
     "rateLimit": {
@@ -52,7 +52,7 @@
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/?latest_page={page}",
         "inherits": "home"
       },
       "search": {
@@ -80,7 +80,7 @@
         }
       },
       "searchPage": {
-        "url": "/page/{page}/?s={query}",
+        "url": "/?s={query}&latest_page={page}",
         "list": {
           "container": "article.search-result-card, article.manga-card",
           "fields": {
@@ -170,6 +170,7 @@
     "favorite": true,
     "comments": false,
     "related": false,
+    "contentByTag": false,
     "generatePdf": true,
     "offlineMode": true
   }

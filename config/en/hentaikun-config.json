@@ -2,7 +2,7 @@
   "source": "hentaikun",
   "displayName": "Hentaikun",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "baseUrl": "https://hentaikun.com/manga",
   "enabled": true,
   "defaultLanguage": "english",
@@ -71,7 +71,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/tag/{tag}/page/{page}/",
+        "url": "/tag/{tag}/{page}/",
         "inherits": "home"
       }
     },

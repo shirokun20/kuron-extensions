@@ -2,7 +2,7 @@
   "source": "hentairead",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -36,28 +36,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": "div.item",
-          "fields": {
-            "id": {
-              "selector": "a",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".slide-caption h3 a"
-            },
-            "coverUrl": {
-              "selector": "img",
-              "attribute": "src",
-              "prefix": "https://hentairead.io/"
-            }
-          }
-        }
-      },
-      "search": {
-        "url": "/search/{query}",
-        "list": {
-          "container": "div.card",
+          "container": "div.video",
           "fields": {
             "id": {
               "selector": "a",
@@ -68,7 +47,32 @@
               "selector": "p.title-manga a"
             },
             "coverUrl": {
-              "selector": "img.card-img-top",
+              "selector": "img",
+              "attribute": "src",
+              "prefix": "https://hentairead.io/"
+            }
+          }
+        }
+      },
+      "homePage": {
+        "url": "/?act=home&pageNum={page}",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?act=ajax&code=search_manga&keyword={query}",
+        "list": {
+          "container": "li",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h3"
+            },
+            "coverUrl": {
+              "selector": "img",
               "attribute": "src",
               "prefix": "https://hentairead.io/"
             }
@@ -79,7 +83,11 @@
       "chapter": "/{id}",
       "genreSearch": {
         "url": "/genres/{tag}/",
-        "inherits": "search"
+        "inherits": "home"
+      },
+      "genreSearchPage": {
+        "url": "/?act=search&f[genres]={tag}&pageNum={page}",
+        "inherits": "home"
       }
     },
     "selectors": {

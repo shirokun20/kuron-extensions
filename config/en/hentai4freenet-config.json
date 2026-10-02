@@ -1,7 +1,7 @@
 {
   "source": "hentai4freenet",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -131,6 +131,34 @@
       "genreSearchPage": {
         "url": "/hentai-genre/{tag}/page/{page}/",
         "inherits": "genreSearch"
+      },
+      "tagSearch": {
+        "url": "/hentai-tag/{tag}/",
+        "list": {
+          "container": "article.h4f-genre-card",
+          "fields": {
+            "id": {
+              "selector": "a.h4f-genre-card__cover",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h2.h4f-genre-card__title a"
+            },
+            "coverUrl": {
+              "selector": "a.h4f-genre-card__cover img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      },
+      "tagSearchPage": {
+        "url": "/hentai-tag/{tag}/page/{page}/",
+        "inherits": "tagSearch"
       },
       "detail": "/hentai/{id}/",
       "chapter": "/hentai/{id}/"

@@ -1,6 +1,6 @@
 {
   "source": "hentairox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentairox.com",
@@ -49,10 +49,7 @@
         }
       },
       "homePage": {
-        "url": "/pag/{page}/",
-        "pageOverrides": {
-          "2": "/page/2/"
-        },
+        "url": "/?page={page}",
         "inherits": "home"
       },
       "search": {
@@ -68,7 +65,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/category/{tag}/pag/{page}/",
+        "url": "/category/{tag}/?page={page}",
         "inherits": "home"
       },
       "detail": "/gallery/{id}/",

@@ -1,7 +1,7 @@
 {
   "source": "grabberzone",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://grabber.zone",
@@ -106,10 +106,6 @@
         "url": "/type/{tag}/",
         "inherits": "home"
       },
-      "genreSearchPage": {
-        "url": "/type/{tag}/page/{page}/",
-        "inherits": "home"
-      },
       "detail": "/comics/{id}/",
       "chapter": "/comics/{id}"
     },
@@ -208,7 +204,7 @@
       }
     }
   },
-  "contentIdPattern": "/manga/([^/]+)",
+  "contentIdPattern": "/comics/([^/]+)",
   "features": {
     "search": false,
     "chapters": true,
