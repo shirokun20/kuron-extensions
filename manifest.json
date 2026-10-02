@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-09-30T21:41:13.595631+07:00",
+    "lastUpdated": "2026-10-03T00:17:59.714968+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -695,7 +695,7 @@
         },
         {
             "id": "spyfakku",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "url": "config/en/spyfakku-config.json",
             "meta": {
                 "displayName": "SpyFakku",
@@ -709,7 +709,7 @@
                 "maintenance": true,
                 "maintenanceMessage": "spyfakku sedang dalam perbaikan, mohon tunggu"
             },
-            "checksum": "5664278281dba5d64bb632afb1fb439e7aa0e98211d6a40f03d6c3bd58b9bfaa"
+            "checksum": "78a2011f4ea4adb369238154287c54fbc6ab817f7a7a523c57425f9a70099d4c"
         },
         {
             "id": "tooncubus",
@@ -841,7 +841,7 @@
         },
         {
             "id": "akazascans",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/akazascans-config.json",
             "meta": {
                 "displayName": "Akazascans",
@@ -853,7 +853,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "5f36c6aaf76125192084bc29b2edb92262c4e5ca734513ba3a71a5ac96c430cc"
+            "checksum": "94e88a955146a7f20fa1e88b8034ca090ac1a6505a7c915748bdf12a5d2b03ec"
         },
         {
             "id": "allporncomicio",
@@ -905,7 +905,7 @@
         },
         {
             "id": "arenascancom",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/arenascancom-config.json",
             "meta": {
                 "displayName": "Arenascan",
@@ -917,7 +917,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "34b3ee0c159bb7b7fc8c3bd7a6e3c0384e3a243542997a15f0d99ce89bb96a78"
+            "checksum": "fbfc7ea8e82b3096d9ce6e558cbd6f91d517877d19586a14fb17db0a3ee3f0d3"
         },
         {
             "id": "athreascanscom",
@@ -1033,7 +1033,7 @@
         },
         {
             "id": "scythescanscom",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/scythescanscom-config.json",
             "meta": {
                 "displayName": "Scythescans",
@@ -1045,7 +1045,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "ae69869a47c11d459d2858a8aeb986f362c2b1849b9f6a09641e6d50737959b6"
+            "checksum": "1d26e671ad8ba97c89102fcd80598e9983297339241077b1d1962830fbb67200"
         },
         {
             "id": "evascansnet",
@@ -1097,7 +1097,7 @@
         },
         {
             "id": "galaxymangaio",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/galaxymangaio-config.json",
             "meta": {
                 "displayName": "Galaxymanga",
@@ -1109,7 +1109,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "dcb033ff8ff57e09aff9cf87760b827edc0574b6c3c0a61dfbd2a0b50b74ea35"
+            "checksum": "c443e9ec561f9e4099dcc410f85f539cf16886db4d48d6c19c6252efe8e6e314"
         },
         {
             "id": "gedecomixcom",
@@ -1321,7 +1321,7 @@
         },
         {
             "id": "kingofshojo",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/kingofshojo-config.json",
             "meta": {
                 "displayName": "Kingofshojo",
@@ -1333,11 +1333,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "fe9c04c2a90e162e82cc179cf3dc3e9fc5306a5e7c37d497996bdf0b9046d1a5"
+            "checksum": "7cbbd5f73df98250ba75cc4ed1d0f26f6eac57ec31ca5519083b158ffe06ccf4"
         },
         {
             "id": "lagoonscans",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/lagoonscans-config.json",
             "meta": {
                 "displayName": "Lagoonscans",
@@ -1349,7 +1349,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "820ee5f994779e63338731db709c891ef5f9410722e4a78bf542cf00243537aa"
+            "checksum": "ede587447e93699a09e0043c8ed757137409bf401e7a3809b04a0b0923d5cb8d"
         },
         {
             "id": "manga18fx",
@@ -1369,7 +1369,7 @@
         },
         {
             "id": "madarascans",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/madarascans-config.json",
             "meta": {
                 "displayName": "Madarascans",
@@ -1381,7 +1381,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "cfee007d52b6232de35c4b7db6054a449015fac19932489b51f3b2f73d01fe30"
+            "checksum": "f101ab1ee78aedc0608e16f2b2696934198f8d1f596a723b6be18c9a75841008"
         },
         {
             "id": "hunlightcomics",

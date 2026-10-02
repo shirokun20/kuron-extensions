@@ -1,7 +1,7 @@
 {
   "source": "galaxymangaio",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://galaxymanga.io",
@@ -109,7 +109,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/genres/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",

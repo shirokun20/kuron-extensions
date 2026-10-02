@@ -1,7 +1,7 @@
 {
   "source": "akazascans",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://akazascans.org",
@@ -106,7 +106,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/genres/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
