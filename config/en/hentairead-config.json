@@ -2,7 +2,7 @@
   "source": "hentairead",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -36,7 +36,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": "div.video",
+          "container": ".owl-carousel .item, div.col-6.video",
           "fields": {
             "id": {
               "selector": "a",
@@ -44,7 +44,8 @@
               "transform": "slug"
             },
             "title": {
-              "selector": "p.title-manga a"
+              "selector": "img",
+              "attribute": "alt"
             },
             "coverUrl": {
               "selector": "img",

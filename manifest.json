@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T08:55:45.129875+07:00",
+    "lastUpdated": "2026-10-03T09:05:02.724005+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -663,7 +663,7 @@
         },
         {
             "id": "hentairead",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/hentairead-config.json",
             "meta": {
                 "displayName": "Hentairead",
@@ -675,7 +675,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "cc1924cb5290109ccd83db4b7cc691ab426703f8b4f35d2d2d0664b55d7c156f"
+            "checksum": "12c50b01ee1b5ee17cc4910da9072b2b2bac6d8cf49ba14d965f850b447f7e5b"
         },
         {
             "id": "hentairox",
