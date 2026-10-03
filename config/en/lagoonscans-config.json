@@ -1,7 +1,7 @@
 {
   "source": "lagoonscans",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://lagoonscans.com",
@@ -29,9 +29,9 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/",
+        "url": "/manga/",
         "list": {
-          "container": ".bsx",
+          "container": ".listupd .bs .bsx",
           "fields": {
             "id": {
               "selector": "a",
@@ -39,40 +39,38 @@
               "transform": "slug"
             },
             "title": {
-              "selector": "a",
-              "attribute": "title"
+              "selector": ".tt"
             },
             "coverUrl": {
-              "selector": "img",
+              "selector": "img.ts-post-image",
               "attribute": "src"
             }
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".pagination a.page-numbers, .hpage a.r, a[rel='next']"
           }
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/manga/?page={page}",
         "inherits": "home"
       },
       "search": {
         "url": "/?s={query}&post_type=wp-manga",
         "list": {
-          "container": ".imgseries",
+          "container": ".listupd .bs .bsx",
           "fields": {
             "id": {
-              "selector": "a.series",
+              "selector": "a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": "img",
-              "attribute": "alt"
+              "selector": ".tt"
             },
             "coverUrl": {
-              "selector": "img",
+              "selector": "img.ts-post-image",
               "attribute": "src"
             }
           }
@@ -81,23 +79,23 @@
       "searchPage": {
         "url": "/page/{page}/?s={query}&post_type=wp-manga",
         "list": {
-          "container": ".row.c-tabs-item__content",
+          "container": ".listupd .bs .bsx",
           "fields": {
             "id": {
-              "selector": "a[href*='/manga/']",
+              "selector": "a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": ".tt"
             },
             "coverUrl": {
-              "selector": ".tab-thumb img",
-              "attribute": "data-src"
+              "selector": "img.ts-post-image",
+              "attribute": "src"
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".pagination a.page-numbers, .hpage a.r, a[rel='next']"
           }
         }
       },
@@ -153,8 +151,8 @@
           "attribute": "src"
         },
         "nav": {
-          "next": ".next_page, .nav-links .next",
-          "prev": ".prev_page, .nav-links .prev"
+          "next": "div.btm-np.nextprev a.ch-next-btn, .next_page, .nav-links .next",
+          "prev": "div.btm-np.nextprev a.ch-prev-btn, .prev_page, .nav-links .prev"
         },
         "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);"
       }

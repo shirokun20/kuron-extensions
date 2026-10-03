@@ -1,7 +1,7 @@
 {
   "source": "comicasuranet",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comicasura.net",
@@ -132,10 +132,16 @@
           "coverUrl": {
             "selector": "meta[property=\"og:image\"]",
             "attribute": "content"
+          },
+          "tags": {
+            "selector": "a[role=\"button\"][href*=\"/manga-list/\"]",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
           }
         },
         "chapters": {
-          "container": "div.grid a[title^=\"Chapter\"]",
+          "container": "div.chapter-items",
           "fields": {
             "id": {
               "selector": "a",
@@ -143,8 +149,7 @@
               "regex": "/manga/([^?#]+)"
             },
             "title": {
-              "selector": "a",
-              "attribute": "title"
+              "selector": "div.text-sm"
             }
           }
         }

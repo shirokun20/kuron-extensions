@@ -15,6 +15,8 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-10-03 07:15 | issue | #51+#52+#53+#54 bug:id | reader hentaikun (uji runtime) + paginasi author/artist h4f + sort/category hentairox + paginasi tag grabberzone ✅ | kuron-config-verify |
+| 2026-10-03 07:10 | fix | 14 config laporan user (4 probe paralel) | akazascans/arena/comic/galaxy/grabber/h4f/hentaikun/hentailoop/hentairead/hentairox/kos/lagoon/mada/mangareadorg ✅ | kuron-config-verify |
 | 2026-10-03 05:45 | fix | `manifest.json` + `refresh_manifest.py` | manifest diurutkan (bucket,id): 104 entri unik; buang duplikat basi `hentairead` v1.0.0; script kini self-sorting + `--check` gagal bila tak urut + guard duplikat manifest ✅ | opencode |
 | 2026-10-03 05:30 | decision | crotpedia `advancedSearch` | user konfirmasi search asli memang pakai advancedSearch; route tetap hidup (`?title=` 41 item, `?genre[]=ahegao` 62 item, value = slug) tapi belum di-wire (butuh multi-param di app) → dicatat TUNDA di matrix, bukan rusak ✅ | opencode |
 | 2026-10-03 05:15 | fix | 16 config batch-2 (C1+C3+C4, 3 subagent edit paralel) | C1 taksonomi 7 issue + C3 search-pagination 5 issue + C4 query-param 4 issue (#13,#16,#17,#18,#19,#20,#38,#26,#27,#28,#35,#44,+4 bg); render Chromium per pola; hentairead search container dikoreksi li (simulasi 10/10); C2 dibatalkan (403 tak terreproduksi, #21 tetap open); 16 issue ditutup ✅ | kuron-config-verify |

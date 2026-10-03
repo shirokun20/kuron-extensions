@@ -1,7 +1,7 @@
 {
   "source": "mangareadorg",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.mangaread.org",
@@ -94,7 +94,7 @@
             },
             "coverUrl": {
               "selector": ".tab-thumb img",
-              "attribute": "data-src"
+              "attribute": "src"
             }
           },
           "pagination": {
@@ -108,6 +108,22 @@
       },
       "genreSearchPage": {
         "url": "/genres/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "authorSearch": {
+        "url": "/m-author/{tag}/",
+        "inherits": "home"
+      },
+      "authorSearchPage": {
+        "url": "/m-author/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "artistSearch": {
+        "url": "/artist/{tag}/",
+        "inherits": "home"
+      },
+      "artistSearchPage": {
+        "url": "/artist/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
@@ -210,7 +226,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

@@ -1,7 +1,7 @@
 {
   "source": "hentai4freenet",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -107,7 +107,7 @@
       "genreSearch": {
         "url": "/hentai-genre/{tag}/",
         "list": {
-          "container": "article.h4f-genre-card",
+          "container": ".h4f-genre-grid article.h4f-genre-card",
           "fields": {
             "id": {
               "selector": "a.h4f-genre-card__cover",
@@ -124,7 +124,8 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a.next.page-numbers, nav.h4f-genre-pagination a.page-numbers",
+            "links": "nav.h4f-genre-pagination a.page-numbers"
           }
         }
       },
@@ -135,7 +136,7 @@
       "tagSearch": {
         "url": "/hentai-tag/{tag}/",
         "list": {
-          "container": "article.h4f-genre-card",
+          "container": ".h4f-genre-grid article.h4f-genre-card",
           "fields": {
             "id": {
               "selector": "a.h4f-genre-card__cover",
@@ -152,13 +153,30 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a.next.page-numbers, nav.h4f-genre-pagination a.page-numbers",
+            "links": "nav.h4f-genre-pagination a.page-numbers"
           }
         }
       },
       "tagSearchPage": {
         "url": "/hentai-tag/{tag}/page/{page}/",
         "inherits": "tagSearch"
+      },
+      "authorSearch": {
+        "url": "/hentai-author/{tag}/",
+        "inherits": "tagSearch"
+      },
+      "authorSearchPage": {
+        "url": "/hentai-author/{tag}/page/{page}/",
+        "inherits": "authorSearch"
+      },
+      "artistSearch": {
+        "url": "/hentai-artist/{tag}/",
+        "inherits": "tagSearch"
+      },
+      "artistSearchPage": {
+        "url": "/hentai-artist/{tag}/page/{page}/",
+        "inherits": "artistSearch"
       },
       "detail": "/hentai/{id}/",
       "chapter": "/hentai/{id}/"
@@ -181,8 +199,16 @@
             "selector": ".artist-content a",
             "multi": true
           },
-          "tags": {
+          "genres": {
             "selector": ".genres-content a",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          },
+          "tags": {
+            "selector": ".tags-content a",
+            "attribute": "href",
+            "transform": "slug",
             "multi": true
           }
         },
@@ -249,7 +275,7 @@
       }
     }
   },
-  "contentIdPattern": "/manga/([^/]+)",
+  "contentIdPattern": "/hentai/([^/?#]+)",
   "features": {
     "search": false,
     "chapters": true,

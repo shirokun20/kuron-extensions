@@ -2,7 +2,7 @@
   "source": "hentaikun",
   "displayName": "Hentaikun",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://hentaikun.com/manga",
   "enabled": true,
   "defaultLanguage": "english",
@@ -51,17 +51,17 @@
             }
           },
           "pagination": {
-            "next": "a.next",
-            "links": "a.page-numbers"
+            "next": "ul.pagination li[aria-label=\"Next\"] a",
+            "links": "ul.pagination li a"
           }
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/{page}/",
         "inherits": "home"
       },
       "search": {
-        "url": "/index.php?do=search&subaction=search&story={query}",
+        "url": "/search/title/{query}",
         "inherits": "home"
       },
       "detail": "/{id}/",
@@ -112,10 +112,12 @@
         }
       },
       "reader": {
-        "images": {
-          "selector": ".image-show img, .r_thumb img",
-          "attribute": "src"
-        }
+        "mode": "hentaifoxCdn",
+        "readerPageUrlPattern": "/{id}/read/{page}/",
+        "readerImageSelector": ".image-show img.image_rin",
+        "readerImageAttr": "src",
+        "readerPageCountSelector": "select:not(#Reading_type1) option:last-child",
+        "readerPageCountAttr": "text"
       }
     }
   },
@@ -146,5 +148,5 @@
     "offlineMode": true,
     "related": false
   },
-  "notes": "WordPress Madara theme."
+  "notes": "Custom PHP (templates/anime2016), bukan Madara. Reader 1 gambar per URL .../read/{n}/, gambar berurutan {dir}/{n}.jpg."
 }

@@ -1,23 +1,23 @@
 {
   "source": "madarascans",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
-  "baseUrl": "https://madarascans.org",
+  "baseUrl": "https://madarascans.net",
   "ui": {
     "displayName": "Madarascans",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://madarascans.org"
+    "openInBrowserUrl": "https://madarascans.net"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://madarascans.org/",
+      "Referer": "https://madarascans.net/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
     "imageHeaders": {
-      "Referer": "https://madarascans.org/"
+      "Referer": "https://madarascans.net/"
     },
     "rateLimit": {
       "enabled": true,
@@ -48,12 +48,12 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".hpage a.r, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "homePage": {
-        "url": "/manga/page/{page}/",
+        "url": "/series/?page={page}",
         "inherits": "home"
       },
       "search": {
@@ -196,9 +196,9 @@
       }
     }
   },
-  "contentIdPattern": "/manga/([^/]+)",
+  "contentIdPattern": "/series/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

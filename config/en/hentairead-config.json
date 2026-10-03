@@ -2,7 +2,7 @@
   "source": "hentairead",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -59,25 +59,12 @@
         "inherits": "home"
       },
       "search": {
-        "url": "/?act=ajax&code=search_manga&keyword={query}",
-        "list": {
-          "container": "li",
-          "fields": {
-            "id": {
-              "selector": "a",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": "h3"
-            },
-            "coverUrl": {
-              "selector": "img",
-              "attribute": "src",
-              "prefix": "https://hentairead.io/"
-            }
-          }
-        }
+        "url": "/?act=search&f[status]=all&f[sortby]=lastest-chap&f[keyword]={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/?act=search&f[status]=all&f[sortby]=lastest-chap&f[keyword]={query}&pageNum={page}",
+        "inherits": "home"
       },
       "detail": "/{id}/",
       "chapter": "/{id}",
@@ -91,23 +78,6 @@
       }
     },
     "selectors": {
-      "list": {
-        "item": ".page-item-detail, .page-item, .grid-item",
-        "fields": {
-          "id": {
-            "selector": "a",
-            "attribute": "href",
-            "transform": "slug"
-          },
-          "title": {
-            "selector": "a"
-          },
-          "coverUrl": {
-            "selector": "img",
-            "attribute": "src"
-          }
-        }
-      },
       "detail": {
         "fields": {
           "title": {
@@ -150,7 +120,7 @@
     "urlPattern": "search",
     "params": {
       "query": {
-        "queryParam": "q",
+        "queryParam": "f[keyword]",
         "type": "text",
         "placeholder": "Search..."
       }
@@ -173,5 +143,5 @@
     "offlineMode": true,
     "related": false
   },
-  "notes": "WordPress Madara theme."
+  "notes": "Custom PHP CMS, bukan Madara. Search asli: ?act=search&f[status]=all&f[sortby]=lastest-chap&f[keyword]= (endpoint ?act=ajax hanya autocomplete)."
 }

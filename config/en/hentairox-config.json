@@ -1,6 +1,6 @@
 {
   "source": "hentairox",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentairox.com",
@@ -102,7 +102,7 @@
         }
       },
       "related": {
-        "container": ".related_galleries .thumb",
+        "container": "div.row.related > div.thumb",
         "fields": {
           "id": {
             "selector": ".inner_thumb a",
@@ -110,7 +110,7 @@
             "transform": "slug"
           },
           "title": {
-            "selector": ".g_title a"
+            "selector": ".caption h2.gallery_title a"
           },
           "coverUrl": {
             "selector": ".inner_thumb img",
@@ -119,19 +119,19 @@
         }
       },
       "comments": {
-        "endpoint": "/includes/comments.php",
+        "endpoint": "/inc/comments.php",
         "galleryIdParam": "gallery_id",
-        "container": "#comments_list .comment",
+        "container": "li.master_c, li.reply_c",
         "fields": {
           "id": {
             "selector": ".like_comment",
             "attribute": "comment_id"
           },
           "username": {
-            "selector": ".head span[id^='user_text_'] a"
+            "selector": "span[id^='user_text_']"
           },
           "body": {
-            "selector": ".comment_body .text"
+            "selector": "div.text"
           },
           "avatarUrl": {
             "selector": ".avatar img",
@@ -144,10 +144,10 @@
       },
       "reader": {
         "mode": "hentaifoxCdn",
-        "thumbSelector": ".gallery_thumb img",
+        "thumbSelector": "#append_thumbs .gthumb img",
         "thumbSrcAttr": "data-src",
         "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)",
-        "pageCountSelector": ".i_text.pages",
+        "pageCountSelector": "#load_pages",
         "readerPageUrlPattern": "/view/{id}/1/"
       }
     }
@@ -165,7 +165,7 @@
     "urlPattern": "search",
     "params": {
       "query": {
-        "queryParam": "q",
+        "queryParam": "key",
         "type": "text",
         "placeholder": "Search title or tag..."
       },

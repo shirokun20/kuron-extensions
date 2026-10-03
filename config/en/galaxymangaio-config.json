@@ -1,7 +1,7 @@
 {
   "source": "galaxymangaio",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://galaxymanga.io",
@@ -48,12 +48,12 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".hpage a.r, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "homePage": {
-        "url": "/manga/page/{page}/",
+        "url": "/manga/?page={page}",
         "inherits": "home"
       },
       "search": {
@@ -76,7 +76,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".hpage a.r, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
@@ -100,7 +100,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".hpage a.r, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },

@@ -1,7 +1,7 @@
 {
   "source": "grabberzone",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://grabber.zone",
@@ -29,7 +29,7 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/",
+        "url": "/comics/",
         "list": {
           "container": ".page-item-detail",
           "fields": {
@@ -48,12 +48,12 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".paging-navigation .nav-previous a, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/comics/page/{page}/",
         "inherits": "home"
       },
       "search": {
@@ -106,6 +106,14 @@
         "url": "/type/{tag}/",
         "inherits": "home"
       },
+      "tagSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
       "detail": "/comics/{id}/",
       "chapter": "/comics/{id}"
     },
@@ -130,8 +138,16 @@
             "selector": ".artist-content a",
             "multi": true
           },
+          "genres": {
+            "selector": ".genres-content a",
+            "attribute": "href",
+            "transform": "slug",
+            "multi": true
+          },
           "tags": {
-            "selector": ".genres-content a, .tags-content a",
+            "selector": ".tags-content a",
+            "attribute": "href",
+            "transform": "slug",
             "multi": true
           }
         },

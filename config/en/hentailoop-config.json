@@ -2,7 +2,7 @@
   "source": "hentailoop",
   "displayName": "Hentailoop",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://hentailoop.com",
   "enabled": true,
   "defaultLanguage": "english",
@@ -24,7 +24,7 @@
       "maxConcurrentRequests": 2
     }
   },
-  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/hentailoop.com-config.json",
   "requiredPrimitives": [
     "imageMode.directUrl",
     "pagination.page",
@@ -74,11 +74,11 @@
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
-      "chapter": "/manga/{id}",
+      "chapter": "/manga/{id}/read/",
       "genreSearch": {
         "url": "/genres/{tag}/",
         "list": {
-          "container": ".best-card",
+          "container": "div.cards-wrapp div.manga-card",
           "fields": {
             "id": {
               "selector": "a",
@@ -86,12 +86,17 @@
               "transform": "slug"
             },
             "title": {
-              "selector": ".best-title"
+              "selector": ".title"
             },
             "coverUrl": {
               "selector": "img",
               "attribute": "data-src"
             }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a.next.page-numbers",
+            "links": "a.page-numbers"
           }
         }
       },
@@ -144,25 +149,10 @@
             "attribute": "content"
           },
           "tags": {
-            "selector": "a[href*='/tag/']",
+            "selector": ".manga-term-content.tags a",
             "attribute": "href",
             "transform": "slug",
             "multi": true
-          }
-        },
-        "chapters": {
-          "container": "div.previews a",
-          "fields": {
-            "id": {
-              "selector": "a",
-              "attribute": "href",
-              "regex": "manga/([^?#]+/read/p/\\d+)"
-            },
-            "title": {
-              "selector": "a",
-              "attribute": "href",
-              "regex": "/read/p/(\\d+)"
-            }
           }
         }
       },
@@ -195,11 +185,11 @@
     "detail": true,
     "reader": true,
     "download": true,
-    "chapters": true,
+    "chapters": false,
     "comments": false,
     "favorite": true,
     "offlineMode": true,
     "related": false
   },
-  "notes": "WordPress Madara theme."
+  "notes": "Theme mangaloop (bukan Madara). Single-gallery: 1 karya = 1 galeri, reader di .../read/ (display as list/gallery)."
 }
