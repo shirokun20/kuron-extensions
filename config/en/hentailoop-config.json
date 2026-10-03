@@ -2,7 +2,7 @@
   "source": "hentailoop",
   "displayName": "Hentailoop",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "baseUrl": "https://hentailoop.com",
   "enabled": true,
   "defaultLanguage": "english",
@@ -113,32 +113,15 @@
         "inherits": "tagSearch"
       },
       "artistSearch": {
-        "url": "/artists/{slug}/",
+        "url": "/artists/{tag}/",
         "inherits": "genreSearch"
       },
       "artistSearchPage": {
-        "url": "/artists/{slug}/page/{page}/",
+        "url": "/artists/{tag}/page/{page}/",
         "inherits": "artistSearch"
       }
     },
     "selectors": {
-      "list": {
-        "item": ".page-item-detail, .page-item, .grid-item",
-        "fields": {
-          "id": {
-            "selector": "a",
-            "attribute": "href",
-            "transform": "slug"
-          },
-          "title": {
-            "selector": "a"
-          },
-          "coverUrl": {
-            "selector": "img",
-            "attribute": "src"
-          }
-        }
-      },
       "detail": {
         "fields": {
           "title": {
@@ -177,7 +160,12 @@
   "contentIdPattern": "/manga/([^/]+)",
   "navigation": {
     "genreQueryPrefix": "genre:",
-    "genreTagType": "genre"
+    "genreTagType": "genre",
+    "tagQueryMapping": {
+      "tag": {
+        "mode": "name"
+      }
+    }
   },
   "features": {
     "home": true,

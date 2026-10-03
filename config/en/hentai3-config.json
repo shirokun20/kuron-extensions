@@ -2,7 +2,7 @@
   "source": "hentai3",
   "displayName": "3hentai",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://3hentai.net",
   "enabled": true,
   "defaultLanguage": "english",
@@ -78,26 +78,13 @@
       "tagSearch": {
         "url": "/tags/{tag}",
         "inherits": "home"
+      },
+      "genreSearch": {
+        "url": "/tags/{tag}",
+        "inherits": "home"
       }
     },
     "selectors": {
-      "list": {
-        "item": ".page-item-detail, .page-item, .grid-item",
-        "fields": {
-          "id": {
-            "selector": "a",
-            "attribute": "href",
-            "transform": "slug"
-          },
-          "title": {
-            "selector": "a"
-          },
-          "coverUrl": {
-            "selector": "img",
-            "attribute": "src"
-          }
-        }
-      },
       "detail": {
         "fields": {
           "title": {

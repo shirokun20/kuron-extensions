@@ -1,7 +1,7 @@
 {
   "source": "comicasuranet",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comicasura.net",
@@ -110,14 +110,6 @@
       },
       "genreSearchPage": {
         "url": "/manga-list/{tag}?page={page}",
-        "inherits": "home"
-      },
-      "tagSearch": {
-        "url": "/tags/{tag}",
-        "inherits": "home"
-      },
-      "tagSearchPage": {
-        "url": "/tags/{tag}?page={page}",
         "inherits": "home"
       },
       "detail": "/manga/{id}",

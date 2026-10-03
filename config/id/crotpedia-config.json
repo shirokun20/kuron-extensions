@@ -1,6 +1,6 @@
 {
   "source": "crotpedia",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/crotpedia-config.json",
@@ -108,14 +108,6 @@
       },
       "genreSearchPage": {
         "url": "/baca/genre/{tag}/page/{page}/",
-        "inherits": "search"
-      },
-      "advancedSearch": {
-        "url": "/advanced-search/?title={query}&order={order}&genre[]={tag}",
-        "inherits": "search"
-      },
-      "advancedSearchPage": {
-        "url": "/advanced-search/page/{page}/?title={query}&order={order}&genre[]={tag}",
         "inherits": "search"
       },
       "detail": "/baca/series/{id}/",

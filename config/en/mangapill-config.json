@@ -2,7 +2,7 @@
   "source": "mangapill",
   "displayName": "MangaPill",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangapill.com",
@@ -63,10 +63,12 @@
       },
       "genreSearch": {
         "url": "/search?genre={tag}",
+        "tagTransform": "urlEncode",
         "inherits": "home"
       },
       "genreSearchPage": {
         "url": "/search?genre={tag}&page={page}",
+        "tagTransform": "urlEncode",
         "inherits": "home"
       },
       "detail": "/manga/{id}",

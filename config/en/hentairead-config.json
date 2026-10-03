@@ -2,7 +2,7 @@
   "source": "hentairead",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -24,7 +24,7 @@
       "maxConcurrentRequests": 2
     }
   },
-  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/3hentai.net-config.json",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-config-providers/main/configs/hentairead.io-config.json",
   "requiredPrimitives": [
     "imageMode.directUrl",
     "pagination.page",
@@ -88,7 +88,7 @@
             "attribute": "content"
           },
           "tags": {
-            "selector": ".breadcrumb-item a[href*='/genres/']",
+            "selector": ".breadcrumb-item a[href*='/genres/']:not([href='/genres/'])",
             "attribute": "href",
             "transform": "slug",
             "multi": true

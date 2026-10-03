@@ -2,7 +2,7 @@
   "source": "hentaikun",
   "displayName": "Hentaikun",
   "schemaVersion": "2.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "baseUrl": "https://hentaikun.com/manga",
   "enabled": true,
   "defaultLanguage": "english",
@@ -119,6 +119,10 @@
         "images": {
           "selector": ".image-show img, .r_thumb img",
           "attribute": "src"
+        },
+        "pagination": {
+          "next": "div.next a",
+          "maxPages": 100
         }
       }
     }

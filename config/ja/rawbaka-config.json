@@ -1,7 +1,7 @@
 {
   "source": "rawbaka",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "japanese",
   "configUrl": "",
@@ -150,16 +150,15 @@
           "next": ""
         }
       }
-    },
-    "searchForm": {
-      "enabled": true,
-      "urlPattern": "search",
-      "params": {
-        "query": {
-          "queryParam": "s",
-          "type": "text",
-          "placeholder": "Search..."
-        }
+    }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search..."
       }
     }
   },

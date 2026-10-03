@@ -1,6 +1,6 @@
 {
   "source": "photos18",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "chinese",
   "baseUrl": "https://www.photos18.com",
@@ -124,6 +124,13 @@
   },
   "contentIdPattern": "/v/([^/?#]+)",
   "notes": "Yii2 app. Covers are relative /images/node/... avif - urlBuilder resolves against baseUrl. Detail page shows ~30 of N images; 'older' images load via JS infinite scroll (no URL pagination) - engine reads server-rendered set only. Reader imgs: img.photos18.com/*.avif.",
+  "navigation": {
+    "tagQueryMapping": {
+      "tag": {
+        "mode": "name"
+      }
+    }
+  },
   "features": {
     "comments": false,
     "related": false,
