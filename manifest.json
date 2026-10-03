@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T15:28:22.187314+07:00",
+    "lastUpdated": "2026-10-03T17:50:11.719201+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -21,7 +21,7 @@
         },
         {
             "id": "crotpedia",
-            "version": "1.0.14",
+            "version": "1.0.15",
             "url": "config/id/crotpedia-config.json",
             "meta": {
                 "displayName": "Crotpedia",
@@ -31,9 +31,9 @@
                 "language": "id",
                 "requiresAuth": true,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 8
+                "sizeKb": 7
             },
-            "checksum": "102df6e4ff10907d0c6768a8db8395cbb7f6f76e3c4a373374a6730498becc33"
+            "checksum": "5e32e0cee96bc268515291e93ca57bc1026f6e3c708fefa034a848481e84b5f0"
         },
         {
             "id": "doujindesuv2",

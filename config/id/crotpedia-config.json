@@ -1,6 +1,6 @@
 {
   "source": "crotpedia",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/crotpedia-config.json",
@@ -194,45 +194,6 @@
         "queryParam": "s",
         "type": "text",
         "placeholder": "Cari series..."
-      },
-      "order": {
-        "queryParam": "order",
-        "type": "sort",
-        "label": "Order By",
-        "options": [
-          {
-            "name": "Latest Update",
-            "value": "update"
-          },
-          {
-            "name": "Latest Added",
-            "value": "latest"
-          },
-          {
-            "name": "Popular",
-            "value": "popular"
-          },
-          {
-            "name": "Rating",
-            "value": "rating"
-          },
-          {
-            "name": "A-Z",
-            "value": "title"
-          },
-          {
-            "name": "Z-A",
-            "value": "titlereverse"
-          }
-        ]
-      },
-      "genre": {
-        "queryParam": "genre[]",
-        "type": "checkbox",
-        "label": "Genre",
-        "loadFromTags": true,
-        "tagType": "genre",
-        "tagSourceUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/master/configs/tags/tags_crotpedia.json"
       },
       "page": {
         "queryParam": "page",
