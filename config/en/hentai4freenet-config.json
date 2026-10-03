@@ -1,7 +1,7 @@
 {
   "source": "hentai4freenet",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -193,23 +193,19 @@
           },
           "author": {
             "selector": ".author-content a",
-            "multi": true
+            "extractTagObjects": true
           },
           "artist": {
             "selector": ".artist-content a",
-            "multi": true
+            "extractTagObjects": true
           },
           "genres": {
             "selector": ".genres-content a",
-            "attribute": "href",
-            "transform": "slug",
-            "multi": true
+            "extractTagObjects": true
           },
           "tags": {
             "selector": ".tags-content a",
-            "attribute": "href",
-            "transform": "slug",
-            "multi": true
+            "extractTagObjects": true
           }
         },
         "chapters": {

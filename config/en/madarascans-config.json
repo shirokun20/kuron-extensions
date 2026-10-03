@@ -1,7 +1,7 @@
 {
   "source": "madarascans",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://madarascans.net",
@@ -151,6 +151,9 @@
       },
       "reader": {
         "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);</script>",
+        "imageHostRewrite": {
+          "madascans.com": "madarascans.net"
+        },
         "images": {
           "selector": "#readerarea img",
           "attribute": "src"
