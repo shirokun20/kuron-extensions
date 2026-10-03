@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T07:51:33.042616+07:00",
+    "lastUpdated": "2026-10-03T07:57:35.320055+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -615,7 +615,7 @@
         },
         {
             "id": "hentaikun",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/hentaikun-config.json",
             "meta": {
                 "displayName": "Hentaikun",
@@ -627,7 +627,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "b791dad4a63af7231c12a86d2305af78641c28db0e603120db2f1a2190b085c5"
+            "checksum": "fb3c8dd4d319c45fabbff57756cd65862db021f7edd7409ee8dfc54d682e5c80"
         },
         {
             "id": "hentailoop",

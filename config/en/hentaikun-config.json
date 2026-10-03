@@ -2,7 +2,7 @@
   "source": "hentaikun",
   "displayName": "Hentaikun",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "baseUrl": "https://hentaikun.com/manga",
   "enabled": true,
   "defaultLanguage": "english",
@@ -116,12 +116,10 @@
         }
       },
       "reader": {
-        "mode": "hentaifoxCdn",
-        "readerPageUrlPattern": "/{id}/read/{page}/",
-        "readerImageSelector": ".image-show img.image_rin",
-        "readerImageAttr": "src",
-        "readerPageCountSelector": "select[onchange^='javascript:'] option:last-child",
-        "readerPageCountAttr": "text"
+        "images": {
+          "selector": ".image-show img, .r_thumb img",
+          "attribute": "src"
+        }
       }
     }
   },
