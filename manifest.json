@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T12:31:01.267441+07:00",
+    "lastUpdated": "2026-10-03T12:46:39.457033+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -551,7 +551,7 @@
         },
         {
             "id": "hentai4freenet",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/hentai4freenet-config.json",
             "meta": {
                 "displayName": "Hentai4free",
@@ -563,7 +563,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 8
             },
-            "checksum": "7df49ad3058cc6e2fc76dcf69c9428e6452f66d1eb488726c49e9ef2c26ff780"
+            "checksum": "33790c27e82692d8f3aaf6731dcd29ec04533ffcdd6b0db2f217f96b8204cb44"
         },
         {
             "id": "hentaienvy",
