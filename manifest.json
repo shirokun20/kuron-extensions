@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T14:52:49.387259+07:00",
+    "lastUpdated": "2026-10-03T15:28:22.187314+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -103,7 +103,7 @@
         },
         {
             "id": "komikindo",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/id/komikindo-config.json",
             "meta": {
                 "displayName": "Komikindo",
@@ -115,7 +115,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "2f96ee52e94bf0ff7d2ee664f66d9660de38cc862fc848f0b61a70a44730e88d"
+            "checksum": "20e63f85eb6bc9667d64517503751893eaa0ccd823bb4bfd436d381246b106f8"
         },
         {
             "id": "komiktap",

@@ -1,21 +1,21 @@
 {
   "source": "komikindo",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "",
-  "baseUrl": "https://komikindo.fit",
+  "baseUrl": "https://1.komikindo.shop/",
   "ui": {
     "displayName": "Komikindo",
     "iconPath": "./images/komikindo.png",
     "brandColor": "#E3456F",
-    "openInBrowserUrl": "https://komikindo.fit"
+    "openInBrowserUrl": "https://1.komikindo.shop/"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://komikindo.fit/",
+      "Referer": "https://1.komikindo.shop/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
     "rateLimit": {
