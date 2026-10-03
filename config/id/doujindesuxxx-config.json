@@ -1,6 +1,6 @@
 {
   "source": "doujindesuxxx",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujin.desu.xxx",
@@ -171,22 +171,6 @@
           "multi": true,
           "dataSource": "genres"
         }
-      },
-      "sort": {
-        "queryParam": "",
-        "type": "select",
-        "label": "Sort by",
-        "rawParam": true,
-        "options": [
-          {
-            "name": "Latest",
-            "value": "sort=latest"
-          },
-          {
-            "name": "Popular",
-            "value": "sort=popular"
-          }
-        ]
       }
     }
   }

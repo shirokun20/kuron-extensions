@@ -2,7 +2,7 @@
   "source": "tooncubus",
   "displayName": "ToonCubus",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://www.tooncubus.top",
   "enabled": true,
   "defaultLanguage": "indonesian",
@@ -82,7 +82,8 @@
             "attribute": "content"
           },
           "author": {
-            "selector": "#extra-info a[href*=\"/search/label/\"]"
+            "selector": "#extra-info a[href*=\"/search/label/\"]",
+            "multi": true
           },
           "tags": {
             "selector": ".mt-15 a.label[rel='tag']",

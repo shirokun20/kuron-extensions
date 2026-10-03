@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T09:05:02.724005+07:00",
+    "lastUpdated": "2026-10-03T09:56:23.972743+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -37,7 +37,7 @@
         },
         {
             "id": "doujindesuv2",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "url": "config/id/doujindesuv2-config.json",
             "meta": {
                 "displayName": "DoujinDesu v2",
@@ -51,11 +51,11 @@
                 "maintenance": true,
                 "maintenanceMessage": "doujindesuv2 sedang dalam perbaikan, mohon tunggu"
             },
-            "checksum": "a9836d6f115b08a5b934c01b796608fe602011b83317341c2cfa659e31c0773e"
+            "checksum": "7428b72aa1adaea2c574ab6a9acd5379776219c33a036524ed6c60bd56e30877"
         },
         {
             "id": "doujindesuxxx",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "url": "config/id/doujindesuxxx-config.json",
             "meta": {
                 "displayName": "DoujinDesu.xxx",
@@ -67,7 +67,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "c90186f2f1c7e801f426c570cc292f87782c3cbf3becc29faca374efdaa4e0b0"
+            "checksum": "8c54221478841adcf0c0dc2f76b01c4db3721a294e227ebdc2d50df83a5428df"
         },
         {
             "id": "komikcast",
@@ -135,7 +135,7 @@
         },
         {
             "id": "komiku",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/id/komiku-config.json",
             "meta": {
                 "displayName": "Komiku",
@@ -147,7 +147,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "ac249906ffd7d2bf38e6b95e78be9c2ae96eb9a74d0c2ad08861ad20d11aebc8"
+            "checksum": "5b9dcb0316bd943bce3845580508ce3199b0529e5b6dd5d0ba6c82bffb6f07ab"
         },
         {
             "id": "mangaread",
@@ -215,7 +215,7 @@
         },
         {
             "id": "tooncubus",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/id/tooncubus-config.json",
             "meta": {
                 "displayName": "ToonCubus",
@@ -227,7 +227,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "4fe594620f62cc168e0ab69c0718a8652a83ffe5acc389a375801951e7a7c8e7"
+            "checksum": "429c6a5f3f7fbf8fdb0eb3492615aa053cf2ddf8da7c00a21a1fdd402ff28645"
         },
         {
             "id": "akazascans",
@@ -311,7 +311,7 @@
         },
         {
             "id": "asmhentai",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/asmhentai-config.json",
             "meta": {
                 "displayName": "AsmHentai",
@@ -321,9 +321,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "b7dfc13a9b19015ce4f63e300c37bfe48663feb42981e310b41da2f001fa7ca3"
+            "checksum": "d24a89224c90518a3b3283152ba8ad2ee32370f5457887fa5246b9f317a152ed"
         },
         {
             "id": "athreascanscom",
@@ -567,7 +567,7 @@
         },
         {
             "id": "hentaienvy",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/hentaienvy-config.json",
             "meta": {
                 "displayName": "HentaiEnvy",
@@ -577,13 +577,13 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "b924a34b79e607ac4b41610c272bbc21b0985dae4b1998d6e43ececb6e7ff068"
+            "checksum": "53c5ff8e2c497fbfa4a37384c309e45265da1110129001a72c6fc8e03d94d43e"
         },
         {
             "id": "hentaiera",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/hentaiera-config.json",
             "meta": {
                 "displayName": "HentaiEra",
@@ -593,13 +593,13 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 4
             },
-            "checksum": "4a1dbefe86113453f2d31e07618cb6974f4bf62b110b1b40320d466f14812b0c"
+            "checksum": "53d8db4472a30211de3f4122180532bd6d97b9afcaff1313f58dd0db898b5fc5"
         },
         {
             "id": "hentaifox",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/hentaifox-config.json",
             "meta": {
                 "displayName": "Hentaifox",
@@ -609,9 +609,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "7bcb1cf06037a320bfbd84f6938aa7412768ef06770f2fc06506c0bb34e80a8e"
+            "checksum": "818fd76f7642202325436625356dcff8dcb17c41b83f0f8487c4130224ce1807"
         },
         {
             "id": "hentaikun",
@@ -647,7 +647,7 @@
         },
         {
             "id": "hentainexus",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "url": "config/en/hentainexus-config.json",
             "meta": {
                 "displayName": "HentaiNexus",
@@ -659,7 +659,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 9
             },
-            "checksum": "9572cf49f84d8466cdb5b0434d74064d1155aad3f136dd00e74e83283b7f70b4"
+            "checksum": "1d7b726fcdb42b9ebd8ef4d209e6789e985ffa2b382104d282118d1abf3027db"
         },
         {
             "id": "hentairead",
@@ -743,7 +743,7 @@
         },
         {
             "id": "hentaizap",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/hentaizap-config.json",
             "meta": {
                 "displayName": "HentaiZap",
@@ -753,9 +753,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "06e4aec14ad9e4905a70b2a3c054874f0c3d69e3f9c6534b9198095e7ff7ed8c"
+            "checksum": "6ebbdb778eaae78646cb74d9cf0fd1a0a56549fd40ae02fb2b3976f7395acf78"
         },
         {
             "id": "hm2d",
@@ -1239,7 +1239,7 @@
         },
         {
             "id": "manhwaread",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "url": "config/en/manhwaread-config.json",
             "meta": {
                 "displayName": "ManhwaRead",
@@ -1251,7 +1251,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 13
             },
-            "checksum": "9e6ac159cfb17cff3720470badd838b5cc08a253c041bdfc9f1ebe658ab221bf"
+            "checksum": "19ef33bdcb90d73d58e9a890ef90ffd26cc3328537033536f89bea5ba11af93d"
         },
         {
             "id": "manhwareads",
@@ -1433,7 +1433,7 @@
         },
         {
             "id": "nicomanga",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "url": "config/ja/nicomanga-config.json",
             "meta": {
                 "displayName": "Nicomanga",
@@ -1445,7 +1445,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "2307e2c1546c2544060b1b7dc29bb81549b0c2d9f3b46018eb07931e49fa6346"
+            "checksum": "9ef1999f854f4a7b4b615adbcc0ea77b3b8f3fb80d34762c5275d2200f83a5e9"
         },
         {
             "id": "rawbaka",
@@ -1481,7 +1481,7 @@
         },
         {
             "id": "vihentai",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/vi/vihentai-config.json",
             "meta": {
                 "displayName": "ViHentai",
@@ -1493,7 +1493,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "f985c791df04b98b5f2feaf02549e56bd51243c3770d70b8884e1b9e4687d3d2"
+            "checksum": "dc151fbcb13c19550615aa5c395e4d1ee79d9ded5a46a2d5f1f08b006c3b4c9f"
         },
         {
             "id": "beauty3600000",

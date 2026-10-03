@@ -1,6 +1,6 @@
 {
   "source": "hentainexus",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/hentainexus-config.json",
   "enabled": true,
   "defaultLanguage": "english",
@@ -95,7 +95,8 @@
           },
           "artist": {
             "selector": "table.view-page-details a[href*=\"q=artist:%22\"]",
-            "regex": "^(.+?)(?:\\s+\\([0-9,]+\\))?$"
+            "regex": "^(.+?)(?:\\s+\\([0-9,]+\\))?$",
+            "multi": true
           },
           "publisher": {
             "selector": "table.view-page-details a[href*=\"q=publisher:%22\"]",

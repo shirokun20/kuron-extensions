@@ -1,7 +1,7 @@
 {
   "source": "asmhentai",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -158,66 +158,6 @@
         "queryParam": "q",
         "type": "text",
         "placeholder": "Search title or tag..."
-      },
-      "sort": {
-        "queryParam": "",
-        "type": "select",
-        "label": "Sort by",
-        "rawParam": true,
-        "options": [
-          {
-            "name": "Latest",
-            "value": "lt"
-          },
-          {
-            "name": "Popular",
-            "value": "pp"
-          },
-          {
-            "name": "Top Rated",
-            "value": "tr"
-          },
-          {
-            "name": "Downloaded",
-            "value": "dl"
-          }
-        ]
-      },
-      "category": {
-        "queryParam": "",
-        "type": "select",
-        "label": "Category",
-        "rawParam": true,
-        "options": [
-          {
-            "name": "All",
-            "value": ""
-          },
-          {
-            "name": "Manga",
-            "value": "m"
-          },
-          {
-            "name": "Doujinshi",
-            "value": "d"
-          },
-          {
-            "name": "Western",
-            "value": "w"
-          },
-          {
-            "name": "Image Set",
-            "value": "i"
-          },
-          {
-            "name": "Artist CG",
-            "value": "cg"
-          },
-          {
-            "name": "Game CG",
-            "value": "gc"
-          }
-        ]
       }
     }
   }

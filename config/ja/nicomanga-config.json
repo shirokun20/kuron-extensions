@@ -1,6 +1,6 @@
 {
   "source": "nicomanga",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://nicomanga.com",
@@ -89,6 +89,7 @@
           },
           "author": {
             "selector": ".info-field-label:contains(Author) + .info-field-value a",
+            "multi": true,
             "transform": "base64"
           },
           "tags": {
@@ -98,6 +99,7 @@
           },
           "artist": {
             "selector": ".info-field-label:contains(Magazine) + .info-field-value a",
+            "multi": true,
             "transform": "base64"
           },
           "status": {

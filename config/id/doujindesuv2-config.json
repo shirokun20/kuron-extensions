@@ -1,6 +1,6 @@
 {
   "source": "doujindesuv2",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujindesu.tv",
@@ -138,7 +138,8 @@
             "multi": true
           },
           "artist": {
-            "selector": "section.metadata table tr:contains(Author) td:nth-child(2) a"
+            "selector": "section.metadata table tr:contains(Author) td:nth-child(2) a",
+            "multi": true
           },
           "group": {
             "selector": "section.metadata table tr:contains(Group) td:nth-child(2) a"
