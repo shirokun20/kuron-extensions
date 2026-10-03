@@ -1,6 +1,6 @@
 {
   "source": "hentairox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentairox.com",
@@ -27,7 +27,7 @@
       "home": {
         "url": "/",
         "list": {
-          "container": ".thumb",
+          "container": "div.row.galleries > div.thumb, div.thumbs_container > div.thumb",
           "fields": {
             "id": {
               "selector": ".inner_thumb a",
@@ -68,6 +68,14 @@
         "url": "/category/{tag}/?page={page}",
         "inherits": "home"
       },
+      "tagSearch": {
+        "url": "/tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/tag/{tag}/?page={page}",
+        "inherits": "home"
+      },
       "detail": "/gallery/{id}/",
       "chapter": "/gallery/{id}/"
     },
@@ -90,7 +98,7 @@
             "regex": "(\\d+)"
           },
           "tags": {
-            "selector": ".galleries_info a.tag",
+            "selector": ".galleries_info a.tag[href*='/tag/']",
             "attribute": "href",
             "transform": "slug",
             "multi": true

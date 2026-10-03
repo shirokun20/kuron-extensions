@@ -1,7 +1,7 @@
 {
   "source": "arenascancom",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://arenascan.com",
@@ -153,7 +153,8 @@
         "images": {
           "selector": "#readerarea img",
           "attribute": "src"
-        }
+        },
+        "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);"
       }
     },
     "searchForm": {

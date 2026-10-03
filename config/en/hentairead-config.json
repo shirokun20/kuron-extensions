@@ -2,7 +2,7 @@
   "source": "hentairead",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -88,7 +88,7 @@
             "attribute": "content"
           },
           "tags": {
-            "selector": "a[href*='/genres/']",
+            "selector": ".breadcrumb-item a[href*='/genres/']",
             "attribute": "href",
             "transform": "slug",
             "multi": true

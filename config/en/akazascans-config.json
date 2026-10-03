@@ -130,7 +130,20 @@
           }
         },
         "chapters": {
-          "mode": "adminAjax"
+          "container": "#chapterlist li",
+          "fields": {
+            "id": {
+              "selector": ".eph-num a",
+              "attribute": "href",
+              "regex": "/([^?#/]+)/?$"
+            },
+            "title": {
+              "selector": ".chapternum"
+            },
+            "date": {
+              "selector": ".chapterdate"
+            }
+          }
         }
       },
       "reader": {

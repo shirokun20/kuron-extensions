@@ -1,7 +1,7 @@
 {
   "source": "mangareadorg",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.mangaread.org",
@@ -177,7 +177,7 @@
         "mode": "chapterDataScript",
         "images": {
           "selector": ".reading-content img.wp-manga-chapter-img, .reading-content .page-break img",
-          "attribute": "data-src"
+          "attribute": "src"
         },
         "nav": {
           "next": ".next_page, .nav-links .next",

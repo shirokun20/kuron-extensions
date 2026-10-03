@@ -15,6 +15,8 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-10-03 07:40 | recheck | 14 config per fitur (4 probe) + API hunt | checklist selesai; fix lanjutan: chapters akaza SSR, tsReader arena, reader mangareadorg src, container+tags hrx, tags hentairead, searchPage hentaikun, next h4f; API ✅6 ❌8; issue #51-54 ✅ | kuron-config-verify |
+| 2026-10-03 07:25 | riset | buru API 14 situs (4 scout paralel) | ✅ 6 (arena/galaxy/h4f/hentairead/kos/lagoon) ❌ 8 (akaza/comic/grabber/hentaikun/hentailoop/hrx/mada/mangareadorg); 2 klaim dicek ulang curl ✅ | kuron-config-verify |
 | 2026-10-03 07:15 | issue | #51+#52+#53+#54 bug:id | reader hentaikun (uji runtime) + paginasi author/artist h4f + sort/category hentairox + paginasi tag grabberzone ✅ | kuron-config-verify |
 | 2026-10-03 07:10 | fix | 14 config laporan user (4 probe paralel) | akazascans/arena/comic/galaxy/grabber/h4f/hentaikun/hentailoop/hentairead/hentairox/kos/lagoon/mada/mangareadorg ✅ | kuron-config-verify |
 | 2026-10-03 05:45 | fix | `manifest.json` + `refresh_manifest.py` | manifest diurutkan (bucket,id): 104 entri unik; buang duplikat basi `hentairead` v1.0.0; script kini self-sorting + `--check` gagal bila tak urut + guard duplikat manifest ✅ | opencode |
