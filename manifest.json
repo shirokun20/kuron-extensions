@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T09:56:23.972743+07:00",
+    "lastUpdated": "2026-10-03T11:02:12.222718+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -151,7 +151,7 @@
         },
         {
             "id": "mangaread",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/id/mangaread-config.json",
             "meta": {
                 "displayName": "MangaRead",
@@ -161,9 +161,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "5cf223f98935fadc5a605c517b40b4574bd8dd479f31282ae7268ae492cddd75"
+            "checksum": "f21d5f59e527a0185eb1059edd99b9e211093727c9a06f63289115db89a74427"
         },
         {
             "id": "ngomik",
