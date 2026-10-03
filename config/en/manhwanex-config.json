@@ -1,7 +1,7 @@
 {
   "source": "manhwanex",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manhwanex.com",
@@ -128,15 +128,24 @@
           },
           "author": {
             "selector": ".author-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "artist": {
             "selector": ".artist-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "tags": {
             "selector": ".genres-content a, .tags-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagTypeMap": {
+              "manga-genre": "genre",
+              "manga-tag": "tag"
+            }
           }
         },
         "chapters": {

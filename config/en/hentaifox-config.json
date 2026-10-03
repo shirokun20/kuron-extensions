@@ -1,6 +1,6 @@
 {
   "source": "hentaifox",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentaifox.com",
@@ -97,7 +97,8 @@
             "selector": ".tags .tag_btn",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           },
           "pageCount": {
             "selector": ".i_text.pages",

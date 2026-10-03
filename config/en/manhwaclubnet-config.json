@@ -1,7 +1,7 @@
 {
   "source": "manhwaclubnet",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -128,15 +128,21 @@
           },
           "author": {
             "selector": ".author-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "artist": {
             "selector": ".artist-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "tags": {
             "selector": ".genres-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         },
         "chapters": {

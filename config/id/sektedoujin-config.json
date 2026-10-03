@@ -1,7 +1,7 @@
 {
   "source": "sektedoujin",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "",
@@ -138,7 +138,8 @@
           },
           "tags": {
             "selector": ".seriestugenre a, .mgen a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

@@ -1,7 +1,7 @@
 {
   "source": "lagoonscans",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://lagoonscans.com",
@@ -124,7 +124,8 @@
             "selector": ".seriestugenre a",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

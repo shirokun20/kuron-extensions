@@ -1,7 +1,7 @@
 {
   "source": "areakomik",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://areakomik.com",
@@ -136,7 +136,9 @@
           },
           "genres": {
             "selector": ".genre-list a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "genre"
           }
         },
         "chapters": {

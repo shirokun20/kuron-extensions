@@ -1,7 +1,7 @@
 {
   "source": "madarascans",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://madarascans.net",
@@ -129,7 +129,8 @@
             "selector": ".mgen a",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

@@ -1,6 +1,6 @@
 {
   "source": "manga18.club",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manga18.club",
@@ -96,7 +96,8 @@
           },
           "tags": {
             "selector": ".detail_listInfo .item .info_value a[href*='/manga-list/'], .genres a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           },
           "description": {
             "selector": ".detail_reviewContent, .detail_block .detail_reviewContent, .summary, .desc, .entry-content, .sinopsis"

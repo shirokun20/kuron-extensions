@@ -1,7 +1,7 @@
 {
   "source": "manhwaread",
   "schemaVersion": "2.0",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manhwaread.com",
@@ -169,12 +169,16 @@
           "author": {
             "selector": "a[href*='/author/']",
             "regex": "^(.*?)\\s+\\d+$",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "artist": {
             "selector": "a[href*='/artist/']",
             "regex": "^(.*?)\\s+\\d+$",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "publisher": {
             "selector": "a[href*='/publisher/']",
@@ -182,12 +186,16 @@
           },
           "genres": {
             "selector": "a[href*='/genre/']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "genre"
           },
           "tags": {
             "selector": "a[href*='/tag/']",
             "regex": "^(.*?)\\s+[\\d.]+K?$",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           },
           "status": {
             "selector": "[class*=\"status\"]"

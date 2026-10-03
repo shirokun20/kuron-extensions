@@ -1,7 +1,7 @@
 {
   "source": "culturedworkscom",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://culturedworks.com",
@@ -127,7 +127,8 @@
           },
           "tags": {
             "selector": ".genres.mt-10 .genre-name",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

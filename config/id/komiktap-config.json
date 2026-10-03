@@ -1,6 +1,6 @@
 {
   "source": "komiktap",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiktap-config.json",
@@ -110,7 +110,8 @@
           },
           "tags": {
             "selector": ".seriestugenre a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

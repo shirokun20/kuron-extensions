@@ -2,7 +2,7 @@
   "source": "mangapill",
   "displayName": "MangaPill",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangapill.com",
@@ -92,7 +92,8 @@
           },
           "tags": {
             "selector": "a[href*=\"/search?genre=\"]",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

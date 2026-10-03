@@ -2,7 +2,7 @@
   "source": "shirodoujin",
   "displayName": "ShiroDoujin",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://shirodoujin.com",
   "defaultLanguage": "id",
   "ui": {
@@ -124,7 +124,9 @@
           },
           "genres": {
             "selector": "a[href*='/genre/']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "genre"
           },
           "status": {
             "selector": ".status"

@@ -1,7 +1,7 @@
 {
   "source": "hentaiera",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -107,7 +107,9 @@
             "selector": ".info_tags a.tag[href^='/tag/']",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         }
       },

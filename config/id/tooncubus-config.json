@@ -2,7 +2,7 @@
   "source": "tooncubus",
   "displayName": "ToonCubus",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "baseUrl": "https://www.tooncubus.top",
   "enabled": true,
   "defaultLanguage": "indonesian",
@@ -83,11 +83,15 @@
           },
           "author": {
             "selector": "#extra-info a[href*=\"/search/label/\"]",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "tags": {
             "selector": ".mt-15 a.label[rel='tag']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           },
           "status": {
             "selector": ".y6x11p a[href*='/search/label/Ongoing'], .y6x11p a[href*='/search/label/Completed'], .y6x11p a[href*='/search/label/Hiatus'], .y6x11p a[href*='/search/label/Dropped'], .y6x11p a[href*='/search/label/Cancelled']"

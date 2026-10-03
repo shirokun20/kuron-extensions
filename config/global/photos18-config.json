@@ -1,6 +1,6 @@
 {
   "source": "photos18",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "chinese",
   "baseUrl": "https://www.photos18.com",
@@ -95,7 +95,8 @@
           },
           "tags": {
             "selector": ".card-body label.badge",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         }
       },

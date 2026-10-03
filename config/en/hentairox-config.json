@@ -1,7 +1,7 @@
 {
   "source": "hentairox",
   "schemaVersion": "2.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentairox.com",
@@ -101,13 +101,17 @@
             "selector": ".galleries_info a.tag[href*='/tag/']",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           },
           "artists": {
             "selector": ".galleries_info a[href*='/artist/']",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "pageCount": {
             "selector": "li.pages",

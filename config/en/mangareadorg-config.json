@@ -1,7 +1,7 @@
 {
   "source": "mangareadorg",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.mangaread.org",
@@ -144,15 +144,21 @@
           },
           "author": {
             "selector": ".author-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "artist": {
             "selector": ".artist-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "tags": {
             "selector": ".genres-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         },
         "chapters": {

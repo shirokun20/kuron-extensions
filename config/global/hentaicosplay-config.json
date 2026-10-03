@@ -1,6 +1,6 @@
 {
   "source": "hentaicosplay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai-cosplay-xxx.com",
@@ -95,7 +95,9 @@
           },
           "tags": {
             "selector": "#detail_tag a[href*='/search/tag/']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         }
       },

@@ -1,7 +1,7 @@
 {
   "source": "athreascanscom",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://athreascans.com",
@@ -129,7 +129,8 @@
             "selector": ".seriestugenre a",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

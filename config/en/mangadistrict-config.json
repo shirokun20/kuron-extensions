@@ -1,7 +1,7 @@
 {
   "source": "mangadistrict",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangadistrict.com",
@@ -117,15 +117,21 @@
           },
           "author": {
             "selector": ".author-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "artist": {
             "selector": ".artist-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "tags": {
             "selector": ".genres-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         },
         "chapters": {

@@ -15,6 +15,11 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-10-03 10:40 | issue | elftooncom / komikindo / hentaienvy / manhwatoon | #55 (domain -> elftoon.net /series), #56 (komikindo.fit -> 1.komikindo.shop), #57 (selector tag mati, markup hnv-gallery-tag), #58 (domain -> doujinhq.club) — semua bukti 2x curl/Playwright ✅ | kuron-config-verify |
+| 2026-10-03 10:10 | recheck | 87 config pasca-migrasi | probe ulang 87 config + probe URL identik: jumlah link taksonomi tidak berubah (148 field identik, 6 beda karena judul berbeda, 0 karena migrasi); diff ketat vs HEAD: hanya extractTagObjects/tagType/tagTypeMap + versi PATCH ✅ | kuron-config-verify |
+| 2026-10-03 09:55 | laporan | docs/bugs/report-taxonomy-migration-2026-10-03.md | hasil migrasi, bukti per kategori, config terblokir (doujindesuv2, manhwaread, vihentai), temuan pembuka issue ✅ | kuron-config-verify |
+| 2026-10-03 09:20 | migrasi | 87 config taksonomi detail | extractTagObjects true + tagType/tagTypeMap (186 field), bump PATCH, refresh_manifest 87 entri, generate_support_table + issue_body + refresh_manifest --check hijau ✅ | kuron-config-verify |
+| 2026-10-03 09:05 | probe | 87 config (taxonomy live) | harness Playwright: 84/87 punya halaman detail nyata + status arsip; 3 terblokir (doujindesuv2 530/403, manhwaread CF 403, vihentai gatekeeper) ⚠️ | kuron-config-verify |
 | 2026-10-03 08:15 | verifikasi | lagoon the-hero-cannot-rest chapters | 8 chapter di #chapterlist SSR, rantai selector config cocok 100% (container+id+title+date) — sisi config benar, kemungkinan cache aplikasi ✅ | kuron-config-verify |
 | 2026-10-03 08:10 | riset | hentaikun 2 mode reader (bukti user) | cookie {slug}/read=2 → var jsondata[25] sekuensial 1..25 ✅; tanpa cookie 1 gambar; config BELUM diubah (tanpa preseden cookie/array di schema); bukti di docs/bugs/hentaikun-cookiemode/ ✅ | kuron-config-verify |
 | 2026-10-03 08:05 | revert | hentaikun reader v1.0.5 | mode hentaifoxCdn dibatalkan (Attr text tanpa preseden, engine tak terverifikasi, user lapor tidak bisa baca) — kembali .image-show img@src (1 gambar, terbukti) ✅ | kuron-config-verify |

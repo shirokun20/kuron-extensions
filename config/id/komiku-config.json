@@ -1,6 +1,6 @@
 {
   "source": "komiku",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiku-config.json",
@@ -124,7 +124,9 @@
           },
           "author": {
             "selector": "table.inftable tr:contains('Author:') td:nth-child(2)",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "status": {
             "selector": "table.inftable tr:contains('Status:') td:nth-child(2)"
@@ -137,7 +139,9 @@
           },
           "tags": {
             "selector": "table.inftable ul.genre li.genre a span",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           },
           "synopsis": {
             "selector": "p.desc[itemprop='description']"

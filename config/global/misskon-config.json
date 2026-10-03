@@ -1,6 +1,6 @@
 {
   "source": "misskon",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://misskon.com",
@@ -88,7 +88,8 @@
           },
           "tags": {
             "selector": "p.post-tag a[rel='tag']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

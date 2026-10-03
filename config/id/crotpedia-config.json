@@ -1,6 +1,6 @@
 {
   "source": "crotpedia",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/crotpedia-config.json",
@@ -129,7 +129,8 @@
           },
           "tags": {
             "selector": ".series-genres a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         },
         "chapters": {

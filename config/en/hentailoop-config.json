@@ -2,7 +2,7 @@
   "source": "hentailoop",
   "displayName": "Hentailoop",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "baseUrl": "https://hentailoop.com",
   "enabled": true,
   "defaultLanguage": "english",
@@ -135,7 +135,8 @@
             "selector": ".manga-term-content.tags a",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true
           }
         }
       },

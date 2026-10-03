@@ -1,6 +1,6 @@
 {
   "source": "doujindesuv2",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujindesu.tv",
@@ -139,7 +139,9 @@
           },
           "artist": {
             "selector": "section.metadata table tr:contains(Author) td:nth-child(2) a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "group": {
             "selector": "section.metadata table tr:contains(Group) td:nth-child(2) a"
@@ -152,7 +154,9 @@
           },
           "tags": {
             "selector": "section.metadata .tags a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         },
         "chapters": {

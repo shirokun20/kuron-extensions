@@ -1,7 +1,7 @@
 {
   "source": "grabberzone",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://grabber.zone",
@@ -132,23 +132,31 @@
           },
           "author": {
             "selector": ".author-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "artist": {
             "selector": ".artist-content a",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "artist"
           },
           "genres": {
             "selector": ".genres-content a",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "genre"
           },
           "tags": {
             "selector": ".tags-content a",
             "attribute": "href",
             "transform": "slug",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         },
         "chapters": {

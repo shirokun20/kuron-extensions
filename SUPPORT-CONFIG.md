@@ -32,8 +32,8 @@ Sumber data: `config/*/*-config.json` (kecuali `config/new/`) - regenerate: `pyt
 | Reader (image/video) | 104 | 0 | 0 | 0 |
 | Genre + Pag | 94 | 5 | 4 | 1 |
 | Tag + Pag | 20 | 80 | 4 | 0 |
-| Author + Pag | 6 | 1 | 97 | 0 |
-| Artist + Pag | 12 | 0 | 92 | 0 |
+| Author + Pag | 6 | 2 | 96 | 0 |
+| Artist + Pag | 12 | 1 | 91 | 0 |
 
 Total config: **104**
 
@@ -119,12 +119,12 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
 - **maintenance: source lagi dalam perbaikan** — 1 config: `doujindesuv2`
 - **search+total: url sudah menampung {page} tapi tanpa selector pagination** — 1 config: `komikindo`
 
-### 5. Gap Author / Artist (99 config)
+### 5. Gap Author / Artist (98 config)
 
 Author/artist route jarang dideklarasikan - ini statistik, **bukan** daftar issue. Detail per config lihat kolom Author/Artist di Support Matrix. Config yang sudah punya author/artist route justru patut diprioritaskan untuk diverifikasi live.
 
-- tanpa author route: **97 / 104** config (yang punya: `doujindesuxxx`, `hentai4freenet`, `mangadex`, `mangareadorg`, `manhwaread`, `tooncubus`, `vihentai`)
-- tanpa artist route: **92 / 104** config (yang punya: `doujindesuxxx`, `ehentai`, `hdoujin`, `hentai4freenet`, `hentailoop`, `hentainexus`, `mangadex`, `mangafire`, `mangareadorg`, `manhwaread`, `schale-network`, `spyfakku`)
+- tanpa author route: **96 / 104** config (yang punya: `doujindesuxxx`, `hentai4freenet`, `mangadex`, `mangaread`, `mangareadorg`, `manhwaread`, `tooncubus`, `vihentai`)
+- tanpa artist route: **91 / 104** config (yang punya: `doujindesuxxx`, `ehentai`, `hdoujin`, `hentai4freenet`, `hentailoop`, `hentainexus`, `mangadex`, `mangafire`, `mangaread`, `mangareadorg`, `manhwaread`, `schale-network`, `spyfakku`)
 
 ## Support Matrix
 

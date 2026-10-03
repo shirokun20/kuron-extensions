@@ -2,7 +2,7 @@
   "source": "vihentai",
   "displayName": "ViHentai",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "baseUrl": "https://vi-hentai.moe",
   "enabled": true,
   "defaultLanguage": "vi",
@@ -145,11 +145,15 @@
           },
           "author": {
             "selector": "a[href*='/tac-gia/']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "author"
           },
           "genres": {
             "selector": ".md\\:col-span-2 a[href*='/the-loai/']",
-            "multi": true
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "genre"
           },
           "status": {
             "selector": "a[href*='filter'] span"
