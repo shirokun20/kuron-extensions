@@ -25,13 +25,13 @@ Sumber data: `config/*/*-config.json` (kecuali `config/new/`) - regenerate: `pyt
 | Kolom | ✅ | ⚠️ | ✖️ | 🚫 |
 |---|---:|---:|---:|---:|
 | Home | 104 | 0 | 0 | 0 |
-| Home + Pag + Total | 26 | 77 | 1 | 0 |
+| Home + Pag + Total | 27 | 76 | 1 | 0 |
 | Search | 102 | 1 | 1 | 0 |
-| Search + Pag + Total | 25 | 76 | 3 | 0 |
+| Search + Pag + Total | 26 | 75 | 3 | 0 |
 | Detail + Chapters | 103 | 0 | 0 | 1 |
 | Reader (image/video) | 104 | 0 | 0 | 0 |
 | Genre + Pag | 94 | 5 | 4 | 1 |
-| Tag + Pag | 20 | 80 | 4 | 0 |
+| Tag + Pag | 21 | 79 | 4 | 0 |
 | Author + Pag | 6 | 2 | 96 | 0 |
 | Artist + Pag | 12 | 1 | 91 | 0 |
 
@@ -48,10 +48,8 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
 - **mangafire** (`config/en/mangafire-config.json`) - kolom: genre
   - **live 2026-09-30 — 🚫 meluas, bukan cuma genre**: `GET /api/titles?page=1` → **403** `{"message":"Missing token."}` (2×: polos & dengan cookie sesi + header AJAX). Semua kolom berbasis API (home, search, detail, reader) mati; `network.headers` tak punya token; `token` di `main-tlfroa-*.js` cuma cookie auth. Genre/tag tetap 🚫: tak ada endpoint genre di config & SPA balas 200 shell identik untuk `/genres`, `/genre`, `/tag`, `/browse` — **issue #4** dibuka
   - genre: features.contentByTag=true tapi route/selector tidak ada
-  - genre: features.contentByTag=true tapi route/selector tidak ada
 - **ehentai** (`config/global/ehentai-config.json`) - kolom: detail
   - **live 2026-09-30 — 🚫 meluas ke pagination**: `?page=2` **dan** `?o=25` (dengan & tanpa cookie sesi) sama-sama balas **25/25 galeri identik** dengan page 1 → kolom Home+Pag+Total & Search+Pag+Total yang tadinya ✅ tidak terbukti, total tak terbaca; home ✅ 25, search ✅ 25, detail ✅ (`#gn`, `#gdd`, `#taglist` 18 tag, Pages: 120), reader ✅ `#img` HTTP 200 474 KB — **issue #5** dibuka
-  - detail: features.chapters=true tapi selectors.detail.chapters hilang
   - detail: features.chapters=true tapi selectors.detail.chapters hilang
 
 ### 2. ✖️ Kritis - fitur inti rusak (3 config)
@@ -70,16 +68,10 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
   - home+pagination: list tanpa blok pagination
   - search+pagination: list tanpa blok pagination
   - tag: config tanpa tagSearch - kemungkinan memakai route genre
-  - home+pagination: list tanpa blok pagination
-  - search+pagination: list tanpa blok pagination
-  - tag: config tanpa tagSearch - kemungkinan memakai route genre
 - **beauty3600000** (`config/global/beauty3600000-config.json`) - kolom: search, search_pag
   - **live 2026-09-30 (issue #3)**: total home **terbaca** di `nav-links .page-numbers` (5.325) - selector total tinggal ditambah; genre page2 ✅ 0 overlap tapi **57,8 detik** (timeout 30s gagal, timeout 90s berhasil); detail ✅ (`h1.entry-title` + `time[datetime]` + 13 gambar + nav), reader ✅ 3 gambar HTTP 200 tanpa hotlink; tag ✖️ terbukti `.tags-links a[rel='tag']` = 0 kemunculan (situs hanya punya `/category/` = genre); author/artist ✖️ tak ada link di detail
   - **live 2026-09-29 terkonfirmasi**: `/?s=` timeout 4x (0 byte) - search ada di nav (`show-search`) tapi endpoint tak merespons
   - **live 2026-09-30**: `/?s=cosplay` 404 “Page not found”, `/?s=a` 521, artikel=0 di semua varian route; kontrol `/` 200 + 16 artikel - **issue #3** dibuka
-  - home+total: pagination hanya punya `next` - total halaman tidak terbaca
-  - search: urlPatterns.search tidak didefinisikan
-  - tag: config tanpa tagSearch - kemungkinan memakai route genre
   - home+total: pagination hanya punya `next` - total halaman tidak terbaca
   - search: urlPatterns.search tidak didefinisikan
   - tag: config tanpa tagSearch - kemungkinan memakai route genre
@@ -94,19 +86,9 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
   - detail: API tanpa endpoint detail - di-resolve adapter via contentIdPattern
   - genre: features.contentByTag=false - fitur tag/genre dimatikan
   - tag: features.contentByTag=false - fitur tag/genre dimatikan
-  - home+pagination: endpoint API tanpa param page/offset
-  - search: endpoint `search` tidak ada - dialihkan ke browse
-  - search+pagination: endpoint API tanpa param page/offset
-  - detail: API tanpa endpoint detail - di-resolve adapter via contentIdPattern
-  - genre: features.contentByTag=false - fitur tag/genre dimatikan
-  - tag: features.contentByTag=false - fitur tag/genre dimatikan
 - **rawbaka** (`config/ja/rawbaka-config.json`) - genre, tag
   - **live 2026-10-03 fix (issue #7 ditutup)**: baseUrl→rawbaka.site, homePage/searchPage→`?latest_page=`, contentByTag=false; render 15 card + link 2,3,13
   - **live 2026-09-30**: `rawbaka.com` **301 → rawbaka.site** (baseUrl usang), `/page/2/` **404** (pagination asli `?latest_page=N`), `/genre/action/` & `/tag/action/` **404** dua-duanya → genre/tag ✖️ terbukti; home/search/detail tetap jalan — **issue #7** dibuka
-  - home+total: pagination hanya punya `next` - total halaman tidak terbaca
-  - search+total: pagination hanya punya `next` - total halaman tidak terbaca
-  - genre: features.contentByTag=false - fitur tag/genre dimatikan
-  - tag: features.contentByTag=false - fitur tag/genre dimatikan
   - home+total: pagination hanya punya `next` - total halaman tidak terbaca
   - search+total: pagination hanya punya `next` - total halaman tidak terbaca
   - genre: features.contentByTag=false - fitur tag/genre dimatikan
@@ -117,22 +99,16 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
   - search+total: pagination ada tapi route `searchPage` hilang
   - genre: tidak ada genreSearch / tagQueryMapping / endpoint API
   - tag: tidak ada tagSearch / tagQueryMapping / endpoint API
-  - home+total: pagination ada tapi route `homePage` hilang
-  - search+total: pagination ada tapi route `searchPage` hilang
-  - genre: tidak ada genreSearch / tagQueryMapping / endpoint API
-  - tag: tidak ada tagSearch / tagQueryMapping / endpoint API
 - **mangadex** (`config/global/mangadex-config.json`) - genre, tag
   - **live 2026-09-30**: kolom inti ✅ semua (home/search/detail/chapter 200); genre & tag **ada di API**: `/manga/tag` 77 tag + filter `?includedTags[]={uuid}` (total 20.258) — `tag[]`/`tags[]` 400; author `/author?name=` 200 + `?authors[]={uuid}` 200; artist `/artist` **404** → hanya lewat relationship — **issue #9** dibuka
   - genre: tidak ada genreSearch / tagQueryMapping / endpoint API
   - tag: tidak ada tagSearch / tagQueryMapping / endpoint API
-  - genre: tidak ada genreSearch / tagQueryMapping / endpoint API
-  - tag: tidak ada tagSearch / tagQueryMapping / endpoint API
 
-### 4. ⚠️ Partial - jalan tapi rusak sebagian (85 config)
+### 4. ⚠️ Partial - jalan tapi rusak sebagian (84 config)
 
-- **tag: config tanpa tagSearch - kemungkinan memakai route genre** — 75 config: `areakomik`, `crotpedia`, `doujindesuv2`, `komikdewasa`, `komikindo`, `komiktap`, `mangaread`, `ngomik`, `sektedoujin`, `shirodoujin`, `akazascans`, `allporncomicio`, … +63 lagi
-- **home+total: pagination hanya punya `next` - total halaman tidak terbaca** — 70 config: `komikdewasa`, `komikindo`, `komiktap`, `mangaread`, `ngomik`, `sektedoujin`, `akazascans`, `allporncomicio`, `anisascansin`, `apcomicsorg`, `arenascancom`, `asmhentai`, … +58 lagi
-- **search+total: pagination hanya punya `next` - total halaman tidak terbaca** — 69 config: `komikdewasa`, `komiktap`, `ngomik`, `sektedoujin`, `akazascans`, `allporncomicio`, `anisascansin`, `apcomicsorg`, `arenascancom`, `asmhentai`, `athreascanscom`, `bunmangacom`, … +57 lagi
+- **tag: config tanpa tagSearch - kemungkinan memakai route genre** — 74 config: `areakomik`, `crotpedia`, `doujindesuv2`, `komikdewasa`, `komikindo`, `mangaread`, `ngomik`, `sektedoujin`, `shirodoujin`, `akazascans`, `allporncomicio`, `anisascansin`, … +62 lagi
+- **home+total: pagination hanya punya `next` - total halaman tidak terbaca** — 69 config: `komikdewasa`, `komikindo`, `mangaread`, `ngomik`, `sektedoujin`, `akazascans`, `allporncomicio`, `anisascansin`, `apcomicsorg`, `arenascancom`, `asmhentai`, `athreascanscom`, … +57 lagi
+- **search+total: pagination hanya punya `next` - total halaman tidak terbaca** — 68 config: `komikdewasa`, `ngomik`, `sektedoujin`, `akazascans`, `allporncomicio`, `anisascansin`, `apcomicsorg`, `arenascancom`, `asmhentai`, `athreascanscom`, `bunmangacom`, `cocomicco`, … +56 lagi
 - **search+total: pagination ada tapi route `searchPage` hilang** — 3 config: `mangaread`, `shirodoujin`, `tooncubus`
 - **genre: route genreSearch ada tapi genreSearchPage hilang** — 2 config: `grabberzone`, `hentai3`
 - **home+total: pagination ada tapi route `homePage` hilang** — 2 config: `tooncubus`, `mangapill`
@@ -161,7 +137,7 @@ Author/artist route jarang dideklarasikan - ini statistik, **bukan** daftar issu
 | 5 | `config/id/komikcast-config.json`<br>https://api.voratoon.com | ✖️ `API 522 origin down` | ✅ `/series?includeMeta=true&sort=latest&sortOrder=desc&tak…` (API+total) | ✅ `/series?takeChapter=2&includeMeta=true&sort={sort}&sort…` (API) | ✅ `/series?takeChapter=2&includeMeta=true&sort={sort}&sort…` (API+total) | ✅ listed `/series/{id}` | ✅ image (API) | ✖️ `API 522 origin down` | ✖️ `API 522 origin down` | ✖️ `API 522 origin down` | ✖️ `API 522 origin down` | author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-30**: Origin mati: `/series?includeMeta=true…` dan `/genres` sama-sama **HTTP 522** (dua percobaan). Config masih `enabled: true` padahal tidak ada yang bisa diambil → semua kolom ✖️. Perbaikan: `enabled: false` sampai API hidup. |
 | 6 | `config/id/komikdewasa-config.json`<br>https://komikdewasa.mom | ✅ `/` | ✅ `/page/{page}/ (total dari judul halaman)` | ✅ `/?s={query}&paged={page}` | ⚠️ `/?s={query}&paged={page}` (next-only) | ✅ listed `/komik/{id}/` | ✅ image | ✅ `/genres/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+total: pagination hanya punya `next` - total halaman tidak terbaca<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-30**: Bucket `id` terbaik: kolom inti ✅ dan **total terbaca dari judul halaman** (`Laman 2 dari 227`) — pola ini dipakai config lain di bucket ini. Paginasi terbukti nyata (page 2 isi berbeda, kontrol URL sama identik). Genre ✅. Tag/Author/Artist ✖️ (hanya route genre). |
 | 7 | `config/id/komikindo-config.json`<br>https://komikindo.fit | ✅ `/` | ⚠️ `/page/{page}/ (tanpa penanda total)` | ✅ `/?s={query}&paged={page}` | ⚠️ `/page/{page}/?s={query}&paged={page} (tanpa total)` | ✅ listed `/manga/{id}/` | ✅ image | ✅ `/genres/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+total: url sudah menampung {page} tapi tanpa selector pagination<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-30**: Catatan untuk pengujian otomatis: `komikindo.fit` **selalu redirect ke `1.komikindo.shop`**, jadi probe wajib pakai `-L`. Search `paged=2` dan genre `/page/N/` keduanya hidup dengan isi berbeda. Total tidak punya selector di markup (hanya link nomor halaman) → Home/Search + Pag + Total ⚠️. |
-| 8 | `config/id/komiktap-config.json`<br>https://komiktap.info | ✅ `/` | ⚠️ `/page/{page}/ (total dari judul halaman)` | ✅ `/?s={query}&paged={page}` | ⚠️ `/?s={query}&paged={page}` (next-only) | ✅ listed `/manga/{id}/` | ✅ image | ✅ `/genres/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+total: pagination hanya punya `next` - total halaman tidak terbaca<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-30**: UI situs menaut `/page/N/?s=` sementara config memakai `?paged=N` — keduanya 200 dengan isi berbeda, jadi bukan defect. Total terbaca dari judul halaman, bukan selector. Genre ✅; Tag/Author/Artist ✖️ (hanya route genre). |
+| 8 | `config/id/komiktap-config.json`<br>https://ktapk.org | ✅ `/api/v2/catalog/comics?page={page}&perPage=20&orderBy=l…` (API) | ✅ `/api/v2/catalog/comics?page={page}&perPage=20&orderBy=l…` (API+total) | ✅ `/api/v2/catalog/comics?search={query}&page={page}&perPa…` (API) | ✅ `/api/v2/catalog/comics?search={query}&page={page}&perPa…` (API+total) | ✅ listed `/api/v2/catalog/comics/{id}` | ✅ image (API) | ✅ `/api/v2/catalog/genres/{tagId}?page={pa…` API+pag | ✅ via-search | ✖️ | ✖️ | author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-10-07**: API v2 — home20 kartu total 4982/250 hal, search `flesh`→1, genre `martial-arts`→11, detail 40 chapter (id `{slug}/{n}`), reader 8 hal proxy<br>**live 2026-10-07**: API v2 — home20 kartu total 4982/250 hal, search `flesh`→1, genre `martial-arts`→11, detail 40 chapter (id `{slug}/{n}`), reader 8 hal proxy |
 | 9 | `config/id/komiku-config.json`<br>https://komiku.org | ✅ `https://api.komiku.org/manga/` | ⚠️ `https://api.komiku.org/manga/page/{page}/` (next-only) | ✅ `https://api.komiku.org/?post_type=manga&s={query}` | ✖️ tak ada route `searchPage` | ✅ listed `https://komiku.org/manga/{id}/` | ✅ image | ✅ `https://api.komiku.org/genre/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+pagination: list tanpa blok pagination<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-29 (issue #1)**: search `&paged=2` → 404, list dibatasi 10 item tanpa blok pagination (3 query diuji)<br>**live**: home page2 OK (10 item, next via htmx `hx-get`), total tak terbaca<br>**live**: detail 4 chapter + `numberOfItems` terbaca; reader 46 img HTTP 200, nav prev/next sesuai selector<br>**live**: genre page2 OK; author/artist = teks biasa tanpa link (situs memang tak punya)<br>**live 2026-09-30 (re-verify issue #1)**: endpoint `?post_type=manga&s=a&paged=N` memang membalas 200 + 10 item deterministik dan berbeda per halaman (dicek 2× tiap halaman, overlap 0 antar halaman, `paged=999` → 404); TAPI halaman search resmi `komiku.org/?s=a` hanya memanggil `api.komiku.org/?s=a` tanpa param paging dan tanpa tombol pagination, jadi user tetap terpotong 10 item; config juga tanpa `searchPage`, tanpa blok pagination (`hx-get`/`nav-links` nol), dan tanpa total → kolom tetap ✖️, issue #1 belum ditutup |
 | 10 | `config/id/mangaread-config.json`<br>https://www.mangaread.org | ✅ `/` | ⚠️ `/page/{page}/` (next-only) | ✅ `/?s={query}&post_type=wp-manga` | ✖️ `searchPage dihapus (kedua varian 404)` | ⚠️ `cover pakai src, config cari data-src` | ✅ `49 img src (tanpa data-src)` | ✅ `/genres/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+total: pagination hanya punya `next` - total halaman tidak terbaca<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-30**: **Cover dan gambar memakai `src` (+`srcset`), bukan `data-src`**: `.summary_image img src=… srcset=…` dan 47 `img.wp-manga-chapter-img` dengan `src` → Detail & Reader ⚠️. **Search+Pag+Total ✖️**: `/page/2/?s=one+piece&post_type=wp-manga` **404**, `?paged=2` juga 404, halaman search tanpa link pagination. Temuan positif: ada arsip penulis `/m-author/{slug}/` tetapi **tanpa pagination** (1 item) → tidak cukup untuk kolom Author+Pag.<br>**live 2026-10-03**: Fix #28: data-src→src (detail cover + reader 49 img render); hapus searchPage+list. live 2026-10-03 |
 | 11 | `config/id/ngomik-config.json`<br>https://02.ngomik.cc | ✅ `/` | ⚠️ `/page/{page}/ (total dari judul halaman)` | ✅ `/?s={query}&paged={page}` | ⚠️ `/?s={query}&paged={page}` (next-only) | ✅ listed `/manga/{id}/` | ✅ image | ✅ `/genres/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+total: pagination hanya punya `next` - total halaman tidak terbaca<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist<br>**live 2026-09-30**: Sama seperti `komiktap`: UI menaut `/page/N/?s=` sementara config memakai `?paged=N`; keduanya 200 dengan isi berbeda → bukan defect. Total hanya dari judul halaman. Genre ✅, Reader ✅; Tag/Author/Artist ✖️ (hanya route genre). |

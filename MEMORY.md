@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-10-07 21:00 | migrasi | `config/id/komiktap-config.json` → mode API v2 (1.1.7→1.1.8) | ✅ driver scraper→`api` (`ktapk.org/api/v2/catalog`, API_CATALOG_V2.md); live smoke adapter asli: home 20/total 4982/250 hal, search, genre slug `martial-arts` 11, detail 40 chapter id `{slug}/{n}`, reader 8 hal proxy; manifest + matrix + kedua `--check` hijau; keluar dari 3 grup next-only; comments & sort/status select dihapus (API tak punya endpoint-nya); 41 baris + 16 bullet live matrix dipertahankan | omp |
 | 2026-10-03 11:20 | koreksi | hapus 11 config (permintaan dibatalkan) | dibatalkan: 11 config + ikon dipulihkan, migrasi ternyata sudah ada di HEAD (commit user), manifest disinkron ulang (87 entri), SUPPORT-CONFIG.md dibangun ulang 104 baris + bullet live komiku dikembalikan; ketiga --check hijau ✅ | kuron-config-verify |
 | 2026-10-03 10:40 | issue | elftooncom / komikindo / hentaienvy / manhwatoon | #55 (domain -> elftoon.net /series), #56 (komikindo.fit -> 1.komikindo.shop), #57 (selector tag mati, markup hnv-gallery-tag), #58 (domain -> doujinhq.club) — semua bukti 2x curl/Playwright ✅ | kuron-config-verify |
 | 2026-10-03 10:10 | recheck | 87 config pasca-migrasi | probe ulang 87 config + probe URL identik: jumlah link taksonomi tidak berubah (148 field identik, 6 beda karena judul berbeda, 0 karena migrasi); diff ketat vs HEAD: hanya extractTagObjects/tagType/tagTypeMap + versi PATCH ✅ | kuron-config-verify |

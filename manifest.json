@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-03T17:50:11.719201+07:00",
+    "lastUpdated": "2026-10-07T20:53:56.177589+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -119,7 +119,7 @@
         },
         {
             "id": "komiktap",
-            "version": "1.1.7",
+            "version": "1.1.8",
             "url": "config/id/komiktap-config.json",
             "meta": {
                 "displayName": "KomikTap",
@@ -129,9 +129,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "bf23589ae2ac39932b00258c380fad4b1d36cf6066b21254413fa66e47dc1203"
+            "checksum": "a12816d55ea007122cef0af0eef7ba8f48eae473f9f8936a00b9078d18338fbf"
         },
         {
             "id": "komiku",

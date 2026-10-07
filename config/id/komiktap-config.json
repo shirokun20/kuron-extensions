@@ -1,219 +1,202 @@
 {
-  "source": "komiktap",
-  "version": "1.1.7",
-  "enabled": true,
-  "defaultLanguage": "indonesian",
-  "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiktap-config.json",
-  "baseUrl": "https://komiktap.info",
-  "ui": {
-    "displayName": "KomikTap",
-    "iconPath": "./images/komiktap.png",
-    "brandColor": "#4CAF50",
-    "openInBrowserUrl": "https://komiktap.info"
-  },
-  "network": {
-    "requiresBypass": true,
-    "siteProtection": {
-      "autoCloseOnCookie": "sucuri_cloudproxy_"
-    },
-    "headers": {
-      "Referer": "https://komiktap.info/",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    },
-    "rateLimit": {
-      "enabled": true,
-      "requestsPerSecond": 1,
-      "maxConcurrentRequests": 2
-    }
-  },
-  "scraper": {
+    "source": "komiktap",
+    "version": "1.1.8",
     "enabled": true,
-    "urlPatterns": {
-      "home": {
-        "url": "/",
-        "list": {
-          "container": ".utao",
-          "fields": {
-            "id": {
-              "selector": "a.series",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".luf > a > h4"
-            },
-            "coverUrl": {
-              "selector": "img.ts-post-image",
-              "attribute": "src"
-            }
-          },
-          "pagination": {
-            "alt": ".hpage a.r"
-          }
-        }
-      },
-      "homePage": {
-        "url": "/page/{page}/",
-        "inherits": "home"
-      },
-      "search": {
-        "url": "/?s={query}&paged={page}",
-        "list": {
-          "container": "div.bsx",
-          "fields": {
-            "id": {
-              "selector": "a[href]",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".tt"
-            },
-            "coverUrl": {
-              "selector": ".limit img",
-              "attribute": "src"
-            }
-          },
-          "pagination": {
-            "next": ".pagination .next.page-numbers"
-          }
-        }
-      },
-      "genreSearch": {
-        "url": "/genres/{tag}/",
-        "inherits": "search"
-      },
-      "genreSearchPage": {
-        "url": "/genres/{tag}/page/{page}/",
-        "inherits": "search"
-      },
-      "detail": "/manga/{id}/",
-      "chapter": "/{id}/"
+    "defaultLanguage": "indonesian",
+    "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiktap-config.json",
+    "baseUrl": "https://ktapk.org",
+    "ui": {
+        "displayName": "KomikTap",
+        "iconPath": "./images/komiktap.png",
+        "brandColor": "#4CAF50",
+        "openInBrowserUrl": "https://komiktap.info"
     },
-    "selectors": {
-      "detail": {
-        "fields": {
-          "title": {
-            "selector": ".entry-title"
-          },
-          "coverUrl": {
-            "selector": ".thumb img",
-            "attribute": "src"
-          },
-          "publishedDate": {
-            "selector": "time[itemprop='datePublished']",
-            "attribute": "datetime"
-          },
-          "uploadDate": {
-            "selector": "time[itemprop='dateModified']",
-            "attribute": "datetime"
-          },
-          "tags": {
-            "selector": ".seriestugenre a",
-            "multi": true,
-            "extractTagObjects": true
-          }
+    "network": {
+        "requiresBypass": false,
+        "headers": {
+            "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         },
-        "chapters": {
-          "container": "#chapterlist li",
-          "fields": {
-            "id": {
-              "selector": ".chbox .eph-num a",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".chbox .chapternum"
-            },
-            "date": {
-              "selector": ".chbox .chapterdate"
-            }
-          }
-        },
-        "comments": {
-          "container": "#comments .comment-list > li.comment",
-          "fields": {
-            "id": {
-              "selector": "a.comment-reply-link",
-              "attribute": "data-commentid"
-            },
-            "username": {
-              "selector": ".comment-author .fn"
-            },
-            "body": {
-              "selector": "p"
-            },
-            "avatarUrl": {
-              "selector": ".comment-author img",
-              "attribute": "src"
-            },
-            "postDate": {
-              "selector": ".comment-meta a"
-            }
-          }
+        "rateLimit": {
+            "enabled": true,
+            "requestsPerSecond": 1,
+            "maxConcurrentRequests": 2
         }
-      },
-      "reader": {
-        "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
-        "container": "#readerarea",
+    },
+    "api": {
+        "enabled": true,
+        "url": "https://ktapk.org",
+        "endpoints": {
+            "allGalleries": {
+                "path": "/api/v2/catalog/comics",
+                "params": {
+                    "page": "{page}",
+                    "perPage": "20",
+                    "orderBy": "lastUpdated",
+                    "order": "desc"
+                }
+            },
+            "search": {
+                "path": "/api/v2/catalog/comics",
+                "params": {
+                    "search": "{query}",
+                    "page": "{page}",
+                    "perPage": "20",
+                    "orderBy": "lastUpdated",
+                    "order": "desc"
+                }
+            },
+            "tagSearch": {
+                "path": "/api/v2/catalog/genres/{tagId}",
+                "params": {
+                    "page": "{page}",
+                    "perPage": "20",
+                    "orderBy": "lastUpdated",
+                    "order": "desc"
+                }
+            },
+            "detail": {
+                "path": "/api/v2/catalog/comics/{id}"
+            },
+            "images": {
+                "path": "/api/v2/catalog/comics/{id}/chapters/{chapter}"
+            }
+        },
+        "list": {
+            "items": "$.data.items[*]",
+            "pagination": {
+                "currentPage": {
+                    "path": "$.data.pagination.page"
+                },
+                "totalPages": {
+                    "path": "$.data.pagination.totalPages"
+                },
+                "total": {
+                    "path": "$.data.pagination.total"
+                },
+                "limit": {
+                    "path": "$.data.pagination.perPage"
+                }
+            },
+            "fields": {
+                "id": {
+                    "selector": "$.id"
+                },
+                "title": {
+                    "selector": "$.title"
+                },
+                "coverUrl": {
+                    "selector": "$.coverUrl"
+                },
+                "tags": {
+                    "selector": "$.genres[*]",
+                    "multi": true
+                },
+                "status": {
+                    "selector": "$.status",
+                    "optional": true
+                },
+                "uploadDate": {
+                    "selector": "$.lastUpdated",
+                    "optional": true
+                }
+            }
+        },
+        "detail": {
+            "fields": {
+                "id": {
+                    "selector": "$.data.id"
+                },
+                "title": {
+                    "selector": "$.data.title"
+                },
+                "author": {
+                    "selector": "$.data.author",
+                    "optional": true
+                },
+                "description": {
+                    "selector": "$.data.synopsis",
+                    "optional": true
+                },
+                "coverUrl": {
+                    "selector": "$.data.coverUrl"
+                },
+                "status": {
+                    "selector": "$.data.status",
+                    "optional": true
+                },
+                "tags": {
+                    "selector": "$.data.genres[*]",
+                    "multi": true
+                },
+                "uploadDate": {
+                    "selector": "$.data.lastUpdated",
+                    "optional": true
+                },
+                "pageCount": {
+                    "selector": "$.data.totalChapters",
+                    "optional": true
+                }
+            },
+            "chapters": {
+                "items": "$.data.chapters[*]",
+                "fields": {
+                    "id": {
+                        "selector": "$.number"
+                    },
+                    "title": {
+                        "selector": "$.title"
+                    },
+                    "date": {
+                        "selector": "$.releasedAgo",
+                        "optional": true
+                    },
+                    "pages": {
+                        "selector": "$.pageCount",
+                        "optional": true
+                    }
+                },
+                "composeIdWithContentId": true,
+                "idJoiner": "/"
+            }
+        },
         "images": {
-          "selector": "img",
-          "attribute": "src"
-        },
-        "nav": {
-          "next": ".nextprev a.next, .nav-links a.next, .ch-next-btn",
-          "prev": ".nextprev a.prev, .nav-links a.prev, .ch-prev-btn"
-        },
-        "heavyImageAutoSwitch": false
-      }
-    }
-  },
-  "searchForm": {
-    "urlPattern": "search",
-    "params": {
-      "query": {
-        "queryParam": "s",
-        "type": "text",
-        "placeholder": "Cari komik..."
-      },
-      "page": {
-        "queryParam": "paged",
-        "type": "page"
-      },
-      "genre": {
-        "queryParam": "genre",
-        "type": "tag",
-        "urlPattern": "genreSearch"
-      },
-      "status": {
-        "queryParam": "status",
-        "type": "select",
-        "options": [
-          "ongoing",
-          "completed",
-          "hiatus"
-        ]
-      },
-      "order": {
-        "queryParam": "order",
-        "type": "select",
-        "options": [
-          "update",
-          "title",
-          "rating",
-          "popular"
-        ]
-      }
-    }
-  },
-  "contentIdPattern": "/manga/([^/]+)",
-  "features": {
-    "comments": true,
-    "related": false,
-    "download": true,
-    "favorite": true,
-    "chapters": true,
-    "generatePdf": true,
-    "offlineMode": true
-  }
+            "mode": "direct",
+            "items": "$.data.pages[*]"
+        }
+    },
+    "navigation": {
+        "tagQueryMapping": {
+            "default": {
+                "mode": "rawParam",
+                "param": "genre",
+                "valueSource": "tagId"
+            }
+        }
+    },
+    "searchForm": {
+        "urlPattern": "search",
+        "params": {
+            "query": {
+                "queryParam": "search",
+                "type": "text",
+                "placeholder": "Cari komik..."
+            },
+            "page": {
+                "queryParam": "page",
+                "type": "page"
+            }
+        }
+    },
+    "contentIdPattern": "/manga/([^/]+)",
+    "features": {
+        "comments": false,
+        "related": false,
+        "download": true,
+        "favorite": true,
+        "chapters": true,
+        "generatePdf": true,
+        "offlineMode": true
+    },
+    "notes": "v2 REST mode via https://ktapk.org/api/v2/catalog (API_CATALOG_V2.md). Chapters inline in detail; adapter composes {slug}/{number} ids for the reader endpoint. Genre taps slugify the display name (tagQueryMapping valueSource tagId fallback). Comments dropped - API has no comments endpoint. Sort/status selects dropped - API only supports orderBy/order. Old scraper HTML mode in git history."
 }
