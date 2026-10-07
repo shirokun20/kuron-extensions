@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-07T20:53:56.177589+07:00",
+    "lastUpdated": "2026-10-07T21:51:31.947078+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -627,7 +627,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "f0a4d438f9f4f97b9c338df89fd9e2a19dcb667d25cfc885ee58d32193730a17"
+            "checksum": "da090b6ae66a09b8790ed985c4327f673798109a565094e15af5af4a4fe97107"
         },
         {
             "id": "hentailoop",
@@ -919,7 +919,7 @@
         },
         {
             "id": "manga18free",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/manga18free-config.json",
             "meta": {
                 "displayName": "Manga18free",
@@ -931,11 +931,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "a9f9020910c9a82f8b03dcea850d803ee0238952495e0f34ca19bbe2ad5007b6"
+            "checksum": "f3fb52c8db8a371ee3611073c42ff9f697aa7e4beab786279006a8986cd963fb"
         },
         {
             "id": "manga18fx",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/manga18fx-config.json",
             "meta": {
                 "displayName": "Manga18fx",
@@ -945,13 +945,13 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "6e27fce73768e7eaf272b595d8d7c87dceabd493b8dcdb0a57a95390b174b5a7"
+            "checksum": "44b8a037f4c8e071064b106df8da6bcd5892ef975fb1a43915caa58feb06ed35"
         },
         {
             "id": "manga18x",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/manga18x-config.json",
             "meta": {
                 "displayName": "Manga18x",
@@ -963,7 +963,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "112a75b24cc9692e6046e963d8c69fd33ea4377e68be12036bfd3ac3591f250f"
+            "checksum": "48361f51d34090565beef2ae330f9852cfaf2a8665b5297ed6e4689d55cd2320"
         },
         {
             "id": "mangacrazy",

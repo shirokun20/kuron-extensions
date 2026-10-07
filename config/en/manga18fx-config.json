@@ -1,7 +1,7 @@
 {
   "source": "manga18fx",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manga18fx.com",
@@ -58,46 +58,50 @@
         "inherits": "home"
       },
       "search": {
-        "url": "/?s={query}&post_type=wp-manga",
+        "url": "/search?q={query}",
         "list": {
           "container": ".bsx-item",
           "fields": {
             "id": {
-              "selector": "a",
+              "selector": ".thumb-manga a, h3.tt a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": "a",
+              "selector": "h3.tt a",
               "attribute": "title"
             },
             "coverUrl": {
-              "selector": "img",
+              "selector": ".thumb-manga img",
               "attribute": "src"
             }
+          },
+          "pagination": {
+            "next": ".pagination li.next a"
           }
         }
       },
       "searchPage": {
-        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "url": "/search?q={query}&page={page}",
         "list": {
-          "container": ".row.c-tabs-item__content",
+          "container": ".bsx-item",
           "fields": {
             "id": {
-              "selector": "a[href*='/manga/']",
+              "selector": ".thumb-manga a, h3.tt a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": "h3.tt a",
+              "attribute": "title"
             },
             "coverUrl": {
-              "selector": ".tab-thumb img",
-              "attribute": "data-src"
+              "selector": ".thumb-manga img",
+              "attribute": "src"
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".pagination li.next a"
           }
         }
       },
@@ -106,7 +110,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/{page}",
+        "url": "/manga-genre/{tag}?page={page}",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
@@ -165,8 +169,8 @@
           "attribute": "data-src"
         },
         "nav": {
-          "next": ".next_page, .nav-links .next",
-          "prev": ".prev_page, .nav-links .prev"
+          "next": ".navi-change-chapter-btn-next, .next_page, .nav-links .next",
+          "prev": ".navi-change-chapter-btn-prev, .prev_page, .nav-links .prev"
         }
       }
     },
@@ -175,43 +179,16 @@
       "urlPattern": "search",
       "params": {
         "query": {
-          "queryParam": "s",
+          "queryParam": "q",
           "type": "text",
           "placeholder": "Search manga..."
-        },
-        "sort": {
-          "queryParam": "m_orderby",
-          "type": "select",
-          "label": "Sort by",
-          "options": [
-            {
-              "name": "Relevance",
-              "value": ""
-            },
-            {
-              "name": "Popular",
-              "value": "popular"
-            },
-            {
-              "name": "Latest",
-              "value": "latest"
-            },
-            {
-              "name": "A-Z",
-              "value": "alphabet"
-            },
-            {
-              "name": "Rating",
-              "value": "rating"
-            }
-          ]
         }
       }
     }
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
