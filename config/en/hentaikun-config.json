@@ -117,7 +117,14 @@
         }
       },
       "reader": {
+        "cookies": {
+          "{slug}/read": "2"
+        },
         "images": {
+          "scriptJson": {
+            "id": "jsondata",
+            "items": ""
+          },
           "selector": ".image-show img, .r_thumb img",
           "attribute": "src"
         },
