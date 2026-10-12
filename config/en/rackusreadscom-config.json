@@ -1,7 +1,7 @@
 {
   "source": "rackusreadscom",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://rackusreads.com",
@@ -53,7 +53,7 @@
         }
       },
       "homePage": {
-        "url": "/manga/?order=update&page={page}",
+        "url": "/manga/page/{page}/?order=update",
         "inherits": "home"
       },
       "search": {
@@ -126,7 +126,7 @@
             "attribute": "src"
           },
           "tags": {
-            "selector": ".mgen a",
+            "selector": ".seriestugenre a",
             "attribute": "href",
             "transform": "slug",
             "multi": true,

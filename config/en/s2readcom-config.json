@@ -1,7 +1,7 @@
 {
   "source": "s2readcom",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://s2read.com",
@@ -43,7 +43,7 @@
             },
             "coverUrl": {
               "selector": ".item-thumb img",
-              "attribute": "src"
+              "attribute": "data-src"
             }
           },
           "pagination": {
@@ -121,7 +121,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "src"
+            "attribute": "data-src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"

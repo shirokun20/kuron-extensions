@@ -1,7 +1,7 @@
 {
   "source": "toonizycom",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://toonizy.com",
@@ -117,7 +117,7 @@
       "detail": {
         "fields": {
           "title": {
-            "selector": ".post-title h1, h1"
+            "selector": ".summary_content h3, .post-content h3"
           },
           "coverUrl": {
             "selector": ".summary_image img",

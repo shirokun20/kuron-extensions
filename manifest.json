@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-13T00:50:58.253501+07:00",
+    "lastUpdated": "2026-10-13T06:00:27.132809+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1175,7 +1175,7 @@
         },
         {
             "id": "mangatoporg",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/mangatoporg-config.json",
             "meta": {
                 "displayName": "Mangatop",
@@ -1187,11 +1187,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "20cb51ed833ad48621f2cf092d0c0be4c8810a36d7a1b5c6a7fa06b144619951"
+            "checksum": "2e39d3fb67d40e573fffa8f9b03672fde3a0fb0fbbbe5f548a96a21cf4e2f156"
         },
         {
             "id": "mangazinorg",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/mangazinorg-config.json",
             "meta": {
                 "displayName": "Zinmanga",
@@ -1203,7 +1203,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "bf95a3e6bb59f17fafbeae9bdf5f44327b5395e1c1a71b8ad01c838f6f6d4797"
+            "checksum": "9d09b3e56f1e558f9c7f531668fe99218a12bd9431614f76806e70a5e26e803f"
         },
         {
             "id": "manhuanext",
@@ -1447,7 +1447,7 @@
         },
         {
             "id": "rackusreadscom",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/rackusreadscom-config.json",
             "meta": {
                 "displayName": "Rackus",
@@ -1459,7 +1459,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "e2313d606adca9d393f5eda7df9158a2035b8365fb8e845e2b8c0d34a7521383"
+            "checksum": "ca09de9d19ff09ee71cacad5ababd1697e90d73ed59c567fa431003ea89d3b56"
         },
         {
             "id": "ravenscansorg",
@@ -1495,7 +1495,7 @@
         },
         {
             "id": "s2readcom",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/s2readcom-config.json",
             "meta": {
                 "displayName": "S2manga",
@@ -1507,7 +1507,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "086ecc8987478b01b3df8a4c7e9da2db781e9e6d760ed633e23f1189c3f4b9d2"
+            "checksum": "4c93b885fc831467a3b91e9aa0457f80203fb53a825c32a276b4e488f9ad33fe"
         },
         {
             "id": "schale-network",
@@ -1561,7 +1561,7 @@
         },
         {
             "id": "toonizycom",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/toonizycom-config.json",
             "meta": {
                 "displayName": "Toonizy",
@@ -1573,11 +1573,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "9666182145e40cb5e01c4b6f4b6ec5fcef7a9b05f33a79f1478a4ddd5226e6b4"
+            "checksum": "8978f88fe70facea36c1882a42d0086c1e1db14b5fee3b3200bbde67a74a40de"
         },
         {
             "id": "topmanhuanet",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/topmanhuanet-config.json",
             "meta": {
                 "displayName": "Topmanhuanet",
@@ -1589,7 +1589,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "45497082fa8ccba45296e4b9f2a3c56afb783502a3f867591835f1c78e9aaa03"
+            "checksum": "ec21468ba8010921aad22cd3f52e1ae8507dd14509a99bbb84a9023c1e5f6b79"
         },
         {
             "id": "tritiniaorg",
@@ -1625,7 +1625,7 @@
         },
         {
             "id": "yakshacomicscom",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/yakshacomicscom-config.json",
             "meta": {
                 "displayName": "Yakshacomics",
@@ -1637,11 +1637,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "49ddd08a1e82e64c638c869003fa199213f92e758b1d12b8807c3b6ad469037a"
+            "checksum": "598751a0e5110dfb16826205b3ffd948120f381d8ea1d4628ebd6569792d399d"
         },
         {
             "id": "zazamangacom",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "url": "config/en/zazamangacom-config.json",
             "meta": {
                 "displayName": "Zazamanga",
@@ -1653,7 +1653,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "4ee24b708dae5b559307157ba941a04d5fa6b7e31001df949c3a96bc4146278a"
+            "checksum": "1870865ea13ee1ae3a2f389afcc5ff5bb9636263ab3d73dd7f621bb73ec6fd79"
         },
         {
             "id": "nicomanga",

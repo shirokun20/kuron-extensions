@@ -1,7 +1,7 @@
 {
   "source": "zazamangacom",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.zazamanga.com",
@@ -49,7 +49,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "#navigation-ajax, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
@@ -141,7 +141,7 @@
             "tagType": "artist"
           },
           "tags": {
-            "selector": ".genres-content a",
+            "selector": ".summary_content .tags a",
             "multi": true,
             "extractTagObjects": true,
             "tagType": "tag"
