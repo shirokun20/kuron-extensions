@@ -1,21 +1,21 @@
 {
   "source": "komikindo",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "",
-  "baseUrl": "https://1.komikindo.shop/",
+  "baseUrl": "https://2.komikindo.shop/",
   "ui": {
     "displayName": "Komikindo",
     "iconPath": "./images/komikindo.png",
     "brandColor": "#E3456F",
-    "openInBrowserUrl": "https://1.komikindo.shop/"
+    "openInBrowserUrl": "https://2.komikindo.shop/"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://1.komikindo.shop/",
+      "Referer": "https://2.komikindo.shop/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
     "rateLimit": {
@@ -46,7 +46,8 @@
             }
           },
           "pagination": {
-            "next": ".hpage a.r, .pagination .next.page-numbers"
+            "next": ".hpage a.r, .pagination .next.page-numbers",
+            "links": "a.page-numbers"
           }
         }
       },
@@ -55,11 +56,19 @@
         "inherits": "home"
       },
       "search": {
-        "url": "/?s={query}&paged={page}",
+        "url": "/?s={query}",
         "inherits": "home",
         "list": {
-          "container": ".listupd .bsx"
+          "container": ".listupd .bsx",
+          "pagination": {
+            "next": ".pagination .next.page-numbers",
+            "links": "a.page-numbers"
+          }
         }
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "inherits": "search"
       },
       "genreSearch": {
         "url": "/genres/{tag}/",
@@ -140,7 +149,7 @@
     }
   },
   "contentIdPattern": "/manga/([^/]+)",
-  "notes": "Mangathemesia. Home/homePage MUST scope to div.bixbox:contains(Latest Update): page has 7 bixbox sections (Popular Today/Project Update/Manhwa+Manhua Terbaru/Recommendation pollute, 78 vs 20 items on page 2). search/genreSearch/genreSearchPage override container back to plain .listupd .bsx (their pages have no Latest Update bixbox). Search uses ?s={query}&paged={page}. | Reader images selector MUST be self-scoped (#readerarea img): engine never applies reader.container as scoping, and unscoped \"img\" made a SERIES-slug download (detail page has no ts_reader) fall back to scraping every page img - logo, sidebar thumbnails, btn_close.gif - saved as page_001..018 junk.",
+  "notes": "Mangathemesia. Home/homePage MUST scope to div.bixbox:contains(Latest Update): page has 7 bixbox sections (Popular Today/Project Update/Manhwa+Manhua Terbaru/Recommendation pollute, 78 vs 20 items on page 2). search/genreSearch/genreSearchPage override container back to plain .listupd .bsx (their pages have no Latest Update bixbox). Search paging canonical /page/{page}/?s={query} (live paginator href; ?s={query}&paged={page} also returns distinct page). Home+search paginator renders numbered a.page-numbers + last link, so total derivable via pagination.links. | Reader images selector MUST be self-scoped (#readerarea img): engine never applies reader.container as scoping, and unscoped \"img\" made a SERIES-slug download (detail page has no ts_reader) fall back to scraping every page img - logo, sidebar thumbnails, btn_close.gif - saved as page_001..018 junk.",
   "features": {
     "search": true,
     "chapters": true,

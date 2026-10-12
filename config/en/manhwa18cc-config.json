@@ -1,7 +1,7 @@
 {
   "source": "manhwa18cc",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -107,11 +107,11 @@
         }
       },
       "genreSearch": {
-        "url": "/webtoon-genre/{tag}/",
+        "url": "/webtoon-genre/{tag}",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/webtoon-genre/{tag}/page/{page}/",
+        "url": "/webtoon-genre/{tag}?page={page}",
         "inherits": "home"
       },
       "detail": "/webtoon/{id}/",

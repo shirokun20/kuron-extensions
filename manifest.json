@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-07T21:51:31.947078+07:00",
+    "lastUpdated": "2026-10-12T23:06:48.886080+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -103,7 +103,7 @@
         },
         {
             "id": "komikindo",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "url": "config/id/komikindo-config.json",
             "meta": {
                 "displayName": "Komikindo",
@@ -113,9 +113,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "20e63f85eb6bc9667d64517503751893eaa0ccd823bb4bfd436d381246b106f8"
+            "checksum": "fb43f5a3c1d93f57e76f24064db9edd156401c89ce4d515a7e093f21cbf637f0"
         },
         {
             "id": "komiktap",
@@ -1011,7 +1011,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "c48bac9648bbaf96c657718bb1b79e861cf8532bca4f087db8ab2b461c93311e"
+            "checksum": "35fe62db3ee7b8d846dffe1b9f196dfb067facfa93c36597c1a7084b89c04532"
         },
         {
             "id": "mangafire",
@@ -1175,7 +1175,7 @@
         },
         {
             "id": "manhwa18cc",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/manhwa18cc-config.json",
             "meta": {
                 "displayName": "Manhwa18CC",
@@ -1187,7 +1187,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "d2c79b6e00d3ca2ed8f469aad6e35831f3e6d6ea14316b61af588556d8ccff90"
+            "checksum": "bc5a42b73d47e02cbd258a031a23aa8e065d376315c33343195783fb9be90c03"
         },
         {
             "id": "manhwaclubnet",
@@ -1335,7 +1335,7 @@
         },
         {
             "id": "orchisasia",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/orchisasia-config.json",
             "meta": {
                 "displayName": "Orchisasia",
@@ -1347,7 +1347,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "9a53374b9baff9cdb7509d4033d41948ac5f0c1cb16069cdb042148220c3ee78"
+            "checksum": "73051ad1a4f9fb9b57a49ed541372f928ccf450797fc40868f2a810603e89da1"
         },
         {
             "id": "paritehaber",
@@ -1561,7 +1561,7 @@
         },
         {
             "id": "hentaicosplay",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/global/hentaicosplay-config.json",
             "meta": {
                 "displayName": "Hentai Cosplay",
@@ -1573,7 +1573,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "c4981e3c7ace3748d31bec9b78dea8e4a915530060bf74093edaa90faac2eefa"
+            "checksum": "9f87757a7a834cf2d4b526691274c69528878e5dfdc22199047735faa769a885"
         },
         {
             "id": "hitomi",

@@ -152,6 +152,7 @@
         }
       },
       "reader": {
+        "heavyImageAutoSwitch": false,
         "mode": "chapterDataScript",
         "images": {
           "selector": ".reading-content img.wp-manga-chapter-img:not(#image-99999), .reading-content .page-break img:not(#image-99999)",

@@ -1,7 +1,7 @@
 {
   "source": "orchisasia",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.orchisasia.org",
@@ -103,11 +103,11 @@
         }
       },
       "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+        "url": "/comic-genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/comic-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/comic/{id}/",
