@@ -1,7 +1,7 @@
 {
   "source": "manhwatoon",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.manhwatoon.me",
@@ -48,7 +48,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".nav-links .nav-previous a, a[rel='next']"
           }
         }
       },
@@ -75,7 +75,7 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".nav-links .nav-previous a, a[rel='next']"
           }
         }
       },
@@ -98,7 +98,7 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".nav-links .nav-previous a, a[rel='next']"
           }
         }
       },
@@ -215,8 +215,9 @@
     }
   },
   "contentIdPattern": "/manhwa/([^/]+)",
+  "notes": "Manhwa Toon (Madara family). Pagination markup SAGA bukan wp-pagenavi: nav.navigation.paging-navigation > .nav-links > .nav-previous a = \"Older Posts\" (page+1), .nav-next a = \"Newer posts\" (page-1) - selector a[rel=next]/wp-pagenavi nol match di semua route listing. Situs tidak punya penanda total sama sekali (nol \"N results\"/wp-pagenavi span di page 1 maupun page 2) sehingga Home/Search + Pag + Total hanya bisa (next-only). Reader: 26 img .reading-content img.wp-manga-chapter-img @data-src (SSR, no script payload), nav a.next_page/a.prev_page pada .select-pagination .nav-links.",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

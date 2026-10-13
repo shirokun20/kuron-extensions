@@ -1,6 +1,6 @@
 {
   "source": "doujindesuv2",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujindesu.tv",
@@ -41,7 +41,7 @@
     },
     "urlPatterns": {
       "home": {
-        "url": "https://doujindesu.es/doujin/",
+        "url": "/doujin/",
         "list": {
           "container": "article.entry",
           "fields": {
@@ -76,43 +76,43 @@
         }
       },
       "homePage": {
-        "url": "https://doujindesu.es/doujin/page/{page}/",
+        "url": "/doujin/page/{page}/",
         "inherits": "home"
       },
       "doujinHome": {
-        "url": "https://doujindesu.es/doujin/",
+        "url": "/doujin/",
         "inherits": "home"
       },
       "doujinHomePage": {
-        "url": "https://doujindesu.es/doujin/page/{page}/",
+        "url": "/doujin/page/{page}/",
         "inherits": "home"
       },
       "manhwaHome": {
-        "url": "https://doujindesu.es/manhwa/",
+        "url": "/manhwa/",
         "inherits": "home"
       },
       "manhwaHomePage": {
-        "url": "https://doujindesu.es/manhwa/page/{page}/",
+        "url": "/manhwa/page/{page}/",
         "inherits": "home"
       },
       "search": {
-        "url": "https://doujindesu.es/?s={query}",
+        "url": "/?s={query}",
         "inherits": "home"
       },
       "searchPage": {
-        "url": "https://doujindesu.es/page/{page}/?s={query}",
+        "url": "/page/{page}/?s={query}",
         "inherits": "home"
       },
       "genreSearch": {
-        "url": "https://doujindesu.es/genre/{tag}/",
+        "url": "/genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "https://doujindesu.es/genre/{tag}/page/{page}/",
+        "url": "/genre/{tag}/page/{page}/",
         "inherits": "home"
       },
-      "detail": "https://doujindesu.es/manga/{id}/",
-      "chapter": "https://doujindesu.tv/{id}/"
+      "detail": "/manga/{id}/",
+      "chapter": "/{id}/"
     },
     "selectors": {
       "detail": {

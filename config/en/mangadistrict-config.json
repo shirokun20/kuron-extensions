@@ -1,7 +1,7 @@
 {
   "source": "mangadistrict",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangadistrict.com",
@@ -97,6 +97,14 @@
       },
       "tagSearchPage": {
         "url": "/publication-tag/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "authorSearch": {
+        "url": "/publication-author/{tag}/",
+        "inherits": "home"
+      },
+      "artistSearch": {
+        "url": "/publication-artist/{tag}/",
         "inherits": "home"
       },
       "detail": "/series/{id}/",

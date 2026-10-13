@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-13T20:18:43.667165+07:00",
+    "lastUpdated": "2026-10-13T22:15:37.734382+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -37,7 +37,7 @@
         },
         {
             "id": "doujindesuv2",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "url": "config/id/doujindesuv2-config.json",
             "meta": {
                 "displayName": "DoujinDesu v2",
@@ -51,7 +51,7 @@
                 "maintenance": true,
                 "maintenanceMessage": "doujindesuv2 sedang dalam perbaikan, mohon tunggu"
             },
-            "checksum": "bf7c79d337169265d4f953f34c9c2edf90cf81745dd90246034c3f4365eb7b73"
+            "checksum": "3d59533379b0b20cb04cc798338f9bf5e421d99ec70feb815e4da0136f4fe60e"
         },
         {
             "id": "doujindesuxxx",
@@ -215,7 +215,7 @@
         },
         {
             "id": "tooncubus",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/id/tooncubus-config.json",
             "meta": {
                 "displayName": "ToonCubus",
@@ -225,9 +225,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 5
             },
-            "checksum": "d5e693732197bdf2fb4847115d0846498f73ca0feba70021906ecc8f499f0cfc"
+            "checksum": "83f72ae291b52cdfd47b7066ccec0deca746973893fd0db6cc74d3081b18a290"
         },
         {
             "id": "akazascans",
@@ -359,7 +359,7 @@
         },
         {
             "id": "cocomicco",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/cocomicco-config.json",
             "meta": {
                 "displayName": "Cocomic",
@@ -371,7 +371,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "e74a5f799ce91ac822152cbaf3ba2b2cbfacf24cc3652cebd536e736df82e21c"
+            "checksum": "7351431de617dcee2619ae36bf50edb4a6d2ce4c07225af6bc7bbdeec64a2c9d"
         },
         {
             "id": "comicasuranet",
@@ -423,7 +423,7 @@
         },
         {
             "id": "elftooncom",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/elftooncom-config.json",
             "meta": {
                 "displayName": "Elftoon",
@@ -435,7 +435,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "6ae60400df985307f46dc68ac7729732c013f5a13d36273b25b02fb738c336d3"
+            "checksum": "9bb35748cd0f6f0a93cadda83235f05169aa7c1b59990c0caf651ac2abb6bda9"
         },
         {
             "id": "enthunderscanscom",
@@ -791,7 +791,7 @@
         },
         {
             "id": "hunlightcomics",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/hunlightcomics-config.json",
             "meta": {
                 "displayName": "Hunlightcomics",
@@ -803,7 +803,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "f7081dd672020ea7f2f0414832768bf5c3f6cf854f79c5fc2fcc1efc75b83bfe"
+            "checksum": "494c9d4005c352fd117ab0e3d5d1975d608538e04b99c0dfdf41f3802b1bd6d2"
         },
         {
             "id": "kingofshojo",
@@ -1015,7 +1015,7 @@
         },
         {
             "id": "mangadistrict",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/mangadistrict-config.json",
             "meta": {
                 "displayName": "Mangadistrict",
@@ -1027,7 +1027,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "35fe62db3ee7b8d846dffe1b9f196dfb067facfa93c36597c1a7084b89c04532"
+            "checksum": "988119b7c8e67fc49a64d8490351c6279a1d44a29963a301302581618bd001c1"
         },
         {
             "id": "mangafire",
@@ -1095,7 +1095,7 @@
         },
         {
             "id": "mangamaniacs",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/mangamaniacs-config.json",
             "meta": {
                 "displayName": "Mangamaniacs",
@@ -1107,11 +1107,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "95e06c4dc8b9bc0d33bc9eb9a45339be6c87a9e35b32748d516d8b1153f1f443"
+            "checksum": "f3f456da6e8c5222555d69703e8c70d3b926dd5ccafe0011c9b0a7a93a8ba791"
         },
         {
             "id": "mangaowlio",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/mangaowlio-config.json",
             "meta": {
                 "displayName": "Mangaowl",
@@ -1123,7 +1123,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "d88fdf38312d66677b87069adfd64322a17953b1fcee7fe607ea462de181e2d5"
+            "checksum": "b2bf1fb5e5c894dd1dc5960b0405e8ae9c47e5113c2d3dd36b4690fc0fff69bb"
         },
         {
             "id": "mangapill",
@@ -1335,7 +1335,7 @@
         },
         {
             "id": "manhwatoon",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/manhwatoon-config.json",
             "meta": {
                 "displayName": "Manhwatoon",
@@ -1345,9 +1345,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 7
             },
-            "checksum": "e0f34be4be8a04057a68751fc75d0ec83ccdf4b9d59c8395f4d7dba3e4e7927f"
+            "checksum": "eab831c0849f786fe8cdc718525e6c731801b5b2a3db55f248cea98debdf21b8"
         },
         {
             "id": "miauscan",
@@ -1801,7 +1801,7 @@
         },
         {
             "id": "hitomi",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/global/hitomi-config.json",
             "meta": {
                 "displayName": "Hitomi.la",
@@ -1813,7 +1813,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 3
             },
-            "checksum": "83e6fb1812ca6bac2e51720ef0d271c726ab9775be1ff226b5811c4d87cdbc75"
+            "checksum": "d91547bec80538da138aa1ae13ce313448231c5d5603a622e9f872275ecbc764"
         },
         {
             "id": "manga18.club",
@@ -1833,7 +1833,7 @@
         },
         {
             "id": "mangadex",
-            "version": "1.1.10",
+            "version": "1.1.11",
             "url": "config/global/mangadex-config.json",
             "meta": {
                 "displayName": "MangaDex",
@@ -1845,7 +1845,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 18
             },
-            "checksum": "fc056b079ab9e1d31df51c32e644028ab3dca1136459f3945e6291b86da1a0bf"
+            "checksum": "e24ca7fe32d18cb37a1ce8273fe87a27d8d1039e3353fbcc1345d56386d5976d"
         },
         {
             "id": "misskon",

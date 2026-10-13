@@ -1,7 +1,7 @@
 {
   "source": "mangaowlio",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangaowl.io",
@@ -108,6 +108,10 @@
       },
       "genreSearchPage": {
         "url": "/manga-genre-1/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "tagSearch": {
+        "url": "/manga-tag/{tag}/",
         "inherits": "home"
       },
       "detail": "/read-1/{id}/",

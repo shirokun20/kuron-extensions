@@ -1,6 +1,6 @@
 {
   "source": "hitomi",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hitomi.la",
@@ -65,6 +65,16 @@
         "url": "/search.html?{query}",
         "inherits": "home"
       },
+      "tagSearch": {
+        "url": "/tag/{tag}-all.html",
+        "tagTransform": "urlEncode",
+        "inherits": "home"
+      },
+      "artistSearch": {
+        "url": "/artist/{tag}-all.html",
+        "tagTransform": "urlEncode",
+        "inherits": "home"
+      },
       "detail": "/galleries/{id}.html",
       "chapter": "/reader/{id}.html"
     },
@@ -94,6 +104,7 @@
   },
   "features": {
     "chapters": false,
+    "contentByTag": true,
     "download": true,
     "favorite": true,
     "supportsAuth": false,

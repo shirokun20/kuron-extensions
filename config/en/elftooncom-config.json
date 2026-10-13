@@ -1,23 +1,23 @@
 {
   "source": "elftooncom",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
-  "baseUrl": "https://elftoon.com",
+  "baseUrl": "https://elftoon.net",
   "ui": {
     "displayName": "Elftoon",
     "brandColor": "#FF6B35",
-    "openInBrowserUrl": "https://elftoon.com"
+    "openInBrowserUrl": "https://elftoon.net"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://elftoon.com/",
+      "Referer": "https://elftoon.net/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
     "imageHeaders": {
-      "Referer": "https://elftoon.com/"
+      "Referer": "https://elftoon.net/"
     },
     "rateLimit": {
       "enabled": true,
@@ -29,132 +29,77 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/manga/",
+        "url": "/series",
         "list": {
-          "container": ".listupd .bsx",
+          "container": "[data-card-set-item]",
           "fields": {
             "id": {
-              "selector": "a",
+              "selector": "a[href*='?ref=browse']",
               "attribute": "href",
-              "transform": "slug"
+              "regex": "series/comic/([^?#]+)"
             },
             "title": {
-              "selector": ".tt"
+              "selector": "h3"
             },
             "coverUrl": {
-              "selector": "img.ts-post-image",
+              "selector": "a[href*='?ref=browse'] img",
               "attribute": "src"
             }
           },
           "pagination": {
-            "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "mode": "paged"
           }
         }
       },
       "homePage": {
-        "url": "/manga/page/{page}/",
+        "url": "/series?page={page}",
         "inherits": "home"
       },
-      "search": {
-        "url": "/?s={query}",
-        "list": {
-          "container": ".listupd .bsx",
-          "fields": {
-            "id": {
-              "selector": "a",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".tt"
-            },
-            "coverUrl": {
-              "selector": "img.ts-post-image",
-              "attribute": "src"
-            }
-          },
-          "pagination": {
-            "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
-          }
-        }
-      },
-      "searchPage": {
-        "url": "/page/{page}/?s={query}",
-        "list": {
-          "container": ".listupd .bsx",
-          "fields": {
-            "id": {
-              "selector": "a",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".tt"
-            },
-            "coverUrl": {
-              "selector": "img.ts-post-image",
-              "attribute": "src"
-            }
-          },
-          "pagination": {
-            "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
-          }
-        }
-      },
       "genreSearch": {
-        "url": "/genres/{tag}/",
+        "url": "/series?genre={tag}",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/series?genre={tag}&page={page}",
         "inherits": "home"
       },
-      "detail": "/manga/{id}/",
-      "chapter": "/{id}"
+      "detail": "/series/comic/{id}",
+      "chapter": "/series/comic/{id}"
     },
     "selectors": {
       "detail": {
         "fields": {
           "title": {
-            "selector": "h1.entry-title"
+            "selector": "[data-series-title] h1"
           },
           "coverUrl": {
-            "selector": ".thumb img.lazyload",
-            "attribute": "data-src"
+            "selector": "[data-series-cover] img",
+            "attribute": "src"
           },
           "tags": {
-            "selector": ".mgen a",
+            "selector": "a[href*='/series?genre=']",
             "attribute": "href",
-            "transform": "slug",
+            "regex": "[?&]genre=([^&#]+)",
             "multi": true,
-            "extractTagObjects": true
+            "extractTagObjects": true,
+            "tagType": "tag"
           }
         },
         "chapters": {
-          "container": "#chapterlist li",
+          "container": "[data-chapter-rows] [data-card-set-item]",
           "fields": {
             "id": {
-              "selector": ".eph-num a",
+              "selector": "a[href*='/chapter/']",
               "attribute": "href",
-              "regex": "/([^?#/]+)/?$"
+              "regex": "series/comic/([^?#]+/chapter/[^?#]+)"
             },
             "title": {
-              "selector": ".chapternum"
+              "selector": "a[href*='/chapter/']"
             },
             "date": {
-              "selector": ".chapterdate"
+              "selector": "svg.lucide-clock + span"
             }
           }
-        }
-      },
-      "reader": {
-        "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);</script>",
-        "images": {
-          "selector": "#readerarea img",
-          "attribute": "src"
         }
       }
     },
@@ -197,7 +142,7 @@
       }
     }
   },
-  "contentIdPattern": "/manga/([^/]+)",
+  "contentIdPattern": "/series/comic/([^/]+)",
   "features": {
     "search": false,
     "chapters": true,
@@ -208,5 +153,6 @@
     "generatePdf": true,
     "offlineMode": true
   },
-  "displayName": "Elftoon"
+  "displayName": "Elftoon",
+  "notes": "Elftoon pindah total ke elftoon.net (Next.js rewrite, v1.0.2). Browse /series SSR 24 kartu [data-card-set-item] (id a[href*='?ref=browse'], judul h3, cover img@src); paginasi query ?page= (p1/p2 overlap 0) tapi TANPA markup paginator/total di DOM sehingga Home/Genre + Pag + Total hanya (next-only). Genre query ?genre= (case-sensitive, nonsense 0 kartu); arsip tag/author/artist terpisah TIDAK ADA (cuma chip /series?genre=). Detail /series/comic/{id}: judul [data-series-title] h1, cover [data-series-cover] img, daftar chapter SSR parsial (~13 terbaru, [data-chapter-rows]). Search /search?q= & reader /chapter/{n} 100% client-render (SSR 0 kartu/0 gambar, dibuktikan Playwright) sehingga Search & Reader = jujur mati."
 }

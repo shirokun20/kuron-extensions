@@ -2,7 +2,7 @@
   "source": "tooncubus",
   "displayName": "ToonCubus",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "baseUrl": "https://www.tooncubus.top",
   "enabled": true,
   "defaultLanguage": "indonesian",
@@ -53,6 +53,11 @@
         "inherits": "home"
       },
       "tagSearch": {
+        "url": "/search/label/{tag}?max-results=20",
+        "tagTransform": "urlEncode",
+        "inherits": "home"
+      },
+      "genreSearch": {
         "url": "/search/label/{tag}?max-results=20",
         "tagTransform": "urlEncode",
         "inherits": "home"
@@ -124,6 +129,21 @@
     }
   },
   "contentIdPattern": "/(\\d{4}/\\d{2}/[^/]+\\.html)",
+  "featurePages": {
+    "genreList": {
+      "url": "/p/genre-list.html",
+      "container": ".dzdes-genre li",
+      "fields": {
+        "name": {
+          "selector": "a span"
+        },
+        "url": {
+          "selector": "a",
+          "attribute": "href"
+        }
+      }
+    }
+  },
   "navigation": {
     "tagQueryMapping": {
       "default": {
@@ -134,7 +154,7 @@
       }
     }
   },
-  "notes": "Blogger-based. Home/search/tag pagination follows pager cursor URLs, detail exposes explicit Baca Online reader links on tooncubus-read.my.id, and reader pages serve actual images from imgbox.",
+  "notes": "Blogger-based. Home/search/tag/genre pagination follows pager cursor URLs (updated-max&start=, no {page} pattern, no total marker anywhere on site), detail exposes explicit Baca Online reader links on tooncubus-read.my.id, and reader pages serve actual images from imgbox. Genre = site-curated labels via /p/genre-list.html (.dzdes-genre, title='Genre X'); katalog/type labels (Series, Manga, Doujinshi, Original, Parodies, Western) and status labels (Ongoing/Completed) are not genres.",
   "searchForm": {
     "urlPattern": "search",
     "params": {

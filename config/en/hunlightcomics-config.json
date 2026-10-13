@@ -1,7 +1,7 @@
 {
   "source": "hunlightcomics",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hunlightcomics.com",
@@ -102,12 +102,12 @@
           }
         }
       },
-      "genreSearch": {
-        "url": "/manga-genre/{tag}/",
+      "authorSearch": {
+        "url": "/manga-author/{tag}/",
         "inherits": "home"
       },
-      "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+      "artistSearch": {
+        "url": "/manga-artist/{tag}/",
         "inherits": "home"
       },
       "detail": "/m/{id}/",

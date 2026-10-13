@@ -1,7 +1,7 @@
 {
   "source": "cocomicco",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://cocomic.co",
@@ -48,12 +48,12 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a.page.larger, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/manga/page/{page}/",
         "inherits": "home"
       },
       "search": {
@@ -75,7 +75,7 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a.page.larger, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
@@ -98,7 +98,7 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a.page.larger, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
@@ -108,6 +108,14 @@
       },
       "genreSearchPage": {
         "url": "/manga-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "tagSearch": {
+        "url": "/manga-tag/{tag}/",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/manga-tag/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
