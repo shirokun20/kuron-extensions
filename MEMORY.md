@@ -14,6 +14,7 @@ Kolom:
 
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
+| 2026-10-13 13:05 | fix | toonizycom 1.0.2→1.0.3 | ✅ home `/`→`/webtoon/` (`/` stub 20KB 0 item; `/webtoon/page/2/` 24 item + `.nav-links` Older/Newer) + cover `src`→`data-src` (placeholder SVG); ✅ search `next`+`.nav-links a` (selector lama 0 match; `/page/2/?s=` p1→p2 beda isi); bonus `contentIdPattern→/webtoon/`, `features.search→true`; --check hijau | opencode |
 |---|---|---|---|---|
 | 2026-10-13 06:25 | fix | zazamangacom 1.0.1→1.0.2→1.0.3 | ✅ tags `.genres-content a`→`.summary_content .tags a` (2 manga, scope hindari 6 widget sidebar); author/artist memang tak ada di tema (tetap ✖️); ✅ pag `next`+`#navigation-ajax` (`/page/2/` & genre p2 200 beda isi, statis tanpa next); manifest + matrix --check hijau | opencode |
 | 2026-10-13 06:15 | fix | yakshacomicscom 1.0.1→1.0.2 | ✅ detail tanpa blok genre (2 manga, `/manga-genre/` 404 + nol link site-wide) → genreSearch/Page mati dihapus (Genre/Tag jujur ✖️); ✅ +authorSearch/Page `/manga-author/` +artistSearch/Page `/manga-artist/` (arsip 200, listing Madara sama, inherits home); cover `src` biasa aman; matrix regen + live-note digabung ulang, --check hijau | opencode |
