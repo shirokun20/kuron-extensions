@@ -1,7 +1,7 @@
 {
   "source": "grabberzone",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://grabber.zone",
@@ -108,10 +108,6 @@
       },
       "tagSearch": {
         "url": "/tag/{tag}/",
-        "inherits": "home"
-      },
-      "tagSearchPage": {
-        "url": "/tag/{tag}/page/{page}/",
         "inherits": "home"
       },
       "detail": "/comics/{id}/",

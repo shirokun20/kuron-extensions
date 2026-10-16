@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-16T22:11:28.666109+07:00",
+    "lastUpdated": "2026-10-16T22:59:07.441436+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -503,7 +503,7 @@
         },
         {
             "id": "gdscanscom",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/gdscanscom-config.json",
             "meta": {
                 "displayName": "Gdscans",
@@ -513,9 +513,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 5
             },
-            "checksum": "6c58511dec45d9c8999e85da09164c373c23a1a6361297504fc85b712960b66b"
+            "checksum": "d3d262c486fc38dd381457caec3b966a1e103759f1c66e2aff3d8c919f10a086"
         },
         {
             "id": "gedecomixcom",
@@ -535,7 +535,7 @@
         },
         {
             "id": "grabberzone",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/grabberzone-config.json",
             "meta": {
                 "displayName": "Grabber",
@@ -547,7 +547,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "0e578014f764aa10d5d4d2dea9cb90df67d5c0e48f2c018102e1ea3bce744127"
+            "checksum": "10171b011a999961a042b1ba62e33c7ad9e1eeeb185859a1cc6636cdbad483a2"
         },
         {
             "id": "hentai3",
@@ -1351,7 +1351,7 @@
         },
         {
             "id": "miauscan",
-            "version": "1.0.0",
+            "version": "1.0.3",
             "url": "config/en/miauscan-config.json",
             "meta": {
                 "displayName": "Leemiau",
@@ -1363,7 +1363,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "37fe79e9759b35d86927775a0ed3d6d2b1e3c842eff5dbf070afd5ea9bc2aa79"
+            "checksum": "17598f7d8af10e24aa2862a44264842c17b5deb3c2cade517f1e1547fc4e34dd"
         },
         {
             "id": "mihentai",
@@ -1753,7 +1753,7 @@
         },
         {
             "id": "ehentai",
-            "version": "1.0.7",
+            "version": "1.0.9",
             "url": "config/global/ehentai-config.json",
             "meta": {
                 "displayName": "E-Hentai",
@@ -1765,7 +1765,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 6
             },
-            "checksum": "3830f1363321b70b32cde139981236d4b7d3a9340e76c1cdad05a259435f4732"
+            "checksum": "13bb24d3ac3bc3c386276d37c7f78784e842b26aceeb0e5bf8a886aad59c729d"
         },
         {
             "id": "hdoujin",

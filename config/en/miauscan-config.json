@@ -1,7 +1,7 @@
 {
   "source": "miauscan",
   "schemaVersion": "2.0",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://leemiau.com",
@@ -52,10 +52,6 @@
           }
         }
       },
-      "homePage": {
-        "url": "/page/{page}/",
-        "inherits": "home"
-      },
       "search": {
         "url": "/?s={query}&post_type=wp-manga",
         "list": {
@@ -72,15 +68,15 @@
             },
             "coverUrl": {
               "selector": "img",
-              "attribute": "src"
+              "attribute": "data-src"
             }
           }
         }
       },
-      "searchPage": {
-        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+      "genreSearch": {
+        "url": "/genres/{tag}/",
         "list": {
-          "container": ".row.c-tabs-item__content",
+          "container": ".bsx",
           "fields": {
             "id": {
               "selector": "a[href*='/manga/']",
@@ -88,25 +84,14 @@
               "transform": "slug"
             },
             "title": {
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": ".tt"
             },
             "coverUrl": {
-              "selector": ".tab-thumb img",
+              "selector": "img",
               "attribute": "data-src"
             }
-          },
-          "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
-      },
-      "genreSearch": {
-        "url": "/genres/{tag}/",
-        "inherits": "home"
-      },
-      "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
-        "inherits": "home"
       },
       "detail": "/manga/{id}/",
       "chapter": "/{id}"
@@ -126,15 +111,28 @@
           }
         },
         "chapters": {
-          "mode": "adminAjax"
+          "container": "li.lm4-chapter-card",
+          "fields": {
+            "id": {
+              "selector": "a.lm4-chapter-link",
+              "attribute": "href",
+              "regex": "/([^/?#]+)/?$"
+            },
+            "title": {
+              "selector": ".lm4-chapter-subtitle"
+            },
+            "date": {
+              "selector": ".lm4-chapter-date"
+            }
+          }
         }
       },
       "reader": {
         "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
         "container": "#readerarea",
         "images": {
-          "selector": "img",
-          "attribute": "src"
+          "selector": "img.ts-main-image",
+          "attribute": "data-lm-orig-src"
         },
         "nav": {
           "next": ".nextprev a.next, .nav-links a.next, .ch-next-btn",

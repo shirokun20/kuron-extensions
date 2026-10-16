@@ -1,7 +1,7 @@
 {
   "source": "gdscanscom",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://gdscans.com",
@@ -79,35 +79,20 @@
           }
         }
       },
-      "searchPage": {
-        "url": "/page/{page}/?s={query}&post_type=wp-manga",
-        "list": {
-          "container": ".row.c-tabs-item__content",
-          "fields": {
-            "id": {
-              "selector": "a[href*='/manga/']",
-              "attribute": "href",
-              "transform": "slug"
-            },
-            "title": {
-              "selector": ".post-title h3 a, .post-title a"
-            },
-            "coverUrl": {
-              "selector": ".tab-thumb img",
-              "attribute": "data-src"
-            }
-          },
-          "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
-          }
-        }
-      },
       "genreSearch": {
         "url": "/manga-genre/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
         "url": "/manga-genre/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "tagSearch": {
+        "url": "/manga-tag/{tag}/",
+        "inherits": "home"
+      },
+      "authorSearch": {
+        "url": "/manga-author/{tag}/",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",

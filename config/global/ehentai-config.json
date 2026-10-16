@@ -1,6 +1,6 @@
 {
   "source": "ehentai",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "enabled": true,
   "defaultLanguage": "unknown",
   "baseUrl": "https://e-hentai.org",
@@ -215,8 +215,9 @@
     "genreQueryPrefix": "tag:",
     "genreTagType": "tag"
   },
+  "notes": "Galeri = satu unit tanpa chapter (features.chapters=false). PARTS: galeri bisa berantai Parent/anak (mis. pengganti/revisi atau split; contoh animated 4258321/90188e4b6f Parent 4249456/943574e1cb yang Visible No Replaced) — tiap part adalah galeri terpisah, dibuka satu per satu via link #gdd Parent, JANGAN auto-chain/bulk-load. ANIMATED: file raksasa (contoh 414.6 MiB/30 halaman WebP animasi dari hath.network, ~14 MB/halaman) — reader WAJIB progresif per halaman via imageUrls ehentai_page_fetch; JANGAN prefetch/unduh sekaligus (limit view + memori). Pertahankan rateLimit 1rps dan heavyImageAutoSwitch=false.",
   "features": {
-    "chapters": true,
+    "chapters": false,
     "download": true,
     "favorite": true,
     "generatePdf": true,

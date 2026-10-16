@@ -14,7 +14,15 @@ Kolom:
 
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
-| 2026-10-16 22:05 | fix | manhwatoon 1.0.2→1.0.3 (taxonomy-c2, #50) | ✅ +`tagSearch` `/manhwa-tag/{tag}/` inherits home (re-probe 2x 200 ~222KB `4 results`; `/page/2/` 404 2x → tanpa Page); Batch A selesai (domain jelas) → 2.5 tak lagi diblokir; ringkasan matrix 83→82 + varian-Page 4→5 diurut ulang; kedua --check hijau | opencode |
+| 2026-10-16 23:40 | koreksi | miauscan 1.0.2→1.0.3 (chapters) | ⚠️ chapters=false SALAH (cek marker Madara; tema custom: SSR 148 `li.lm4-chapter-card`, simulasi 148/148 id+judul+tanggal) → chapters=true + ekstraksi HTML (`a.lm4-chapter-link`, `.lm4-chapter-subtitle`, `.lm4-chapter-date`); reader `img@src`=placeholder base64 → `img.ts-main-image@data-lm-orig-src` (itu sebabnya reader cuma banner); --check hijau | opencode |
+| 2026-10-16 22:40 | verifikasi | pagination-c2: manga18x+ mangacrazy keep (#40) | ✅ LIVE MENANG atas proposal: genre p2 200 2x 24 judul beda overlap 0 + link bernomor + rel=next → genreSearchPage DIPERTAHANKAN, no bump | opencode |
+| 2026-10-16 22:40 | fix | pagination-c2: miauscan 1.0.0→1.0.1 (#32) | ✅ -homePage (12/12 identik) -genreSearchPage (family salah + 404) +chapters=false (detail 647KB 2x, 0 marker chapter); --check hijau | opencode |
+| 2026-10-16 22:40 | verifikasi | pagination-c2: hentai4freenet keep (#52) | ✅ paginator author/artist NYATA (p2 200, 1–4 current=2, isi beda; 3 slug artist 2x) → semua route Page DIPERTAHANKAN, no bump | opencode |
+| 2026-10-16 22:40 | fix | pagination-c2: ehentai 1.0.7→1.0.8 (#5) | ✅ chapters=true→false (model gallery, 🚫 selesai); paging TETAP palsu (Playwright 25/25/25 identik) → +Pag ⚠️; --check hijau | opencode |
+| 2026-10-16 22:40 | fix | pagination-c2: grabberzone 1.0.3→1.0.4 (#54) | ✅ -tagSearchPage (main-canon 11 results <26, p2 404 2x; /type/ 1 halaman); --check hijau | opencode |
+| 2026-10-16 22:40 | verifikasi | pagination-c2: komiku no-op (#1) | ✅ search API 200 + `&paged=2` 404 2x → tanpa searchPage baru, no bump; Search ✖️ jujur | opencode |
+| 2026-10-16 22:40 | verifikasi | pagination-c2: beauty3600000 no-op (#3) | ✅ `/?s=` 404 2x, config tak klaim search → no bump; Search ✖️ jujur | opencode |
+| 2026-10-16 22:40 | verifikasi | pagination-c2: gdscanscom tag/author inherits (#46) | ✅ struktur `.page-item-detail` identik home (9/10 judul); counter `0 results` = quirk template blog-search | opencode |
 | 2026-10-13 22:17 | fix | manhwatoon 1.0.1→1.0.2 (batch-c1, #58) | ✅ domain HIDUP (301→doujinhq GUGUR; `/manhwa/` 200 0 redirect 2x); `next`→`.nav-links .nav-previous a` (lama 0 match) + `features.search` false→true; Home/Search/Genre/Detail/Reader ✅, +Pag ⚠️ (tanpa total), Tag ⚠️ (#50 tetap buka); tutup #58 | opencode |
 | 2026-10-13 22:17 | fix | elftooncom 1.0.1→1.0.2 (batch-c1, #55) | ✅ rewrite Next.js: baseUrl→`elftoon.net`, home `/series` 24 kartu SSR +`?page=` overlap 0, genre `?genre=` filter (165 vs 180; nonsense 0), detail `/series/comic/{id}` (~13 chapter SSR); search/reader DIHAPUS (100% client-render, Playwright) = jujur ✖️; tutup #55 | opencode |
 | 2026-10-13 22:17 | fix | doujindesuv2 2.0.3→2.0.4 (batch-c1, #25) | ✅ `.es` 530 + `.tv` 403 (2x, 2 tanggal) tetap mati → 12 URL absolut `.es`→relatif, tetap `enabled:false`; suksesor `.ooo` hidup tapi Qwik-rebuild → change terpisah; tutup #25 terdokumentasi | opencode |
