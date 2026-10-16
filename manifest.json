@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-13T22:15:37.734382+07:00",
+    "lastUpdated": "2026-10-16T22:01:04.848705+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1561,7 +1561,7 @@
         },
         {
             "id": "toonizycom",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/toonizycom-config.json",
             "meta": {
                 "displayName": "Toonizy",
@@ -1573,7 +1573,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "6263548248766a95821dc85cb6ebab1709a6a9db629f011a2285ac4fac9388d8"
+            "checksum": "166d0b47a8229d4506a9b85d32c97be9e2ef513ac1e1f67fde6cf9ad052b73f7"
         },
         {
             "id": "topmanhuanet",

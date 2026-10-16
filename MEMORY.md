@@ -14,7 +14,7 @@ Kolom:
 
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
-| 2026-10-13 22:25 | koreksi | doujindesuv2 superseded-by doujindesuxxx (#25) | ✅ user: v2 memang TIDAK jalan (legacy) — suksesor = `doujindesuxxx` (`doujin.desu.xxx/api` 200 `_enc_resp_` 2x), bukan `.ooo`; Note matrix + komentar #25 diperbarui, --check hijau | opencode |
+| 2026-10-16 21:55 | fix | toonizycom 1.0.3→1.0.4 | ✅ `/webtoon/` & `/page/1/` body KOSONG server-side (4 KB, 0 item, curl+Playwright) — bukan salah selector; home+homePage→`/webtoon/?m_orderby=latest` (+`/page/{page}/`) 170 KB 24 item/cover p1≠p2, `next`+`.nav-previous a`; refresh+matrix --check hijau | opencode |
 | 2026-10-13 22:17 | fix | manhwatoon 1.0.1→1.0.2 (batch-c1, #58) | ✅ domain HIDUP (301→doujinhq GUGUR; `/manhwa/` 200 0 redirect 2x); `next`→`.nav-links .nav-previous a` (lama 0 match) + `features.search` false→true; Home/Search/Genre/Detail/Reader ✅, +Pag ⚠️ (tanpa total), Tag ⚠️ (#50 tetap buka); tutup #58 | opencode |
 | 2026-10-13 22:17 | fix | elftooncom 1.0.1→1.0.2 (batch-c1, #55) | ✅ rewrite Next.js: baseUrl→`elftoon.net`, home `/series` 24 kartu SSR +`?page=` overlap 0, genre `?genre=` filter (165 vs 180; nonsense 0), detail `/series/comic/{id}` (~13 chapter SSR); search/reader DIHAPUS (100% client-render, Playwright) = jujur ✖️; tutup #55 | opencode |
 | 2026-10-13 22:17 | fix | doujindesuv2 2.0.3→2.0.4 (batch-c1, #25) | ✅ `.es` 530 + `.tv` 403 (2x, 2 tanggal) tetap mati → 12 URL absolut `.es`→relatif, tetap `enabled:false`; suksesor `.ooo` hidup tapi Qwik-rebuild → change terpisah; tutup #25 terdokumentasi | opencode |

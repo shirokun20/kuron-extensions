@@ -1,7 +1,7 @@
 {
   "source": "toonizycom",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://toonizy.com",
@@ -29,7 +29,7 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/webtoon/",
+        "url": "/webtoon/?m_orderby=latest",
         "list": {
           "container": ".page-item-detail",
           "fields": {
@@ -48,12 +48,12 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": ".nav-links a, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".nav-links .nav-previous a, .nav-links a, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
       "homePage": {
-        "url": "/webtoon/page/{page}/",
+        "url": "/webtoon/page/{page}/?m_orderby=latest",
         "inherits": "home"
       },
       "search": {
