@@ -14,6 +14,8 @@ Kolom:
 
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
+|---|---|---|---|---|
+| 2026-10-17 10:15 | fix | ehentai 1.0.9→1.0.10 (bypass chapters) | ✅ `features.chapters` false→true (paksa mode chapters: 1 galeri = 1 chapter, halaman dari `pageCount` `#gdd`); notes disinkron; manifest +checksum via `refresh_manifest.py --check` hijau; SUPPORT-CONFIG.md ⚠️ kolom Detail+Chapters 🚫 1→2 config + baris live ehentai di-note (tanpa regenerate, temuan live utuh) — klaim chapters tetap tak terpenuhi sisi situs → issue #5 perlu klarifikasi arah | opencode |
 | 2026-10-16 23:40 | koreksi | miauscan 1.0.2→1.0.3 (chapters) | ⚠️ chapters=false SALAH (cek marker Madara; tema custom: SSR 148 `li.lm4-chapter-card`, simulasi 148/148 id+judul+tanggal) → chapters=true + ekstraksi HTML (`a.lm4-chapter-link`, `.lm4-chapter-subtitle`, `.lm4-chapter-date`); reader `img@src`=placeholder base64 → `img.ts-main-image@data-lm-orig-src` (itu sebabnya reader cuma banner); --check hijau | opencode |
 | 2026-10-16 22:40 | verifikasi | pagination-c2: manga18x+ mangacrazy keep (#40) | ✅ LIVE MENANG atas proposal: genre p2 200 2x 24 judul beda overlap 0 + link bernomor + rel=next → genreSearchPage DIPERTAHANKAN, no bump | opencode |
 | 2026-10-16 22:40 | fix | pagination-c2: miauscan 1.0.0→1.0.1 (#32) | ✅ -homePage (12/12 identik) -genreSearchPage (family salah + 404) +chapters=false (detail 647KB 2x, 0 marker chapter); --check hijau | opencode |
@@ -41,7 +43,6 @@ Kolom:
 | 2026-10-13 20:52 | verifikasi | orchisasia 1.0.2 (batch-c2, #30) | ✅ tanpa ubah config (sudah `/comic-genre/`): re-probe 2x 200 + 687 results; siap tutup #30 | opencode |
 | 2026-10-13 20:52 | verifikasi | madarascans 1.0.4 (batch-c2, #42) | ✅ tanpa ubah config: `?page=2` ASLI vs `/series/page/2/` PALSU (overlap 32/32); usulan proposal DITOLAK; siap tutup #42 | opencode |
 | 2026-10-13 13:05 | fix | toonizycom 1.0.2→1.0.3 | ✅ home `/`→`/webtoon/` (`/` stub 20KB 0 item; `/webtoon/page/2/` 24 item + `.nav-links` Older/Newer) + cover `src`→`data-src` (placeholder SVG); ✅ search `next`+`.nav-links a` (selector lama 0 match; `/page/2/?s=` p1→p2 beda isi); bonus `contentIdPattern→/webtoon/`, `features.search→true`; --check hijau | opencode |
-|---|---|---|---|---|
 | 2026-10-13 06:25 | fix | zazamangacom 1.0.1→1.0.2→1.0.3 | ✅ tags `.genres-content a`→`.summary_content .tags a` (2 manga, scope hindari 6 widget sidebar); author/artist memang tak ada di tema (tetap ✖️); ✅ pag `next`+`#navigation-ajax` (`/page/2/` & genre p2 200 beda isi, statis tanpa next); manifest + matrix --check hijau | opencode |
 | 2026-10-13 06:15 | fix | yakshacomicscom 1.0.1→1.0.2 | ✅ detail tanpa blok genre (2 manga, `/manga-genre/` 404 + nol link site-wide) → genreSearch/Page mati dihapus (Genre/Tag jujur ✖️); ✅ +authorSearch/Page `/manga-author/` +artistSearch/Page `/manga-artist/` (arsip 200, listing Madara sama, inherits home); cover `src` biasa aman; matrix regen + live-note digabung ulang, --check hijau | opencode |
 | 2026-10-13 06:05 | verifikasi | topmanhuanet reader blank | config benar (10/10 `img.wp-manga-chapter-img@data-src` match); akar masalah server: `cdn.topmanhua.net` balas **526** (dengan & tanpa Referer, HTTP→404; kontrol mangatop CDN 200) ⚠️ reader mati di sisi situs, bukan bug config — tanpa perubahan config | opencode |

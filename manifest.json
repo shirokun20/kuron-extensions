@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-16T22:59:07.441436+07:00",
+    "lastUpdated": "2026-10-17T10:14:32.692186+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1753,7 +1753,7 @@
         },
         {
             "id": "ehentai",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "url": "config/global/ehentai-config.json",
             "meta": {
                 "displayName": "E-Hentai",
@@ -1765,7 +1765,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 6
             },
-            "checksum": "13bb24d3ac3bc3c386276d37c7f78784e842b26aceeb0e5bf8a886aad59c729d"
+            "checksum": "8034a65dd10904853441984087ca52b27a3420235fa6c7d0f27fdc31614c463f"
         },
         {
             "id": "hdoujin",
