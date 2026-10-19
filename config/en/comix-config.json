@@ -1,6 +1,6 @@
 {
   "source": "comix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comix.to",
@@ -44,7 +44,7 @@
     "dynamicForm": false,
     "contentByTag": false,
     "comments": false,
-    "favorite": false,
+    "favorite": true,
     "offlineMode": true,
     "generatePdf": false
   },

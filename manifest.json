@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-17T10:14:32.692186+07:00",
+    "lastUpdated": "2026-10-19T20:29:19.871648+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -391,7 +391,7 @@
         },
         {
             "id": "comix",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/comix-config.json",
             "meta": {
                 "displayName": "Comix",
@@ -403,7 +403,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 2
             },
-            "checksum": "4e6ec9d3856f2ae618e35d120023c148138e153f84de3b669fca6a9811a9445c"
+            "checksum": "6c6b1340f5385d05c3dd81d5a73fd12795c1c5e245e8c787bb4ae51e9393c22b"
         },
         {
             "id": "culturedworkscom",
