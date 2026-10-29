@@ -1,6 +1,6 @@
 {
   "source": "komiku",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiku-config.json",
@@ -143,7 +143,7 @@
             "selector": "table.inftable tr:contains('Pembaca:') td:nth-child(2)"
           },
           "tags": {
-            "selector": "table.inftable ul.genre li.genre a span",
+            "selector": "table.inftable ul.genre li.genre a",
             "multi": true,
             "extractTagObjects": true,
             "tagType": "tag"
