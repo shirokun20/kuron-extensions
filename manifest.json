@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-19T20:29:19.871648+07:00",
+    "lastUpdated": "2026-10-30T01:30:38.393313+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -71,7 +71,7 @@
         },
         {
             "id": "komikcast",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "url": "config/id/komikcast-config.json",
             "meta": {
                 "displayName": "Komikcast",
@@ -83,7 +83,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "3617d757d7e4691a88000b165357253ce161a588b2ab70f439e02c8867d195f4"
+            "checksum": "4fb75f1bea0ea742483cc9733a2754c5e12dbaffaf634178ce566178cb5a911d"
         },
         {
             "id": "komikdewasa",
@@ -135,7 +135,7 @@
         },
         {
             "id": "komiku",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/id/komiku-config.json",
             "meta": {
                 "displayName": "Komiku",
@@ -145,9 +145,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "543f471caf3cddae12811ccd7af57ce9328ff544c1918050126da1d491a00637"
+            "checksum": "b661c69637a399fdf50bfaa074fccde47620226334bc80c7dfed717079817af4"
         },
         {
             "id": "mangaread",

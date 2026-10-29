@@ -1,6 +1,6 @@
 {
   "source": "komiku",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiku-config.json",
@@ -97,11 +97,16 @@
       },
       "genreSearch": {
         "url": "https://api.komiku.org/genre/{tag}/",
-        "inherits": "home"
+        "inherits": "home",
+        "list": {
+          "pagination": {
+            "mode": "paged"
+          }
+        }
       },
       "genreSearchPage": {
         "url": "https://api.komiku.org/genre/{tag}/page/{page}/",
-        "inherits": "home"
+        "inherits": "genreSearch"
       },
       "detail": "https://komiku.org/manga/{id}/",
       "chapter": "https://komiku.org/{id}/"

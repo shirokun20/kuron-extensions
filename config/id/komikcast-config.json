@@ -1,24 +1,24 @@
 {
   "source": "komikcast",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "enabled": true,
   "defaultLanguage": "indonesian",
-  "baseUrl": "https://api.voratoon.com",
-  "configUrl": "https://raw.githubusercontent.com/yourrepo/yourbranch/app/config/komikcast-config.json",
+  "baseUrl": "https://12.voratoon.com",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-extensions/main/config/id/komikcast-config.json",
   "ui": {
     "displayName": "Komikcast",
     "iconPath": "./images/komikcast.png",
     "brandColor": "#FF7043",
-    "browseUrlTemplate": "{baseUrl}/comics?sort={sort}&order=desc",
-    "searchUrlTemplate": "{baseUrl}/comics?search={query}&sort={sort}&order=desc"
+    "browseUrlTemplate": "{baseUrl}/browse",
+    "searchUrlTemplate": "{baseUrl}/browse?q={query}"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://api.voratoon.com/",
-      "Origin": "https://api.voratoon.com",
-      "Accept": "application/json",
-      "Accept-language": "en-US,en;q=0.9,id;q=0.8"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+      "Referer": "https://12.voratoon.com/"
     },
     "rateLimit": {
       "enabled": true,
@@ -26,200 +26,146 @@
       "maxConcurrentRequests": 2
     }
   },
-  "api": {
+  "scraper": {
     "enabled": true,
-    "url": "https://api.voratoon.com",
-    "endpoints": {
-      "allGalleries": {
-        "path": "/series",
-        "params": {
-          "includeMeta": "true",
-          "sort": "latest",
-          "sortOrder": "desc",
-          "take": "12",
-          "page": "{page}"
+    "urlPatterns": {
+      "home": {
+        "url": "/browse",
+        "list": {
+          "container": "article.card",
+          "fields": {
+            "id": {
+              "selector": "a.card-image-wrapper",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "a.card-title"
+            },
+            "coverUrl": {
+              "selector": "a.card-image-wrapper img",
+              "attribute": "src"
+            },
+            "latestChapter": {
+              "selector": ".card-meta .tag-chapters"
+            }
+          },
+          "pagination": {
+            "next": "a[href*='page=']",
+            "links": "a[href*='page=']"
+          }
         }
       },
-      "popular": {
-        "path": "/series",
-        "params": {
-          "includeMeta": "true",
-          "sort": "popularity",
-          "sortOrder": "desc",
-          "take": "12",
-          "page": "{page}"
-        }
+      "homePage": {
+        "url": "/browse?page={page}",
+        "inherits": "home"
       },
       "search": {
-        "path": "/series",
-        "params": {
-          "takeChapter": "2",
-          "includeMeta": "true",
-          "sort": "{sort}",
-          "sortOrder": "desc",
-          "take": "12",
-          "page": "{page}",
-          "filter": "title=ilike=\"{query}\",nativeTitle=ilike=\"{query}\""
-        }
+        "url": "/browse?q={query}",
+        "inherits": "home"
       },
-      "tagSearch": {
-        "path": "/series",
-        "params": {
-          "genreIds": "{tagId}",
-          "takeChapter": "2",
-          "includeMeta": "true",
-          "sort": "{sort}",
-          "sortOrder": "desc",
-          "take": "12",
-          "page": "{page}"
-        }
+      "searchPage": {
+        "url": "/browse?q={query}&page={page}",
+        "inherits": "home"
       },
-      "genres": {
-        "path": "/genres"
+      "genreSearch": {
+        "url": "/browse?genre={tag}",
+        "inherits": "home"
       },
+      "genreSearchPage": {
+        "url": "/browse?genre={tag}&page={page}",
+        "inherits": "home"
+      },
+      "detail": "/series/{id}",
+      "chapter": "/{id}"
+    },
+    "selectors": {
       "detail": {
-        "path": "/series/{id}"
-      },
-      "chapters": {
-        "path": "/series/{id}/chapters"
-      },
-      "images": {
-        "path": "/series/{id}/chapters/{chapter}"
-      }
-    },
-    "list": {
-      "items": "$.data[*]",
-      "pagination": {
-        "currentPage": {
-          "path": "$.meta.page"
-        },
-        "totalPages": {
-          "path": "$.meta.lastPage"
-        }
-      },
-      "fields": {
-        "id": {
-          "selector": "$.data.slug"
-        },
-        "title": {
-          "selector": "$.data.title"
-        },
-        "coverUrl": {
-          "selector": "$.data.coverImage"
-        },
-        "status": {
-          "selector": "$.data.status"
-        },
-        "tags": {
-          "selector": "$.data.genres[*].data.name",
-          "multi": true
-        },
-        "uploadDate": {
-          "selector": "$.updatedAt",
-          "optional": true
-        },
-        "updatedDate": {
-          "selector": "$.createdAt",
-          "optional": true
-        }
-      }
-    },
-    "detail": {
-      "fields": {
-        "id": {
-          "selector": "$.data.data.slug"
-        },
-        "title": {
-          "selector": "$.data.data.title"
-        },
-        "description": {
-          "selector": "$.data.data.synopsis"
-        },
-        "coverUrl": {
-          "selector": "$.data.data.coverImage"
-        },
-        "status": {
-          "selector": "$.data.data.status"
-        },
-        "tags": {
-          "selector": "$.data.data.genres[*].data.name",
-          "multi": true
-        },
-        "pageCount": {
-          "selector": "$.data.data.totalChapters"
-        }
-      },
-      "chapters": {
-        "endpoint": "/series/{id}/chapters",
-        "items": "$.data[*]",
         "fields": {
-          "id": {
-            "selector": "$.data.index"
+          "title": {
+            "selector": "h1.series-title"
           },
-          "chapterNum": {
-            "selector": "$.data.index"
+          "alternativeTitle": {
+            "selector": "p.alternative-title",
+            "optional": true
           },
-          "url": {
-            "selector": "$.data.index"
+          "coverUrl": {
+            "selector": "img[alt^='Cover']",
+            "attribute": "src"
           },
-          "date": {
-            "selector": "$.createdAt"
+          "author": {
+            "selector": ".info-list-item:contains('Author') strong",
+            "optional": true
+          },
+          "status": {
+            "selector": ".info-item:contains('Status') .info-val",
+            "optional": true
+          },
+          "tags": {
+            "selector": ".tags-container a.tag",
+            "multi": true,
+            "extractTagObjects": true,
+            "tagType": "tag"
+          },
+          "synopsis": {
+            "selector": "p.synopsis"
           }
         },
-        "composeIdWithContentId": true,
-        "idJoiner": "/"
+        "chapters": {
+          "container": "ul.chapter-list li",
+          "fields": {
+            "id": {
+              "selector": "a.chapter-item",
+              "attribute": "href"
+            },
+            "title": {
+              "selector": ".chapter-number"
+            },
+            "date": {
+              "selector": ".chapter-date"
+            }
+          }
+        }
+      },
+      "reader": {
+        "images": {
+          "selector": "img[data-chapter-page]",
+          "attribute": "data-chapter-page"
+        }
       }
-    },
-    "images": {
-      "mode": "direct",
-      "items": "$.data.data.images[*]",
-      "urlPath": "$"
     }
   },
   "navigation": {
     "tagQueryMapping": {
       "default": {
         "mode": "rawParam",
-        "param": "genreIds",
+        "param": "genre",
         "valueSource": "tagName"
       }
     }
   },
+  "contentIdPattern": "/series/([^/]+)",
   "features": {
+    "home": true,
+    "search": true,
+    "detail": true,
+    "reader": true,
     "chapters": true,
     "download": true,
     "favorite": true,
     "offlineMode": true,
     "generatePdf": true,
+    "comments": false,
     "related": false
   },
-  "notes": "Komikcast REST config uses nested data payloads (data.data.*) and chapter IDs are composed as {slug}/{index} for reader image requests. Genre references come from /genres and tag browsing uses genreIds.",
+  "notes": "Komikcast pindah ke https://12.voratoon.com (frontend Next.js, SSR). API lama api.voratoon.com kini mengembalikan payload terenkripsi {encrypted: v1...} + header x-payload-encrypted sehingga mode API tidak bisa dipakai; config dialihkan ke scraper. Search SSR via /browse?q=, genre via /browse?genre=, pagination ?page=, reader via img[data-chapter-page].",
   "searchForm": {
     "urlPattern": "search",
     "params": {
       "query": {
-        "queryParam": "query",
+        "queryParam": "q",
         "type": "text",
-        "placeholder": "Search by title..."
-      },
-      "order": {
-        "queryParam": "sort",
-        "type": "sort",
-        "label": "Sort By",
-        "options": [
-          {
-            "name": "Latest",
-            "value": "latest"
-          },
-          {
-            "name": "Popular",
-            "value": "popularity"
-          },
-          {
-            "name": "Rating",
-            "value": "rating"
-          }
-        ]
+        "placeholder": "Cari komik..."
       },
       "page": {
         "queryParam": "page",
