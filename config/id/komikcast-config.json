@@ -1,6 +1,6 @@
 {
   "source": "komikcast",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://12.voratoon.com",
@@ -51,7 +51,7 @@
             }
           },
           "pagination": {
-            "next": "a[href*='page=']",
+            "next": "a[aria-label='Halaman berikutnya']",
             "links": "a[href*='page=']"
           }
         }
@@ -158,7 +158,7 @@
     "comments": false,
     "related": false
   },
-  "notes": "Komikcast pindah ke https://12.voratoon.com (frontend Next.js, SSR). API lama api.voratoon.com kini mengembalikan payload terenkripsi {encrypted: v1...} + header x-payload-encrypted sehingga mode API tidak bisa dipakai; config dialihkan ke scraper. Search SSR via /browse?q=, genre via /browse?genre=, pagination ?page=, reader via img[data-chapter-page].",
+  "notes": "Komikcast pindah ke https://12.voratoon.com (frontend Next.js, SSR). API lama api.voratoon.com kini mengembalikan payload terenkripsi {encrypted: v1...} + header x-payload-encrypted sehingga mode API tidak bisa dipakai; config dialihkan ke scraper. Search SSR via /browse?q=, genre via /browse?genre=, pagination ?page=, reader via img[data-chapter-page]. pagination.next wajib chevron 'Halaman berikutnya' (bukan a[href*=page=]): tombol prev juga match page= sehingga cursor-cache adapter keracunan (page 4 baca URL page 2, dst; pola 1=3/2=4 di content-by-tag).",
   "searchForm": {
     "urlPattern": "search",
     "params": {
