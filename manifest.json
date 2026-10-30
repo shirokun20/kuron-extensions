@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-30T01:37:43.419609+07:00",
+    "lastUpdated": "2026-10-30T22:59:07.665692+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -135,7 +135,7 @@
         },
         {
             "id": "komiku",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/id/komiku-config.json",
             "meta": {
                 "displayName": "Komiku",
@@ -147,7 +147,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "fa198c13ca337acedb0f7ac7a64d9e9ce4fa0338d797daf19f3ca1ba3490997a"
+            "checksum": "524e6296b268f3c0557567f2b0361016a0243ad86889ab99cc4a8da7db86d9ec"
         },
         {
             "id": "mangaread",
