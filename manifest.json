@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-31T09:43:35.699471+07:00",
+    "lastUpdated": "2026-10-31T21:20:25.099886+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1881,7 +1881,7 @@
         },
         {
             "id": "mitaku",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "url": "config/global/mitaku-config.json",
             "meta": {
                 "displayName": "Mitaku",
@@ -1893,7 +1893,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 3
             },
-            "checksum": "953b01d17fc953f244c7d151b0c267f2b5d43b9923e42acfe77e0809e3c85528"
+            "checksum": "8cc7103b3528db25124790289bbcfa299ca2895c7c7d34c4661766d1247cf379"
         },
         {
             "id": "photos18",

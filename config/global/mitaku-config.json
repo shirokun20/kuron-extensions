@@ -1,6 +1,6 @@
 {
   "source": "mitaku",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://mitaku.net",
@@ -47,8 +47,8 @@
             }
           },
           "pagination": {
-            "next": "a.next.page-numbers",
-            "links": ".page-numbers"
+            "next": ".wp-pagenavi a.page.larger",
+            "last": ".wp-pagenavi a.last"
           }
         }
       },
