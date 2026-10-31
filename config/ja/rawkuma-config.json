@@ -1,6 +1,6 @@
 {
   "source": "rawkuma",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://rawkuma.net",
@@ -198,5 +198,19 @@
     "offlineMode": true,
     "advancedSearch": false,
     "supportsAuth": false
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "query",
+        "type": "text",
+        "placeholder": "Search manga..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
   }
 }

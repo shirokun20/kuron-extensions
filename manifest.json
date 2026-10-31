@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-31T21:43:33.028845+07:00",
+    "lastUpdated": "2026-10-31T22:14:48.054366+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1705,7 +1705,7 @@
         },
         {
             "id": "rawkuma",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "url": "config/ja/rawkuma-config.json",
             "meta": {
                 "displayName": "Rawkuma",
@@ -1715,9 +1715,9 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "e5650947bf25e8f5a7e024a74694cce665ec5774ff1447e8327d2b5eee71742e"
+            "checksum": "6e0e7bee5f7d140cf87014f0a7a0b8282e2d210a11da3bf4f2e17348ff6226bd"
         },
         {
             "id": "vihentai",
