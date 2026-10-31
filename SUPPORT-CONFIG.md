@@ -26,12 +26,12 @@ Sumber data: `config/*/*-config.json` (kecuali `config/new/`) - regenerate: `pyt
 |---|---:|---:|---:|---:|
 | Home | 120 | 0 | 0 | 0 |
 | Home + Pag + Total | 30 | 89 | 1 | 0 |
-| Search | 116 | 1 | 3 | 0 |
-| Search + Pag + Total | 28 | 86 | 6 | 0 |
+| Search | 117 | 1 | 2 | 0 |
+| Search + Pag + Total | 28 | 87 | 5 | 0 |
 | Detail + Chapters | 119 | 0 | 0 | 1 |
 | Reader (image/video) | 119 | 0 | 1 | 0 |
-| Genre + Pag | 105 | 7 | 7 | 1 |
-| Tag + Pag | 21 | 92 | 7 | 0 |
+| Genre + Pag | 105 | 8 | 6 | 1 |
+| Tag + Pag | 21 | 93 | 6 | 0 |
 | Author + Pag | 7 | 6 | 107 | 0 |
 | Artist + Pag | 13 | 4 | 103 | 0 |
 
@@ -50,7 +50,7 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
 - **ehentai** (`config/global/ehentai-config.json`) - kolom: detail
   - detail: features.chapters=true tapi selectors.detail.chapters hilang
 
-### 2. ✖️ Kritis - fitur inti rusak (6 config)
+### 2. ✖️ Kritis - fitur inti rusak (5 config)
 
 - **komiku** (`config/id/komiku-config.json`) - kolom: search_pag
   - home+total: pagination hanya punya `next` - total halaman tidak terbaca
@@ -70,10 +70,6 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
   - search+pagination: list tanpa blok pagination
   - genre: route genreSearch ada tapi genreSearchPage hilang
   - tag: config tanpa tagSearch - kemungkinan memakai route genre
-- **rawkuma** (`config/ja/rawkuma-config.json`) - kolom: search, search_pag
-  - search: urlPatterns.search tidak didefinisikan
-  - genre: tidak ada genreSearch / tagQueryMapping / endpoint API
-  - tag: tidak ada tagSearch / tagQueryMapping / endpoint API
 - **beauty3600000** (`config/global/beauty3600000-config.json`) - kolom: search, search_pag
   - home+total: pagination hanya punya `next` - total halaman tidak terbaca
   - search: urlPatterns.search tidak didefinisikan
@@ -110,14 +106,14 @@ Perbaikan berurutan: 🚫 klaim palsu → ✖️ kritis → ✖️ genre/tag →
   - genre: tidak ada genreSearch / tagQueryMapping / endpoint API
   - tag: tidak ada tagSearch / tagQueryMapping / endpoint API
 
-### 4. ⚠️ Partial - jalan tapi rusak sebagian (95 config)
+### 4. ⚠️ Partial - jalan tapi rusak sebagian (96 config)
 
-- **tag: config tanpa tagSearch - kemungkinan memakai route genre** — 80 config: `areakomik`, `crotpedia`, `doujindesuv2`, `komikdewasa`, `komikindo`, `mangaread`, `ngomik`, `sektedoujin`, `shirodoujin`, `akazascans`, `allporncomicio`, `anisascansin`, … +68 lagi
+- **tag: config tanpa tagSearch - kemungkinan memakai route genre** — 81 config: `areakomik`, `crotpedia`, `doujindesuv2`, `komikdewasa`, `komikindo`, `mangaread`, `ngomik`, `sektedoujin`, `shirodoujin`, `akazascans`, `allporncomicio`, `anisascansin`, … +69 lagi
 - **home+total: pagination hanya punya `next` - total halaman tidak terbaca** — 78 config: `komikdewasa`, `mangaread`, `ngomik`, `sektedoujin`, `akazascans`, `allporncomicio`, `anisascansin`, `apcomicsorg`, `arenascancom`, `asmhentai`, `athreascanscom`, `bunmangacom`, … +66 lagi
 - **search+total: pagination hanya punya `next` - total halaman tidak terbaca** — 77 config: `komikdewasa`, `ngomik`, `sektedoujin`, `akazascans`, `allporncomicio`, `anisascansin`, `apcomicsorg`, `arenascancom`, `asmhentai`, `athreascanscom`, `bunmangacom`, `cocomicco`, … +65 lagi
 - **tag: route tag ada tapi varian Page hilang** — 7 config: `tooncubus`, `gdscanscom`, `grabberzone`, `hentai3`, `mangaowlio`, `manhwatoon`, `hitomi`
-- **search+total: pagination ada tapi route `searchPage` hilang** — 5 config: `mangaread`, `shirodoujin`, `tooncubus`, `gdscanscom`, `hitomi`
-- **genre: route genreSearch ada tapi genreSearchPage hilang** — 3 config: `tooncubus`, `grabberzone`, `hentai3`
+- **search+total: pagination ada tapi route `searchPage` hilang** — 6 config: `mangaread`, `shirodoujin`, `tooncubus`, `gdscanscom`, `rawkuma`, `hitomi`
+- **genre: route genreSearch ada tapi genreSearchPage hilang** — 4 config: `tooncubus`, `grabberzone`, `hentai3`, `rawkuma`
 - **home+total: pagination ada tapi route `homePage` hilang** — 3 config: `tooncubus`, `mangapill`, `hitomi`
 - **genre: config tanpa genreSearch - kemungkinan memakai route tag** — 2 config: `hentaicosplay`, `hitomi`
 - **genre: endpoint API genre tanpa param page** — 1 config: `doujindesuxxx`
@@ -240,7 +236,7 @@ Author/artist route jarang dideklarasikan - ini statistik, **bukan** daftar issu
 | 104 | `config/ja/nicomanga-config.json`<br>https://nicomanga.com | ✅ `/manga-list.html?p={page}&v=grid` | ✅ `/manga-list.html?p={page}&v=grid` | ✅ `/manga-list.html?n={query}&p={page}&v=grid` | ✅ `/manga-list.html?n={query}&p={page}&v=grid` | ✅ listed `/{id}` | ✅ image (chaoticPayload) | ✅ `/manga-list.html?g={tag}&v=grid` +pag | ⚠️ via genre route | ✖️ | ✖️ | tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
 | 105 | `config/ja/rawbaka-config.json`<br>https://rawbaka.site | ✅ `/` | ⚠️ `/?latest_page={page}` (next-only) | ✅ `/?s={query}` | ⚠️ `/?s={query}&latest_page={page}` (next-only) | ✅ listed `/manga/{id}/` | ✅ image | ✖️ nonaktif | ✖️ nonaktif | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search+total: pagination hanya punya `next` - total halaman tidak terbaca<br>genre: features.contentByTag=false - fitur tag/genre dimatikan<br>tag: features.contentByTag=false - fitur tag/genre dimatikan<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
 | 106 | `config/ja/rawdevart-config.json`<br>https://rawdevart.art | ✅ `/latest-manga?page={page}` (API) | ✅ `/latest-manga?page={page}` (API+total) | ✅ `/search?query={query}&page={page}` (API) | ✅ `/search?query={query}&page={page}` (API+total) | ✅ listed `/manga/{id}` | ✅ image (API) | ✅ `/genre/{tagId}?sort={sort}&page={page}&…` API+pag | ✅ via-search | ✖️ | ✖️ | author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
-| 107 | `config/ja/rawkuma-config.json`<br>https://rawkuma.net | ✅ `/latest-update/` | ✅ `/latest-update/?the_page={page}` | ✖️ route `search` tidak ada | ✖️ (ikut search ✖️) | ✅ listed `/manga/{id}/` | ✅ image | ✖️ | ✖️ | ✖️ | ✖️ | search: urlPatterns.search tidak didefinisikan<br>genre: tidak ada genreSearch / tagQueryMapping / endpoint API<br>tag: tidak ada tagSearch / tagQueryMapping / endpoint API<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
+| 107 | `config/ja/rawkuma-config.json`<br>https://rawkuma.net | ✅ `/latest-update/` | ✅ `/latest-update/?the_page={page}` | ✅ `/wp-admin/admin-ajax.php?action=advanced_search` | ⚠️ pagination `next` ada, route page hilang | ✅ listed `/manga/{id}/` | ✅ image | ⚠️ `/wp-admin/admin-ajax.php?action=advanced_search` | ⚠️ via genre route | ✖️ | ✖️ | search+total: pagination ada tapi route `searchPage` hilang<br>genre: route genreSearch ada tapi genreSearchPage hilang<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
 | 108 | `config/vi/vihentai-config.json`<br>https://vi-hentai.moe | ✅ `/danh-sach?sort=-views` | ✅ `/danh-sach?sort=-views&page={page}` | ✅ `/tim-kiem?keyword={query}&page={page}` | ✅ `/tim-kiem?keyword={query}&page={page}` | ✅ listed `/truyen/{id}` | ✅ image (chapterDataScript) | ✅ `/the-loai/{tag}` +pag | ⚠️ via genre route | ✅ `/tac-gia/{tag}` +pag | ✖️ | tag: config tanpa tagSearch - kemungkinan memakai route genre<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
 | 109 | `config/global/beauty3600000-config.json`<br>https://3600000.xyz | ✅ `/` | ⚠️ `/page/{page}/` (next-only) | ✖️ route `search` tidak ada | ✖️ (ikut search ✖️) | ✅ single `/{id}/` | ✅ image | ✅ `/category/{tag}/` +pag | ⚠️ via genre route | ✖️ | ✖️ | home+total: pagination hanya punya `next` - total halaman tidak terbaca<br>search: urlPatterns.search tidak didefinisikan<br>tag: config tanpa tagSearch - kemungkinan memakai route genre<br>author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |
 | 110 | `config/global/cosplaytele-config.json`<br>https://cosplaytele.com | ✅ `/` | ✅ `/page/{page}/` | ✅ `/?s={query}` | ✅ `/page/{page}/?s={query}` | ✅ single `/{id}` | ✅ image · 🎥 video? | ✅ `/category/{tag}/` +pag | ✅ `/tag/{tag}/` +pag | ✖️ | ✖️ | author: tidak ada authorSearch dan tanpa tagQueryMapping.author<br>artist: tidak ada artistSearch dan tanpa tagQueryMapping.artist |

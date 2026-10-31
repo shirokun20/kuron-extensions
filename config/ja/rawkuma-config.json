@@ -1,6 +1,6 @@
 {
   "source": "rawkuma",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://rawkuma.net",
@@ -59,6 +59,78 @@
         "url": "/latest-update/?the_page={page}",
         "inherits": "home"
       },
+      "search": {
+        "url": "/wp-admin/admin-ajax.php?action=advanced_search",
+        "method": "post",
+        "form": {
+          "action": "advanced_search",
+          "nonce": "{nonce}",
+          "inclusion": "OR",
+          "exclusion": "OR",
+          "page": "{page}",
+          "genre": "[]",
+          "genre_exclude": "[]",
+          "author": "[]",
+          "artist": "[]",
+          "project": "0",
+          "type": "[]",
+          "status": "[]",
+          "order": "desc",
+          "orderby": "popular",
+          "query": "{query}"
+        },
+        "nonce": {
+          "url": "/wp-admin/admin-ajax.php?type=search_form&action=get_nonce"
+        },
+        "list": {
+          "container": "div.flex.rounded-lg.overflow-hidden",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "a.text-base"
+            },
+            "coverUrl": {
+              "selector": "a img",
+              "attribute": "src"
+            },
+            "latestChapter": {
+              "selector": "span.text-sm"
+            }
+          },
+          "pagination": {
+            "mode": "paged"
+          }
+        }
+      },
+      "genreSearch": {
+        "url": "/wp-admin/admin-ajax.php?action=advanced_search",
+        "method": "post",
+        "form": {
+          "action": "advanced_search",
+          "nonce": "{nonce}",
+          "inclusion": "OR",
+          "exclusion": "OR",
+          "page": "{page}",
+          "genre": "[\"{tag}\"]",
+          "genre_exclude": "[]",
+          "author": "[]",
+          "artist": "[]",
+          "project": "0",
+          "type": "[]",
+          "status": "[]",
+          "order": "desc",
+          "orderby": "popular",
+          "query": ""
+        },
+        "nonce": {
+          "url": "/wp-admin/admin-ajax.php?type=search_form&action=get_nonce"
+        },
+        "inherits": "search"
+      },
       "detail": "/manga/{id}/",
       "chapter": "/{id}"
     },
@@ -116,7 +188,7 @@
     }
   },
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

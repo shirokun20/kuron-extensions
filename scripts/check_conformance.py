@@ -3,7 +3,8 @@
 
 Rules (no network):
   R1  every `urlPatterns.*Search*` URL carries a `{tag}`/`{query}`/`{page}`
-      placeholder it claims (no dead routes by construction).
+      placeholder it claims (no dead routes by construction). `method: post`
+      patterns may carry it in the `form` body instead of the URL.
   R2  detail `author`/`artists` fields must set `multi: true` (single-match
       extraction silently drops co-authors).
   R3  no `{slug}` placeholder in urlPatterns (engine forwards it raw → 404).
@@ -58,8 +59,17 @@ def _rule_r1(cfg, path):
         if entry is None:
             continue
         url = entry if isinstance(entry, str) else entry.get("url", "")
-        if "{tag}" not in url and "{query}" not in url:
-            out.append(f"{path}: R1 {key} has no {{tag}}/{{query}} placeholder: {url}")
+        if "{tag}" in url or "{query}" in url:
+            continue
+        # POST patterns carry the placeholder in the form body, not the URL
+        # (e.g. Rawkuma admin-ajax advanced_search with genre: ["{tag}"]).
+        if isinstance(entry, dict) and \
+                str(entry.get("method", "")).lower() == "post":
+            form = entry.get("form") or {}
+            blob = " ".join(str(v) for v in form.values())
+            if "{tag}" in blob or "{query}" in blob:
+                continue
+        out.append(f"{path}: R1 {key} has no {{tag}}/{{query}} placeholder: {url}")
     return out
 
 
