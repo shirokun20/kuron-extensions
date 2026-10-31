@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-10-30T23:07:52.664627+07:00",
+    "lastUpdated": "2026-10-31T09:43:35.699471+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1704,6 +1704,22 @@
             "checksum": "2ee4e3a3b9759d37e28dab3651d4251b4acacd68ec6ff29139751940a5bf0f59"
         },
         {
+            "id": "rawkuma",
+            "version": "1.0.0",
+            "url": "config/ja/rawkuma-config.json",
+            "meta": {
+                "displayName": "Rawkuma",
+                "description": "Raw manga Jepang: update terbaru, detail, chapter, dan reader",
+                "iconUrl": "images/rawkuma.png",
+                "contentType": "manga",
+                "language": "ja",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 3
+            },
+            "checksum": "4366d6535689830b5d3f48fcf59e8d2c9d754bbc6a94638b7f31c1fabb248341"
+        },
+        {
             "id": "vihentai",
             "version": "1.0.2",
             "url": "config/vi/vihentai-config.json",
@@ -1862,6 +1878,22 @@
                 "sizeKb": 4
             },
             "checksum": "2b60a3c88753b6c301b0ea942d5893b400b5a9218f2d5a8ae37e5ebc0a4e5c8e"
+        },
+        {
+            "id": "mitaku",
+            "version": "1.1.0",
+            "url": "config/global/mitaku-config.json",
+            "meta": {
+                "displayName": "Mitaku",
+                "description": "Galeri cosplay global: foto dan video per post",
+                "iconUrl": "images/mitaku.png",
+                "contentType": "cosplay",
+                "language": "global",
+                "requiresAuth": false,
+                "requiresSpecialAdapter": false,
+                "sizeKb": 3
+            },
+            "checksum": "953b01d17fc953f244c7d151b0c267f2b5d43b9923e42acfe77e0809e3c85528"
         },
         {
             "id": "photos18",

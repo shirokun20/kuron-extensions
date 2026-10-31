@@ -1,0 +1,116 @@
+{
+  "source": "mitaku",
+  "version": "1.1.0",
+  "enabled": true,
+  "defaultLanguage": "global",
+  "baseUrl": "https://mitaku.net",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-extensions/main/config/global/mitaku-config.json",
+  "contentType": "cosplay",
+  "ui": {
+    "displayName": "Mitaku",
+    "iconPath": "./images/mitaku.png",
+    "brandColor": "#EC4899",
+    "openInBrowserUrl": "https://mitaku.net"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://mitaku.net/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/",
+        "list": {
+          "container": "article.post",
+          "fields": {
+            "id": {
+              "selector": "h2.entry-title a",
+              "attribute": "href"
+            },
+            "title": {
+              "selector": "h2.entry-title a"
+            },
+            "coverUrl": {
+              "selector": ".featured-image img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a.next.page-numbers",
+            "links": ".page-numbers"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "inherits": "home"
+      },
+      "searchPage": {
+        "url": "/page/{page}/?s={query}",
+        "inherits": "home"
+      },
+      "detail": "/{id}",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1.entry-title"
+          },
+          "coverUrl": {
+            "selector": "meta[property=\"og:image\"]",
+            "attribute": "content"
+          },
+          "description": {
+            "selector": ".entry-content p"
+          },
+          "tags": {
+            "selector": ".tags a, a[rel=\"tag\"]",
+            "multi": true
+          }
+        }
+      },
+      "reader": {
+        "container": ".entry-content",
+        "images": {
+          "selector": "img.msacwl-img",
+          "attribute": "data-lazy"
+        },
+        "video": {
+          "container": ".entry-content",
+          "selector": "iframe",
+          "attribute": "src",
+          "requireChapterType": "category-online-video"
+        }
+      }
+    }
+  },
+  "features": {
+    "search": true,
+    "chapters": false,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true,
+    "advancedSearch": false,
+    "supportsAuth": false
+  }
+}

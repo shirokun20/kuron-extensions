@@ -1,0 +1,130 @@
+{
+  "source": "rawkuma",
+  "version": "1.0.0",
+  "enabled": true,
+  "defaultLanguage": "japanese",
+  "baseUrl": "https://rawkuma.net",
+  "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-extensions/main/config/ja/rawkuma-config.json",
+  "ui": {
+    "displayName": "Rawkuma",
+    "iconPath": "./images/rawkuma.png",
+    "brandColor": "#7C3AED",
+    "openInBrowserUrl": "https://rawkuma.net"
+  },
+  "network": {
+    "requiresBypass": false,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Referer": "https://rawkuma.net/"
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerSecond": 1,
+      "maxConcurrentRequests": 2
+    }
+  },
+  "scraper": {
+    "enabled": true,
+    "urlPatterns": {
+      "home": {
+        "url": "/latest-update/",
+        "list": {
+          "container": "#search-results > div",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h1"
+            },
+            "coverUrl": {
+              "selector": "a img",
+              "attribute": "src"
+            },
+            "latestChapter": {
+              "selector": "a.link-self p"
+            }
+          },
+          "pagination": {
+            "next": "div.col-span-full a:last-child",
+            "links": "a[href*=\"the_page=\"]"
+          }
+        }
+      },
+      "homePage": {
+        "url": "/latest-update/?the_page={page}",
+        "inherits": "home"
+      },
+      "detail": "/manga/{id}/",
+      "chapter": "/{id}"
+    },
+    "selectors": {
+      "detail": {
+        "fields": {
+          "title": {
+            "selector": "h1[itemprop=\"name\"]"
+          },
+          "coverUrl": {
+            "selector": "div[itemprop=\"image\"] img",
+            "attribute": "src"
+          },
+          "description": {
+            "selector": "[itemprop=\"description\"] p"
+          },
+          "tags": {
+            "selector": "a[itemprop=\"genre\"]",
+            "multi": true
+          }
+        },
+        "chapters": {
+          "container": "#chapter-list > div[data-chapter-number]",
+          "fields": {
+            "id": {
+              "selector": "a",
+              "attribute": "href"
+            },
+            "title": {
+              "selector": "span"
+            },
+            "date": {
+              "selector": "time"
+            }
+          }
+        }
+      },
+      "reader": {
+        "container": "section[data-image-data]",
+        "images": {
+          "selector": "section[data-image-data] img",
+          "attribute": "src"
+        },
+        "nav": {
+          "next": {
+            "selector": "a[aria-label=\"Next\"]",
+            "attribute": "href"
+          },
+          "prev": {
+            "selector": "a[aria-label=\"Prev\"]",
+            "attribute": "href"
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "search": false,
+    "chapters": true,
+    "download": true,
+    "favorite": true,
+    "comments": false,
+    "related": false,
+    "generatePdf": true,
+    "offlineMode": true,
+    "advancedSearch": false,
+    "supportsAuth": false
+  }
+}
