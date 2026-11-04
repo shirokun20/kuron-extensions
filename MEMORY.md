@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-11-05 06:21 | fix | mangadex 1.1.11→1.1.12 (`detail.chapters.endpoint` `/chapter?manga=` → `/manga/{id}/feed`) | ✅ manifest regen + `--check` hijau (120 entries); live: at-home + image server 200 OK, blob: URL = proteksi web mangadex.org (bukan URL API) — app wajib pakai at-home; re-verify feed kena rate-limit, tanpa commit | kuron-config-verify |
 | 2026-11-02 12:35 | fix | komiku 1.0.6→1.0.7 (`requiresBypass:true`, reader kena CF 403) | ✅ manifest regen + `--check` hijau (120 entries, matrix sync); live re-verify butuh engine/app (curl tak bisa bypass CF) — tanpa commit | cc |
 | 2026-11-02 12:30 | verifikasi | komiku reader vs Cloudflare (tanya user) | ⚠️ detail `manga/naruto/` 200 + chapter list OK; chapter `naruto-chapter-711/` (link asli) 403 `Just a moment...` 2x + browser user kena CF → proteksi sisi server, bukan selector; saran: `requiresBypass:true` (+bump PATCH), tanpa commit | cc |
 | 2026-10-31 22:15 | fix | `config/ja/rawkuma-config.json` 1.1.0→1.1.1 (searchForm minimal) | ✅ tambah blok `searchForm` (`urlPattern: search`, field text `query` + `page`) supaya Search screen render form (sebelumnya fallback "unavailable" karena inferensi engine cuma baca template URL); manifest regen (1 entry synced) + SUPPORT regen; conformance rawkuma bersih (3 R2 pre-existing file lain); tanpa commit | cc |
