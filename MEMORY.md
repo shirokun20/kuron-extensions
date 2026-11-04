@@ -15,6 +15,8 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-11-05 06:21 | verifikasi | mangadex intermiten (8 hal dicek: p1–p8) | ✅ semua 200 ukuran penuh (~1,3–1,7MB, ~0,2s); baseUrl stabil antar panggilan; tidak bisa direproduksi dari sisi config — sisa tersangka di aplikasi | kuron-config-verify |
+| 2026-11-05 06:21 | verifikasi | mangadex reader ch `7db80b4d` (ATM Ojisan ch27 en, 19 hal) | ✅ at-home 200 (hash `ab99f8a8...`, 19 file) + image p1 200 JPEG 1,4MB dibuka = halaman manga asli; website `/chapter/{id}` 302 → `/edge/challenge` (bot-wall, bukan jalur app); config tidak diubah | kuron-config-verify |
 | 2026-11-05 06:21 | revert-fix | mangadex 1.1.12→1.1.13 (`detail.chapters.endpoint` kembali ke `/chapter?manga={id}...`, revert feed) | ✅ manifest regen + `--check` hijau; spec api.yaml: `/chapter` param `manga` valid + `/manga/{id}/feed` juga valid — revert karena chapter hilang tepat setelah ganti endpoint; live re-verify terhalang koneksi ke api.mangadex.org putus-putus dari mesin ini, tanpa commit | kuron-config-verify |
 | 2026-11-05 06:21 | fix | mangadex 1.1.11→1.1.12 (`detail.chapters.endpoint` `/chapter?manga=` → `/manga/{id}/feed`) | ✅ manifest regen + `--check` hijau (120 entries); live: at-home + image server 200 OK, blob: URL = proteksi web mangadex.org (bukan URL API) — app wajib pakai at-home; re-verify feed kena rate-limit, tanpa commit | kuron-config-verify |
 | 2026-11-02 12:35 | fix | komiku 1.0.6→1.0.7 (`requiresBypass:true`, reader kena CF 403) | ✅ manifest regen + `--check` hijau (120 entries, matrix sync); live re-verify butuh engine/app (curl tak bisa bypass CF) — tanpa commit | cc |
