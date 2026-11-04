@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-05T06:21:29.309609+07:00",
+    "lastUpdated": "2026-11-05T06:28:04.418734+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1849,7 +1849,7 @@
         },
         {
             "id": "mangadex",
-            "version": "1.1.12",
+            "version": "1.1.13",
             "url": "config/global/mangadex-config.json",
             "meta": {
                 "displayName": "MangaDex",
@@ -1861,7 +1861,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 18
             },
-            "checksum": "b0ab9ddc1c3148b4afa81b04b7656db2ae3e3cd651501136ca47c10189600071"
+            "checksum": "f593906e4e77c84869b43b6523aeb844f8397953ea9d92bc6c5016b304acc28f"
         },
         {
             "id": "misskon",

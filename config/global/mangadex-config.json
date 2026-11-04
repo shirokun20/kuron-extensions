@@ -1,6 +1,6 @@
 {
   "source": "mangadex",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://api.mangadex.org",
@@ -142,7 +142,7 @@
         ]
       },
       "chapters": {
-        "endpoint": "/manga/{id}/feed?translatedLanguage[]={language}&limit=100&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic",
+        "endpoint": "/chapter?manga={id}&translatedLanguage[]={language}&limit=100&order[chapter]=desc&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic",
         "autoPaginate": false,
         "items": "$.data[*]",
         "fallbackFields": {
