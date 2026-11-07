@@ -1,9 +1,9 @@
 {
   "source": "komikcast",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "enabled": true,
   "defaultLanguage": "indonesian",
-  "baseUrl": "https://12.voratoon.com",
+  "baseUrl": "https://13.voratoon.com",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/kuron-extensions/main/config/id/komikcast-config.json",
   "ui": {
     "displayName": "Komikcast",
@@ -18,7 +18,7 @@
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
       "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
-      "Referer": "https://12.voratoon.com/"
+      "Referer": "https://13.voratoon.com/"
     },
     "rateLimit": {
       "enabled": true,
@@ -158,7 +158,7 @@
     "comments": false,
     "related": false
   },
-  "notes": "Komikcast pindah ke https://12.voratoon.com (frontend Next.js, SSR). API lama api.voratoon.com kini mengembalikan payload terenkripsi {encrypted: v1...} + header x-payload-encrypted sehingga mode API tidak bisa dipakai; config dialihkan ke scraper. Search SSR via /browse?q=, genre via /browse?genre=, pagination ?page=, reader via img[data-chapter-page]. pagination.next wajib chevron 'Halaman berikutnya' (bukan a[href*=page=]): tombol prev juga match page= sehingga cursor-cache adapter keracunan (page 4 baca URL page 2, dst; pola 1=3/2=4 di content-by-tag).",
+  "notes": "Komikcast pindah ke https://13.voratoon.com (frontend Next.js, SSR). API lama api.voratoon.com kini mengembalikan payload terenkripsi {encrypted: v1...} + header x-payload-encrypted sehingga mode API tidak bisa dipakai; config dialihkan ke scraper. Search SSR via /browse?q=, genre via /browse?genre=, pagination ?page=, reader via img[data-chapter-page]. pagination.next wajib chevron 'Halaman berikutnya' (bukan a[href*=page=]): tombol prev juga match page= sehingga cursor-cache adapter keracunan (page 4 baca URL page 2, dst; pola 1=3/2=4 di content-by-tag).",
   "searchForm": {
     "urlPattern": "search",
     "params": {

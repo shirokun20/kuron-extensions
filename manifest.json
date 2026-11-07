@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-05T06:28:04.418734+07:00",
+    "lastUpdated": "2026-11-07T10:33:09.784776+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -71,7 +71,7 @@
         },
         {
             "id": "komikcast",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "url": "config/id/komikcast-config.json",
             "meta": {
                 "displayName": "Komikcast",
@@ -83,7 +83,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "6496699fc79ca7d38599cf0660365e579ca47afb43135524c9d06a0bffa5c6c1"
+            "checksum": "45762850fdec36bf4747b138e4972207864817578dcaed38b31fe82beda5d417"
         },
         {
             "id": "komikdewasa",
@@ -1511,7 +1511,7 @@
         },
         {
             "id": "schale-network",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/en/schale-network-config.json",
             "meta": {
                 "displayName": "Schale Network",
@@ -1521,9 +1521,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 9
             },
-            "checksum": "770e9fc0ea98b02429da4b3de4d1ce1ca497f058742f840a24ee168bcef40dff"
+            "checksum": "77482ca9a559fdc9086e4b9044ed8f0c941cdec93eca3874544c58372936d5a6"
         },
         {
             "id": "scythescanscom",
@@ -1785,7 +1785,7 @@
         },
         {
             "id": "hdoujin",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "config/global/hdoujin-config.json",
             "meta": {
                 "displayName": "HDoujin",
@@ -1795,9 +1795,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 9
             },
-            "checksum": "e789e08e85651256caf6e20793418376ed1fac842445c2f8cdebdbb0f36b05c2"
+            "checksum": "5abca34b19f1ae3edfa7d469ac6f7bd932f6f66cbb1c5fee2b76543b7e58c077"
         },
         {
             "id": "hentaicosplay",

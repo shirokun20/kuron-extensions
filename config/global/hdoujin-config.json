@@ -1,6 +1,6 @@
 {
   "source": "hdoujin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://api.hdoujin.org",
@@ -136,6 +136,8 @@
     "16": "korean"
   },
   "features": {
+    "search": true,
+    "contentByTag": true,
     "comments": false,
     "related": false,
     "download": true,
@@ -166,22 +168,218 @@
         "mode": "rawParam",
         "param": "s",
         "valueSource": "tagName",
-        "valuePrefix": "tag:",
-        "valueSuffix": ""
+        "valuePrefix": "tag:\"^",
+        "valueSuffix": "$\""
       },
       "artist": {
         "mode": "rawParam",
         "param": "s",
         "valueSource": "tagName",
-        "valuePrefix": "artist:\"",
-        "valueSuffix": "\""
+        "valuePrefix": "artist:\"^",
+        "valueSuffix": "$\""
+      },
+      "author": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "artist:\"^",
+        "valueSuffix": "$\""
+      },
+      "circle": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "circle:\"^",
+        "valueSuffix": "$\""
+      },
+      "group": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "circle:\"^",
+        "valueSuffix": "$\""
+      },
+      "parody": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "parody:\"^",
+        "valueSuffix": "$\""
+      },
+      "magazine": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "magazine:\"^",
+        "valueSuffix": "$\""
+      },
+      "character": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "character:\"^",
+        "valueSuffix": "$\""
+      },
+      "cosplayer": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "cosplayer:\"^",
+        "valueSuffix": "$\""
+      },
+      "uploader": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "uploader:\"^",
+        "valueSuffix": "$\""
+      },
+      "male": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "male:\"^",
+        "valueSuffix": "$\""
+      },
+      "female": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "female:\"^",
+        "valueSuffix": "$\""
+      },
+      "mixed": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "mixed:\"^",
+        "valueSuffix": "$\""
+      },
+      "language": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "language:\"^",
+        "valueSuffix": "$\""
+      },
+      "other": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "other:\"^",
+        "valueSuffix": "$\""
+      },
+      "reclass": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "reclass:\"^",
+        "valueSuffix": "$\""
+      },
+      "0": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "tag:\"^",
+        "valueSuffix": "$\""
+      },
+      "1": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "artist:\"^",
+        "valueSuffix": "$\""
+      },
+      "2": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "circle:\"^",
+        "valueSuffix": "$\""
+      },
+      "3": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "parody:\"^",
+        "valueSuffix": "$\""
+      },
+      "4": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "magazine:\"^",
+        "valueSuffix": "$\""
+      },
+      "5": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "character:\"^",
+        "valueSuffix": "$\""
+      },
+      "6": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "cosplayer:\"^",
+        "valueSuffix": "$\""
+      },
+      "7": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "uploader:\"^",
+        "valueSuffix": "$\""
+      },
+      "8": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "male:\"^",
+        "valueSuffix": "$\""
+      },
+      "9": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "female:\"^",
+        "valueSuffix": "$\""
+      },
+      "10": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "mixed:\"^",
+        "valueSuffix": "$\""
+      },
+      "11": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "language:\"^",
+        "valueSuffix": "$\""
+      },
+      "12": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "other:\"^",
+        "valueSuffix": "$\""
+      },
+      "13": {
+        "mode": "rawParam",
+        "param": "s",
+        "valueSource": "tagName",
+        "valuePrefix": "reclass:\"^",
+        "valueSuffix": "$\""
       },
       "default": {
         "mode": "rawParam",
         "param": "s",
         "valueSource": "tagName",
-        "valuePrefix": "tag:\"",
-        "valueSuffix": "\""
+        "valuePrefix": "tag:\"^",
+        "valueSuffix": "$\""
       }
     }
   }
