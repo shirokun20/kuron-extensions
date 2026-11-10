@@ -1,7 +1,7 @@
 {
   "source": "tritiniaorg",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://tritinia.org",
@@ -43,7 +43,7 @@
             },
             "coverUrl": {
               "selector": ".item-thumb img",
-              "attribute": "src"
+              "attribute": "data-src"
             }
           },
           "pagination": {
@@ -110,8 +110,24 @@
         "url": "/manga-genre/{tag}/page/{page}/",
         "inherits": "home"
       },
+      "authorSearch": {
+        "url": "/manga-author/{tag}/",
+        "inherits": "home"
+      },
+      "authorSearchPage": {
+        "url": "/manga-author/{tag}/page/{page}/",
+        "inherits": "home"
+      },
+      "artistSearch": {
+        "url": "/manga-artist/{tag}/",
+        "inherits": "home"
+      },
+      "artistSearchPage": {
+        "url": "/manga-artist/{tag}/page/{page}/",
+        "inherits": "home"
+      },
       "detail": "/manga/{id}/",
-      "chapter": "/manga/{id}/"
+      "chapter": "/manga/{id}/?style=list"
     },
     "selectors": {
       "detail": {
@@ -121,7 +137,7 @@
           },
           "coverUrl": {
             "selector": ".summary_image img",
-            "attribute": "src"
+            "attribute": "data-src"
           },
           "description": {
             "selector": ".summary__content, .description-summary .summary__content"
@@ -164,10 +180,9 @@
         }
       },
       "reader": {
-        "mode": "chapterDataScript",
         "images": {
-          "selector": ".reading-content img.wp-manga-chapter-img, .reading-content .page-break img",
-          "attribute": "data-src"
+          "selector": ".reading-content .page-break img, .reading-content img",
+          "attribute": "src"
         },
         "nav": {
           "next": ".next_page, .nav-links .next",
@@ -216,7 +231,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

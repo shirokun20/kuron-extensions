@@ -1,7 +1,7 @@
 {
   "source": "rackusreadscom",
   "schemaVersion": "2.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://rackusreads.com",
@@ -199,7 +199,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

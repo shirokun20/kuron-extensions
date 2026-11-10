@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-07T10:33:09.784776+07:00",
+    "lastUpdated": "2026-11-10T22:38:53.591373+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -103,7 +103,7 @@
         },
         {
             "id": "komikindo",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/id/komikindo-config.json",
             "meta": {
                 "displayName": "Komikindo",
@@ -113,9 +113,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 4
             },
-            "checksum": "fb43f5a3c1d93f57e76f24064db9edd156401c89ce4d515a7e093f21cbf637f0"
+            "checksum": "4eb555a6a1274728d9fa65a883abd93ce84401f8bf8121419fdc546ea04bd7f8"
         },
         {
             "id": "komiktap",
@@ -1447,7 +1447,7 @@
         },
         {
             "id": "rackusreadscom",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/en/rackusreadscom-config.json",
             "meta": {
                 "displayName": "Rackus",
@@ -1459,11 +1459,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "ca09de9d19ff09ee71cacad5ababd1697e90d73ed59c567fa431003ea89d3b56"
+            "checksum": "c40b8fe3ddb142b9492e782c8373e66c93b24132cbb8834ffc7cda0aefb28f6b"
         },
         {
             "id": "ravenscansorg",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/ravenscansorg-config.json",
             "meta": {
                 "displayName": "Ravenscans",
@@ -1475,7 +1475,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "23ca8ddcfd149b12ab1d6d840744e751db1b35c7e5e5ab684c6c638640a25525"
+            "checksum": "9822aed1ec7c366653c89cc197eed0ff902415a710735a6c39f4e4f0c3ea8e79"
         },
         {
             "id": "readerdecadencescanscom",
@@ -1593,7 +1593,7 @@
         },
         {
             "id": "tritiniaorg",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "config/en/tritiniaorg-config.json",
             "meta": {
                 "displayName": "Tritinia",
@@ -1605,7 +1605,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "2a75643623ef5417d7b7cfb5b441c920450e9754b5b7d36d00717bf905d6e07b"
+            "checksum": "eaf5da85271032660e873732f3506b743c5b9726c9cb8012fd316cd7344999ad"
         },
         {
             "id": "violetmangacom",

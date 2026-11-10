@@ -1,7 +1,7 @@
 {
   "source": "ravenscansorg",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://ravenscans.org",
@@ -11,7 +11,7 @@
     "openInBrowserUrl": "https://ravenscans.org"
   },
   "network": {
-    "requiresBypass": false,
+    "requiresBypass": true,
     "headers": {
       "Referer": "https://ravenscans.org/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -199,7 +199,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,

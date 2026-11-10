@@ -1,21 +1,21 @@
 {
   "source": "komikindo",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "",
-  "baseUrl": "https://2.komikindo.shop/",
+  "baseUrl": "https://komikindo.ch",
   "ui": {
     "displayName": "Komikindo",
     "iconPath": "./images/komikindo.png",
     "brandColor": "#E3456F",
-    "openInBrowserUrl": "https://2.komikindo.shop/"
+    "openInBrowserUrl": "https://komikindo.ch/"
   },
   "network": {
     "requiresBypass": false,
     "headers": {
-      "Referer": "https://2.komikindo.shop/",
+      "Referer": "https://komikindo.ch/",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     },
     "rateLimit": {
@@ -28,12 +28,12 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/",
+        "url": "/komik-terbaru/",
         "list": {
-          "container": "div.bixbox:contains(Latest Update) .listupd .bs .bsx",
+          "container": ".animepost",
           "fields": {
             "id": {
-              "selector": "a[href]",
+              "selector": "a[href*='/komik/']",
               "attribute": "href",
               "transform": "slug"
             },
@@ -46,85 +46,70 @@
             }
           },
           "pagination": {
-            "next": ".hpage a.r, .pagination .next.page-numbers",
-            "links": "a.page-numbers"
-          }
-        }
-      },
-      "homePage": {
-        "url": "/page/{page}/",
-        "inherits": "home"
-      },
-      "search": {
-        "url": "/?s={query}",
-        "inherits": "home",
-        "list": {
-          "container": ".listupd .bsx",
-          "pagination": {
             "next": ".pagination .next.page-numbers",
             "links": "a.page-numbers"
           }
         }
       },
+      "homePage": {
+        "url": "/komik-terbaru/page/{page}/",
+        "inherits": "home"
+      },
+      "search": {
+        "url": "/?s={query}",
+        "inherits": "home"
+      },
       "searchPage": {
         "url": "/page/{page}/?s={query}",
-        "inherits": "search"
+        "inherits": "home"
       },
       "genreSearch": {
         "url": "/genres/{tag}/",
-        "inherits": "home",
-        "list": {
-          "container": ".listupd .bsx"
-        }
+        "inherits": "home"
       },
       "genreSearchPage": {
         "url": "/genres/{tag}/page/{page}/",
-        "inherits": "home",
-        "list": {
-          "container": ".listupd .bsx"
-        }
+        "inherits": "home"
       },
-      "detail": "/manga/{id}/",
-      "chapter": "/{id}"
+      "detail": "/komik/{id}/",
+      "chapter": "/{id}/"
     },
     "selectors": {
       "detail": {
         "fields": {
           "title": {
-            "selector": ".entry-title"
+            "selector": ".entry-title, h1"
           },
           "coverUrl": {
             "selector": ".thumb img",
             "attribute": "src"
           },
           "tags": {
-            "selector": ".seriestugenre a",
+            "selector": ".genre-info a, a[href*='/genres/']",
             "multi": true,
             "extractTagObjects": true
           }
         },
         "chapters": {
-          "container": "#chapterlist li",
+          "container": "#chapter_list li",
           "fields": {
             "id": {
-              "selector": ".chbox .eph-num a, a[href]",
+              "selector": "a",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
-              "selector": ".chbox .chapternum, .chapternum"
+              "selector": ".lchx a, a"
             },
             "date": {
-              "selector": ".chbox .chapterdate, .chapterdate"
+              "selector": ".dt a, .dt"
             }
           }
         }
       },
       "reader": {
-        "tsReaderRegex": "ts_reader\\.run\\((.*?)\\);",
-        "container": "#readerarea",
         "images": {
-          "selector": "#readerarea img",
+          "selector": ".chapter-image img, #chimg-auh img",
           "attribute": "src"
         },
         "nav": {
@@ -143,13 +128,13 @@
         "placeholder": "Cari komik..."
       },
       "page": {
-        "queryParam": "paged",
+        "queryParam": "page",
         "type": "page"
       }
     }
   },
-  "contentIdPattern": "/manga/([^/]+)",
-  "notes": "Mangathemesia. Home/homePage MUST scope to div.bixbox:contains(Latest Update): page has 7 bixbox sections (Popular Today/Project Update/Manhwa+Manhua Terbaru/Recommendation pollute, 78 vs 20 items on page 2). search/genreSearch/genreSearchPage override container back to plain .listupd .bsx (their pages have no Latest Update bixbox). Search paging canonical /page/{page}/?s={query} (live paginator href; ?s={query}&paged={page} also returns distinct page). Home+search paginator renders numbered a.page-numbers + last link, so total derivable via pagination.links. | Reader images selector MUST be self-scoped (#readerarea img): engine never applies reader.container as scoping, and unscoped \"img\" made a SERIES-slug download (detail page has no ts_reader) fall back to scraping every page img - logo, sidebar thumbnails, btn_close.gif - saved as page_001..018 junk.",
+  "contentIdPattern": "/komik/([^/]+)",
+  "notes": "Migrated to official domain komikindo.ch (Ki-Newgen-Pagination theme). Home catalog canonical /komik-terbaru/ (40 items/page, numbered 1..233+ pagination). Search canonical /?s={query} and /page/{page}/?s={query}. Detail canonical /komik/{id}/ with #chapter_list li. Reader renders plain img elements inside .chapter-image img / #chimg-auh img. Genre archive /genres/{tag}/ and /genres/{tag}/page/{page}/.",
   "features": {
     "search": true,
     "chapters": true,
