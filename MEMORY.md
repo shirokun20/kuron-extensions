@@ -15,6 +15,10 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-11-10 23:23 | issue | kuron-mobile#81 (feature) | 🔄 updated: masukkan lengkap Opsi A (Modular ONNX Pipeline) & Opsi B (All-in-One Multimodal VLM) | opencode |
+| 2026-11-10 23:16 | issue | kuron-mobile#81 (feature) | ✨ created: on-device manga OCR & live translation (JA/EN -> ID) dengan tap-to-translate reader overlay | opencode |
+| 2026-11-10 23:08 | issue | kuron-mobile#80 (feature) | ✨ created: integrasi on-device SLM (Kuron-Parser) berbasis llama.cpp & GBNF grammar untuk fallback parser otomatis | opencode |
+| 2026-11-10 22:54 | issue | #59 (feature:id) | ✨ created: audit massal 56 config dengan features.search: false padahal urlPatterns.search lengkap | kuron-issue |
 | 2026-11-10 22:40 | fix+verifikasi | komikindo 1.0.4→1.0.5, tritiniaorg 1.0.1→1.0.2, ravenscansorg 1.0.4→1.0.5, rackusreadscom 1.0.5→1.0.6 | ✅ komikindo: migrasi ke official komikindo.ch (Ki-Newgen theme, home 40 item p1/p2, search 20 item, detail 7 ch, reader 19 webp, genre 20 item lolos); tritiniaorg: tambah ?style=list (52 img reader muncul), reader selector .page-break img[src], cover data-src, author/artist routes; ravenscansorg: requiresBypass=true (CF Turnstile), search=true; rackusreadscom: search=true; manifest 120 OK + support matrix synced | opencode |
 | 2026-11-07 10:33 | fix+verifikasi | schale-network 1.0.0→1.0.1 & hdoujin 1.0.0→1.0.1 (exact match tagQueryMapping) | ✅ format exact match: gunakan anchor regex `^...$` ber-quotes (mis. `artist:"^nekomata naomi$"`, `tag:"^crossdressing$"`) di seluruh tagQueryMapping agar pencarian persis & akurat sesuai web aslinya; live test 40/40 item 200 OK; manifest & matrix synced | opencode |
 | 2026-11-07 09:18 | fix+verifikasi | komikcast 1.2.2→1.2.3 (domain redirect 12→13 buang query param) | ✅ akar: 12.voratoon.com redirect 301 ke 13.voratoon.com/browse tanpa query string (?page=2, ?q=, ?genre= hilang); fix baseUrl 13.voratoon.com, live probe: home p1 vs p2 30 item overlap 0, search p1 vs p2 overlap 0, genre p1 vs p2 jalan, detail+reader 17 img 200; manifest+matrix hijau | opencode |
