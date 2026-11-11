@@ -1,7 +1,7 @@
 {
   "source": "ravenscansorg",
   "schemaVersion": "2.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://ravenscans.org",
@@ -29,7 +29,7 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/manga/?order=update",
+        "url": "/",
         "list": {
           "container": ".listupd .bsx",
           "fields": {
@@ -53,7 +53,7 @@
         }
       },
       "homePage": {
-        "url": "/manga/?order=update&page={page}",
+        "url": "/page/{page}/",
         "inherits": "home"
       },
       "search": {
@@ -134,7 +134,7 @@
           }
         },
         "chapters": {
-          "container": "#chapterlist li",
+          "container": "#chapterlist li, .bxcl ul li",
           "fields": {
             "id": {
               "selector": ".eph-num a",

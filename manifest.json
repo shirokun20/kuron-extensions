@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-10T22:38:53.591373+07:00",
+    "lastUpdated": "2026-11-11T23:21:56.243902+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1463,7 +1463,7 @@
         },
         {
             "id": "ravenscansorg",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/en/ravenscansorg-config.json",
             "meta": {
                 "displayName": "Ravenscans",
@@ -1475,7 +1475,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "9822aed1ec7c366653c89cc197eed0ff902415a710735a6c39f4e4f0c3ea8e79"
+            "checksum": "62a6d34cf7cd3c6e6627b2928bd134ca3e13edec094697c46af3a64257ef4290"
         },
         {
             "id": "readerdecadencescanscom",

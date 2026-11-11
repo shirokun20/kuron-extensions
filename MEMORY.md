@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+| 2026-11-11 23:22 | fix+verifikasi | ravenscansorg 1.0.5→1.0.6 (rute home & homePage disesuaikan live canonical) | ✅ selaraskan urlPatterns: home '/' + homePage '/page/{page}/' (cocok 100% dengan paginasi live), perluas detail.chapters '#chapterlist li, .bxcl ul li'; manifest 120 OK + support matrix synced | opencode |
 | 2026-11-10 23:23 | issue | kuron-mobile#81 (feature) | 🔄 updated: masukkan lengkap Opsi A (Modular ONNX Pipeline) & Opsi B (All-in-One Multimodal VLM) | opencode |
 | 2026-11-10 23:16 | issue | kuron-mobile#81 (feature) | ✨ created: on-device manga OCR & live translation (JA/EN -> ID) dengan tap-to-translate reader overlay | opencode |
 | 2026-11-10 23:08 | issue | kuron-mobile#80 (feature) | ✨ created: integrasi on-device SLM (Kuron-Parser) berbasis llama.cpp & GBNF grammar untuk fallback parser otomatis | opencode |
