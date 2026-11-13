@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-12T22:30:38.354398+07:00",
+    "lastUpdated": "2026-11-13T22:34:54.681768+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -71,7 +71,7 @@
         },
         {
             "id": "komikcast",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "url": "config/id/komikcast-config.json",
             "meta": {
                 "displayName": "Komikcast",
@@ -83,7 +83,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "8067b9f7c64cf2bc90e580d5eda2994e2586f0eec9c3a2498cb57d9312da0354"
+            "checksum": "8ed0243325b9ff4a7a352f87ca842a316699238222378fddac4cc41a879b092f"
         },
         {
             "id": "komikdewasa",

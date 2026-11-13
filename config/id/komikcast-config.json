@@ -1,6 +1,6 @@
 {
   "source": "komikcast",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://13.voratoon.com",
@@ -13,7 +13,7 @@
     "searchUrlTemplate": "{baseUrl}/browse?q={query}"
   },
   "network": {
-    "requiresBypass": false,
+    "requiresBypass": true,
     "headers": {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",

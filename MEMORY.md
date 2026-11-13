@@ -15,6 +15,8 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+ | 2026-11-13 22:24 | fix | komikcast 1.2.4→1.2.5 (requiresBypass=true, tanpa openspec) | 🔄 reader di-gate Turnstile action=reader (SSR 0 img); bypass/WebView satu-satunya jalur config; manifest+matrix hijau, menunggu re-verify live di app |
+ | 2026-11-13 22:24 | verifikasi | komikcast reader (13.voratoon.com chapter) | ⚠️ SSR 0×img[data-chapter-page]/0×cdn URL; gambar gate Cloudflare Turnstile action=reader, gagal→"Verifikasi keamanan gagal"; matrix reader ✅→⚠️ butuh bypass; config 1.2.4 tetap (no-op app) |
 | 2026-11-11 23:22 | fix+verifikasi | ravenscansorg 1.0.5→1.0.6 (rute home & homePage disesuaikan live canonical) | ✅ selaraskan urlPatterns: home '/' + homePage '/page/{page}/' (cocok 100% dengan paginasi live), perluas detail.chapters '#chapterlist li, .bxcl ul li'; manifest 120 OK + support matrix synced | opencode |
 | 2026-11-10 23:23 | issue | kuron-mobile#81 (feature) | 🔄 updated: masukkan lengkap Opsi A (Modular ONNX Pipeline) & Opsi B (All-in-One Multimodal VLM) | opencode |
 | 2026-11-10 23:16 | issue | kuron-mobile#81 (feature) | ✨ created: on-device manga OCR & live translation (JA/EN -> ID) dengan tap-to-translate reader overlay | opencode |
