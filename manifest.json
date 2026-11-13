@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-13T22:34:54.681768+07:00",
+    "lastUpdated": "2026-11-14T00:01:55.878752+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -83,7 +83,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "8ed0243325b9ff4a7a352f87ca842a316699238222378fddac4cc41a879b092f"
+            "checksum": "accaec7a5c5dd5ffc6b8f432b5907fc8fee2734790bbbcc76eaa6bcec9a6b5c3"
         },
         {
             "id": "komikdewasa",

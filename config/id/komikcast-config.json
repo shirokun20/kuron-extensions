@@ -131,6 +131,7 @@
         }
       },
       "reader": {
+        "mode": "webviewDom",
         "images": {
           "selector": "img[data-chapter-page]",
           "attribute": "data-chapter-page"
