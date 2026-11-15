@@ -1,6 +1,6 @@
 {
   "source": "mangafire",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "enabled": true,
   "requiresSpecialAdapter": true,
   "defaultLanguage": "en",
@@ -208,190 +208,11 @@
   },
   "searchForm": {
     "urlPattern": "search",
-    "dataSources": {
-      "typesData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.types",
-        "valuePath": "value",
-        "labelPath": "label"
-      },
-      "statusesData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.statuses",
-        "valuePath": "value",
-        "labelPath": "label"
-      },
-      "genresData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.genres",
-        "valuePath": "id",
-        "labelPath": "name"
-      },
-      "themesData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.themes",
-        "valuePath": "id",
-        "labelPath": "name"
-      },
-      "demographicsData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.demographics",
-        "valuePath": "id",
-        "labelPath": "name"
-      },
-      "contentRatingsData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.contentRatings",
-        "valuePath": "value",
-        "labelPath": "label"
-      },
-      "formatsData": {
-        "endpoint": "/api/filter-options",
-        "itemsPath": "data.formats",
-        "valuePath": "id",
-        "labelPath": "name"
-      }
-    },
     "params": {
       "query": {
         "queryParam": "keyword",
         "type": "text",
         "placeholder": "Search MangaFire..."
-      },
-      "page": {
-        "queryParam": "page",
-        "type": "page"
-      },
-      "type": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "types[]=",
-        "placeholder": "Choose Types",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "typesData"
-        }
-      },
-      "status": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "statuses[]=",
-        "placeholder": "Choose Status",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "statusesData"
-        }
-      },
-      "genres_in": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "genres_in[]=",
-        "placeholder": "Choose Genres",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "genresData"
-        }
-      },
-      "genres_ex": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "genres_ex[]=",
-        "placeholder": "Choose Genres",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "genresData"
-        }
-      },
-      "themes": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "theme_ids[]=",
-        "placeholder": "Choose Themes",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "themesData"
-        }
-      },
-      "demographics": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "demographics[]=",
-        "placeholder": "Choose Demographics",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "demographicsData"
-        }
-      },
-      "contentRating": {
-        "queryParam": "rawParam",
-        "type": "tag",
-        "valuePrefix": "content_rating[]=",
-        "placeholder": "Choose Content Rating",
-        "ui": {
-          "selector": "picker",
-          "multi": true,
-          "dataSource": "contentRatingsData"
-        }
-      },
-      "sort": {
-        "queryParam": "rawParam",
-        "type": "select",
-        "options": [
-          {
-            "value": "order[chapter_updated_at]=desc",
-            "name": "Latest update"
-          },
-          {
-            "value": "order[relevance]=desc",
-            "name": "Best match"
-          },
-          {
-            "value": "order[created_at]=desc",
-            "name": "Recently added"
-          },
-          {
-            "value": "order[title]=asc",
-            "name": "Title (A–Z)"
-          },
-          {
-            "value": "order[title]=desc",
-            "name": "Title (Z–A)"
-          },
-          {
-            "value": "order[year]=desc",
-            "name": "Year (newest)"
-          },
-          {
-            "value": "order[year]=asc",
-            "name": "Year (oldest)"
-          },
-          {
-            "value": "order[score]=desc",
-            "name": "Highest rated"
-          },
-          {
-            "value": "order[views_7d]=desc",
-            "name": "Most viewed · 7 days"
-          },
-          {
-            "value": "order[views_30d]=desc",
-            "name": "Most viewed · 30 days"
-          },
-          {
-            "value": "order[views_total]=desc",
-            "name": "Most viewed · all time"
-          },
-          {
-            "value": "order[follows_total]=desc",
-            "name": "Most followed"
-          }
-        ]
       }
     }
   },
@@ -399,7 +220,7 @@
   "features": {
     "home": true,
     "search": true,
-    "dynamicForm": true,
+    "dynamicForm": false,
     "contentByTag": true,
     "detail": true,
     "chapters": true,

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-16T02:19:10.075236+07:00",
+    "lastUpdated": "2026-11-16T02:50:15.907074+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -1031,7 +1031,7 @@
         },
         {
             "id": "mangafire",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "url": "config/en/mangafire-config.json",
             "meta": {
                 "displayName": "MangaFire",
@@ -1041,9 +1041,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 10
+                "sizeKb": 5
             },
-            "checksum": "394319df7b686c5a3468b18b5d4d17894377d38053d44ec767ddd4816cc0b9b3"
+            "checksum": "70228b859fb6c801c94be78a8744d11a370c1df62d32ce3bdfdaedd22e114fd8"
         },
         {
             "id": "mangaforfree",
