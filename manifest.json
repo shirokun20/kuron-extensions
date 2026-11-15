@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-14T00:01:55.878752+07:00",
+    "lastUpdated": "2026-11-15T19:42:32.638970+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -119,7 +119,7 @@
         },
         {
             "id": "komiktap",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "url": "config/id/komiktap-config.json",
             "meta": {
                 "displayName": "KomikTap",
@@ -129,9 +129,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 7
             },
-            "checksum": "a12816d55ea007122cef0af0eef7ba8f48eae473f9f8936a00b9078d18338fbf"
+            "checksum": "d039c3a29b9de339f4a3cbcd987d414eaddab90176783c75c16d54c3bf5d7fdd"
         },
         {
             "id": "komiku",
@@ -1040,10 +1040,10 @@
                 "contentType": "manga",
                 "language": "en",
                 "requiresAuth": false,
-                "requiresSpecialAdapter": false,
+                "requiresSpecialAdapter": true,
                 "sizeKb": 10
             },
-            "checksum": "8f9e944d4c9809b49ce2b612e59668cfc655c3ba8011270ff2991e5f5b16c81f"
+            "checksum": "394319df7b686c5a3468b18b5d4d17894377d38053d44ec767ddd4816cc0b9b3"
         },
         {
             "id": "mangaforfree",
