@@ -1,6 +1,6 @@
 {
   "source": "comix",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comix.to",
@@ -12,6 +12,14 @@
   },
   "network": {
     "requiresBypass": true,
+    "detailTimeoutSeconds": 45,
+    "allowedHosts": [
+      "comix.to",
+      ".comix.to",
+      "comix.ws",
+      ".comix.ws",
+      "challenges.cloudflare.com"
+    ],
     "headers": {
       "Accept": "*/*",
       "Referer": "https://comix.to/",
@@ -47,6 +55,22 @@
     "favorite": true,
     "offlineMode": true,
     "generatePdf": false
+  },
+  "searchConfig": {
+    "queryParam": "keyword",
+    "sortParam": "sort",
+    "keywordSort": "relevance:desc",
+    "sortValues": {
+      "popular": "score:desc",
+      "popularToday": "score:desc",
+      "popularWeek": "score:desc",
+      "popularMonth": "score:desc",
+      "rating": "score:desc",
+      "newest": "chapter_updated_at:desc"
+    },
+    "defaultParams": {
+      "content_rating[]": "safe,suggestive,erotica,pornographic"
+    }
   },
   "searchForm": {
     "urlPattern": "search",

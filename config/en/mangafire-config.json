@@ -1,6 +1,6 @@
 {
   "source": "mangafire",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "enabled": true,
   "requiresSpecialAdapter": true,
   "defaultLanguage": "en",
@@ -13,6 +13,15 @@
   },
   "network": {
     "requiresBypass": true,
+    "detailTimeoutSeconds": 150,
+    "allowedHosts": [
+      "mangafire.to",
+      ".mangafire.to",
+      "s.mfcdn.nl",
+      ".s.mfcdn.nl",
+      "challenges.cloudflare.com"
+    ],
+    "initializationScript": "(function () {\n    try {\n        const key = 'mf_content_prefs';\n        const prefs = {\n            allowedTypes: null,\n            allowedContentRatings: null,\n            allowedDemographics: null,\n            blockedGenres: [],\n            blockedThemes: []\n        };\n        localStorage.setItem(key, JSON.stringify(prefs));\n    } catch (e) {}\n})();",
     "headers": {
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
       "Referer": "https://mangafire.to/"
@@ -199,12 +208,88 @@
         "param": "genres_in[]",
         "valueSource": "tagId"
       },
+      "genre": {
+        "mode": "rawParam",
+        "param": "genres_in[]",
+        "valueSource": "tagId"
+      },
       "type": {
         "mode": "rawParam",
         "param": "types[]",
         "valueSource": "tagName"
       }
     }
+  },
+  "searchConfig": {
+    "queryParam": "keyword",
+    "sortParam": "sort",
+    "keywordSort": "relevance:desc",
+    "sortValues": {
+      "popular": "views_total:desc",
+      "popularToday": "views_total:desc",
+      "popularWeek": "views_total:desc",
+      "popularMonth": "views_total:desc",
+      "rating": "views_total:desc",
+      "newest": "chapter_updated_at:desc"
+    },
+    "defaultParams": {
+      "content_rating": "none"
+    }
+  },
+  "genreMapping": {
+    "action": "1",
+    "adult": "268929",
+    "adventure": "78",
+    "avant garde": "3",
+    "boys love": "4",
+    "comedy": "5",
+    "crime": "268921",
+    "demons": "77",
+    "drama": "6",
+    "ecchi": "7",
+    "fantasy": "79",
+    "girls love": "9",
+    "gourmet": "10",
+    "harem": "11",
+    "hentai": "268930",
+    "historical": "268922",
+    "horror": "530",
+    "isekai": "13",
+    "iyashikei": "531",
+    "josei": "15",
+    "kids": "532",
+    "magic": "539",
+    "magical girls": "268923",
+    "mahou shoujo": "533",
+    "martial arts": "534",
+    "mature": "268931",
+    "mecha": "19",
+    "medical": "268924",
+    "military": "535",
+    "music": "21",
+    "mystery": "22",
+    "parody": "23",
+    "philosophical": "268925",
+    "psychological": "536",
+    "reverse harem": "25",
+    "romance": "26",
+    "school": "73",
+    "sci-fi": "28",
+    "seinen": "537",
+    "shoujo": "30",
+    "shounen": "31",
+    "slice of life": "538",
+    "smut": "268932",
+    "space": "33",
+    "sports": "34",
+    "super power": "75",
+    "superhero": "268926",
+    "supernatural": "76",
+    "suspense": "37",
+    "thriller": "38",
+    "tragedy": "268927",
+    "vampire": "39",
+    "wuxia": "268928"
   },
   "searchForm": {
     "urlPattern": "search",
@@ -226,7 +311,7 @@
     "chapters": true,
     "reader": true,
     "download": true,
-    "related": true,
+    "related": false,
     "comments": false,
     "favorite": true,
     "offlineMode": true,
