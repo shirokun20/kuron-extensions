@@ -1,6 +1,6 @@
 {
   "source": "comix",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comix.to",
@@ -84,11 +84,13 @@
           },
           {
             "name": "Latest Update",
-            "value": "chapter_updated_at:desc"
+            "value": "chapter_updated_at:desc",
+            "sortOption": "newest"
           },
           {
             "name": "Rating",
-            "value": "score:desc"
+            "value": "score:desc",
+            "sortOption": "rating"
           },
           {
             "name": "Newest Added",

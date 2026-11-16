@@ -1,6 +1,6 @@
 {
   "source": "mangafire",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "enabled": true,
   "requiresSpecialAdapter": true,
   "defaultLanguage": "en",
@@ -303,11 +303,13 @@
           },
           {
             "name": "Latest Update",
-            "value": "chapter_updated_at:desc"
+            "value": "chapter_updated_at:desc",
+            "sortOption": "newest"
           },
           {
             "name": "Most Viewed",
-            "value": "views_total:desc"
+            "value": "views_total:desc",
+            "sortOption": "popular"
           },
           {
             "name": "Newest Added",

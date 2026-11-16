@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-16T12:52:19.522861+07:00",
+    "lastUpdated": "2026-11-16T20:58:57.913970+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -391,7 +391,7 @@
         },
         {
             "id": "comix",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/comix-config.json",
             "meta": {
                 "displayName": "Comix",
@@ -403,7 +403,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 3
             },
-            "checksum": "999b86b534f38e3b41bd687f390a823242872158d342540453101724677d9f58"
+            "checksum": "a6b03986af1b0a6bc00373371d0bec540380636f449326dde010784bafaefc13"
         },
         {
             "id": "culturedworkscom",
@@ -1031,7 +1031,7 @@
         },
         {
             "id": "mangafire",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "url": "config/en/mangafire-config.json",
             "meta": {
                 "displayName": "MangaFire",
@@ -1043,7 +1043,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 8
             },
-            "checksum": "ada0061e59fd4138037e2bb3ac4b4a31b5d4f5e8833ed2d38f9c9539ec5732d2"
+            "checksum": "6acf9cf0b0afe65984138f0c79b78520028a3545d6c6005ff55d6172004607ad"
         },
         {
             "id": "mangaforfree",
