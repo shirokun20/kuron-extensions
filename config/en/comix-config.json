@@ -61,14 +61,6 @@
     "queryParam": "keyword",
     "sortParam": "sort",
     "keywordSort": "relevance:desc",
-    "sortValues": {
-      "popular": "score:desc",
-      "popularToday": "score:desc",
-      "popularWeek": "score:desc",
-      "popularMonth": "score:desc",
-      "rating": "score:desc",
-      "newest": "chapter_updated_at:desc"
-    },
     "defaultParams": {
       "content_rating[]": "safe,suggestive,erotica,pornographic"
     }
@@ -80,6 +72,33 @@
         "queryParam": "keyword",
         "type": "text",
         "placeholder": "Search Comix..."
+      },
+      "sort": {
+        "queryParam": "sort",
+        "type": "select",
+        "label": "Sort by",
+        "options": [
+          {
+            "name": "Relevance",
+            "value": "relevance:desc"
+          },
+          {
+            "name": "Latest Update",
+            "value": "chapter_updated_at:desc"
+          },
+          {
+            "name": "Rating",
+            "value": "score:desc"
+          },
+          {
+            "name": "Newest Added",
+            "value": "created_at:desc"
+          }
+        ]
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
       }
     }
   },

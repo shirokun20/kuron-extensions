@@ -225,14 +225,6 @@
     "queryParam": "keyword",
     "sortParam": "sort",
     "keywordSort": "relevance:desc",
-    "sortValues": {
-      "popular": "views_total:desc",
-      "popularToday": "views_total:desc",
-      "popularWeek": "views_total:desc",
-      "popularMonth": "views_total:desc",
-      "rating": "views_total:desc",
-      "newest": "chapter_updated_at:desc"
-    },
     "defaultParams": {
       "content_rating": "none"
     }
@@ -299,6 +291,33 @@
         "queryParam": "keyword",
         "type": "text",
         "placeholder": "Search MangaFire..."
+      },
+      "sort": {
+        "queryParam": "sort",
+        "type": "select",
+        "label": "Sort by",
+        "options": [
+          {
+            "name": "Relevance",
+            "value": "relevance:desc"
+          },
+          {
+            "name": "Latest Update",
+            "value": "chapter_updated_at:desc"
+          },
+          {
+            "name": "Most Viewed",
+            "value": "views_total:desc"
+          },
+          {
+            "name": "Newest Added",
+            "value": "created_at:desc"
+          }
+        ]
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
       }
     }
   },
