@@ -57,6 +57,7 @@
     "generatePdf": false
   },
   "searchConfig": {
+    "endpoint": "/browse",
     "queryParam": "keyword",
     "sortParam": "sort",
     "keywordSort": "relevance:desc",
