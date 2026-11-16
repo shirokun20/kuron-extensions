@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-16T10:26:39.208506+07:00",
+    "lastUpdated": "2026-11-16T11:54:51.408755+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -403,7 +403,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 2
             },
-            "checksum": "2f6454503b16e2b6f0434adf58e2866f9e0c203aee3e97595da24d32e4f31aaa"
+            "checksum": "cdb7c9cd4b4d0b973511a58443a2fd0cfdae513c474dd8ebda266738307d5176"
         },
         {
             "id": "culturedworkscom",
@@ -1043,7 +1043,7 @@
                 "requiresSpecialAdapter": true,
                 "sizeKb": 8
             },
-            "checksum": "f69a0526fa750d6fe5553a4ce8eab61e1c1049689e1cecbf03517fdedcd55697"
+            "checksum": "5bb07f1b85a41451d7fa6cd6867bdd74af62628f2bae37af09c91580a07fd998"
         },
         {
             "id": "mangaforfree",
