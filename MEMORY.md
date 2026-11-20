@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+ | 2026-11-21 00:55 | fix | comix 1.0.6 (sync checksum usai update config) | ✅ refresh_manifest 1 entry synced, --check 120 hijau |
  | 2026-11-16 11:54 | fix | mangafire 1.1.3 + comix 1.0.3 (checksum mismatch) | ✅ file diedit tanpa refresh (commit 4cf235f searchConfig/genreMapping); refresh_manifest sync 2 entries, checksum match, --check 120 hijau |
  | 2026-11-16 02:19 | fix | komiktap 1.1.9→1.1.10 (hapus blok scraper) | ✅ commit 01d425c nambah scraper.selectors.reader saja → containsKey(scraper) paksa GenericScraperAdapter (generic_http_source:794) → urlPatterns.chapter kosong → fetchChapterImages null (:1945); hapus blok pulihkan mode API; flag heavyImageAutoSwitch ikut hilang (trade-off) |
  | 2026-11-14 00:02 | fix | komikcast 1.2.5 (reader.mode=webviewDom via subagent) | ✅ mode valid: app kuron_special generic_bypass (webview_dom_reader_source, test fixture komikcast 1.2.5); checksum match, --check hijau |

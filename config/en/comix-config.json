@@ -1,6 +1,6 @@
 {
   "source": "comix",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comix.to",
@@ -63,6 +63,24 @@
     "keywordSort": "relevance:desc",
     "defaultParams": {
       "content_rating[]": "safe,suggestive,erotica,pornographic"
+    }
+  },
+  "webviewSelectors": {
+    "chapters": {
+      "item": ".mchap-list .mchap-item",
+      "link": "a.mchap-row__primary",
+      "number": ".mchap-row__ch",
+      "title": ".mchap-row__title",
+      "group": ".mchap-row__group",
+      "date": ".mchap-row__time",
+      "votes": ".mchap-row__likes",
+      "pagerButton": "nav.npager .npager__num",
+      "pagerActive": "nav.npager .npager__num.is-active"
+    },
+    "reader": {
+      "pageContainer": ".rpage-page",
+      "pageImage": "img.rpage-page__img",
+      "pageAttr": "data-page"
     }
   },
   "searchForm": {
