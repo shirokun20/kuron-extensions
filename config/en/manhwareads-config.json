@@ -2,7 +2,7 @@
   "source": "manhwareads",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -57,7 +57,7 @@
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/new-2/page/{page}/",
         "inherits": "home"
       },
       "search": {

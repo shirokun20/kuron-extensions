@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-22T22:12:43.760408+07:00",
+    "lastUpdated": "2026-11-23T01:50:44.116034+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -247,7 +247,7 @@
         },
         {
             "id": "allporncomicio",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/allporncomicio-config.json",
             "meta": {
                 "displayName": "Allporncomic",
@@ -259,11 +259,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "2620ae78c1eab98287c60c51d7af57b04a6890470e08f77b49f913e1b031ce2e"
+            "checksum": "527910b132aaba2f99133d7e9367dd8a4632374579bf7d62ebc8398785432570"
         },
         {
             "id": "anisascansin",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/anisascansin-config.json",
             "meta": {
                 "displayName": "Anisascans",
@@ -275,11 +275,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "0ab9010e9fe91f164ee03105282c480673b3c5abd4748246fe52102b81f2231c"
+            "checksum": "f9d9d74b96dfdfa00ae29f6d4b95bac0e52d558b077de4560e6fbb9fe615e652"
         },
         {
             "id": "apcomicsorg",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/apcomicsorg-config.json",
             "meta": {
                 "displayName": "Apcomics",
@@ -291,7 +291,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "0b545243d877931396484220f3ded7a8763e2bdad31d2279b74c1744daabf459"
+            "checksum": "c03886cd1e5da2bf2c370e728a66e77c09507459c71bb7ac63bcd796d4f14837"
         },
         {
             "id": "arenascancom",
@@ -327,7 +327,7 @@
         },
         {
             "id": "athreascanscom",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/athreascanscom-config.json",
             "meta": {
                 "displayName": "Athreascans",
@@ -339,11 +339,11 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "5210ce228e2cab783c51af1c0fc09a127e05b00333216dad7c2f0416cd383a6c"
+            "checksum": "d5ada71b9c2bc454bf579222b2aae3d3dc642dc7095c55f2f1bc19cd72438aae"
         },
         {
             "id": "bunmangacom",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/bunmangacom-config.json",
             "meta": {
                 "displayName": "Bunmanga",
@@ -355,7 +355,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "5b51d2c0595ae7feab9eaa6d6365c4b992e09894193114e555755fb03e82d8c7"
+            "checksum": "f644724f5dcd99784d86ce91ac09f7d2207f2c17a43792dbfcec13cfe05221b3"
         },
         {
             "id": "cocomicco",
@@ -375,7 +375,7 @@
         },
         {
             "id": "comicasuranet",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/en/comicasuranet-config.json",
             "meta": {
                 "displayName": "Comicasura",
@@ -387,7 +387,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "a99fa133e108086faf139f74402a0b31b6015a21c7d52f9e701439ec05538997"
+            "checksum": "68f6ef3656889cdf2a196f51c9221494eb0a47f3e77c78f89068b977be21ea69"
         },
         {
             "id": "comix",
@@ -471,7 +471,7 @@
         },
         {
             "id": "gakamangascom",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/gakamangascom-config.json",
             "meta": {
                 "displayName": "Gakamangas",
@@ -483,7 +483,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "10ec86e6c7a985d2ffe07cdde7f9f9b3dcfa76d3507d06ceb405d7e70a42d1d6"
+            "checksum": "f4bbf15f6158357ba397db7a75bc0a609611dee49b41bd004a6cea596ca49084"
         },
         {
             "id": "galaxymangaio",
@@ -567,7 +567,7 @@
         },
         {
             "id": "hentai4freenet",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "url": "config/en/hentai4freenet-config.json",
             "meta": {
                 "displayName": "Hentai4free",
@@ -579,7 +579,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 8
             },
-            "checksum": "ceac059c7e3c4d841382ceb857ad35b6aec778724fe2ec8154b164b58b4a03b4"
+            "checksum": "dc6415e6f2f76f951dfc68165389c1c790ccf042bfeade92e403ef504588c764"
         },
         {
             "id": "hentaienvy",
@@ -679,7 +679,7 @@
         },
         {
             "id": "hentairead",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "url": "config/en/hentairead-config.json",
             "meta": {
                 "displayName": "Hentairead",
@@ -691,7 +691,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 4
             },
-            "checksum": "a26d81d4aace0eae2d54e5c84754b53aa5afb7eeb8952438b1b1d0e19a7d1639"
+            "checksum": "50e88d308b609edc46aeddc9c5a6066c593097abbbaae811c45a19c221ade7c3"
         },
         {
             "id": "hentairox",
@@ -807,7 +807,7 @@
         },
         {
             "id": "kingofshojo",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/kingofshojo-config.json",
             "meta": {
                 "displayName": "Kingofshojo",
@@ -819,7 +819,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "60fd88bdb532ff08c219b6949fa8318e0f9a32f26195d7e8fb711ff0dfed02a4"
+            "checksum": "49812033a6e21b254b0d59383cda45382bc9d02a9000af5725c3dc93f8809932"
         },
         {
             "id": "kmansin09",
@@ -855,7 +855,7 @@
         },
         {
             "id": "lagoonscans",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/lagoonscans-config.json",
             "meta": {
                 "displayName": "Lagoonscans",
@@ -867,7 +867,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "84269e8036079555dac954e56c9e2fd56f39e4d435fb6b8a43d9d5326568891d"
+            "checksum": "f0f688a371c602eb69fd1de7191db3b31e5c20fef03d6be4961e52fc9a21799f"
         },
         {
             "id": "lhtranslation",
@@ -1127,7 +1127,7 @@
         },
         {
             "id": "mangapill",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/mangapill-config.json",
             "meta": {
                 "displayName": "MangaPill",
@@ -1139,7 +1139,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 7
             },
-            "checksum": "a1ccddc6aa28421be71a99fd0795ed579fe23610023075e0992b795e42113f90"
+            "checksum": "107273a82676086008789189dac15f3d32ff4ea9eb4031df12361cf44b7b9934"
         },
         {
             "id": "mangareadorg",
@@ -1319,7 +1319,7 @@
         },
         {
             "id": "manhwareads",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/manhwareads-config.json",
             "meta": {
                 "displayName": "Manhwareads",
@@ -1331,7 +1331,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "e3c415705a399d6cd76650e5403888b195b8e729dcaa1038c38d12ef4d39a6dc"
+            "checksum": "1389145887467fe4badb883c999d8571e005ad5dfc003e9e8aa7fe22b7b8700d"
         },
         {
             "id": "manhwatoon",
@@ -1447,7 +1447,7 @@
         },
         {
             "id": "rackusreadscom",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "url": "config/en/rackusreadscom-config.json",
             "meta": {
                 "displayName": "Rackus",
@@ -1459,7 +1459,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "11e06d7e6f97ef3137751a2dab53dd082fc064822dfe92534d00d720b6303a59"
+            "checksum": "bd4918c4e0d58bae446b419836e02f6562a65b692f0c2952b13087a0105fbbb5"
         },
         {
             "id": "ravenscansorg",
@@ -1641,7 +1641,7 @@
         },
         {
             "id": "zazamangacom",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "url": "config/en/zazamangacom-config.json",
             "meta": {
                 "displayName": "Zazamanga",
@@ -1653,7 +1653,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "773e14d1881e75d35111f9f89d6a61dd05b87c991b7e5c235028edea4da9f2fa"
+            "checksum": "67cb592ceb74359accaa61ede83bf0b9fa2164929ec7b90eddf496c297e3d20d"
         },
         {
             "id": "nicomanga",

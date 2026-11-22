@@ -3,7 +3,7 @@
   "idType": "real",
   "displayName": "MangaPill",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangapill.com",
@@ -36,7 +36,7 @@
         "list": {
           "container": ".grid.justify-end.gap-3 > div",
           "pagination": {
-            "next": "a.btn.btn-sm"
+            "next": "a.btn.btn-sm:last-child"
           },
           "fields": {
             "id": {

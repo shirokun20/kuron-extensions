@@ -2,7 +2,7 @@
   "source": "zazamangacom",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.zazamanga.com",
@@ -30,7 +30,7 @@
     "enabled": true,
     "urlPatterns": {
       "home": {
-        "url": "/",
+        "url": "/manga",
         "list": {
           "container": ".page-item-detail",
           "fields": {
@@ -51,12 +51,12 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "#navigation-ajax, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "ul.pagination li:last-child a[href]"
           }
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/manga?page={page}",
         "inherits": "home"
       },
       "search": {
@@ -80,12 +80,12 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "ul.pagination li:last-child a[href]"
           }
         }
       },
       "searchPage": {
-        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "url": "/?s={query}&post_type=wp-manga&page={page}",
         "list": {
           "container": ".row.c-tabs-item__content",
           "fields": {
@@ -104,7 +104,7 @@
             }
           },
           "pagination": {
-            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "ul.pagination li:last-child a[href]"
           }
         }
       },

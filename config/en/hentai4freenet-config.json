@@ -2,7 +2,7 @@
   "source": "hentai4freenet",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -50,7 +50,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "div.wp-pagenavi a.sfwppa-pages, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": "a[rel='next']"
           }
         }
       },
@@ -129,7 +129,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a.next.page-numbers, nav.h4f-genre-pagination a.page-numbers",
+            "next": "a.next.page-numbers",
             "links": "nav.h4f-genre-pagination a.page-numbers"
           }
         }
@@ -159,7 +159,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": "a.next.page-numbers, nav.h4f-genre-pagination a.page-numbers",
+            "next": "a.next.page-numbers",
             "links": "nav.h4f-genre-pagination a.page-numbers"
           }
         }

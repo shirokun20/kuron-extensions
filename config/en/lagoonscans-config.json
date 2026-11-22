@@ -2,7 +2,7 @@
   "source": "lagoonscans",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://lagoonscans.com",
@@ -50,7 +50,7 @@
           },
           "pagination": {
             "mode": "paged",
-            "next": ".pagination a.page-numbers, .hpage a.r, a[rel='next']"
+            "next": ".pagination a.next.page-numbers"
           }
         }
       },
@@ -99,7 +99,7 @@
             }
           },
           "pagination": {
-            "next": ".pagination a.page-numbers, .hpage a.r, a[rel='next']"
+            "next": ".pagination a.next.page-numbers"
           }
         }
       },

@@ -2,7 +2,7 @@
   "source": "athreascanscom",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://athreascans.com",
@@ -55,7 +55,7 @@
         }
       },
       "homePage": {
-        "url": "/manga/page/{page}/",
+        "url": "/manga/?page={page}",
         "inherits": "home"
       },
       "search": {
@@ -113,7 +113,7 @@
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/manga-genre/{tag}/page/{page}/",
+        "url": "/genres/{tag}/?page={page}",
         "inherits": "home"
       },
       "detail": "/manga/{id}/",

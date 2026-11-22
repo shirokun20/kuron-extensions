@@ -2,7 +2,7 @@
   "source": "gakamangascom",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://gakamangas.com",
@@ -49,7 +49,6 @@
             }
           },
           "pagination": {
-            "mode": "paged",
             "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }

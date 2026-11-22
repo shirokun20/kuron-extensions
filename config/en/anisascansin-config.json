@@ -2,7 +2,7 @@
   "source": "anisascansin",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://anisascans.in",
@@ -55,7 +55,7 @@
         }
       },
       "homePage": {
-        "url": "/page/{page}/",
+        "url": "/manga/page/{page}/",
         "inherits": "home"
       },
       "search": {

@@ -3,7 +3,7 @@
   "idType": "slug",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -54,6 +54,11 @@
               "attribute": "src",
               "prefix": "https://hentairead.io/"
             }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "ul.pagination li.page-item.active + li.page-item a.page-link",
+            "links": "ul.pagination a.page-link"
           }
         }
       },
