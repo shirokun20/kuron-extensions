@@ -1,6 +1,7 @@
 {
   "source": "beauty3600000",
-  "version": "1.1.1",
+  "idType": "slug",
+  "version": "1.1.2",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://3600000.xyz",
@@ -40,6 +41,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h2.entry-title a"
             },
             "coverUrl": {
@@ -75,6 +77,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.entry-title"
           },
           "uploadDate": {

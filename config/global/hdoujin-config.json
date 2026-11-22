@@ -1,6 +1,7 @@
 {
   "source": "hdoujin",
-  "version": "1.0.1",
+  "idType": "real",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://api.hdoujin.org",
@@ -75,6 +76,7 @@
           "selector": "$.key"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.title"
         },
         "coverUrl": {
@@ -91,6 +93,7 @@
     "detail": {
       "fields": {
         "title": {
+          "transform": "cleanText",
           "selector": "$.title"
         },
         "key": {

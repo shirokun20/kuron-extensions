@@ -1,6 +1,7 @@
 {
   "source": "komiku",
-  "version": "1.0.7",
+  "idType": "slug",
+  "version": "1.0.8",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/komiku-config.json",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".kan h3"
             },
             "coverUrl": {
@@ -76,6 +78,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".kan h3"
             },
             "coverUrl": {
@@ -120,6 +123,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1 span[itemprop='name']"
           },
           "coverUrl": {
@@ -166,6 +170,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "td.judulseries a span[itemprop='name']"
             },
             "date": {

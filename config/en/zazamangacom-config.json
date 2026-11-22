@@ -1,7 +1,8 @@
 {
   "source": "zazamangacom",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.zazamanga.com",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".comic-thumbnail a",
               "attribute": "title"
             },
@@ -68,6 +70,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".comic-thumbnail a",
               "attribute": "title"
             },
@@ -92,6 +95,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -119,6 +123,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".post-title h1, h1"
           },
           "coverUrl": {
@@ -157,6 +162,7 @@
               "regex": "/manga/([^?#]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a"
             },
             "date": {

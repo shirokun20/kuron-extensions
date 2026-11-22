@@ -1,7 +1,8 @@
 {
   "source": "hentairox",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentairox.com",
@@ -35,6 +36,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".caption a"
             },
             "coverUrl": {
@@ -83,6 +85,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".right_details h1"
           },
           "coverUrl": {
@@ -128,6 +131,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": ".caption h2.gallery_title a"
           },
           "coverUrl": {

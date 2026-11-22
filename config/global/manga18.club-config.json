@@ -1,6 +1,7 @@
 {
   "source": "manga18.club",
-  "version": "1.0.3",
+  "idType": "slug",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manga18.club",
@@ -36,6 +37,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".mg_name a"
             },
             "coverUrl": {
@@ -81,6 +83,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".detail_name h1, h1, h1.entry-title"
           },
           "coverUrl": {
@@ -112,6 +115,7 @@
               "regex": "/manhwa/([^/?#]+/[^/?#]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a.chapter_num, a"
             },
             "date": {

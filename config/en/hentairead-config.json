@@ -1,8 +1,9 @@
 {
   "source": "hentairead",
+  "idType": "slug",
   "displayName": "Hentairead",
   "schemaVersion": "2.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "baseUrl": "https://hentairead.io",
   "enabled": true,
   "defaultLanguage": "english",
@@ -44,6 +45,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "img",
               "attribute": "alt"
             },
@@ -82,6 +84,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1"
           },
           "coverUrl": {
@@ -105,6 +108,7 @@
               "regex": "/([^?#]+/chapter-\\d+-\\d+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a"
             }
           }

@@ -1,6 +1,7 @@
 {
   "source": "mangadex",
-  "version": "1.1.13",
+  "idType": "real",
+  "version": "1.1.14",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://api.mangadex.org",
@@ -74,6 +75,7 @@
           "selector": "$.id"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.attributes.title"
         },
         "altTitles": {
@@ -159,6 +161,7 @@
             "selector": "$.attributes.volume"
           },
           "title": {
+            "transform": "cleanText",
             "selector": "$.attributes.title"
           },
           "scanlator": {
@@ -190,6 +193,7 @@
           "selector": "$.data.id"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.data.attributes.title"
         },
         "altTitles": {

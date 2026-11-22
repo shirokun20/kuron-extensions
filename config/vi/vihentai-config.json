@@ -1,8 +1,9 @@
 {
   "source": "vihentai",
+  "idType": "slug",
   "displayName": "ViHentai",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "baseUrl": "https://vi-hentai.moe",
   "enabled": true,
   "defaultLanguage": "vi",
@@ -55,6 +56,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".p-2.w-full.truncate a[href^='/truyen/']"
             },
             "coverUrl": {
@@ -118,6 +120,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": ".p-2.w-full.truncate a[href^='/truyen/']"
           },
           "coverUrl": {
@@ -130,6 +133,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "meta[property='og:title']",
             "attribute": "content",
             "regex": "^(.*?)(?:\\s*-\\s*Việt Hentai.*)?$"
@@ -167,6 +171,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "span.truncate"
             }
           }

@@ -1,6 +1,7 @@
 {
   "source": "komikcast",
-  "version": "1.2.5",
+  "idType": "slug",
+  "version": "1.2.6",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://13.voratoon.com",
@@ -43,6 +44,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a.card-title"
             },
             "coverUrl": {
@@ -86,6 +88,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.series-title"
           },
           "alternativeTitle": {
@@ -122,6 +125,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".chapter-number"
             },
             "date": {

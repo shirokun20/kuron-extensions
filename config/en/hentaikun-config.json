@@ -1,8 +1,9 @@
 {
   "source": "hentaikun",
+  "idType": "slug",
   "displayName": "Hentaikun",
   "schemaVersion": "2.0",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "baseUrl": "https://hentaikun.com/manga",
   "enabled": true,
   "defaultLanguage": "english",
@@ -42,6 +43,7 @@
               "regex": "manga/([^?#]+?)/?$"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "img",
               "attribute": "alt"
             },
@@ -89,6 +91,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": "a"
           },
           "coverUrl": {
@@ -100,6 +103,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "meta[property=\"og:title\"]",
             "attribute": "content"
           },

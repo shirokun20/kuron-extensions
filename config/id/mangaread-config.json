@@ -1,7 +1,8 @@
 {
   "source": "mangaread",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -38,6 +39,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -66,6 +68,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title h5 a"
             },
             "coverUrl": {
@@ -101,6 +104,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".post-title h1, h1"
           },
           "altTitle": {
@@ -144,6 +148,7 @@
               "regex": "/manga/([^?#]+)/"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a"
             },
             "date": {
@@ -161,6 +166,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": ".widget-title a, .related-reading-content a"
           },
           "coverUrl": {

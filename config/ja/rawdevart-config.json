@@ -1,6 +1,7 @@
 {
   "source": "rawdevart",
-  "version": "1.0.0",
+  "idType": "real",
+  "version": "1.0.1",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://rawdevart.art",
@@ -71,6 +72,7 @@
           "selector": "$.manga_id"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.manga_name"
         },
         "coverUrl": {
@@ -96,6 +98,7 @@
           "selector": "$.detail.manga_id"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.detail.manga_name"
         },
         "alternativeTitle": {
@@ -146,6 +149,7 @@
             "selector": "$.chapter_number"
           },
           "title": {
+            "transform": "cleanText",
             "selector": "$.chapter_title",
             "optional": true
           },

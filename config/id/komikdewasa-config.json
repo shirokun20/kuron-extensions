@@ -1,7 +1,8 @@
 {
   "source": "komikdewasa",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "",
@@ -41,6 +42,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".luf h4, h4, .tt"
             },
             "coverUrl": {
@@ -69,6 +71,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".tt"
             },
             "coverUrl": {
@@ -92,6 +95,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".tt"
             },
             "coverUrl": {
@@ -115,6 +119,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".entry-title, h1.post-title"
           },
           "coverUrl": {
@@ -136,6 +141,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".chbox .chapternum, .chapternum"
             },
             "date": {

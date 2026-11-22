@@ -1,6 +1,7 @@
 {
   "source": "hitomi",
-  "version": "1.0.6",
+  "idType": "real",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hitomi.la",
@@ -48,6 +49,7 @@
               "regex": "/([0-9]+)\\.html"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h1.lillie a, .gallery-title"
             },
             "coverUrl": {
@@ -82,6 +84,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1"
           },
           "tags": {

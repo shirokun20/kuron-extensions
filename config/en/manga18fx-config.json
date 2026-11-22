@@ -1,7 +1,8 @@
 {
   "source": "manga18fx",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manga18fx.com",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a",
               "attribute": "title"
             },
@@ -68,6 +70,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h3.tt a",
               "attribute": "title"
             },
@@ -92,6 +95,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h3.tt a",
               "attribute": "title"
             },
@@ -120,6 +124,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1"
           },
           "coverUrl": {
@@ -154,6 +159,7 @@
               "regex": "/manga/([^?#]+?)/?$"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a.chapter-name"
             },
             "date": {

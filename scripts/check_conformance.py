@@ -12,6 +12,11 @@ Rules (no network):
       garbage `=value` pairs the server ignores).
   R5  `navigation.tagQueryMapping` entries must be well-formed
       (`mode: name` needs nothing; `rawParam` needs `param`).
+  R6  every `title` field object under a `fields` mapping declares
+      `transform: cleanText` (trim + collapse internal whitespace to one
+      space) so titles never leak raw newlines/repeated spaces to the app.
+  R7  top-level `idType` is present and is exactly `real` or `slug`, so the
+      consumer app can tell machine IDs from URL slugs without guessing.
 
 Live-route coverage belongs to the generator smoke 6th screen (taxonomy
 probe through the real adapter), not to this static gate.
@@ -129,12 +134,42 @@ def _rule_r5(cfg, path):
     return out
 
 
+def _title_field_defs(obj, parent_key=None):
+    """Yield every field object named `title` that lives under a `fields` map."""
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            if key == "title" and parent_key == "fields" and isinstance(value, dict):
+                yield value
+            yield from _title_field_defs(value, key)
+    elif isinstance(obj, list):
+        for value in obj:
+            yield from _title_field_defs(value, parent_key)
+
+
+def _rule_r6(cfg, path):
+    out = []
+    for field in _title_field_defs(cfg):
+        if field.get("transform") != "cleanText":
+            out.append(f"{path}: R6 title field lacks transform:cleanText"
+                       f": {field.get('selector', '<no selector>')}")
+    return out
+
+
+def _rule_r7(cfg, path):
+    id_type = cfg.get("idType")
+    if id_type not in ("real", "slug"):
+        return [f"{path}: R7 idType must be 'real' or 'slug', got {id_type!r}"]
+    return []
+
+
 STATIC_RULES = (
     ("R1", _rule_r1),
     ("R2", _rule_r2),
     ("R3", _rule_r3),
     ("R4", _rule_r4),
     ("R5", _rule_r5),
+    ("R6", _rule_r6),
+    ("R7", _rule_r7),
 )
 
 

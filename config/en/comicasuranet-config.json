@@ -1,7 +1,8 @@
 {
   "source": "comicasuranet",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comicasura.net",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "img",
               "attribute": "alt"
             },
@@ -67,6 +69,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "img",
               "attribute": "alt"
             },
@@ -91,6 +94,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "img",
               "attribute": "alt"
             },
@@ -119,6 +123,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.comic-title-content"
           },
           "coverUrl": {
@@ -142,6 +147,7 @@
               "regex": "/manga/([^?#]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "div.text-sm"
             }
           }

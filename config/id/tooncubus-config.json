@@ -1,8 +1,9 @@
 {
   "source": "tooncubus",
+  "idType": "slug",
   "displayName": "ToonCubus",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "baseUrl": "https://www.tooncubus.top",
   "enabled": true,
   "defaultLanguage": "indonesian",
@@ -36,6 +37,7 @@
               "regex": "/(\\d{4}/\\d{2}/[^?#]+\\.html)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a.clamp[href*='tooncubus.top/20']"
             },
             "coverUrl": {
@@ -74,6 +76,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "meta[property=\"og:title\"]",
             "attribute": "content",
             "regex": "^(.*?)\\s*-\\s*Tooncubus\\.top$"
@@ -110,6 +113,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexch-infoz a span, .flexch-infoz a"
             }
           }

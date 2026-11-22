@@ -1,6 +1,7 @@
 {
   "source": "mitaku",
-  "version": "1.1.1",
+  "idType": "slug",
+  "version": "1.1.2",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://mitaku.net",
@@ -39,6 +40,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h2.entry-title a"
             },
             "coverUrl": {
@@ -71,6 +73,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.entry-title"
           },
           "coverUrl": {

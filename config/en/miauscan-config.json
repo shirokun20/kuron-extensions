@@ -1,7 +1,8 @@
 {
   "source": "miauscan",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://leemiau.com",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".lm-hot-card-title"
             },
             "coverUrl": {
@@ -63,6 +65,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "img",
               "attribute": "alt"
             },
@@ -84,6 +87,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".tt"
             },
             "coverUrl": {
@@ -100,6 +104,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1"
           },
           "coverUrl": {
@@ -119,6 +124,7 @@
               "regex": "/([^/?#]+)/?$"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".lm4-chapter-subtitle"
             },
             "date": {

@@ -1,6 +1,7 @@
 {
   "source": "hentainexus",
-  "version": "1.0.11",
+  "idType": "real",
+  "version": "1.0.12",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/hentainexus-config.json",
   "enabled": true,
   "defaultLanguage": "english",
@@ -42,6 +43,7 @@
               "regex": "/view/([0-9]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".card-header-title"
             },
             "coverUrl": {
@@ -74,6 +76,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.title"
           },
           "coverUrl": {

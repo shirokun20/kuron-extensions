@@ -1,6 +1,7 @@
 {
   "source": "photos18",
-  "version": "1.0.3",
+  "idType": "slug",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "chinese",
   "baseUrl": "https://www.photos18.com",
@@ -36,6 +37,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".card-body a"
             },
             "coverUrl": {
@@ -87,6 +89,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.title"
           },
           "coverUrl": {

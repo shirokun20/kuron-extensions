@@ -1,6 +1,7 @@
 {
   "source": "hentaicosplay",
-  "version": "1.0.2",
+  "idType": "slug",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai-cosplay-xxx.com",
@@ -36,6 +37,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".image-list-item-title a"
             },
             "coverUrl": {
@@ -87,6 +89,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "#title h2"
           },
           "coverUrl": {

@@ -1,6 +1,7 @@
 {
   "source": "nicomanga",
-  "version": "1.3.2",
+  "idType": "slug",
+  "version": "1.3.3",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://nicomanga.com",
@@ -35,6 +36,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".manga-title"
             },
             "coverUrl": {
@@ -80,6 +82,7 @@
         "chaoticKey": "NicoMangaX2",
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".manga-cover-image",
             "attribute": "alt"
           },
@@ -123,6 +126,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".chapter-name-grid"
             },
             "date": {

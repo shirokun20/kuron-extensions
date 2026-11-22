@@ -1,6 +1,7 @@
 {
   "source": "rawkuma",
-  "version": "1.1.1",
+  "idType": "slug",
+  "version": "1.1.2",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://rawkuma.net",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h1"
             },
             "coverUrl": {
@@ -91,6 +93,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a.text-base"
             },
             "coverUrl": {
@@ -138,6 +141,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1[itemprop=\"name\"]"
           },
           "coverUrl": {
@@ -160,6 +164,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "span"
             },
             "date": {

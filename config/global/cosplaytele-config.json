@@ -1,6 +1,7 @@
 {
   "source": "cosplaytele",
-  "version": "1.0.3",
+  "idType": "slug",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "global",
   "baseUrl": "https://cosplaytele.com",
@@ -36,6 +37,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h5.post-title a"
             },
             "coverUrl": {
@@ -88,6 +90,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1.entry-title"
           },
           "coverUrl": {

@@ -1,6 +1,7 @@
 {
   "source": "comix",
-  "version": "1.0.6",
+  "idType": "slug",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://comix.to",

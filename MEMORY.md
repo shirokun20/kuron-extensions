@@ -15,6 +15,7 @@ Kolom:
 ## Log
 | Jam | Aksi | Target | Hasil | Agent |
 |---|---|---|---|---|
+ | 2026-11-22 22:12 | fix | 120 config (cross-repo title/ID contract) | ✅ +`transform:cleanText` di 513 title field (semua config), +top-level `idType` (15 `real` / 105 `slug`), PATCH bump semua config; gate R6/R7 baru di `check_conformance.py`; `docs/CONFIG-CONVENTIONS.md`; manifest 120 synced `--check` hijau; conformance 120 cek, 3 R2 pre-existing (baseline sama), R6/R7 0 violation; matrix check hijau | opencode |
  | 2026-11-21 00:55 | fix | comix 1.0.6 (sync checksum usai update config) | ✅ refresh_manifest 1 entry synced, --check 120 hijau |
  | 2026-11-16 11:54 | fix | mangafire 1.1.3 + comix 1.0.3 (checksum mismatch) | ✅ file diedit tanpa refresh (commit 4cf235f searchConfig/genreMapping); refresh_manifest sync 2 entries, checksum match, --check 120 hijau |
  | 2026-11-16 02:19 | fix | komiktap 1.1.9→1.1.10 (hapus blok scraper) | ✅ commit 01d425c nambah scraper.selectors.reader saja → containsKey(scraper) paksa GenericScraperAdapter (generic_http_source:794) → urlPatterns.chapter kosong → fetchChapterImages null (:1945); hapus blok pulihkan mode API; flag heavyImageAutoSwitch ikut hilang (trade-off) |

@@ -1,6 +1,7 @@
 {
   "source": "ehentai",
-  "version": "1.0.10",
+  "idType": "real",
+  "version": "1.0.11",
   "enabled": true,
   "defaultLanguage": "unknown",
   "baseUrl": "https://e-hentai.org",
@@ -50,6 +51,7 @@
               "regex": "/g/([0-9]+/[a-zA-Z0-9]+)/"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".glink"
             },
             "coverUrl": {
@@ -74,6 +76,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "#gn"
           },
           "coverUrl": {

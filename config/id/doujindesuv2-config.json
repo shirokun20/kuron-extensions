@@ -1,6 +1,7 @@
 {
   "source": "doujindesuv2",
-  "version": "2.0.4",
+  "idType": "slug",
+  "version": "2.0.5",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujindesu.tv",
@@ -51,6 +52,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".metadata h3.title > span"
             },
             "coverUrl": {
@@ -118,6 +120,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "section.metadata h1.title"
           },
           "altTitles": {
@@ -168,6 +171,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".epsright .eps a chapter"
             },
             "date": {
@@ -185,6 +189,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": ".metadata h3.title > span"
           },
           "coverUrl": {

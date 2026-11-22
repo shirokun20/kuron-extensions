@@ -1,7 +1,8 @@
 {
   "source": "elftooncom",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://elftoon.net",
@@ -39,6 +40,7 @@
               "regex": "series/comic/([^?#]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h3"
             },
             "coverUrl": {
@@ -70,6 +72,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "[data-series-title] h1"
           },
           "coverUrl": {
@@ -94,6 +97,7 @@
               "regex": "series/comic/([^?#]+/chapter/[^?#]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a[href*='/chapter/']"
             },
             "date": {

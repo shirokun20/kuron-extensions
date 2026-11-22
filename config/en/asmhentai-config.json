@@ -1,7 +1,8 @@
 {
   "source": "asmhentai",
+  "idType": "real",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -41,6 +42,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".cpt h2.caption"
             },
             "coverUrl": {
@@ -85,6 +87,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".info h1, h1"
           },
           "altTitle": {
@@ -116,6 +119,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": ".cpt h2.caption, .cpt a"
           },
           "coverUrl": {

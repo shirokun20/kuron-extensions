@@ -1,8 +1,9 @@
 {
   "source": "shirodoujin",
+  "idType": "slug",
   "displayName": "ShiroDoujin",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "baseUrl": "https://shirodoujin.com",
   "defaultLanguage": "id",
   "ui": {
@@ -40,6 +41,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexbox4-side .title a"
             },
             "coverUrl": {
@@ -68,6 +70,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexbox2-title span:first-child"
             },
             "coverUrl": {
@@ -102,6 +105,7 @@
             "transform": "slug"
           },
           "title": {
+            "transform": "cleanText",
             "selector": ".flexbox4-side .title a"
           },
           "coverUrl": {
@@ -113,6 +117,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".series-title h2, .series-titlex h2"
           },
           "coverUrl": {
@@ -140,6 +145,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexch-infoz a",
               "regex": "^\\s*(.*?)(?=(?:[A-Za-zÀ-ÿ]+\\s+\\d{1,2},\\s+\\d{4})|$)"
             }

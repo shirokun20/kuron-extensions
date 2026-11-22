@@ -1,6 +1,7 @@
 {
   "source": "doujindesuxxx",
-  "version": "1.1.1",
+  "idType": "slug",
+  "version": "1.1.2",
   "enabled": false,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://doujin.desu.xxx",
@@ -37,6 +38,7 @@
           "selector": "$.slug"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.title"
         },
         "coverUrl": {
@@ -56,6 +58,7 @@
           "selector": "$.slug"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.title"
         },
         "description": {
@@ -79,6 +82,7 @@
             "selector": "$.id"
           },
           "title": {
+            "transform": "cleanText",
             "selector": "$.title"
           }
         }

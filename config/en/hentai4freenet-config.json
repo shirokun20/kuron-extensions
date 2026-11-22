@@ -1,7 +1,8 @@
 {
   "source": "hentai4freenet",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -39,6 +40,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -67,6 +69,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -91,6 +94,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -115,6 +119,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h2.h4f-genre-card__title a"
             },
             "coverUrl": {
@@ -144,6 +149,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "h2.h4f-genre-card__title a"
             },
             "coverUrl": {
@@ -185,6 +191,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".post-title h1, h1"
           },
           "coverUrl": {
@@ -221,6 +228,7 @@
               "regex": "/hentai/([^?#]+?)/?$"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "self"
             }
           }

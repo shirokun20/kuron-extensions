@@ -1,8 +1,9 @@
 {
   "source": "mangapill",
+  "idType": "real",
   "displayName": "MangaPill",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangapill.com",
@@ -44,6 +45,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".mt-3.font-black.leading-tight.line-clamp-2"
             },
             "coverUrl": {
@@ -78,6 +80,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "meta[property=\"og:title\"]",
             "attribute": "content",
             "regex": "^(.*?)\\s*-\\s*Mangapill$"
@@ -104,6 +107,7 @@
               "attribute": "href"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a.border.border-border.p-1"
             }
           }

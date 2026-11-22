@@ -1,8 +1,9 @@
 {
   "source": "hentai3",
+  "idType": "real",
   "displayName": "3hentai",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "baseUrl": "https://3hentai.net",
   "enabled": true,
   "defaultLanguage": "english",
@@ -44,6 +45,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "div.title"
             },
             "coverUrl": {
@@ -88,6 +90,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": "h1"
           },
           "coverUrl": {

@@ -1,6 +1,7 @@
 {
   "source": "crotpedia",
-  "version": "1.0.15",
+  "idType": "slug",
+  "version": "1.0.16",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "https://raw.githubusercontent.com/shirokun20/nhasixapp/refs/heads/master/configs/crotpedia-config.json",
@@ -53,6 +54,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexbox4-side .title a"
             },
             "coverUrl": {
@@ -83,6 +85,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexbox2-title span"
             },
             "coverUrl": {
@@ -117,6 +120,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".series-titlex h2"
           },
           "coverUrl": {
@@ -142,6 +146,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".flexch-infoz a span"
             },
             "date": {
@@ -226,6 +231,7 @@
       "container": ".mangalist-blc a.series",
       "fields": {
         "title": {
+          "transform": "cleanText",
           "type": "text"
         },
         "url": {
@@ -242,6 +248,7 @@
       "container": ".flexbox2-item",
       "fields": {
         "title": {
+          "transform": "cleanText",
           "selector": ".flexbox2-title span",
           "type": "text"
         },

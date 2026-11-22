@@ -1,6 +1,7 @@
 {
   "source": "mangafire",
-  "version": "1.1.5",
+  "idType": "slug",
+  "version": "1.1.6",
   "enabled": true,
   "requiresSpecialAdapter": true,
   "defaultLanguage": "en",
@@ -68,6 +69,7 @@
           "selector": "$.hid"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.title"
         },
         "coverUrl": {
@@ -107,6 +109,7 @@
           "selector": "$.data.hid"
         },
         "title": {
+          "transform": "cleanText",
           "selector": "$.data.title"
         },
         "description": {
@@ -145,6 +148,7 @@
             "selector": "$.number"
           },
           "title": {
+            "transform": "cleanText",
             "selector": "$.name"
           },
           "url": {
@@ -174,6 +178,7 @@
             "selector": "$.number"
           },
           "title": {
+            "transform": "cleanText",
             "selector": "$.name"
           },
           "url": {

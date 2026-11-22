@@ -1,7 +1,8 @@
 {
   "source": "manhwareads",
+  "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -41,6 +42,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -69,6 +71,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -92,6 +95,7 @@
               "transform": "slug"
             },
             "title": {
+              "transform": "cleanText",
               "selector": ".post-title h3 a, .post-title a"
             },
             "coverUrl": {
@@ -119,6 +123,7 @@
       "detail": {
         "fields": {
           "title": {
+            "transform": "cleanText",
             "selector": ".post-title h1, h1"
           },
           "coverUrl": {
@@ -157,6 +162,7 @@
               "regex": "/manga/([^?#]+)"
             },
             "title": {
+              "transform": "cleanText",
               "selector": "a"
             },
             "date": {
