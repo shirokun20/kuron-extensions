@@ -1,0 +1,183 @@
+{
+  "preset": "themesia",
+  "description": "Themesia / Tsuki-reader theme family (.listupd .bsx cards, .tt titles, img.ts-post-image covers, #chapterlist li chapters, #readerarea img + ts_reader.run({...}) reader, /genres/{tag}/ routes). Intersection of the verified member set; per-site files always win on values.",
+  "defaults": {
+    "scraper": {
+      "enabled": true,
+      "searchForm": {
+        "enabled": true,
+        "params": {
+          "query": {
+            "placeholder": "Search manga...",
+            "queryParam": "s",
+            "type": "text"
+          },
+          "sort": {
+            "label": "Sort by",
+            "options": [
+              {
+                "name": "Relevance",
+                "value": ""
+              },
+              {
+                "name": "Popular",
+                "value": "popular"
+              },
+              {
+                "name": "Latest",
+                "value": "latest"
+              },
+              {
+                "name": "A-Z",
+                "value": "alphabet"
+              },
+              {
+                "name": "Rating",
+                "value": "rating"
+              }
+            ],
+            "queryParam": "m_orderby",
+            "type": "select"
+          }
+        },
+        "urlPattern": "search"
+      },
+      "selectors": {
+        "detail": {
+          "chapters": {
+            "container": "#chapterlist li",
+            "fields": {
+              "date": {
+                "selector": ".chapterdate"
+              },
+              "id": {
+                "attribute": "href",
+                "regex": "/([^?#/]+)/?$",
+                "selector": ".eph-num a"
+              },
+              "title": {
+                "selector": ".chapternum",
+                "transform": "cleanText"
+              }
+            }
+          },
+          "fields": {
+            "coverUrl": {
+              "attribute": "src",
+              "selector": ".thumb img"
+            },
+            "tags": {
+              "attribute": "href",
+              "extractTagObjects": true,
+              "multi": true,
+              "selector": ".mgen a",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": "h1.entry-title",
+              "transform": "cleanText"
+            }
+          }
+        },
+        "reader": {
+          "images": {
+            "attribute": "src",
+            "selector": "#readerarea img"
+          },
+          "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);"
+        }
+      },
+      "urlPatterns": {
+        "chapter": "/{id}",
+        "detail": "/manga/{id}/",
+        "genreSearch": {
+          "inherits": "home",
+          "url": "/genres/{tag}/"
+        },
+        "genreSearchPage": {
+          "inherits": "home",
+          "url": "/genres/{tag}/page/{page}/"
+        },
+        "home": {
+          "list": {
+            "container": ".listupd .bsx",
+            "fields": {
+              "coverUrl": {
+                "attribute": "src",
+                "selector": "img.ts-post-image"
+              },
+              "id": {
+                "attribute": "href",
+                "selector": "a",
+                "transform": "slug"
+              },
+              "title": {
+                "selector": ".tt",
+                "transform": "cleanText"
+              }
+            },
+            "pagination": {
+              "mode": "paged",
+              "next": ".hpage a.r, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            }
+          },
+          "url": "/"
+        },
+        "homePage": {
+          "inherits": "home",
+          "url": "/comics/?order=update&page={page}"
+        },
+        "search": {
+          "list": {
+            "container": ".listupd .bsx",
+            "fields": {
+              "coverUrl": {
+                "attribute": "src",
+                "selector": "img.ts-post-image"
+              },
+              "id": {
+                "attribute": "href",
+                "selector": "a",
+                "transform": "slug"
+              },
+              "title": {
+                "selector": ".tt",
+                "transform": "cleanText"
+              }
+            },
+            "pagination": {
+              "mode": "paged",
+              "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            }
+          },
+          "url": "/?s={query}"
+        },
+        "searchPage": {
+          "list": {
+            "container": ".listupd .bsx",
+            "fields": {
+              "coverUrl": {
+                "attribute": "src",
+                "selector": "img.ts-post-image"
+              },
+              "id": {
+                "attribute": "href",
+                "selector": "a",
+                "transform": "slug"
+              },
+              "title": {
+                "selector": ".tt",
+                "transform": "cleanText"
+              }
+            },
+            "pagination": {
+              "mode": "paged",
+              "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            }
+          },
+          "url": "/page/{page}/?s={query}"
+        }
+      }
+    }
+  }
+}

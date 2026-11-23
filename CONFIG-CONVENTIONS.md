@@ -66,3 +66,28 @@ python3 scripts/generate_support_table.py --check
 A PATCH version bump is required on every config change; regenerate the
 manifest with `python3 scripts/refresh_manifest.py` (never edit checksums by
 hand).
+
+## Pattern Bank (`presets/` + `scripts/build_from_presets.py`)
+
+Family base presets live in `presets/` (authoring-time only; built configs
+stay self-contained and the app ignores the `extends` key). A config opts in
+with `"extends": "<preset-name>"` right after `"source"`. Merge rule is
+**local-wins**: `dict`+`dict` recurses, otherwise the file's own value wins;
+rebuilds only *add* missing preset paths, never change values.
+For `secondaryFetch` the preset must materialize the per-surface blocks the
+nhasixapp adapter actually reads (`urlPatterns.<name>.list`,
+`selectors.detail`, `selectors.reader` — canonical key set in
+`SecondaryFetchSpec.tryParse`); the retired `listKey`/`detailKey`/`readerKey`/
+`surfaces` shape is rejected by the build in both modes.
+
+```sh
+python3 scripts/build_from_presets.py          # backfill missing preset paths
+python3 scripts/build_from_presets.py --check  # exit 1 on drift
+```
+
+Re-running the build is byte-identical. How to add a preset: survey the
+family (cluster by identical `scraper.selectors` blocks), verify every preset
+path already exists in every member, create `presets/<name>.json` with
+`{"preset", "description", "defaults": {"scraper": {...}}}`, add `extends` to
+members, then run build + `--check` + the full gate above (PATCH bump +
+manifest refresh required). Full workflow: `presets/README.md`.

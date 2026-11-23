@@ -1,7 +1,8 @@
 {
   "source": "nicomanga",
+  "extends": "nextjs-adframe",
   "idType": "slug",
-  "version": "1.3.3",
+  "version": "1.3.5",
   "enabled": true,
   "defaultLanguage": "japanese",
   "baseUrl": "https://nicomanga.com",
@@ -29,6 +30,34 @@
       "home": {
         "url": "/manga-list.html?p={page}&v=grid",
         "list": {
+          "secondaryFetch": {
+            "enabled": true,
+            "tokenPattern": "payloadKey\\D{0,8}([lmc]_[a-f0-9]+)",
+            "url": "{origin}/ad-frame/data?k={key}",
+            "referer": "page",
+            "payloadPath": "items",
+            "decodeKey": "NicoManga",
+            "itemsPath": "items",
+            "imagesPath": "images",
+            "itemFields": {
+              "id": {
+                "path": "ur",
+                "regex": "^/?(.*)$"
+              },
+              "title": {
+                "path": "n",
+                "transform": "cleanText"
+              },
+              "coverUrl": {
+                "path": "c"
+              }
+            },
+            "pagination": {
+              "page": "pagination.page",
+              "total": "pagination.total",
+              "lastPage": "pagination.last_page"
+            }
+          },
           "container": ".manga-grid .manga-card",
           "fields": {
             "id": {
@@ -40,7 +69,7 @@
               "selector": ".manga-title"
             },
             "coverUrl": {
-              "selector": "img.manga-img",
+              "selector": "a.manga-cover img",
               "attribute": "src"
             }
           },
@@ -74,52 +103,62 @@
         "url": "/manga-list.html?g={tag}&v=grid",
         "inherits": "home"
       },
+      "tagSearch": {
+        "url": "/g/{tag}.html",
+        "tagTransform": "base64",
+        "inherits": "home"
+      },
+      "tagSearchPage": {
+        "url": "/g/{tag}.html?p={page}",
+        "inherits": "home"
+      },
       "detail": "/{id}",
       "chapter": "/{id}"
     },
     "selectors": {
       "detail": {
         "chaoticKey": "NicoMangaX2",
+        "secondaryFetch": {
+          "enabled": true,
+          "tokenPattern": "payloadKey\\D{0,8}([lmc]_[a-f0-9]+)",
+          "url": "{origin}/ad-frame/data?k={key}",
+          "referer": "page",
+          "payloadPath": "chaotic_payload",
+          "decodeKey": "NicoMangaX2"
+        },
         "fields": {
           "title": {
             "transform": "cleanText",
-            "selector": ".manga-cover-image",
-            "attribute": "alt"
+            "selector": "article.ssr-seo-content h1[itemprop=name]"
           },
           "coverUrl": {
-            "selector": ".manga-cover-image",
-            "attribute": "src"
+            "selector": "article.ssr-seo-content meta[itemprop=image]",
+            "attribute": "content"
           },
           "author": {
-            "selector": ".info-field-label:contains(Author) + .info-field-value a",
-            "multi": true,
-            "transform": "base64",
-            "extractTagObjects": true,
-            "tagType": "author"
+            "selector": "article.ssr-seo-content meta[itemprop=author]",
+            "attribute": "content",
+            "multi": true
           },
           "tags": {
-            "selector": ".info-field-label:contains(Genre) + .info-field-value a",
-            "multi": true,
-            "transform": "base64",
-            "extractTagObjects": true,
-            "tagType": "tag"
+            "selector": "article.ssr-seo-content p:contains(Genres)",
+            "regex": "Genres:\\s*(.+)",
+            "multi": true
           },
           "artist": {
-            "selector": ".info-field-label:contains(Magazine) + .info-field-value a",
-            "multi": true,
-            "transform": "base64",
-            "extractTagObjects": true,
-            "tagType": "artist"
+            "selector": "article.ssr-seo-content meta[itemprop=artist]",
+            "attribute": "content",
+            "multi": true
           },
           "status": {
-            "selector": ".info-field-label:contains(Status) + .info-field-value a"
+            "selector": "article.ssr-seo-content p:contains(Status)"
           },
           "description": {
-            "selector": ".description-text-content"
+            "selector": "article.ssr-seo-content p[itemprop=description]"
           }
         },
         "chapters": {
-          "container": "#chapter-grid .chapter-grid-item",
+          "container": "nav[aria-label=\"Chapters\"] a",
           "fields": {
             "id": {
               "selector": "self",
@@ -127,10 +166,10 @@
             },
             "title": {
               "transform": "cleanText",
-              "selector": ".chapter-name-grid"
+              "selector": "self"
             },
             "date": {
-              "selector": ".chapter-time-grid"
+              "selector": "time"
             }
           }
         }
@@ -138,9 +177,18 @@
       "reader": {
         "mode": "chaoticPayload",
         "chaoticKey": "NicoMangaX2",
-        "container": "#chapter_images_container",
+        "secondaryFetch": {
+          "enabled": true,
+          "tokenPattern": "payloadKey\\D{0,8}([lmc]_[a-f0-9]+)",
+          "url": "{origin}/ad-frame/data?k={key}",
+          "referer": "page",
+          "payloadPath": "chaotic_payload",
+          "decodeKey": "NicoMangaX2",
+          "imagesPath": "images"
+        },
+        "container": "div.chapter-image-wrapper",
         "images": {
-          "selector": "#chapter_images_container img.chapter-img, #chapter_images_container img",
+          "selector": "img.chapter-img",
           "attribute": "src"
         },
         "nav": {
@@ -174,5 +222,5 @@
       }
     }
   },
-  "contentIdPattern": "/manga-?\\d+/([^.]+\\.html)"
+  "contentIdPattern": "/((?:manga\\d+/)[^?#\\s\"]+\\.html|[a-f0-9]+\\.html)"
 }

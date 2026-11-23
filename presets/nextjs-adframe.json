@@ -1,0 +1,68 @@
+{
+  "preset": "nextjs-adframe",
+  "description": "Next.js App Router + ad-frame JSON family (currently: nicomanga). Pages are shells carrying a one-time payloadKey (l_ list/search/genre, m_ detail, c_ reader); real data comes from GET {origin}/ad-frame/data?k={key} and decodes with the CJK-XOR scheme. The nhasixapp kuron_generic adapter reads secondaryFetch ONLY at three sites (generic_scraper_adapter.dart): urlPatterns.<name>.list.secondaryFetch (search/genreSearch/tagSearch inherit home's list block via mergeLists shallow spread, so they ride along), selectors.detail.secondaryFetch, selectors.reader.secondaryFetch. Scraper-level or listKey/detailKey/readerKey/surfaces shapes are NOT read by the adapter and must not appear in final configs (build_from_presets.py --check fails on them). Lists decode the obfuscated `items` string field in place (payloadPath AND itemsPath are both 'items' — with payloadPath '' the items string would never decode); detail/reader decode payloadPath 'chaotic_payload' (detail needs no itemFields: _extractChaoticDetailFields defaults match manga/chapters_list; reader uses imagesPath 'images'). tagSearch routes need pattern-level tagTransform 'base64' so tag names encode to the site's /g/{base64}.html form.",
+  "defaults": {
+    "scraper": {
+      "urlPatterns": {
+        "home": {
+          "list": {
+            "secondaryFetch": {
+              "enabled": true,
+              "tokenPattern": "payloadKey\\D{0,8}([lmc]_[a-f0-9]+)",
+              "url": "{origin}/ad-frame/data?k={key}",
+              "referer": "page",
+              "payloadPath": "items",
+              "decodeKey": "NicoManga",
+              "itemsPath": "items",
+              "imagesPath": "images",
+              "itemFields": {
+                "id": {
+                  "path": "ur",
+                  "regex": "^/?(.*)$"
+                },
+                "title": {
+                  "path": "n",
+                  "transform": "cleanText"
+                },
+                "coverUrl": {
+                  "path": "c"
+                }
+              },
+              "pagination": {
+                "page": "pagination.page",
+                "total": "pagination.total",
+                "lastPage": "pagination.last_page"
+              }
+            }
+          }
+        }
+      },
+      "selectors": {
+        "detail": {
+          "chaoticKey": "NicoMangaX2",
+          "secondaryFetch": {
+            "enabled": true,
+            "tokenPattern": "payloadKey\\D{0,8}([lmc]_[a-f0-9]+)",
+            "url": "{origin}/ad-frame/data?k={key}",
+            "referer": "page",
+            "payloadPath": "chaotic_payload",
+            "decodeKey": "NicoMangaX2"
+          }
+        },
+        "reader": {
+          "mode": "chaoticPayload",
+          "chaoticKey": "NicoMangaX2",
+          "secondaryFetch": {
+            "enabled": true,
+            "tokenPattern": "payloadKey\\D{0,8}([lmc]_[a-f0-9]+)",
+            "url": "{origin}/ad-frame/data?k={key}",
+            "referer": "page",
+            "payloadPath": "chaotic_payload",
+            "decodeKey": "NicoMangaX2",
+            "imagesPath": "images"
+          }
+        }
+      }
+    }
+  }
+}

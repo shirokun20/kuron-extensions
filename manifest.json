@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-23T01:50:44.116034+07:00",
+    "lastUpdated": "2026-11-23T22:17:29.322310+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -259,7 +259,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "527910b132aaba2f99133d7e9367dd8a4632374579bf7d62ebc8398785432570"
+            "checksum": "33cbe34cbba6cf225540394861ba51f6caf0ef4542ada483da5ab84a0b3ceca6"
         },
         {
             "id": "anisascansin",
@@ -291,7 +291,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "c03886cd1e5da2bf2c370e728a66e77c09507459c71bb7ac63bcd796d4f14837"
+            "checksum": "25313ae96455054f42d322b06706cf641fc5c2a9be99d93cc3e4f4a6d7f2dbb6"
         },
         {
             "id": "arenascancom",
@@ -307,7 +307,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "af2da84bebca8460044b43b51a989127c8892b25f93f39d2888eb7ad7cccb13e"
+            "checksum": "9eb5b42e44578792054743e9af84ccafb72e1fc3fb6b05f001a663c1df61f8b6"
         },
         {
             "id": "asmhentai",
@@ -355,7 +355,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "f644724f5dcd99784d86ce91ac09f7d2207f2c17a43792dbfcec13cfe05221b3"
+            "checksum": "ca28a520f07b55ea9cf6ee86e5db10e61df87f95c4bd98219d35ca1a17392e13"
         },
         {
             "id": "cocomicco",
@@ -371,7 +371,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 6
             },
-            "checksum": "48396cc260f9924cfab3260fb1f3a3a061c1f9b7577b4ce438b12664446134b4"
+            "checksum": "c5019505dbdd7d85c692ea2a2f3799e9b70b1891de4ed5b1e7abc994511b89e4"
         },
         {
             "id": "comicasuranet",
@@ -931,7 +931,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "c8aefe7ca0a5793089a49e05c891294fc82a95c76445345873e762eab176c082"
+            "checksum": "942bf81bc4c320060bdfe1587efc6ae74525794d2dfebae67c2a7b0d68c8946f"
         },
         {
             "id": "manga18free",
@@ -1539,7 +1539,7 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 5
             },
-            "checksum": "da5a33d660eebce446ad80400e98d598d5d64c3173d62c610e65836e8de204c2"
+            "checksum": "81de97b7ece6601de011a77420b6f12080e9e08dd84377363eb7eab47cd7b9e7"
         },
         {
             "id": "spyfakku",
@@ -1657,7 +1657,7 @@
         },
         {
             "id": "nicomanga",
-            "version": "1.3.3",
+            "version": "1.3.5",
             "url": "config/ja/nicomanga-config.json",
             "meta": {
                 "displayName": "Nicomanga",
@@ -1667,9 +1667,9 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 6
             },
-            "checksum": "5c09f3bbeb3db68b4cfc9c6e4f6d6cbc8172c9b5876823f9bd8800f84ca84364"
+            "checksum": "e80d334bd95b5c009f2656f5a62af54e20f415db4328f31c86840c8872614440"
         },
         {
             "id": "rawbaka",
