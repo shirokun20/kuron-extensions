@@ -1,7 +1,7 @@
 {
   "source": "manga18.club",
   "idType": "slug",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manga18.club",
@@ -12,15 +12,20 @@
     "brandColor": "#B71C1C"
   },
   "network": {
-    "requiresBypass": false,
+    "requiresBypass": true,
     "headers": {
       "Referer": "https://manga18.club/",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
     },
     "rateLimit": {
       "enabled": true,
       "requestsPerSecond": 1,
       "maxConcurrentRequests": 2
+    },
+    "imageHeaders": {
+      "Referer": "https://manga18.club/"
     }
   },
   "scraper": {
@@ -168,5 +173,5 @@
     "offlineMode": true,
     "generatePdf": true
   },
-  "notes": "Draft config using observed selectors. Selectors may need tuning after live testing; chapter images are served from the CDN at https://cdn.manga18.club. Use /list-manga and /latest-release/{page} for paginated listings."
+  "notes": "2026-11-23: requiresBypass:true + browser headers (issue #12; home returns 403 cf-mitigated via curl). Chapter modeling kept (/manhwa/{id} with two-segment ids from chapter list regex) but chapter list/detail could NOT be re-verified without bypass — needs live re-verify through the app before closing #12."
 }

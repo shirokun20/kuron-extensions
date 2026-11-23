@@ -2,8 +2,8 @@
   "source": "likemangain",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
-  "enabled": true,
+  "version": "1.0.3",
+  "enabled": false,
   "defaultLanguage": "english",
   "baseUrl": "https://mangayy.org",
   "ui": {
@@ -230,5 +230,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "2026-11-23: DISABLED — mangayy.org DNS NXDOMAIN (dead from this network on desktop + mobile UA; other sites reachable, so not a local outage). Issue #37 cannot be fixed at config level until the domain returns or the source officially moves; do NOT repoint to unverified clones. Re-enable only after live 200 on home/search/detail."
 }

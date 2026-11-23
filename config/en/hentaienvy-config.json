@@ -2,7 +2,7 @@
   "source": "hentaienvy",
   "idType": "real",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -43,12 +43,11 @@
             },
             "title": {
               "transform": "cleanText",
-              "selector": ".thumb > a[title]",
-              "attribute": "title"
+              "selector": ".hnv-gallery-card__title a"
             },
             "coverUrl": {
-              "selector": ".th_img img",
-              "attribute": "data-src"
+              "selector": ".hnv-gallery-card__media img",
+              "attribute": "src"
             }
           },
           "pagination": {
@@ -69,11 +68,11 @@
         "inherits": "home"
       },
       "genreSearch": {
-        "url": "/tag/{tag}/",
+        "url": "/category/{tag}/",
         "inherits": "home"
       },
       "genreSearchPage": {
-        "url": "/tag/{tag}/?page={page}",
+        "url": "/category/{tag}/?page={page}",
         "inherits": "home"
       },
       "languageSearch": {
@@ -95,15 +94,15 @@
             "selector": "h1"
           },
           "coverUrl": {
-            "selector": ".gt_left img",
-            "attribute": "data-src"
+            "selector": ".hnv-gallery-cover img",
+            "attribute": "src"
           },
           "pageCount": {
-            "selector": "ul:contains('Pages')",
+            "selector": "span.hnv-gallery-entity-items",
             "regex": "(\\d+)"
           },
           "tags": {
-            "selector": "a.gp_tag[href^='/tag/']",
+            "selector": "a.hnv-gallery-tag",
             "attribute": "href",
             "transform": "slug",
             "multi": true,
@@ -115,12 +114,12 @@
       "reader": {
         "mode": "hentaifoxCdn",
         "readerPageUrlPattern": "/g/{id}/1/",
-        "readerImageSelector": "#fimg",
-        "readerImageAttr": "data-src",
-        "readerPageCountSelector": "#pages",
-        "readerPageCountAttr": "value",
-        "thumbSelector": ".th_img img",
-        "thumbSrcAttr": "data-src",
+        "readerImageSelector": "#readerImg",
+        "readerImageAttr": "src",
+        "readerPageCountSelector": "#readerApp",
+        "readerPageCountAttr": "data-reader-total",
+        "thumbSelector": ".hnv-gallery-thumb__img",
+        "thumbSrcAttr": "src",
         "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)"
       }
     }
@@ -144,5 +143,6 @@
         "placeholder": "Search title or tag..."
       }
     }
-  }
+  },
+  "notes": "Rebuilt 2026-11-23 for the site redesign (hnv-gallery-card markup, /category/ taxonomy + /language/ routes, #readerImg + #readerApp[data-reader-total] reader, span.hnv-gallery-entity-items page count). Live-verified: home/search/category/language lists + pagination, gallery detail fields + tags (a.hnv-gallery-tag), /g/ reader JSON (58 pages on sample). Old /tag/ route still 200 (legacy) but tags now link to /category/ + /language/."
 }

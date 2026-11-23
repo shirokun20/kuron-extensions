@@ -2,7 +2,7 @@
   "source": "hentai4freenet",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -12,10 +12,12 @@
     "openInBrowserUrl": "https://hentai4free.net"
   },
   "network": {
-    "requiresBypass": false,
+    "requiresBypass": true,
     "headers": {
       "Referer": "https://hentai4free.net/",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9"
     },
     "imageHeaders": {
       "Referer": "https://hentai4free.net/"
@@ -293,5 +295,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "2026-11-23: requiresBypass:true + browser headers (#59 audit: search intermittently 403 cf-mitigated while home 200 — same signature as #21; bypass stays lazy). Search NOT enabled: search page carries a challenge-platform marker with zero .h4f-manga-grid-cell items via plain HTTP — needs bypassed live re-verify before features.search:true."
 }

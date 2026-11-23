@@ -3,7 +3,7 @@
   "idType": "slug",
   "displayName": "ViHentai",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "baseUrl": "https://vi-hentai.moe",
   "enabled": true,
   "defaultLanguage": "vi",
@@ -230,5 +230,6 @@
         "type": "page"
       }
     }
-  }
+  },
+  "notes": "2026-11-23: requiresBypass:true + cf_vihentai Turnstile-manual adapter live-verified in app (issue #23 gate still needs manual WebView solve). authorSearch /tac-gia/{tag} verified 200. No artist route exists site-wide (only /the-loai/ + /truyen/ links; detail pages link /tac-gia/ + /the-loai/ only) — artistSearch stays absent. Search works (/tim-kiem 60 items, ?page= links) but exposes no result-total marker."
 }

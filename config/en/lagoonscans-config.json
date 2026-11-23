@@ -2,7 +2,7 @@
   "source": "lagoonscans",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://lagoonscans.com",
@@ -205,7 +205,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
@@ -214,5 +214,20 @@
     "generatePdf": true,
     "offlineMode": true
   },
-  "displayName": "Lagoonscans"
+  "displayName": "Lagoonscans",
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "notes": "2026-11-23: search enabled after live verify (#59 audit: search 200 + matching items for 'supernatural', config container/id selectors match; minimal searchForm added)."
 }

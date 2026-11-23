@@ -2,7 +2,7 @@
   "source": "manhwanex",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manhwanex.com",
@@ -225,7 +225,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
@@ -233,5 +233,20 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "searchForm": {
+    "urlPattern": "search",
+    "params": {
+      "query": {
+        "queryParam": "s",
+        "type": "text",
+        "placeholder": "Search..."
+      },
+      "page": {
+        "queryParam": "page",
+        "type": "page"
+      }
+    }
+  },
+  "notes": "2026-11-23: search enabled after live verify (#59 audit: search 200 + matching items for 'awakening', config container/id selectors match; minimal searchForm added)."
 }

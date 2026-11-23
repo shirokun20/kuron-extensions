@@ -2,7 +2,7 @@
   "source": "mangasushi",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangasushi.org",
@@ -222,7 +222,7 @@
   },
   "contentIdPattern": "/manga/([^/]+)",
   "features": {
-    "search": false,
+    "search": true,
     "chapters": true,
     "download": true,
     "favorite": true,
@@ -230,5 +230,6 @@
     "related": false,
     "generatePdf": true,
     "offlineMode": true
-  }
+  },
+  "notes": "2026-11-23: search enabled after live verify (search 200 + matching items, e.g. 12 results for 'the'; genre 200; chapter page 200 with 35 reader imgs). Chapters load via POST {detail}ajax/chapters/ which the engine's chapters.mode=ajaxHtml already implements (verified live fragment with li.wp-manga-chapter) — no admin-ajax fallback needed."
 }

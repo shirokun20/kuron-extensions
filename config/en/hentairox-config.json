@@ -2,7 +2,7 @@
   "source": "hentairox",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentairox.com",
@@ -28,25 +28,24 @@
       "home": {
         "url": "/",
         "list": {
-          "container": "div.row.galleries > div.thumb, div.thumbs_container > div.thumb",
+          "container": "article.hr-home-card",
           "fields": {
             "id": {
-              "selector": ".inner_thumb a",
+              "selector": ".hr-home-card__cover[href*='/gallery/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
               "transform": "cleanText",
-              "selector": ".caption a"
+              "selector": ".hr-home-card__title a"
             },
             "coverUrl": {
-              "selector": "img",
-              "attribute": "data-src"
+              "selector": ".hr-home-card__media img",
+              "attribute": "src"
             }
           },
           "pagination": {
-            "next": "a.more_popular_parodies",
-            "links": "a.more_popular_parodies"
+            "next": "a[rel='next']"
           }
         }
       },
@@ -56,27 +55,47 @@
       },
       "search": {
         "url": "/search/?key={query}",
-        "inherits": "home"
+        "list": {
+          "container": "article.hr-gallery-card",
+          "fields": {
+            "id": {
+              "selector": ".hr-gallery-card__cover[href*='/gallery/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "transform": "cleanText",
+              "selector": ".hr-gallery-card__title a"
+            },
+            "coverUrl": {
+              "selector": ".hr-gallery-card__media img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next']"
+          }
+        }
       },
       "searchPage": {
         "url": "/search/?key={query}&page={page}",
-        "inherits": "home"
+        "inherits": "search"
       },
       "genreSearch": {
         "url": "/category/{tag}/",
-        "inherits": "home"
+        "inherits": "search"
       },
       "genreSearchPage": {
         "url": "/category/{tag}/?page={page}",
-        "inherits": "home"
+        "inherits": "search"
       },
       "tagSearch": {
         "url": "/tag/{tag}/",
-        "inherits": "home"
+        "inherits": "search"
       },
       "tagSearchPage": {
         "url": "/tag/{tag}/?page={page}",
-        "inherits": "home"
+        "inherits": "search"
       },
       "detail": "/gallery/{id}/",
       "chapter": "/gallery/{id}/"
@@ -86,22 +105,14 @@
         "fields": {
           "title": {
             "transform": "cleanText",
-            "selector": ".right_details h1"
+            "selector": "#gallery-title"
           },
           "coverUrl": {
-            "selector": ".left_cover img",
-            "attribute": "data-src"
-          },
-          "uploadDate": {
-            "selector": ".galleries_info .posted",
-            "regex": "Posted:\\s*(.+)$"
-          },
-          "favorites": {
-            "selector": "#like_btn",
-            "regex": "(\\d+)"
+            "selector": ".hr-gallery-cover img",
+            "attribute": "src"
           },
           "tags": {
-            "selector": ".galleries_info a.tag[href*='/tag/']",
+            "selector": "a.hr-gallery-tag[href^='/tag/']",
             "attribute": "href",
             "transform": "slug",
             "multi": true,
@@ -109,7 +120,7 @@
             "tagType": "tag"
           },
           "artists": {
-            "selector": ".galleries_info a[href*='/artist/']",
+            "selector": "a.hr-gallery-tag[href^='/artist/']",
             "attribute": "href",
             "transform": "slug",
             "multi": true,
@@ -117,7 +128,7 @@
             "tagType": "artist"
           },
           "pageCount": {
-            "selector": "li.pages",
+            "selector": ".hr-gallery-pages",
             "regex": "(\\d+)"
           }
         }
@@ -170,7 +181,11 @@
         "thumbSrcAttr": "data-src",
         "cdnPathRegex": "(?:https?:)?//([^/]+)/(.+?)/\\d+t\\.(?:jpg|webp)",
         "pageCountSelector": "#load_pages",
-        "readerPageUrlPattern": "/view/{id}/1/"
+        "readerPageUrlPattern": "/g/{id}/1/",
+        "readerImageSelector": "#readerImg",
+        "readerImageAttr": "src",
+        "readerPageCountSelector": "#readerApp",
+        "readerPageCountAttr": "data-reader-total"
       }
     }
   },
@@ -205,7 +220,15 @@
             "value": "popular"
           }
         ]
+      },
+      "genre": {
+        "queryParam": "genre",
+        "type": "tag",
+        "urlPattern": "genreSearch",
+        "label": "Category",
+        "placeholder": "Category path (manga, doujinshi, western...)"
       }
     }
-  }
+  },
+  "notes": "Rebuilt 2026-11-23 for the site redesign (hr-home-card/hr-gallery-card markup, #readerImg + #readerApp[data-reader-total] reader, genre/tag searchForm category-path routing via type:tag field). Live-verified: home/search/category/tag lists + pagination (?page=N), gallery detail fields, /g/ reader pages JSON, /category/manga|doujinshi|western/ 200. Sort select appends ?sort= (site-native sort is path-based: /category/manga/popular/) so sort effect is unverified — left as-is."
 }
