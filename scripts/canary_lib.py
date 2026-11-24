@@ -21,7 +21,6 @@ Refs #62, #64.
 """
 
 import glob
-import gzip
 import html as html_mod
 import json
 import os
@@ -43,6 +42,16 @@ DEFAULT_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
 SEARCH_QUERIES = (
     "love", "manga", "comic", "girl", "magic", "school", "dragon", "star",
 )
+ALLOWED_SCHEMES = ("http", "https")
+MAX_ATTEMPTS = 3
+MAX_REDIRECTS = 5
+MAX_BACKOFF_SECONDS = 10.0
+MAX_TIMEOUT_SECONDS = 60.0
+MAX_RESPONSE_BYTES = 5 * 1024 * 1024  # 5 MiB cap for HTML/JSON bodies
+MAX_ERROR_BYTES = 64 * 1024           # 64 KiB cap for HTTP error bodies
+MAX_IMAGE_PROBE_BYTES = 4096          # 4 KiB cap for image Range probes
+MAX_DOM_DEPTH = 128
+MAX_DOM_NODES = 50000
 
 
 # ---------------------------------------------------------------------------
@@ -255,20 +264,58 @@ def headers_for(cfg, referer=None):
     return headers
 
 
-def http_get(url, headers=None, timeout=20, attempts=2, backoff=2.0):
-    """GET with tiny retry (429/5xx/network) and identity encoding."""
+class _SafeRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Redirect handler with strict hop cap and http/https-only scheme guard."""
+
+    max_redirections = MAX_REDIRECTS
+    max_repeats = 2
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        scheme = urllib.parse.urlparse(newurl).scheme.lower()
+        if scheme not in ALLOWED_SCHEMES:
+            raise urllib.error.URLError(
+                "disallowed redirect scheme: %r" % (scheme,))
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+_OPENER = urllib.request.build_opener(_SafeRedirectHandler())
+
+
+def _decompress_bounded(raw, encoding, max_bytes):
+    """Decompress gzip/deflate safely with an output cap (anti zip-bomb)."""
+    if "gzip" in encoding:
+        decomp = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        return decomp.decompress(raw, max_bytes)
+    if "deflate" in encoding:
+        try:
+            decomp = zlib.decompressobj(zlib.MAX_WBITS)
+            return decomp.decompress(raw, max_bytes)
+        except zlib.error:
+            decomp = zlib.decompressobj(-zlib.MAX_WBITS)
+            return decomp.decompress(raw, max_bytes)
+    return raw[:max_bytes]
+
+
+def http_get(url, headers=None, timeout=20, attempts=2, backoff=2.0,
+             max_bytes=MAX_RESPONSE_BYTES):
+    """GET with bounded retries, redirects, timeout, and response size."""
+    scheme = urllib.parse.urlparse(url or "").scheme.lower()
+    if scheme not in ALLOWED_SCHEMES:
+        return Fetch(url=url or "",
+                     error="disallowed URL scheme: %r" % (scheme,))
+    attempts = max(1, min(int(attempts), MAX_ATTEMPTS))
+    timeout = max(1.0, min(float(timeout), MAX_TIMEOUT_SECONDS))
+    max_bytes = max(1, min(int(max_bytes), MAX_RESPONSE_BYTES))
     last = Fetch(url=url)
     for attempt in range(1, attempts + 1):
         started = time.time()
         req = urllib.request.Request(url, headers=headers or {})
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                raw = resp.read()
+            with _OPENER.open(req, timeout=timeout) as resp:
+                raw = resp.read(max_bytes)
                 encoding = (resp.headers.get("Content-Encoding") or "").lower()
-                if "gzip" in encoding:
-                    raw = gzip.decompress(raw)
-                elif "deflate" in encoding:
-                    raw = zlib.decompress(raw)
+                if "gzip" in encoding or "deflate" in encoding:
+                    raw = _decompress_bounded(raw, encoding, max_bytes)
                 return Fetch(status=resp.status, body=raw,
                              url=resp.geturl(),
                              headers=dict(resp.headers.items()),
@@ -276,31 +323,37 @@ def http_get(url, headers=None, timeout=20, attempts=2, backoff=2.0):
         except urllib.error.HTTPError as exc:
             body = b""
             try:
-                body = exc.read()
+                body = exc.read(MAX_ERROR_BYTES)
             except Exception:
                 pass
+            finally:
+                try:
+                    exc.close()
+                except Exception:
+                    pass
             last = Fetch(status=exc.code, body=body, url=url,
                          error="HTTP %s" % exc.code,
                          headers=dict(exc.headers.items()) if exc.headers else {},
                          elapsed=time.time() - started)
             retryable = exc.code in (429, 500, 502, 503, 504)
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        except (urllib.error.URLError, TimeoutError, OSError,
+                zlib.error, EOFError) as exc:
             last = Fetch(url=url, error=str(getattr(exc, "reason", exc)),
                          elapsed=time.time() - started)
-            retryable = True
+            retryable = not isinstance(exc, (zlib.error, EOFError))
         if not retryable or attempt >= attempts:
             break
-        time.sleep(backoff * attempt)
+        time.sleep(min(backoff * attempt, MAX_BACKOFF_SECONDS))
     return last
 
 
 def head_image(url, headers=None, timeout=20):
-    """Check an image URL without downloading it (Range GET, HEAD fallback)."""
+    """Check an image URL without downloading it (bounded Range GET)."""
     hdrs = dict(headers or {})
     hdrs["Range"] = "bytes=0-1023"
     hdrs.setdefault("Accept", "image/avif,image/webp,image/*,*/*;q=0.8")
-    fetched = http_get(url, hdrs, timeout=timeout, attempts=1)
-    return fetched
+    return http_get(url, hdrs, timeout=timeout, attempts=1,
+                    max_bytes=MAX_IMAGE_PROBE_BYTES)
 
 
 # ---------------------------------------------------------------------------
@@ -323,24 +376,21 @@ class Node:
         self.text_parts = []
 
     def text(self):
-        parts = list(self.text_parts)
-        for child in self.children:
-            parts.append(child.text())
+        parts = []
+        for node in self.iter():
+            parts.extend(node.text_parts)
         return html_mod.unescape(" ".join(p for p in parts if p))
-
-    def raw_text(self):
-        parts = list(self.text_parts)
-        for child in self.children:
-            parts.append(child.raw_text())
-        return " ".join(p for p in parts if p)
 
     def classes(self):
         return set((self.attrs.get("class") or "").split())
 
     def iter(self):
-        yield self
-        for child in self.children:
-            yield from child.iter()
+        stack = [self]
+        while stack:
+            node = stack.pop()
+            yield node
+            if node.children:
+                stack.extend(reversed(node.children))
 
 
 class _Builder(HTMLParser):
@@ -348,20 +398,27 @@ class _Builder(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.root = Node("#document")
         self.stack = [self.root]
+        self.node_count = 1
 
     def handle_starttag(self, tag, attrs):
+        if self.node_count >= MAX_DOM_NODES:
+            return
         tag = tag.lower()
         node = Node(tag, {k.lower(): (v if v is not None else "")
                           for k, v in attrs}, self.stack[-1])
         self.stack[-1].children.append(node)
-        if tag not in VOID_TAGS:
+        self.node_count += 1
+        if tag not in VOID_TAGS and len(self.stack) < MAX_DOM_DEPTH:
             self.stack.append(node)
 
     def handle_startendtag(self, tag, attrs):
+        if self.node_count >= MAX_DOM_NODES:
+            return
         tag = tag.lower()
         node = Node(tag, {k.lower(): (v if v is not None else "")
                           for k, v in attrs}, self.stack[-1])
         self.stack[-1].children.append(node)
+        self.node_count += 1
 
     def handle_endtag(self, tag):
         tag = tag.lower()
@@ -501,9 +558,9 @@ def _parse_compound(compound):
             if name == "not" and arg:
                 checks.append(("not", _parse_compound(arg.strip())))
             elif name == "first-child":
-                checks.append(("nth", (0, 1)))
+                checks.append(("nth", (0, 0)))
             elif name == "last-child":
-                checks.append(("nth-last", (0, 1)))
+                checks.append(("nth-last", (0, 0)))
             elif name == "nth-child" and arg:
                 checks.append(("nth", _nth(arg)))
             elif name == "contains" and arg:
@@ -520,12 +577,12 @@ def _parse_compound(compound):
 def _nth(arg):
     arg = arg.strip().lower()
     if arg == "odd":
-        return (1, 2)
-    if arg == "even":
         return (0, 2)
+    if arg == "even":
+        return (1, 2)
     m = re.match(r"^(-?\d+)$", arg)
     if m:
-        return (int(m.group(1)) - 1, 1)
+        return (int(m.group(1)) - 1, 0)
     return (0, 1)
 
 
@@ -568,7 +625,10 @@ def _matches(node, checks):
             if kind == "nth-last":
                 idx = len(siblings) - 1 - idx
             offset, step = value
-            if idx < offset or (idx - offset) % step:
+            if step == 0:
+                if idx != offset:
+                    return False
+            elif idx < offset or (idx - offset) % step:
                 return False
         if kind == "contains" and value and value.lower() not in node.text().lower():
             return False
@@ -676,9 +736,7 @@ def field_value(node, spec):
 
 def slugify(value):
     """Reduce an href/path to the engine's `transform: slug` last segment."""
-    value = (value or "").split("#", 1)[0].split("?", 1)[0].strip()
-    while value.endswith("/"):
-        value = value[:-1]
+    value = (value or "").split("#", 1)[0].split("?", 1)[0].strip().rstrip("/")
     if "/" in value:
         value = value.rsplit("/", 1)[-1]
     return value
@@ -699,26 +757,6 @@ def extract_first_item(html_text, list_block):
         "id": field_value(nodes[0], fields.get("id") or {}),
         "coverUrl": field_value(nodes[0], fields.get("coverUrl") or {}),
     }
-
-
-def extract_images(html_text, reader, selector=None, attribute=None):
-    if not html_text:
-        return []
-    root = parse_html(html_text)
-    selector = selector or (reader or {}).get("imageSelector") \
-        or ((reader or {}).get("images") or {}).get("selector") \
-        or (reader or {}).get("readerImageSelector") \
-        or (reader or {}).get("thumbSelector") or ""
-    attribute = attribute or (reader or {}).get("readerImageAttr") \
-        or ((reader or {}).get("images") or {}).get("attribute") \
-        or (reader or {}).get("thumbSrcAttr") or "src"
-    urls = []
-    for node in select(root, selector):
-        value = node.attrs.get(attribute) or node.attrs.get("src") \
-            or node.attrs.get("data-src") or ""
-        if value:
-            urls.append(value)
-    return urls
 
 
 # ---------------------------------------------------------------------------
@@ -781,10 +819,3 @@ def jitter_delay(delay, jitter, rng=None):
 def polite_sleep(seconds):
     if seconds > 0:
         time.sleep(seconds)
-
-
-def url_host(url):
-    try:
-        return urllib.parse.urlparse(url).netloc.lower()
-    except ValueError:
-        return ""

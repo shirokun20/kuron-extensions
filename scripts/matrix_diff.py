@@ -41,8 +41,12 @@ ACK_MARKERS = ("live", "issue #", "regress", "turun", "degrad", "downgrade",
                "verified", "re-verify", "reverify", "perbaikan", "fixed")
 
 
+GIT_TIMEOUT_SECONDS = 30
+
+
 def git(*args):
-    return subprocess.run(("git",) + args, cwd=ROOT, capture_output=True)
+    return subprocess.run(("git",) + args, cwd=ROOT, capture_output=True,
+                          timeout=GIT_TIMEOUT_SECONDS)
 
 
 def read_at(ref, path):
@@ -79,7 +83,7 @@ def status_symbol(rank):
     return "?"
 
 
-def split_row(line):
+def split_row(line, ncols=10):
     """Split one matrix row; extra `|` characters belong to the Note cell."""
     parts = line.rstrip("\n").split("|")
     if parts and not parts[0].strip():
@@ -89,9 +93,9 @@ def split_row(line):
     if len(parts) < 3:
         return None
     number, path, rest = parts[0], parts[1], parts[2:]
-    # 10 status columns, everything after them is the free-text Note
-    statuses = rest[:10]
-    note = "|".join(rest[10:]).replace("\\|", "|")
+    # status columns, everything after them is the free-text Note
+    statuses = rest[:ncols]
+    note = "|".join(rest[ncols:]).replace("\\|", "|")
     match = re.search(r"`([^`]+-config\.json)`", path)
     config_path = match.group(1) if match else path.split("<br>")[0].strip()
     return {
@@ -114,6 +118,7 @@ def parse_matrix(text):
                 inner = inner[:-3].strip()
             columns = [c.strip() for c in inner.split("|") if c.strip()]
             break
+    ncols = len(columns) or 10
     rows = {}
     in_table = False
     for line in text.splitlines():
@@ -126,7 +131,7 @@ def parse_matrix(text):
             continue
         if not in_table or not re.match(r"^\|\s*\d+\s*\|", line):
             continue
-        row = split_row(line)
+        row = split_row(line, ncols=ncols)
         if row is None:
             continue
         rows[row["config"]] = row
@@ -186,11 +191,12 @@ def main(argv=None):
     args = parse_args(argv)
     allowed = set(args.allow or [])
 
-    if git("rev-parse", "--verify", args.base).returncode != 0:
+    if args.base.startswith("-") or git("rev-parse", "--verify", args.base).returncode != 0:
         print("ERROR: base ref %r not found (fetch it first, e.g. "
               "`git fetch origin`)" % args.base, file=sys.stderr)
         return 2
-    if args.head and git("rev-parse", "--verify", args.head).returncode != 0:
+    if args.head and (args.head.startswith("-")
+                      or git("rev-parse", "--verify", args.head).returncode != 0):
         print("ERROR: head ref %r not found" % args.head, file=sys.stderr)
         return 2
 

@@ -13,6 +13,7 @@ Covers the parts that are easy to break while editing the tooling:
   * route URL building for HTML and REST configs
 """
 
+import gzip
 import json
 import os
 import sys
@@ -23,6 +24,8 @@ if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
 import canary_lib as lib  # noqa: E402
+import canary_probe  # noqa: E402
+import canary_smoke_runner  # noqa: E402
 import matrix_diff  # noqa: E402
 import validate_schema  # noqa: E402
 
@@ -68,6 +71,18 @@ class SelectorTest(unittest.TestCase):
         root = lib.parse_html(HTML)
         self.assertEqual(len(lib.select(root, ".bs:nth-child(2)")), 1)
         self.assertEqual(len(lib.select(root, ".bsx:not(.missing)")), 2)
+        three = lib.parse_html("<ul><li>a</li><li>b</li><li>c</li><li>d</li></ul>")
+        self.assertEqual([n.text() for n in lib.select(three, "li:first-child")], ["a"])
+        self.assertEqual([n.text() for n in lib.select(three, "li:last-child")], ["d"])
+        self.assertEqual([n.text() for n in lib.select(three, "li:nth-child(2)")], ["b"])
+        self.assertEqual([n.text() for n in lib.select(three, "li:nth-child(odd)")], ["a", "c"])
+        self.assertEqual([n.text() for n in lib.select(three, "li:nth-child(even)")], ["b", "d"])
+
+    def test_deep_dom_no_recursion_error(self):
+        deep = "<div>" * 400 + "<p>leaf</p>" + "</div>" * 400
+        root = lib.parse_html(deep)
+        self.assertEqual(len(lib.select(root, "p")), 1)
+        self.assertEqual(root.text().strip(), "leaf")
 
 
 class SchemaTest(unittest.TestCase):
@@ -130,6 +145,13 @@ class SchemaTest(unittest.TestCase):
         for _bucket, rel, cfg in rows:
             errors = list(self.validator.iter_errors(cfg))
             self.assertEqual(errors, [], "%s: %s" % (rel, errors[:2]))
+
+    def test_cyclic_ref_bounded(self):
+        cyclic = {"$defs": {"loop": {"$ref": "#/$defs/loop"}},
+                  "$ref": "#/$defs/loop"}
+        errors = list(validate_schema.LocalValidator(cyclic).iter_errors({}))
+        self.assertTrue(errors)
+        self.assertIn("depth exceeded", errors[0])
 
 
 class MatrixTest(unittest.TestCase):
@@ -200,6 +222,44 @@ class TargetTest(unittest.TestCase):
         }
         self.assertEqual(lib.home_target(cfg),
                          ("api", "https://demo.test/api/catalog?page=1"))
+
+
+class HardeningTest(unittest.TestCase):
+    def test_http_get_rejects_non_http_scheme(self):
+        fetched = lib.http_get("file:///etc/hosts", timeout=1, attempts=1)
+        self.assertIsNone(fetched.status)
+        self.assertIn("disallowed URL scheme", fetched.error or "")
+
+    def test_decompress_bounded_caps_gzip_bomb(self):
+        compressed = gzip.compress(b"A" * 100000)
+        out = lib._decompress_bounded(compressed, "gzip", max_bytes=1024)
+        self.assertEqual(len(out), 1024)
+
+    def test_default_baseline_is_relative(self):
+        self.assertFalse(os.path.isabs(canary_probe.DEFAULT_BASELINE))
+
+    def test_smoke_search_does_not_retry_on_http_403(self):
+        class FakeFetcher:
+            from_dir = None
+            calls = 0
+
+            def get(self, source, route, url, headers, kind="html"):
+                self.calls += 1
+                return lib.Fetch(status=403, url=url, error="HTTP 403")
+
+        cfg = {
+            "source": "demo", "baseUrl": "https://demo.test",
+            "features": {"search": True},
+            "scraper": {"enabled": True,
+                        "urlPatterns": {"search": {"url": "/?s={query}"}},
+                        "selectors": {"list": {"container": ".item"}}},
+        }
+        fetcher = FakeFetcher()
+        entry = canary_smoke_runner.run_source(
+            "en", "config/en/demo-config.json", cfg, fetcher,
+            ["search"], "love", dry_run=False)
+        self.assertEqual(entry["routes"]["search"]["status"], "fail")
+        self.assertEqual(fetcher.calls, 1)
 
 
 if __name__ == "__main__":

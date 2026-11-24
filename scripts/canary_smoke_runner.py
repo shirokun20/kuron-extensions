@@ -58,11 +58,6 @@ def resolve_pattern_entry(cfg, name):
     return None
 
 
-def resolve_list_block(cfg, name, depth=0):
-    """Resolve the list block for a named HTML route (see canary_lib)."""
-    return lib.resolve_list_block(cfg, name, depth)
-
-
 def detail_chapters_block(cfg):
     detail = ((cfg.get("scraper") or {}).get("selectors") or {}).get("detail") or {}
     return detail.get("chapters") or {}
@@ -113,8 +108,16 @@ class Fetcher:
         self.calls = 0
 
     def _snapshot_path(self, source, route, suffix):
-        directory = os.path.join(self.from_dir or self.save_dir, source)
+        safe_source = os.path.basename(str(source or "unknown"))
+        if safe_source in ("", ".", ".."):
+            safe_source = "unknown"
+        directory = os.path.join(self.from_dir or self.save_dir, safe_source)
         return os.path.join(directory, "%s.%s" % (route, suffix))
+
+    def _pace(self):
+        if self.calls:
+            lib.polite_sleep(lib.jitter_delay(self.delay, self.jitter, self.rng))
+        self.calls += 1
 
     def get(self, source, route, url, headers, kind="html"):
         if self.from_dir:
@@ -126,9 +129,7 @@ class Fetcher:
                 return lib.Fetch(status=200, body=body, url=url)
             except OSError as exc:
                 return lib.Fetch(url=url, error="snapshot missing: %s" % exc)
-        if self.calls:
-            lib.polite_sleep(lib.jitter_delay(self.delay, self.jitter, self.rng))
-        self.calls += 1
+        self._pace()
         fetched = lib.http_get(url, headers, timeout=self.timeout, attempts=2)
         if self.save_dir and fetched.status:
             suffix = "json" if kind == "api" else "html"
@@ -143,6 +144,7 @@ class Fetcher:
             return lib.Fetch(status=200, url=url,
                              headers={"Content-Type": "image/snapshot"},
                              error="snapshot replay: image not re-fetched")
+        self._pace()
         return lib.head_image(url, headers, timeout=self.timeout)
 
 
@@ -207,7 +209,7 @@ def check_home(cfg, fetcher):
         result["status"] = "pass"
         result["sample"] = {"id": sample_id}
         return result, sample_id
-    list_block = resolve_list_block(cfg, "home")
+    list_block = lib.resolve_list_block(cfg, "home")
     if not list_block or not list_block.get("container"):
         result["status"] = "fail"
         result["reasons"].append("config has no home list container")
@@ -267,7 +269,7 @@ def check_search(cfg, fetcher, query):
             return result
         result["status"] = "pass"
         return result
-    list_block = resolve_list_block(cfg, "search")
+    list_block = lib.resolve_list_block(cfg, "search")
     if not list_block or not list_block.get("container"):
         result["status"] = "fail"
         result["reasons"].append("config has no search list container")
@@ -576,7 +578,12 @@ def run_source(bucket, rel, cfg, fetcher, routes, query, dry_run):
     search_sources = list(lib.search_queries())[:2] + [query]
     if "search" in routes:
         search_result = check_search(cfg, fetcher, query)
-        if search_result["status"] == "fail":
+        # Only try fallback queries when upstream returned 200 with 0 results
+        # (never hammer a 403/5xx/unreachable host with extra queries).
+        if (search_result["status"] == "fail"
+                and not fetcher.from_dir
+                and search_result.get("status_code") == 200
+                and search_result.get("item_count") == 0):
             for alt in search_sources:
                 if alt == query:
                     continue
@@ -684,6 +691,12 @@ def main(argv=None):
         parser.error("unknown route(s): %s" % ", ".join(bad))
     if args.sample < 0:
         parser.error("--sample must be >= 0")
+    if not (0 < args.timeout <= lib.MAX_TIMEOUT_SECONDS):
+        parser.error("--timeout must be in (0, %g]" % lib.MAX_TIMEOUT_SECONDS)
+    if args.delay < 0:
+        parser.error("--delay must be >= 0")
+    if not (0.0 <= args.jitter <= 1.0):
+        parser.error("--jitter must be in [0, 1]")
 
     rows, suite = select_sources(args)
     if not rows:

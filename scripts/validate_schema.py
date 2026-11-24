@@ -56,11 +56,14 @@ class LocalValidator:
     minItems, maxItems, uniqueItems, allOf, anyOf, oneOf, not.
     """
 
+    MAX_DEPTH = 64
+
     def __init__(self, schema):
         self.root = schema
 
     def iter_errors(self, instance, schema=None):
-        yield from self._validate(instance, self.root if schema is None else schema, "")
+        yield from self._validate(
+            instance, self.root if schema is None else schema, "", depth=0)
 
     def _resolve(self, ref):
         if not ref.startswith("#/"):
@@ -71,14 +74,19 @@ class LocalValidator:
             node = node[part]
         return node
 
-    def _validate(self, inst, schema, path):
+    def _validate(self, inst, schema, path, depth=0):
+        if depth > self.MAX_DEPTH:
+            yield "%s: schema nesting/ref depth exceeded (%d)" % (
+                path or "/", self.MAX_DEPTH)
+            return
         if schema is True:
             return
         if schema is False:
             yield "%s: schema is false (no value allowed)" % (path or "/")
             return
         if "$ref" in schema:
-            yield from self._validate(inst, self._resolve(schema["$ref"]), path)
+            yield from self._validate(
+                inst, self._resolve(schema["$ref"]), path, depth + 1)
             return
 
         where = path or "/"
@@ -131,7 +139,8 @@ class LocalValidator:
             items = schema.get("items")
             if isinstance(items, dict):
                 for idx, item in enumerate(inst):
-                    yield from self._validate(item, items, "%s[%d]" % (path, idx))
+                    yield from self._validate(
+                        item, items, "%s[%d]" % (path, idx), depth + 1)
 
         if isinstance(inst, dict):
             for key in schema.get("required", []):
@@ -145,20 +154,20 @@ class LocalValidator:
                 matched = False
                 if key in props:
                     matched = True
-                    yield from self._validate(value, props[key], child)
+                    yield from self._validate(value, props[key], child, depth + 1)
                 for pattern, sub in patterns.items():
                     if re.search(pattern, key):
                         matched = True
-                        yield from self._validate(value, sub, child)
+                        yield from self._validate(value, sub, child, depth + 1)
                 if matched:
                     continue
                 if extra is False:
                     yield "%s: unexpected property %r" % (where, key)
                 elif isinstance(extra, dict):
-                    yield from self._validate(value, extra, child)
+                    yield from self._validate(value, extra, child, depth + 1)
 
         for sub in schema.get("allOf", []):
-            yield from self._validate(inst, sub, path)
+            yield from self._validate(inst, sub, path, depth + 1)
 
         keyword = "anyOf" if "anyOf" in schema else (
             "oneOf" if "oneOf" in schema else None)
@@ -167,7 +176,7 @@ class LocalValidator:
             failures = []
             matched = 0
             for branch in branches:
-                errs = list(self._validate(inst, branch, path))
+                errs = list(self._validate(inst, branch, path, depth + 1))
                 if errs:
                     failures.append(errs)
                 else:
@@ -181,7 +190,7 @@ class LocalValidator:
                     where, matched)
 
         if "not" in schema:
-            if not list(self._validate(inst, schema["not"], path)):
+            if not list(self._validate(inst, schema["not"], path, depth + 1)):
                 yield "%s: matches forbidden `not` schema" % where
 
 
@@ -275,6 +284,8 @@ def main(argv=None):
     parser.add_argument("--max-errors", type=int, default=50,
                         help="cap error lines per file (default: %(default)s)")
     args = parser.parse_args(argv)
+    if args.max_errors < 1:
+        parser.error("--max-errors must be >= 1")
 
     try:
         schema = load_schema(args.schema)

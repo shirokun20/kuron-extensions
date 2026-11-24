@@ -37,12 +37,13 @@ import argparse
 import hashlib
 import json
 import os
+import random
 import sys
 from datetime import datetime, timezone
 
 import canary_lib as lib
 
-DEFAULT_BASELINE = os.path.join(lib.ROOT, ".canary", "baseline.json")
+DEFAULT_BASELINE = os.path.join(".canary", "baseline.json")
 ROUTES = ("home", "search")
 
 
@@ -50,9 +51,9 @@ ROUTES = ("home", "search")
 # probing
 # ---------------------------------------------------------------------------
 
-def probe_route(cfg, route, query, fetcher_cfg):
+def probe_route(cfg, route, query, fetcher_cfg, rate_limit=None):
     """Return a probe record for one route; never raises on network errors."""
-    record = {"route": route, "status": None, "item_count": None,
+    record = {"route": route, "status_code": None, "item_count": None,
               "error": None, "url": None, "engine": None}
     features = cfg.get("features") or {}
     if route == "home":
@@ -79,6 +80,8 @@ def probe_route(cfg, route, query, fetcher_cfg):
         record["skipped"] = True
         record["error"] = "dry-run"
         return record
+    if rate_limit is not None:
+        rate_limit()
     fetched = lib.http_get(url, lib.headers_for(cfg),
                            timeout=fetcher_cfg["timeout"], attempts=2)
     record["status_code"] = fetched.status
@@ -264,6 +267,16 @@ def main(argv=None):
                         help="print planned probes without network calls")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args(argv)
+    if args.sample < 0:
+        parser.error("--sample must be >= 0")
+    if not (0 < args.timeout <= lib.MAX_TIMEOUT_SECONDS):
+        parser.error("--timeout must be in (0, %g]" % lib.MAX_TIMEOUT_SECONDS)
+    if args.delay < 0:
+        parser.error("--delay must be >= 0")
+    if not (0.0 <= args.jitter <= 1.0):
+        parser.error("--jitter must be in [0, 1]")
+    if not (0.0 < args.drop_threshold <= 1.0):
+        parser.error("--drop-threshold must be in (0, 1]")
 
     rows = lib.load_configs(bucket=args.bucket)
     if args.source:
@@ -271,7 +284,6 @@ def main(argv=None):
         rows = [r for r in rows if r[2].get("source") in wanted]
     rows.sort(key=lambda r: r[1])
     if args.sample:
-        import random
         rng = random.Random(args.seed)
         rows = sorted(rng.sample(rows, min(args.sample, len(rows))),
                       key=lambda r: r[1])
@@ -290,9 +302,15 @@ def main(argv=None):
                    "info": 0, "skipped": 0},
         "sources": [],
     }
-    rng = __import__("random").Random(args.seed)
+    rng = random.Random(args.seed)
     fetcher_cfg = {"timeout": args.timeout, "dry_run": args.dry_run}
-    probed_any = False
+    probed_any = [False]
+
+    def pace():
+        if probed_any[0]:
+            lib.polite_sleep(lib.jitter_delay(args.delay, args.jitter, rng))
+        probed_any[0] = True
+
     for bucket, rel, cfg in rows:
         source = cfg.get("source")
         query = lib.search_queries()[
@@ -316,10 +334,8 @@ def main(argv=None):
                     "engine": kind if isinstance(kind, str) else None,
                     "skipped": True, "error": "dry-run"}
                 continue
-            if probed_any:
-                lib.polite_sleep(lib.jitter_delay(args.delay, args.jitter, rng))
-            probed_any = True
-            entry["routes"][route] = probe_route(cfg, route, query, fetcher_cfg)
+            entry["routes"][route] = probe_route(
+                cfg, route, query, fetcher_cfg, rate_limit=pace)
             if args.verbose:
                 record = entry["routes"][route]
                 print("  %-7s %s %s items=%s" % (
