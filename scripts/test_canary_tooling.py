@@ -17,7 +17,9 @@ import gzip
 import json
 import os
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 if HERE not in sys.path:
@@ -26,6 +28,7 @@ if HERE not in sys.path:
 import canary_lib as lib  # noqa: E402
 import canary_probe  # noqa: E402
 import canary_smoke_runner  # noqa: E402
+import generate_support_table  # noqa: E402
 import matrix_diff  # noqa: E402
 import validate_schema  # noqa: E402
 
@@ -194,6 +197,34 @@ class MatrixTest(unittest.TestCase):
                             matrix_diff.status_rank(old))
         self.assertEqual(
             matrix_diff.status_rank("⚠️ `/page/{page}` (next-only)"), 2)
+
+    def test_support_table_check_sync_allows_absent_gitignored_skill(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            agents = os.path.join(tmp, "AGENTS.md")
+            skill = os.path.join(tmp, "SKILL.md")
+            with open(agents, "w", encoding="utf-8") as fh:
+                fh.write("# rules\n%s\n" % generate_support_table.MARKER)
+            # Clean CI checkout: gitignored SKILL.md is absent, AGENTS.md valid.
+            with mock.patch.object(generate_support_table, "AGENTS", agents), \
+                    mock.patch.object(generate_support_table, "SKILL", skill):
+                self.assertEqual(generate_support_table.check_sync(), [])
+                # Present SKILL.md with missing/stale marker must still fail.
+                with open(skill, "w", encoding="utf-8") as fh:
+                    fh.write("# skill without marker\n")
+                problems = generate_support_table.check_sync()
+                self.assertEqual(len(problems), 1)
+                self.assertIn("SKILL.md", problems[0])
+                # Present SKILL.md with valid marker passes.
+                with open(skill, "w", encoding="utf-8") as fh:
+                    fh.write("# skill\n%s\n" % generate_support_table.MARKER)
+                self.assertEqual(generate_support_table.check_sync(), [])
+            # Missing tracked AGENTS.md must always fail.
+            missing_agents = os.path.join(tmp, "MISSING_AGENTS.md")
+            with mock.patch.object(generate_support_table, "AGENTS", missing_agents), \
+                    mock.patch.object(generate_support_table, "SKILL", skill):
+                problems = generate_support_table.check_sync()
+                self.assertEqual(len(problems), 1)
+                self.assertIn("MISSING_AGENTS.md", problems[0])
 
 
 class TargetTest(unittest.TestCase):

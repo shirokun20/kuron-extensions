@@ -8,9 +8,10 @@ Status legend:
   🚫 claimed   - config MENYATAKAN bisa (features.X=true) tapi deklarasinya tidak ada
                  (atau live: situsnya tidak punya fitur itu sama sekali)
 
-Sync: urutan kolom di sini WAJIB sama dengan skill `kuron-config-verify` dan
-AGENTS.md. Keduanya membawa marker `<!-- matrix-columns: ... -->` yang dicek
-tiap run - kalau beda, exit 1.
+Sync: urutan kolom di sini WAJIB sama dengan AGENTS.md (wajib) dan skill
+`kuron-config-verify` (bila hadir di workspace lokal; `.agents/` gitignored).
+Keduanya membawa marker `<!-- matrix-columns: ... -->` yang dicek tiap run -
+kalau beda, exit 1.
 
 Usage:
   python3 scripts/generate_support_table.py          # tulis SUPPORT-CONFIG.md
@@ -77,7 +78,12 @@ def read_marker(path):
 
 def check_sync():
     problems = []
-    for path in (SKILL, AGENTS):
+    # AGENTS.md ter-track di git dan selalu wajib cocok.
+    # .agents/* gitignored sehingga SKILL.md hanya ada di workspace lokal
+    # (absen di clean CI checkout); tetap dicek penuh bila filenya ada.
+    for path, required in ((AGENTS, True), (SKILL, False)):
+        if not required and not os.path.lexists(path):
+            continue
         got = read_marker(path)
         if got != MARKER:
             problems.append(
@@ -824,7 +830,8 @@ def main():
             print("SUPPORT-CONFIG.md stale - jalankan scripts/generate_support_table.py")
             print("(baris/row bertanda `live` dikecualikan: itu hasil verifikasi manual)")
             sys.exit(1)
-        print("SUPPORT-CONFIG.md up to date + sync skill/AGENTS OK")
+        checked = "skill/AGENTS" if os.path.lexists(SKILL) else "AGENTS"
+        print("SUPPORT-CONFIG.md up to date + sync %s OK" % checked)
         return
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write(content)
