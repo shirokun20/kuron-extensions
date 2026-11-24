@@ -91,15 +91,26 @@ class SchemaTest(unittest.TestCase):
     def test_minimal_config_valid(self):
         self.assertEqual(list(self.validator.iter_errors(self.base)), [])
 
-    def test_schema_version_optional_and_string(self):
-        for value in (None, "2.0", 2):
+    def test_schema_version_optional_v2_v3(self):
+        for value in (None, 2, "2.0", "2.1", 3, "3.0", "3.2"):
             cfg = dict(self.base)
             if value is not None:
                 cfg["schemaVersion"] = value
             self.assertEqual(list(self.validator.iter_errors(cfg)), [],
                              "schemaVersion=%r should pass" % (value,))
-        cfg = dict(self.base, schemaVersion="v2")
-        self.assertTrue(list(self.validator.iter_errors(cfg)))
+        for value in ("v2", "1.0", 1, 4):
+            cfg = dict(self.base, schemaVersion=value)
+            self.assertTrue(list(self.validator.iter_errors(cfg)),
+                            "schemaVersion=%r should fail" % (value,))
+
+    def test_ui_icon_fields(self):
+        for icon in ("ic_launcher", {"uri": "images/demo.png"}):
+            cfg = json.loads(json.dumps(self.base))
+            cfg["ui"].update({"iconPath": "images/demo.png",
+                              "iconUrl": "https://demo.test/icon.png",
+                              "icon": icon})
+            self.assertEqual(list(self.validator.iter_errors(cfg)), [],
+                             "icon=%r should pass" % (icon,))
 
     def test_typo_and_retired_keys_rejected(self):
         cfg = json.loads(json.dumps(self.base))

@@ -195,15 +195,16 @@
       "description": "Full MAJOR.MINOR.PATCH, no suffix (AGENTS.md rule 3)."
     },
     "schemaVersion": {
-      "description": "Legacy configs ship the string \"2.0\"; some omit the field entirely. Both are valid.",
+      "description": "v2/v3 schema family. Accepts integer 2 or 3, string \"2.0\"/\"3.0\" (or any 2.x/3.x string), and absence for legacy configs that predate the field. Refs #62: nhasixapp built-in nhentai-config.json moves to v3 plus an icon field.",
       "oneOf": [
         {
           "type": "string",
-          "pattern": "^\\d+\\.\\d+$"
+          "pattern": "^[23]\\.[0-9]+$"
         },
         {
           "type": "integer",
-          "minimum": 1
+          "minimum": 2,
+          "maximum": 3
         }
       ]
     },
@@ -239,7 +240,24 @@
           "type": "string"
         },
         "iconPath": {
-          "type": "string"
+          "type": "string",
+          "description": "Local asset path under images/ (kuron-extensions uses images/<id>.png)."
+        },
+        "icon": {
+          "description": "Icon shipped with a built-in/app-side source config; string name/URL or an inline icon object.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": true
+            }
+          ]
+        },
+        "iconUrl": {
+          "type": "string",
+          "description": "Remote icon URL used when the source has no bundled asset."
         },
         "cardStyle": {
           "type": "string"

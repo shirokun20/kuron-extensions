@@ -59,7 +59,10 @@ blocks (`scraper.urlPatterns`, `secondaryFetch`, `api`, `network`,
 `navigation`). `schemaVersion` accepts `"2.0"`, `2`, or absence. Closed maps
 (`features`, `fieldSpec`, `secondaryFetch`) reject misspelt/retired keys;
 unknown future blocks at the root are allowed so the schema does not block new
-engine surfaces.
+engine surfaces. Cross-repo coordination: `schemaVersion` accepts the v2 and
+v3 families (`2`, `"2.0"`, `3`, `"3.0"`, `2.x`/`3.x`, or absent on legacy
+configs) and `ui` formally accepts `iconPath`, `icon` (string or object) and
+`iconUrl` for built-in source configs such as nhasixapp's `nhentai`.
 
 **matrix_diff** – a status drop (`✅` → `⚠️`/`✖️`/`🚫`) fails unless the head
 row's Note changed and carries an explanation marker (`live`, `issue #`,
