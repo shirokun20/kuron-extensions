@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "suites": {
+    "refactor-24": {
+      "description": "24 sources rebuilt in sweep 0aafb98 (milftoon REST migration, hentairox/hentaienvy redesign, bypass-shield additions). Canary health suite required by issue #64.",
+      "commit": "0aafb98",
+      "sources": [
+        "allporncomicio",
+        "apcomicsorg",
+        "arenascancom",
+        "athreascanscom",
+        "bunmangacom",
+        "cocomicco",
+        "enthunderscanscom",
+        "evascansnet",
+        "gedecomixcom",
+        "hentai4freenet",
+        "hentaienvy",
+        "hentairox",
+        "kingofshojo",
+        "lagoonscans",
+        "lhtranslation",
+        "likemangain",
+        "mangacrazy",
+        "mangasushi",
+        "manhwanex",
+        "milftoon",
+        "scythescanscom",
+        "zazamangacom",
+        "manga18.club",
+        "vihentai"
+      ]
+    },
+    "core-smoke": {
+      "description": "Fast mixed-engine smoke set: HTML scraper, REST api, gallery reader and bypass-shield sources used by the local dry-run in the issue acceptance criteria.",
+      "sources": [
+        "hentairox",
+        "milftoon",
+        "arenascancom",
+        "komikcast",
+        "komiku",
+        "mangadex",
+        "hentaienvy",
+        "ehentai"
+      ]
+    }
+  }
+}

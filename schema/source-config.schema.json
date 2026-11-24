@@ -1,0 +1,937 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/shirokun20/kuron-extensions/main/schema/source-config.schema.json",
+  "title": "Kuron source config",
+  "description": "Formal shape of every config/<bucket>/<id>-config.json read by the Kuron GenericScraper / GenericRest adapters. Root-level blocks that the engine ignores (auth, hitomiProtocol, decryption, ...) are typed where known and allowed to grow; the structural blocks that drive parsing (scraper.urlPatterns, secondaryFetch, network, features) are closed so typos fail CI. Refs #62.",
+  "type": "object",
+  "required": [
+    "source",
+    "version",
+    "baseUrl",
+    "enabled",
+    "defaultLanguage",
+    "idType",
+    "ui",
+    "features"
+  ],
+  "properties": {
+    "source": {
+      "$ref": "#/$defs/sourceId"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "schemaVersion": {
+      "$ref": "#/$defs/schemaVersion"
+    },
+    "baseUrl": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$",
+      "description": "Canonical site origin (or REST API origin) the adapter prefixes routes with."
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "defaultLanguage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "idType": {
+      "type": "string",
+      "enum": [
+        "real",
+        "slug"
+      ],
+      "description": "real = machine id, slug = URL slug (conformance rule R7)."
+    },
+    "contentType": {
+      "type": "string",
+      "enum": [
+        "manga",
+        "doujinshi",
+        "cosplay"
+      ]
+    },
+    "contentIdPattern": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "configUrl": {
+      "type": "string"
+    },
+    "extends": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Pattern-bank preset name under presets/<name>.json (build_from_presets.py)."
+    },
+    "maintenance": {
+      "type": "boolean"
+    },
+    "maintenanceMessage": {
+      "type": "string"
+    },
+    "requiresSpecialAdapter": {
+      "type": "boolean"
+    },
+    "requiredPrimitives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "ui": {
+      "$ref": "#/$defs/ui"
+    },
+    "features": {
+      "$ref": "#/$defs/features"
+    },
+    "network": {
+      "$ref": "#/$defs/network"
+    },
+    "scraper": {
+      "$ref": "#/$defs/scraper"
+    },
+    "api": {
+      "$ref": "#/$defs/api"
+    },
+    "searchForm": {
+      "$ref": "#/$defs/searchForm"
+    },
+    "navigation": {
+      "$ref": "#/$defs/navigation"
+    },
+    "searchRules": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "adapterConfig": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "auth": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "decryption": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "hitomiProtocol": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "tagSource": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "featurePages": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "menuConfig": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "webviewSelectors": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "genreMapping": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "languageTagMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "description": "A config must declare at least one engine surface: HTML scraper, REST api, hitomi protocol or a special adapter.",
+      "anyOf": [
+        {
+          "required": [
+            "scraper"
+          ]
+        },
+        {
+          "required": [
+            "api"
+          ]
+        },
+        {
+          "required": [
+            "hitomiProtocol"
+          ]
+        },
+        {
+          "required": [
+            "adapterConfig"
+          ]
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "sourceId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$",
+      "description": "Stable source id; must equal the <id> in <id>-config.json and manifest.json."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Full MAJOR.MINOR.PATCH, no suffix (AGENTS.md rule 3)."
+    },
+    "schemaVersion": {
+      "description": "Legacy configs ship the string \"2.0\"; some omit the field entirely. Both are valid.",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        {
+          "type": "integer",
+          "minimum": 1
+        }
+      ]
+    },
+    "stringMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "ui": {
+      "type": "object",
+      "required": [
+        "displayName"
+      ],
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brandColor": {
+          "type": "string"
+        },
+        "themeColor": {
+          "type": "string"
+        },
+        "openInBrowserUrl": {
+          "type": "string"
+        },
+        "browseUrlTemplate": {
+          "type": "string"
+        },
+        "searchUrlTemplate": {
+          "type": "string"
+        },
+        "iconPath": {
+          "type": "string"
+        },
+        "cardStyle": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "features": {
+      "type": "object",
+      "description": "Capability flags consumed by the app shell. Closed so a misspelt flag fails CI instead of being silently ignored.",
+      "properties": {
+        "home": {
+          "type": "boolean"
+        },
+        "search": {
+          "type": "boolean"
+        },
+        "detail": {
+          "type": "boolean"
+        },
+        "chapters": {
+          "type": "boolean"
+        },
+        "reader": {
+          "type": "boolean"
+        },
+        "comments": {
+          "type": "boolean"
+        },
+        "related": {
+          "type": "boolean"
+        },
+        "download": {
+          "type": "boolean"
+        },
+        "favorite": {
+          "type": "boolean"
+        },
+        "bookmark": {
+          "type": "boolean"
+        },
+        "offlineMode": {
+          "type": "boolean"
+        },
+        "generatePdf": {
+          "type": "boolean"
+        },
+        "contentByTag": {
+          "type": "boolean"
+        },
+        "advancedSearch": {
+          "type": "boolean"
+        },
+        "dynamicForm": {
+          "type": "boolean"
+        },
+        "randomGallery": {
+          "type": "boolean"
+        },
+        "supportsAuth": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "requiresBypass": {
+          "type": "boolean",
+          "description": "Needs a lazy Cloudflare/WAF bypass before install (mirrored to manifest meta)."
+        },
+        "headers": {
+          "$ref": "#/$defs/stringMap"
+        },
+        "imageHeaders": {
+          "$ref": "#/$defs/stringMap"
+        },
+        "exBaseUrl": {
+          "type": "string"
+        },
+        "allowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detailTimeoutSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "initializationScript": {
+          "type": "string"
+        },
+        "rateLimit": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "requestsPerSecond": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "maxConcurrentRequests": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "cloudflare": {
+          "type": "object",
+          "properties": {
+            "bypassEnabled": {
+              "type": "boolean"
+            },
+            "antiDetection": {
+              "type": "boolean"
+            },
+            "turnstile": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "turnstile": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "auth": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "fieldSpec": {
+      "type": "object",
+      "description": "One entry of a `fields` map: how to pull a single value out of a card/detail node.",
+      "properties": {
+        "selector": {
+          "type": "string"
+        },
+        "attribute": {
+          "type": "string"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "transform": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "filenamePath": {
+          "type": "string"
+        },
+        "mangaIdPath": {
+          "type": "string"
+        },
+        "multi": {
+          "type": "boolean"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "extractTagObjects": {
+          "type": "boolean"
+        },
+        "parseTagNamespace": {
+          "type": "boolean"
+        },
+        "tagType": {
+          "type": "string"
+        },
+        "tagTypeMap": {
+          "$ref": "#/$defs/stringMap"
+        },
+        "composeWith": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "joiner": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        },
+        "fields": {
+          "$ref": "#/$defs/fieldMap"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fieldMap": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/fieldSpec"
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "prev": {
+          "type": "string"
+        },
+        "links": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "current": {
+          "type": "string"
+        },
+        "last": {
+          "type": "string"
+        },
+        "maxPages": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "secondaryFetch": {
+      "type": "object",
+      "description": "Second request that decodes a payload token (nextjs-adframe family). The adapter reads only the keys listed here; retired authoring keys (listKey/detailKey/readerKey/surfaces) are rejected by build_from_presets.py and by this schema.",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "tokenPattern": {
+          "type": "string"
+        },
+        "tokenRegex": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "secondaryUrlTemplate": {
+          "type": "string"
+        },
+        "referer": {
+          "type": "string"
+        },
+        "payloadPath": {
+          "type": "string"
+        },
+        "decodeKey": {
+          "type": "string"
+        },
+        "itemsPath": {
+          "type": "string"
+        },
+        "imagesPath": {
+          "type": "string"
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "itemFields": {
+          "$ref": "#/$defs/fieldMap"
+        },
+        "pagination": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "listBlock": {
+      "type": "object",
+      "properties": {
+        "container": {
+          "type": "string"
+        },
+        "item": {
+          "type": "string"
+        },
+        "fields": {
+          "$ref": "#/$defs/fieldMap"
+        },
+        "pagination": {
+          "$ref": "#/$defs/pagination"
+        },
+        "secondaryFetch": {
+          "$ref": "#/$defs/secondaryFetch"
+        },
+        "idFallbackSelectors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sectionFilter": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "urlPattern": {
+      "description": "Either a URL template string or an object; object form is required when a route carries its own list/selector overrides.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "required": [
+            "url"
+          ],
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "inherits": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "get",
+                "post",
+                "GET",
+                "POST"
+              ]
+            },
+            "form": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "nonce": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "tagTransform": {
+              "type": "string"
+            },
+            "list": {
+              "$ref": "#/$defs/listBlock"
+            },
+            "secondaryFetch": {
+              "$ref": "#/$defs/secondaryFetch"
+            },
+            "pageOverrides": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "paramSpec": {
+      "type": "object",
+      "properties": {
+        "queryParam": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "urlPattern": {
+          "type": "string"
+        },
+        "valuePrefix": {
+          "type": "string"
+        },
+        "joinMode": {
+          "type": "string"
+        },
+        "multiInput": {
+          "type": "boolean"
+        },
+        "quoteIfContainsSpace": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
+            ]
+          }
+        },
+        "ui": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "defaultValue": {},
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "searchForm": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "urlPattern": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/paramSpec"
+          }
+        },
+        "dataSources": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "scraper": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "randomUrl": {
+          "type": "string"
+        },
+        "urlPatterns": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/urlPattern"
+          }
+        },
+        "searchForm": {
+          "$ref": "#/$defs/searchForm"
+        },
+        "selectors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "routing": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "api": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string"
+        },
+        "endpoints": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "params": {
+                    "$ref": "#/$defs/stringMap"
+                  }
+                },
+                "additionalProperties": true
+              }
+            ]
+          }
+        },
+        "list": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "string"
+            },
+            "fields": {
+              "$ref": "#/$defs/fieldMap"
+            },
+            "pagination": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "detail": {
+          "type": "object",
+          "properties": {
+            "fields": {
+              "$ref": "#/$defs/fieldMap"
+            },
+            "chapters": {
+              "type": "object",
+              "properties": {
+                "endpoint": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "string"
+                },
+                "idJoiner": {
+                  "type": "string"
+                },
+                "composeIdWithContentId": {
+                  "type": "boolean"
+                },
+                "autoPaginate": {
+                  "type": "boolean"
+                },
+                "fields": {
+                  "$ref": "#/$defs/fieldMap"
+                },
+                "fallbackFields": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/fieldSpec"
+                      }
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": true
+            },
+            "tagRelations": {
+              "type": "object",
+              "properties": {
+                "mappings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sourcePath": {
+                        "type": "string"
+                      },
+                      "idPath": {
+                        "type": "string"
+                      },
+                      "namePath": {
+                        "type": "string"
+                      },
+                      "tagType": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "images": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string"
+            },
+            "items": {
+              "type": "string"
+            },
+            "attribute": {
+              "type": "string"
+            },
+            "template": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        },
+        "related": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "statistics": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "queryRules": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "genreQueryPrefix": {
+          "type": "string"
+        },
+        "tagQueryPrefix": {
+          "type": "string"
+        },
+        "genreTagType": {
+          "type": "string"
+        },
+        "tagQueryMapping": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "rawParam",
+                  "name"
+                ]
+              },
+              "param": {
+                "type": "string"
+              },
+              "transform": {
+                "type": "string"
+              },
+              "valueSource": {
+                "type": "string"
+              },
+              "valuePrefix": {
+                "type": "string"
+              },
+              "valueSuffix": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

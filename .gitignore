@@ -6,3 +6,5 @@ __pycache__/
 .agents/*
 /openspec/*
 .opencode/*
+# Canary probe baseline/report cache (CI restores it via actions/cache)
+.canary/

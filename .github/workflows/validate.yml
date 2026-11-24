@@ -1,0 +1,85 @@
+name: validate
+
+# PR gate for config changes (Refs #62):
+#   JSON Schema -> preset drift -> conformance -> manifest -> support matrix
+#   -> matrix regression diff (Refs #64)
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: config gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout (full history for matrix diff)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install schema validator dependency
+        run: python3 -m pip install --quiet "jsonschema==4.26.0"
+
+      - name: Python syntax check (scripts)
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Tooling self-tests (schema, selector engine, matrix parser)
+        run: python3 scripts/test_canary_tooling.py
+
+      - name: JSON Schema validation (config/*/*-config.json)
+        run: python3 scripts/validate_schema.py
+
+      - name: Preset drift (build_from_presets.py --check)
+        run: python3 scripts/build_from_presets.py --check
+
+      - name: Conformance gate (check_conformance.py)
+        run: python3 scripts/check_conformance.py
+
+      - name: Manifest sync (refresh_manifest.py --check)
+        run: python3 scripts/refresh_manifest.py --check
+
+      - name: Support matrix freshness (generate_support_table.py --check)
+        run: python3 scripts/generate_support_table.py --check
+
+      - name: Canary tooling dry-run (no network)
+        run: |
+          python3 scripts/canary_probe.py --dry-run --sample 3
+          python3 scripts/canary_smoke_runner.py --dry-run --sample 3
+
+      - name: Feature-matrix regression diff (matrix_diff.py)
+        env:
+          BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || (github.event_name == 'push' && github.event.before || 'origin/main') }}
+        run: |
+          set -euo pipefail
+          if [ "${BASE_REF}" = "0000000000000000000000000000000000000000" ]; then
+            BASE_REF="origin/main"
+          fi
+          case "${BASE_REF}" in
+            origin/*)
+              git fetch --no-tags origin \
+                "+refs/heads/${BASE_REF#origin/}:refs/remotes/${BASE_REF}" || true
+              ;;
+          esac
+          if ! git rev-parse --verify --quiet "${BASE_REF}" >/dev/null; then
+            echo "base ${BASE_REF} unavailable, falling back to origin/main"
+            BASE_REF="origin/main"
+            git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main" || true
+          fi
+          echo "matrix base: ${BASE_REF}"
+          python3 scripts/matrix_diff.py --base "${BASE_REF}" --fail-on-regression
