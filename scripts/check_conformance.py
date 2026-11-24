@@ -9,7 +9,16 @@ Rules (no network):
       extraction silently drops co-authors).
   R3  no `{slug}` placeholder in urlPatterns (engine forwards it raw → 404).
   R4  searchForm fields must declare a non-empty `queryParam` (empty emits
-      garbage `=value` pairs the server ignores).
+      garbage `=value` pairs the server ignores). Checked in both homing
+      spots: top-level `searchForm` and `scraper.searchForm` (Refs #61).
+  R8  no retired authoring key `listKey` / `detailKey` / `readerKey` /
+      `surfaces` inside any `secondaryFetch` block, on every config (not
+      just `extends` files): the adapter never reads them (Refs #61).
+  R9  `features.search` / `features.chapters` / `features.contentByTag`
+      set to `true` must have a supporting route/selector: a matching
+      `urlPatterns` entry, a `searchForm`, an enabled `api` block, an
+      `adapterConfig`, or a `navigation.tagQueryMapping` entry —
+      whichever family the config belongs to (Refs #61).
   R5  `navigation.tagQueryMapping` entries must be well-formed
       (`mode: name` needs nothing; `rawParam` needs `param`).
   R6  every `title` field object under a `fields` mapping declares
@@ -103,16 +112,28 @@ def _rule_r3(cfg, path):
     return out
 
 
+def _search_forms(cfg):
+    """Yield (location, searchForm) for both R4 homing spots (Refs #61)."""
+    top = cfg.get("searchForm")
+    if isinstance(top, dict):
+        yield "searchForm", top
+    nested = (cfg.get("scraper") or {}).get("searchForm")
+    if isinstance(nested, dict):
+        yield "scraper.searchForm", nested
+
+
 def _rule_r4(cfg, path):
     out = []
-    params = (cfg.get("searchForm") or {}).get("params") or {}
-    for name, field in params.items():
-        if not isinstance(field, dict):
-            continue
-        qp = field.get("queryParam")
-        if qp is not None and not str(qp).strip():
-            out.append(
-                f"{path}: R4 searchForm field `{name}` has empty queryParam")
+    for location, form in _search_forms(cfg):
+        params = form.get("params") or {}
+        for name, field in params.items():
+            if not isinstance(field, dict):
+                continue
+            qp = field.get("queryParam")
+            if qp is not None and not str(qp).strip():
+                out.append(
+                    f"{path}: R4 {location} field `{name}` "
+                    f"has empty queryParam")
     return out
 
 
@@ -162,6 +183,109 @@ def _rule_r7(cfg, path):
     return []
 
 
+# Refs #61: retired authoring keys no live adapter read site understands.
+# Checked on every config here (build_from_presets.py only sees `extends`).
+LEGACY_SECONDARY_KEYS = ("listKey", "detailKey", "readerKey", "surfaces")
+
+
+def _legacy_secondary_blocks(node, prefix=""):
+    found = []
+    if isinstance(node, dict):
+        for key, value in node.items():
+            path = "%s/%s" % (prefix, key)
+            if key == "secondaryFetch" and isinstance(value, dict):
+                bad = [k for k in value if k in LEGACY_SECONDARY_KEYS]
+                if bad:
+                    found.append((path, bad))
+            found.extend(_legacy_secondary_blocks(value, path))
+    elif isinstance(node, list):
+        for i, value in enumerate(node):
+            found.extend(
+                _legacy_secondary_blocks(value, "%s[%d]" % (prefix, i)))
+    return found
+
+
+def _rule_r8(cfg, path):
+    out = []
+    for block, bad in _legacy_secondary_blocks(cfg):
+        out.append(
+            f"{path}: R8 {block} carries retired key(s) "
+            f"{', '.join(sorted(bad))} the adapter never reads")
+    return out
+
+
+def _api_endpoints(cfg):
+    api = cfg.get("api") or {}
+    if not isinstance(api, dict) or api.get("enabled") is not True:
+        return {}
+    endpoints = api.get("endpoints") or {}
+    return endpoints if isinstance(endpoints, dict) else {}
+
+
+def _rule_r9(cfg, path):
+    """Cross-check features.*=true against a supporting route/selector."""
+    out = []
+    features = cfg.get("features") or {}
+    if not isinstance(features, dict):
+        return out
+    patterns = _patterns(cfg)
+    selectors = (cfg.get("scraper") or {}).get("selectors") or {}
+    api = _api_endpoints(cfg)
+    api_blob = json.dumps(api) if api else ""
+    has_adapter = isinstance(cfg.get("adapterConfig"), dict)
+
+    def search_ok():
+        if "search" in patterns:
+            return True
+        for _, form in _search_forms(cfg):
+            if isinstance(form.get("params"), dict) and form["params"]:
+                return True
+        if api and any(k in api_blob for k in ("{query}", "keyword", "/search",
+                                               "/books", "browse")):
+            return True
+        return has_adapter
+
+    def chapters_ok():
+        if "chapter" in patterns:
+            return True
+        detail = selectors.get("detail") or {}
+        if isinstance(detail, dict) and "chapters" in detail:
+            return True
+        if api and any(k in api_blob for k in ("chapter", "/books",
+                                               "detail", "images", "pages")):
+            return True
+        return bool(cfg.get("requiresSpecialAdapter"))
+
+    def content_by_tag_ok():
+        if any(k in patterns for k in ("genreSearch", "tagSearch",
+                                       "authorSearch", "artistSearch")):
+            return True
+        nav = cfg.get("navigation") or {}
+        mapping = nav.get("tagQueryMapping") or {}
+        if isinstance(mapping, dict) and mapping:
+            return True
+        if cfg.get("genreMapping") or cfg.get("languageTagMap"):
+            return True
+        if api and any(k in api_blob for k in ("tag", "search", "genre",
+                                               "/books", "browse")):
+            return True
+        return has_adapter
+
+    checks = (
+        ("search", "search route (urlPatterns.search/searchForm/api)",
+         search_ok),
+        ("chapters", "chapter route (urlPatterns.chapter/detail.chapters/api)",
+         chapters_ok),
+        ("contentByTag", "tag route (genreSearch/tagSearch/mapping/api)",
+         content_by_tag_ok),
+    )
+    for feat, need, ok_fn in checks:
+        if features.get(feat) is True and not ok_fn():
+            out.append(
+                f"{path}: R9 features.{feat}=true but no supporting {need}")
+    return out
+
+
 STATIC_RULES = (
     ("R1", _rule_r1),
     ("R2", _rule_r2),
@@ -170,6 +294,8 @@ STATIC_RULES = (
     ("R5", _rule_r5),
     ("R6", _rule_r6),
     ("R7", _rule_r7),
+    ("R8", _rule_r8),
+    ("R9", _rule_r9),
 )
 
 
@@ -217,7 +343,8 @@ def main(argv=None):
         print(json.dumps(report, indent=2, ensure_ascii=False))
     else:
         if not violations:
-            print(f"OK: {checked} configs conformant"
+            print(f"OK: {checked} config(s) passed R1-R9 conformance, "
+                  f"0 violation(s)."
                   + (f" (waived: {sorted(waived)})" if waived else ""))
         for _, msg in violations:
             print(f"VIOLATION: {msg}")

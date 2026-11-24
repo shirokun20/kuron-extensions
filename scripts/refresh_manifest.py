@@ -11,6 +11,11 @@ Rules enforced (see .agents/skills/kuron-source-config/SKILL.md):
   - filename <id>-config.json matches the "source" field inside
   - file version is strict semver and is synced INTO the manifest entry
   - checksum/sizeKb/lastUpdated are generated, never hand-edited
+  - meta.maintenance/meta.maintenanceMessage mirror the config file
+    (Refs #60: a stale manual override in manifest.json is drift, not truth)
+  - meta.bypassStatus/meta.requiresBypass are derived from
+    network.requiresBypass/network.cloudflare (Refs #63); meta keys are
+    additive so the minimumAppVersion contract with kuron-mobile is kept
 """
 
 import hashlib
@@ -22,6 +27,41 @@ from datetime import datetime, timezone, timedelta
 
 SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 BUCKETS = ("id", "en", "ja", "vi", "ch", "global")
+# Refs #63: bypass states exported to every manifest meta entry.
+BYPASS_NONE = "none"
+BYPASS_LAZY = "lazy"
+BYPASS_TURNSTILE = "turnstile"
+
+
+def desired_maintenance(cfg, source):
+    """(maintenance, maintenanceMessage|None) the manifest must mirror.
+
+    Refs #60: the config file is the source of truth. A manifest entry
+    carrying maintenance=true while the config says otherwise is drift.
+    """
+    if cfg.get("maintenance") is True:
+        msg = cfg.get("maintenanceMessage") or (
+            "%s sedang dalam perbaikan, mohon tunggu" % source
+        )
+        return True, msg
+    return False, None
+
+
+def desired_bypass(cfg):
+    """(bypassStatus, requiresBypass) derived from network/cloudflare blocks.
+
+    Refs #63: `requiresBypass: true` (or cloudflare.bypassEnabled) means the
+    source needs a lazy bypass before install; an explicit turnstile block
+    upgrades that to `turnstile`. Everything else is `none`.
+    """
+    net = cfg.get("network") or {}
+    cf = net.get("cloudflare") or {}
+    turnstile = net.get("turnstile") or cf.get("turnstile") or {}
+    if isinstance(turnstile, dict) and turnstile.get("enabled") is True:
+        return BYPASS_TURNSTILE, True
+    if net.get("requiresBypass") is True or cf.get("bypassEnabled") is True:
+        return BYPASS_LAZY, True
+    return BYPASS_NONE, False
 STAGING = os.path.join("config", "new")
 BUCKET_ORDER = {b: i for i, b in enumerate(BUCKETS)}
 
@@ -107,15 +147,38 @@ def main():
 
         digest = hashlib.sha256(raw).hexdigest()
         size_kb = round(len(raw) / 1024)
+        want_maint, want_msg = desired_maintenance(cfg, source)
+        want_bypass, want_requires = desired_bypass(cfg)
+        meta = entry["meta"]
+        maint_ok = (
+            (meta.get("maintenance") is True and
+             meta.get("maintenanceMessage") == want_msg)
+            if want_maint else
+            ("maintenance" not in meta and "maintenanceMessage" not in meta)
+        )
+        bypass_ok = (
+            meta.get("bypassStatus") == want_bypass
+            and meta.get("requiresBypass") is want_requires
+        )
         if not check_only:
             if (
                 entry.get("version") != version
                 or entry.get("checksum") != digest
-                or entry["meta"].get("sizeKb") != size_kb
+                or meta.get("sizeKb") != size_kb
+                or not maint_ok
+                or not bypass_ok
             ):
                 entry["version"] = version
                 entry["checksum"] = digest
-                entry["meta"]["sizeKb"] = size_kb
+                meta["sizeKb"] = size_kb
+                if want_maint:
+                    meta["maintenance"] = True
+                    meta["maintenanceMessage"] = want_msg
+                else:
+                    meta.pop("maintenance", None)
+                    meta.pop("maintenanceMessage", None)
+                meta["bypassStatus"] = want_bypass
+                meta["requiresBypass"] = want_requires
                 synced += 1
         else:
             if entry.get("version") != version:
@@ -125,10 +188,23 @@ def main():
                 )
             if entry.get("checksum") != digest:
                 errors.append(f"{source}: checksum mismatch (file changed)")
-            if entry["meta"].get("sizeKb") != size_kb:
+            if meta.get("sizeKb") != size_kb:
                 errors.append(
                     f"{source}: sizeKb drift "
-                    f"(manifest {entry['meta'].get('sizeKb')} != {size_kb})"
+                    f"(manifest {meta.get('sizeKb')} != {size_kb})"
+                )
+            if not maint_ok:
+                errors.append(
+                    f"{source}: maintenance drift "
+                    f"(manifest {meta.get('maintenance')} != file "
+                    f"{cfg.get('maintenance', False)})"
+                )
+            if not bypass_ok:
+                errors.append(
+                    f"{source}: bypass drift "
+                    f"(manifest {meta.get('bypassStatus')}/"
+                    f"{meta.get('requiresBypass')} != file "
+                    f"{want_bypass}/{want_requires})"
                 )
 
         if entry["meta"].get("language") != bucket:

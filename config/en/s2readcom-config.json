@@ -1,8 +1,9 @@
 {
   "source": "s2readcom",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://s2read.com",

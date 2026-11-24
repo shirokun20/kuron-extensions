@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-23T22:57:03.499676+07:00",
+    "lastUpdated": "2026-11-24T22:02:10.345544+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -15,7 +15,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "b5d737ee4f2a5353c6847e3a81856d3a8f7f5cb0b7e42d4a4d9ae7cfccfa9f6e"
         },
@@ -31,7 +33,9 @@
                 "language": "id",
                 "requiresAuth": true,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 8
+                "sizeKb": 8,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "e218787d93dd9db05cf3665af80e18759dfffc61740a46e7c5dd28e3de4b91ce"
         },
@@ -49,7 +53,9 @@
                 "requiresSpecialAdapter": false,
                 "sizeKb": 7,
                 "maintenance": true,
-                "maintenanceMessage": "doujindesuv2 sedang dalam perbaikan, mohon tunggu"
+                "maintenanceMessage": "doujindesuv2 sedang dalam perbaikan, mohon tunggu",
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "fd0141a632c95116c67da083a565802ae5293d5c1698ac21b3aa1ee444688118"
         },
@@ -65,13 +71,15 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "e265b925f7c6458e6f0eb762011904edc260ade7ca36655243275797277f06b9"
         },
         {
             "id": "komikcast",
-            "version": "1.2.6",
+            "version": "1.2.7",
             "url": "config/id/komikcast-config.json",
             "meta": {
                 "displayName": "Komikcast",
@@ -81,9 +89,11 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
-            "checksum": "1b9474b2a9dc0ea5a499c528782d62ee6da19e0414a6d886ebe704d1c88d9c10"
+            "checksum": "d9f92e419d8dc53cad450b8b96b122323670690bfc0c8c2d9a1a79284095046c"
         },
         {
             "id": "komikdewasa",
@@ -97,7 +107,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "d223dd7b282d1af9ec0a8f36b8c7262ab174c6e1db19e5f1e61177b8a7f0aa4b"
         },
@@ -113,7 +125,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "c73e5263268e1896434a60cb811e1691ab16e330be6cb8bda003ae256ea2aea8"
         },
@@ -129,7 +143,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "8236920221c888a7eb203c0ebd2e3970a2616ab95c291d994b368aeb50629ffe"
         },
@@ -145,7 +161,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "d3c76acdc6f7b5c31380b6104d9f8a64fe097ac0c9a688e134c2ddb679222a12"
         },
@@ -161,7 +179,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "c10feaab79225a7e9623e17d1297531a4175345056fb58b5817c791a34a75cdd"
         },
@@ -177,7 +197,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "627ca9dc3e28800afe5b9856ae97b5d625989273dcbd4a5bbd40e57721bff4ec"
         },
@@ -193,7 +215,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "d452f805734b97d5b322c009a1b0be321113863bf95ae8e108c07bb560687b97"
         },
@@ -209,7 +233,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "c432a6cd7715fa4c23f590b9145fda5a37dd25c0bbb090a661bbe4b9a0f96ff8"
         },
@@ -225,7 +251,9 @@
                 "language": "id",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "74d80128063f03721a0dfbfeeddbf77df4b80df458242785526e74bb5f43ba2d"
         },
@@ -241,7 +269,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "764955f3ee8dbf72af22f7c1ad7ae83c72b85d9b7cfde2a09aabdebdc7d61099"
         },
@@ -257,13 +287,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "d07b77eb2bd18b2dae10c89767afe3199388f5472e58e12a21c66618fdf89c91"
         },
         {
             "id": "anisascansin",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/anisascansin-config.json",
             "meta": {
                 "displayName": "Anisascans",
@@ -273,9 +305,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "f9d9d74b96dfdfa00ae29f6d4b95bac0e52d558b077de4560e6fbb9fe615e652"
+            "checksum": "21bb955272df9462eb79d42667b96f1c889814ad36b9d5e0d4ba0862be22df7a"
         },
         {
             "id": "apcomicsorg",
@@ -289,7 +323,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "e3368a56e12d8ea3207bd9440b2c524a1be4cb3b6ad27f49fca8b26b7c0cb4f5"
         },
@@ -305,7 +341,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "b391e81fdbfe684d196b961b85cc60e1fae7403fa04229e1dfacdddf7dbb5456"
         },
@@ -321,7 +359,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "d7b58aead2c07aef36f10e49b4c4601538559bc356cf4541631abb95625b7286"
         },
@@ -337,7 +377,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "022aeee982a3d82524f562f854d1827d56ce94c50230c6c57720b440412aacdc"
         },
@@ -353,7 +395,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "f2236f79e72ee5f64478464c47c2a5ee459c55b544c779ef495f35b5ac116be9"
         },
@@ -369,7 +413,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "68733465ce835a095baf7d6e8fbd6e441b4d490d484c6ac584b069d096e07144"
         },
@@ -385,7 +431,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "68f6ef3656889cdf2a196f51c9221494eb0a47f3e77c78f89068b977be21ea69"
         },
@@ -401,7 +449,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 3
+                "sizeKb": 3,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "a46d019368e6ff713e75f4843b3332078d3bd08ddb366886cc92a323f0e07d47"
         },
@@ -417,7 +467,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "5131bbbcdf74dd2be61a4af3e2813dc8debc90dad3b1d9fa5e0405e8497e7158"
         },
@@ -433,13 +485,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "fac2313ddf17fc05482d82d3a588d8501682380087168e4b8205d7112f4aaec2"
         },
         {
             "id": "enthunderscanscom",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "url": "config/en/enthunderscanscom-config.json",
             "meta": {
                 "displayName": "Enthunderscans",
@@ -449,9 +503,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "c2f98235d0dae285f76fcbc6283cd5fe0bed4f6136488d9ad2d35ac782e988e7"
+            "checksum": "fd087ff821df900011773908f65b50a81d5a8ea5122c7400eeeced861bf9a09c"
         },
         {
             "id": "evascansnet",
@@ -465,7 +521,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "99c119eab999eba0a60b5bddbed7a7413458011a51c4245dfc0498a3a9a9b655"
         },
@@ -481,13 +539,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "f4bbf15f6158357ba397db7a75bc0a609611dee49b41bd004a6cea596ca49084"
         },
         {
             "id": "galaxymangaio",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/galaxymangaio-config.json",
             "meta": {
                 "displayName": "Galaxymanga",
@@ -497,9 +557,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "8e5b8256220bbbc13249a9c3e02c804b41c8c301606566363e34358da978812a"
+            "checksum": "f26087c90dd5c596bb267345f4a8f993601254732b366250cfa60bdabd225b9c"
         },
         {
             "id": "gdscanscom",
@@ -513,13 +575,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "607366bb77a157b6476ab89b835a750cc262d17a90ba5c762772e7ab926fa1ca"
         },
         {
             "id": "gedecomixcom",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/gedecomixcom-config.json",
             "meta": {
                 "displayName": "Gedecomix",
@@ -529,9 +593,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "ec160ef912f68667a5e20c6b874b2202dcdd5f6e236b8a506958f621848b3206"
+            "checksum": "c10261b73445ac65cb8deb97bc54d4e059560776f86e414794726bdbd473c450"
         },
         {
             "id": "grabberzone",
@@ -545,7 +611,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "da2d77174066e4692bafb5645bfc8d41413616a8f91ef938846f456731769e1e"
         },
@@ -561,13 +629,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "70cc00b467fcd814781cd9ff33c12e949b251af4bb122274ed8746eba6210703"
         },
         {
             "id": "hentai4freenet",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "url": "config/en/hentai4freenet-config.json",
             "meta": {
                 "displayName": "Hentai4free",
@@ -577,9 +647,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 8
+                "sizeKb": 8,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
-            "checksum": "a147de096160b49e2c2aa0d9ffd35e35448a8ef2b6773895e3aba4cbb42a12d9"
+            "checksum": "24e90267374a3e043d5c4618edbbba345859674abc8cf6ddfa7f12da3e7f9c53"
         },
         {
             "id": "hentaienvy",
@@ -593,7 +665,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "ddd1cf7be0067d6860d0087a8e86995c900506bb59d9ec2c33ae068c731e0d11"
         },
@@ -609,7 +683,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "2e4b7c1afb1c8984e71cbe3a0bad8ee4cbea522e08834f452eb2fb3ccb10dfee"
         },
@@ -625,7 +701,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "c2d34694288ca46a8b4b89104ca6c3706943e4320740d165c1dfd68244be8cbf"
         },
@@ -641,7 +719,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "c036e345ac1ce9e802a45746697d4bd1cac5e1f4e695d8ea58e055096c27aa1f"
         },
@@ -657,7 +737,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "55baab4fd65dfb07c0a2a06962199822bb9c9411e5734f423422c41e07ab852c"
         },
@@ -673,7 +755,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 9
+                "sizeKb": 9,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "84b03105b76713ff357808403325a9ed56b3543a8b3e535f821b255a478d5bc8"
         },
@@ -689,7 +773,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "50e88d308b609edc46aeddc9c5a6066c593097abbbaae811c45a19c221ade7c3"
         },
@@ -705,13 +791,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "ec878b8d1b41ed8abc6a3b95cbb7959bc9bfa472a1185ddb705c1794c9feec94"
         },
         {
             "id": "hentaixcomic",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/hentaixcomic-config.json",
             "meta": {
                 "displayName": "Hentaixcomic",
@@ -721,13 +809,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "16a1e2a6978b91169aa9089c4293efc8dc31342869ac12414121196fb98d0685"
+            "checksum": "4055eec67941a4f4aa72b8f5d90f336b527815c302ad50669954eb25e79d7f47"
         },
         {
             "id": "hentaixdickgirl",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/hentaixdickgirl-config.json",
             "meta": {
                 "displayName": "Hentaixdickgirl",
@@ -737,13 +827,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "1869736065889823adc06b1b7ed81f08f72d7dd3abb26de514df1714ad47d3d5"
+            "checksum": "a9feb8d70a42fcf92c5270211b5742cc87264fa26282a0051869ef63763007a8"
         },
         {
             "id": "hentaixyuri",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/hentaixyuri-config.json",
             "meta": {
                 "displayName": "Hentaixyuri",
@@ -753,9 +845,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "5ac0da1efe6d6496fd0dadb34698cd4a21746dc068437456169ca114931bbf7a"
+            "checksum": "53b36ee92baa80734159e4b547ba1484f3b8dbb48cce82d1c368761a1a1b9c79"
         },
         {
             "id": "hentaizap",
@@ -769,7 +863,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "afbdb39872cb2d4db0c8aa03421be37439bfcca9abde3baecd207f4cc25ba7b3"
         },
@@ -785,7 +881,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "f65b7337d1065cbd48421b7ca1ce937c378a4402e2abb8ce07dfc1f7d7abe787"
         },
@@ -801,7 +899,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "d10dde46e89ca25e314e1320c9113011b73900ff969ab67cb9109ad3aded1a74"
         },
@@ -817,13 +917,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "3d9a259323bc802c890ce0edc5d7f676dfe4b8d5cbd3d61a0970deba842ebf4d"
         },
         {
             "id": "kmansin09",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/kmansin09-config.json",
             "meta": {
                 "displayName": "Kmansin09",
@@ -833,13 +935,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "3448d2332eccc99ce3a879755ada4b28e7ddc2a907ca67a63d288ac9ec2c7eb7"
+            "checksum": "1f9f3f62a2d8d20093b84f87a30474667e23229e7eb84699ecfdfba5e88360a8"
         },
         {
             "id": "ksgroupscans",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/ksgroupscans-config.json",
             "meta": {
                 "displayName": "Ksgroupscans",
@@ -849,9 +953,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "1cce8b44eb06e19e92548ca7b8e07ca43602b8ba6508882352c143293c50083c"
+            "checksum": "a4e16480cfe17aed2ac957b1af3c44d7ef74470a450c96dcac313385f2265561"
         },
         {
             "id": "lagoonscans",
@@ -865,13 +971,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "41bcc5bd033a67a83cbae4a929b9544877c84cd6af4c8c8f9ade8289000692f1"
         },
         {
             "id": "lhtranslation",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/lhtranslation-config.json",
             "meta": {
                 "displayName": "Lhtranslation",
@@ -881,13 +989,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "bd44781ef6928c319df7114ec2f2c673edcfaf59d62358a9c77c1090ae372a5c"
+            "checksum": "83fec00a6e0c6994759d15b498b39c97f6908a3e81712041a0a199db684d33eb"
         },
         {
             "id": "likemangain",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/likemangain-config.json",
             "meta": {
                 "displayName": "Mangayy",
@@ -897,13 +1007,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "e3764125864eaca71527a954d6e62e343c3d8cdd99dc0e5f008d3567f502326c"
+            "checksum": "fb8a79c6698291c1f10e572f580512a8a5a500ac14f8f53ea36a1322bcd78b16"
         },
         {
             "id": "lilymanga",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/lilymanga-config.json",
             "meta": {
                 "displayName": "Lilymanga",
@@ -913,9 +1025,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "d906c234f4fe45ea660b4eec82799b8c5a4475841807e8b77581b53437a8609a"
+            "checksum": "258bbff22a91a60d3c81159aeea3e2febaca90593a67095f3bd3e87fd86dd0d1"
         },
         {
             "id": "madarascans",
@@ -929,13 +1043,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "942bf81bc4c320060bdfe1587efc6ae74525794d2dfebae67c2a7b0d68c8946f"
         },
         {
             "id": "manga18free",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/manga18free-config.json",
             "meta": {
                 "displayName": "Manga18free",
@@ -945,9 +1061,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "50bfe69b64e060fe66978146c5ff0055ad37af827cf88b94bb93ecffdac58194"
+            "checksum": "f5b1f6d4e977a44d0a1496b9e2a4329641d2fe8f896481be40cde1e1ffbd4935"
         },
         {
             "id": "manga18fx",
@@ -961,13 +1079,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "7a4e47a6fccf063f30a394d4f1d848ba09bc766420ac785bb59cf7a2b9a8078d"
         },
         {
             "id": "manga18x",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/manga18x-config.json",
             "meta": {
                 "displayName": "Manga18x",
@@ -977,13 +1097,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "7bf8ea481f7270a10ca9dacbd5d666d790e9619f83539853442c096838e4213e"
+            "checksum": "ea8d18f1fc64b4d52537daaec13ceb7d0f080902c29fab69c85c08838d6e5e7b"
         },
         {
             "id": "mangacrazy",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/mangacrazy-config.json",
             "meta": {
                 "displayName": "Mangacrazy",
@@ -993,9 +1115,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "4a3cd9ca8390f41a7d8c5a8fda9346a15789a8a1e9a7561e19c6f52560bd8208"
+            "checksum": "8aad4fc794ff81dbfb1191d10790d0f75f7ee52fd089c6d25a3756ec32bd84ca"
         },
         {
             "id": "mangadass",
@@ -1009,7 +1133,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "864f69c18b23319aeda64a86f10dd92f3905a2067567dc90eec715f740587d69"
         },
@@ -1025,7 +1151,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "58fe4003e8c35e60f96b17cec0eddef32fb8ed5d64ed46a2a4bb063aaf268b90"
         },
@@ -1041,13 +1169,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 8
+                "sizeKb": 8,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "02c8964a1f3bec8721367d763ee83ae591847c6b0da6547a4906eb2a734f9dd1"
         },
         {
             "id": "mangaforfree",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/mangaforfree-config.json",
             "meta": {
                 "displayName": "MangaForFree",
@@ -1057,13 +1187,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
-            "checksum": "caf54f6163f038b2264e13576b6dcc732777ce905fb061540b588996f285e740"
+            "checksum": "ac8f7642abdc7a109ee34e66d3eda53e8f68dddf8fe232533134b9eff9e576d9"
         },
         {
             "id": "mangaforfreecom",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/mangaforfreecom-config.json",
             "meta": {
                 "displayName": "Mangaforfree",
@@ -1073,13 +1205,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "65d11b7244959a42e85f33db69fd9a3937e068bef0ae1bf1905e53c423570f91"
+            "checksum": "a76e11f5363843b621f37604d170915025654b534cc02b0d634ac0515e7acc01"
         },
         {
             "id": "mangafree",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/mangafree-config.json",
             "meta": {
                 "displayName": "Mangafree",
@@ -1089,13 +1223,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "a3bfbcf9cc2bc8077466ea57c7fd5091cc78e76098774e664fc811b643672421"
+            "checksum": "2ad09e6acb9baa2bb45f557735a9640c8beaa0b5184bf15a7c0a22bcdf328d09"
         },
         {
             "id": "mangamaniacs",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/mangamaniacs-config.json",
             "meta": {
                 "displayName": "Mangamaniacs",
@@ -1105,13 +1241,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "07bd7b35bb9f7cb7844219ca818d4ed1b81e52d459673c86b4fd6c39fde10525"
+            "checksum": "7035fd5c99772cb15297839af280b40725485f8acff6cb3a72f2e1345db621ab"
         },
         {
             "id": "mangaowlio",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/mangaowlio-config.json",
             "meta": {
                 "displayName": "Mangaowl",
@@ -1121,9 +1259,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "bbeb864a377c2d4e8cf7692d2e89ae69e0f7c24abc1974cd6371481545bbc47f"
+            "checksum": "b6557ef7c2b094793e0b3a8d59e65572f28c0e847c7683406cd1aa9866366592"
         },
         {
             "id": "mangapill",
@@ -1137,13 +1277,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "107273a82676086008789189dac15f3d32ff4ea9eb4031df12361cf44b7b9934"
         },
         {
             "id": "mangareadorg",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/mangareadorg-config.json",
             "meta": {
                 "displayName": "Mangaread",
@@ -1153,13 +1295,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "b029b0ae695a231b912aa2f039b07a2f011901b73fca9208058f0a476708654e"
+            "checksum": "2dbc8450bc7903624974787e11254b76b404018312bad91490a4c7717e825476"
         },
         {
             "id": "mangasushi",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/mangasushi-config.json",
             "meta": {
                 "displayName": "Mangasushi",
@@ -1169,13 +1313,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "50f9dbc85c6ab8bba79c49512a7545955476ee40bc4591e2a81326c2aa8a63aa"
+            "checksum": "881911b81b71470f61932aa8da1a11ed0a2ca738b7de90d731e641749995be7e"
         },
         {
             "id": "mangatoporg",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/mangatoporg-config.json",
             "meta": {
                 "displayName": "Mangatop",
@@ -1185,13 +1331,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "19190dc296f099e075d8513e3942baaeb9b05fa3ebe887e2cb8073b17074715d"
+            "checksum": "d33d2073a44606a4b6679b89539dfa1a2635c19100ab073d2911cc0e9e4131ce"
         },
         {
             "id": "mangazinorg",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/mangazinorg-config.json",
             "meta": {
                 "displayName": "Zinmanga",
@@ -1201,13 +1349,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "956f3b2ac529dbd2443809d3d3f93d0176e004b51cce084562e643ee29c30ace"
+            "checksum": "ebaa5db2120fb37dee9b959a4f192500c4aaa36edafb6a23c203b8fc3365fedf"
         },
         {
             "id": "manhuanext",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/manhuanext-config.json",
             "meta": {
                 "displayName": "Manhuanext",
@@ -1217,9 +1367,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "ee4d117870b86c85d52776bc2f8c6c977ec0e4cd22bcfefe20f8dc935fc56767"
+            "checksum": "772dd137176e990f0f6668ce0d46503a84356c1178f1ea8895954459e2bf202c"
         },
         {
             "id": "manhwa18cc",
@@ -1233,13 +1385,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "ec53611da39b1e1c80a7c492a1c50736e619f564d94f58478743b7de685d0c6a"
         },
         {
             "id": "manhwaclubnet",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/manhwaclubnet-config.json",
             "meta": {
                 "displayName": "ManhwaClub",
@@ -1249,9 +1403,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "a0611c8e388a6f6ee659c4b8eadfdb1d26fdc232722daacb721b0b5b808e6f87"
+            "checksum": "973546f36baf19b43c9f20c89af30683fe578020cdf9fb3683ee86134e8f52be"
         },
         {
             "id": "manhwaden",
@@ -1265,13 +1421,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "5349bf7d72b628ea6e8f11820abf462cfbd48f60f9ea5212dc0da2ae3f331bf2"
         },
         {
             "id": "manhwahubto",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/manhwahubto-config.json",
             "meta": {
                 "displayName": "Manhwahub",
@@ -1281,9 +1439,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "012c1aabddcc64ea3135d06bb2d53da1a430107a744dea8949be23787366eedd"
+            "checksum": "a2d52f61491ae2f5bcf8f4e8216322f01f0792dbd2e7295010102e984cdc152d"
         },
         {
             "id": "manhwanex",
@@ -1297,7 +1457,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "0c75e749d0b43357d7fa8ffffe3d4121868e6b2b4c50b810126be5e4839045ee"
         },
@@ -1313,13 +1475,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 14
+                "sizeKb": 14,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "0a60bfcce8d5f028e089d4ae3053d1e39418f6bf1139c36f6ff34a5c43953fe4"
         },
         {
             "id": "manhwareads",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/manhwareads-config.json",
             "meta": {
                 "displayName": "Manhwareads",
@@ -1329,13 +1493,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "1389145887467fe4badb883c999d8571e005ad5dfc003e9e8aa7fe22b7b8700d"
+            "checksum": "196ae0802d6476dd3b961f5e04ea276b218a97513bb410d62cedc49197439805"
         },
         {
             "id": "manhwatoon",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/manhwatoon-config.json",
             "meta": {
                 "displayName": "Manhwatoon",
@@ -1345,9 +1511,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "60f5a973ba15e594a10ced285aebac9ccdb1608de1e2053353007d0c2ba15e08"
+            "checksum": "8b4e653932970b6922181cbf1eb9b602f0bb6b0094fb051681cb53df1b176cf2"
         },
         {
             "id": "miauscan",
@@ -1361,7 +1529,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "4d2d6e55770c7a1060b31e9a07f505cf49c56f00706d06ed378e7daa49cf01c1"
         },
@@ -1377,7 +1547,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "a67fbffe0ae25094a97cea47842e51306ed15e8ba866dd0b918db8d7e2585407"
         },
@@ -1393,13 +1565,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 3,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "17e33591e6bf1a327c698246283cf95a79ce2f6b753f207b0e08f5606404e26a"
         },
         {
             "id": "octopusmangacom",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/octopusmangacom-config.json",
             "meta": {
                 "displayName": "Octopusmanga",
@@ -1409,13 +1583,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "5688a5337c028ebf15a83a8f3074ba6c27032c196a298d914837fe80890f9b5d"
+            "checksum": "bf3bc2224269d40727cee99509025c03472adb50fc1417dfdaddd7f79d5f1f1a"
         },
         {
             "id": "orchisasia",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/orchisasia-config.json",
             "meta": {
                 "displayName": "Orchisasia",
@@ -1425,13 +1601,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "b7992328720336262701d6c9969917f926225771c51e6e948a2ced89388b845d"
+            "checksum": "4e69f215a58d576b3638237608a071598eb8c4c07405bc2f4b09aeda999bc2b8"
         },
         {
             "id": "paritehaber",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/paritehaber-config.json",
             "meta": {
                 "displayName": "Paritehaber",
@@ -1441,9 +1619,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "e588789d877dfd335e64ffa5d224444eaca814541ec9b247c56ae6da29a0121e"
+            "checksum": "80766b50a643a18b3b71994973b9f9a3953637a2d8a59e7b296f8cea73ec8c4b"
         },
         {
             "id": "rackusreadscom",
@@ -1457,13 +1637,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "bd4918c4e0d58bae446b419836e02f6562a65b692f0c2952b13087a0105fbbb5"
         },
         {
             "id": "ravenscansorg",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "url": "config/en/ravenscansorg-config.json",
             "meta": {
                 "displayName": "Ravenscans",
@@ -1473,13 +1655,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
-            "checksum": "3822f89b0c536eff042a1e29cdef2ca11692e4b1e43edb79ccd8d1de079345d4"
+            "checksum": "2302892a8d557c73a9d073e84fc71b5c3564d127769ee045fdc90de36254b6cf"
         },
         {
             "id": "readerdecadencescanscom",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "url": "config/en/readerdecadencescanscom-config.json",
             "meta": {
                 "displayName": "Decadencescans",
@@ -1489,13 +1673,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "9d0bb7f335fcca806c93ef3aadc0d50c8f3995c2baa408dbf45f78db8d797ea8"
+            "checksum": "f73d990e5c13b243dbe6e360544e4e7435f3ad96188e80e26234a7cc080e53da"
         },
         {
             "id": "s2readcom",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/s2readcom-config.json",
             "meta": {
                 "displayName": "S2manga",
@@ -1505,9 +1691,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "9c279b94a5e09741b72f7c01c75bb4888fff330f89f4e2ae66fc758bf2cbfe6d"
+            "checksum": "3cf996a2cf2cc44c5902319a391864b089784908e959c1f3a457a1e706a22453"
         },
         {
             "id": "schale-network",
@@ -1521,7 +1709,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 9
+                "sizeKb": 9,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "5ab122ad968dbd4cc5ac197ce518c36c0473b0de5b2b81572f9ebe9f4565420a"
         },
@@ -1537,7 +1727,9 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "d9a9e9a89b92a9255c84d92a9a0c2fba06f34cc76d55fd04c11697fb2a6560a6"
         },
@@ -1554,14 +1746,14 @@
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
                 "sizeKb": 7,
-                "maintenance": true,
-                "maintenanceMessage": "spyfakku sedang dalam perbaikan, mohon tunggu"
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "2d381706be4cc5e7e92b0b4911acd6d0491c36ff63074129837d2b166f8d64d0"
         },
         {
             "id": "toonizycom",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/en/toonizycom-config.json",
             "meta": {
                 "displayName": "Toonizy",
@@ -1571,13 +1763,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "2d53530fa7189e428d3d0576bb67d719d96426dc570011a2b1a361c8a5c58bf4"
+            "checksum": "09630db37de888441341baba7103a0b5f6c3cfeac2f99095e741affb0cb1c300"
         },
         {
             "id": "topmanhuanet",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "url": "config/en/topmanhuanet-config.json",
             "meta": {
                 "displayName": "Topmanhuanet",
@@ -1587,9 +1781,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "eacd9a31d8f07fe4763acdec85f33bdebfa9c122bbf7fb96992622574952e31a"
+            "checksum": "8ec98e387219859540adba95f482ab5aa1cc0fb8b45f1bd1bdd46e753d552d71"
         },
         {
             "id": "tritiniaorg",
@@ -1603,13 +1799,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "49a2d4e00d3a0baa600407c22351ac353d46b95d03d7fbba4a600e7f20eebba3"
         },
         {
             "id": "violetmangacom",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "url": "config/en/violetmangacom-config.json",
             "meta": {
                 "displayName": "Violetmanga",
@@ -1619,9 +1817,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "da8b1b1b651e0c2af70b9e39805b9c6a3b00afad0fc0c5d8139d99c4d071eed1"
+            "checksum": "67ecbdbe3c91551cc18c8c98de637f6330c486d51230bd15c1339b9840680cf1"
         },
         {
             "id": "yakshacomicscom",
@@ -1635,13 +1835,15 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "b582dd8f489068988be3105bfd69aa0a2c03ef977dbf88d4422785adf423e5dc"
         },
         {
             "id": "zazamangacom",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "url": "config/en/zazamangacom-config.json",
             "meta": {
                 "displayName": "Zazamanga",
@@ -1651,9 +1853,11 @@
                 "language": "en",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
-            "checksum": "d8aea4617d9a351ec11c37a376181de6ff123a727658c4ee03ebd5474702dcbd"
+            "checksum": "22bdeed0218a127bd34ccba38132ca33331daa7d6e5e6d12581b80b1a9a803dc"
         },
         {
             "id": "nicomanga",
@@ -1667,7 +1871,9 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "e80d334bd95b5c009f2656f5a62af54e20f415db4328f31c86840c8872614440"
         },
@@ -1683,7 +1889,9 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "a0f9e1c0bcee7c4f2a35225f9a13af5e1d6a8471981a1c5aacc2df50654bdc5b"
         },
@@ -1699,7 +1907,9 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "6c62f91d4b8e19c64d0357d766d5b7bee0751b6ac6f358561201a09ac7ffce5c"
         },
@@ -1715,7 +1925,9 @@
                 "language": "ja",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 6
+                "sizeKb": 6,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "3b7a7202dcb8277b944a8de29dc79b643a49fd52aa86cd9d625c35d53457daaa"
         },
@@ -1731,7 +1943,9 @@
                 "language": "vi",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "453ab990ee9ad40cd503acedc3422ae4fae80e9556310c7d3a4be0c244f74d81"
         },
@@ -1747,7 +1961,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 3,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "169d85638e6a8c17ca6d038f0fff9c2bb234f112f01c4b9901a241acb52af954"
         },
@@ -1763,7 +1979,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "7a54ab2a4f2f35e1a73abea15a1771373b3f71ef5237ce827c409034b745babf"
         },
@@ -1779,7 +1997,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 7
+                "sizeKb": 7,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "42a7f7528832161b06b2e6f3aa6dba47d0168dbf1b6dfc01db8b791a5875a6f4"
         },
@@ -1795,7 +2015,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 9
+                "sizeKb": 9,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "d439dc8c1e2d8795ca9eeaedb04de78bbd5a918baf93a3fd0a98c18af2081547"
         },
@@ -1811,7 +2033,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "62b6af10b51f173c625c1e66c79a26cb9e81bd055ce5ae694e2841cf744f5f62"
         },
@@ -1827,7 +2051,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": true,
-                "sizeKb": 3
+                "sizeKb": 3,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "192e1ea737c3db7631fe5320cbd380e92dd171fafcb0e6ea4f5244e4c3135ec2"
         },
@@ -1843,7 +2069,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "lazy",
+                "requiresBypass": true
             },
             "checksum": "0a7bc422c8f7aefb1483ace71ff38008c9ca28a1f48034e02eff474af6841145"
         },
@@ -1859,7 +2087,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 18
+                "sizeKb": 18,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "a33b13d054e23e49a24a13fe9f783676dc31dc9c317ded345c5e014485a94f1c"
         },
@@ -1875,7 +2105,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "1dea64b3e749819f3857fc21209ff737e622498a3a8d07ca341472a8d69b0558"
         },
@@ -1891,7 +2123,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 3
+                "sizeKb": 3,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "66beacc2e335d557fa1bd5fd08e39bf6c8b7da5e12c273a00ca599e53485ca5b"
         },
@@ -1907,7 +2141,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 4
+                "sizeKb": 4,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "fd635b0bb08511c21069bf62fed22c7a6502912d6823b733430ce17ca0fcd96b"
         },
@@ -1923,7 +2159,9 @@
                 "language": "global",
                 "requiresAuth": false,
                 "requiresSpecialAdapter": false,
-                "sizeKb": 5
+                "sizeKb": 5,
+                "bypassStatus": "none",
+                "requiresBypass": false
             },
             "checksum": "c6d08ca9d178eff780fce0a98f562b15b10e42c262fcac40237861798c7212f0"
         }

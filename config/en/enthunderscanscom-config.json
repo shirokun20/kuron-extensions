@@ -1,8 +1,9 @@
 {
   "source": "enthunderscanscom",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://en-thunderscans.com",

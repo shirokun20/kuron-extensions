@@ -1,7 +1,7 @@
 {
   "source": "komikcast",
   "idType": "slug",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "baseUrl": "https://13.voratoon.com",
@@ -101,6 +101,7 @@
           },
           "author": {
             "selector": ".info-list-item:contains('Author') strong",
+            "multi": true,
             "optional": true
           },
           "status": {

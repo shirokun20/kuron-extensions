@@ -2,7 +2,7 @@
   "source": "hentai4freenet",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://hentai4free.net",
@@ -202,11 +202,13 @@
           },
           "author": {
             "selector": ".author-content a",
+            "multi": true,
             "extractTagObjects": true,
             "tagType": "author"
           },
           "artist": {
             "selector": ".artist-content a",
+            "multi": true,
             "extractTagObjects": true,
             "tagType": "artist"
           },

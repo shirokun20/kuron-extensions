@@ -1,8 +1,9 @@
 {
   "source": "galaxymangaio",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://galaxymanga.io",

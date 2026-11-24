@@ -1,8 +1,9 @@
 {
   "source": "ravenscansorg",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://ravenscans.org",

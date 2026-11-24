@@ -1,8 +1,9 @@
 {
   "source": "manhwatoon",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://www.manhwatoon.me",
