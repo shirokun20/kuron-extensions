@@ -1,8 +1,9 @@
 {
   "source": "kingofshojo",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://kingofshojo.com",
@@ -76,6 +77,10 @@
               "selector": "img.ts-post-image",
               "attribute": "src"
             }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
           }
         }
       },
@@ -99,7 +104,8 @@
             }
           },
           "pagination": {
-            "next": ".pagination a.next.page-numbers"
+            "next": ".pagination a.next.page-numbers",
+            "mode": "paged"
           }
         }
       },
@@ -160,7 +166,8 @@
         "nav": {
           "next": "div.btm-np.nextprev a.ch-next-btn, .next_page, .nav-links .next",
           "prev": "div.btm-np.nextprev a.ch-prev-btn, .prev_page, .nav-links .prev"
-        }
+        },
+        "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);"
       }
     },
     "searchForm": {

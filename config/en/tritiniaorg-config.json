@@ -1,8 +1,9 @@
 {
   "source": "tritiniaorg",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://tritinia.org",
@@ -193,7 +194,8 @@
         "nav": {
           "next": ".next_page, .nav-links .next",
           "prev": ".prev_page, .nav-links .prev"
-        }
+        },
+        "mode": "html"
       }
     },
     "searchForm": {

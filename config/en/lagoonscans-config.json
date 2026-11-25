@@ -1,8 +1,9 @@
 {
   "source": "lagoonscans",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://lagoonscans.com",
@@ -76,6 +77,10 @@
               "selector": "img.ts-post-image",
               "attribute": "src"
             }
+          },
+          "pagination": {
+            "next": ".pagination a.next.page-numbers",
+            "mode": "paged"
           }
         }
       },
@@ -99,7 +104,8 @@
             }
           },
           "pagination": {
-            "next": ".pagination a.next.page-numbers"
+            "next": ".pagination a.next.page-numbers",
+            "mode": "paged"
           }
         }
       },

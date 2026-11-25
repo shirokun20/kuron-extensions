@@ -1,8 +1,9 @@
 {
   "source": "mangaread",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "configUrl": "",
@@ -98,7 +99,31 @@
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
-      "chapter": "/manga/{id}"
+      "chapter": "/manga/{id}",
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "transform": "cleanText",
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      }
     },
     "selectors": {
       "detail": {
@@ -154,7 +179,8 @@
             "date": {
               "selector": ".chapter-release-date i, .chapter-release-date a"
             }
-          }
+          },
+          "mode": "ajaxHtml"
         }
       },
       "related": {
@@ -184,6 +210,44 @@
         "nav": {
           "next": ".next_page, a[href]:contains('Next'), .nav-links .next",
           "prev": ".prev_page, a[href]:contains('Prev'), .nav-links .prev"
+        }
+      }
+    },
+    "searchForm": {
+      "enabled": true,
+      "urlPattern": "search",
+      "params": {
+        "query": {
+          "queryParam": "s",
+          "type": "text",
+          "placeholder": "Search manga..."
+        },
+        "sort": {
+          "queryParam": "m_orderby",
+          "type": "select",
+          "label": "Sort by",
+          "options": [
+            {
+              "name": "Relevance",
+              "value": ""
+            },
+            {
+              "name": "Popular",
+              "value": "popular"
+            },
+            {
+              "name": "Latest",
+              "value": "latest"
+            },
+            {
+              "name": "A-Z",
+              "value": "alphabet"
+            },
+            {
+              "name": "Rating",
+              "value": "rating"
+            }
+          ]
         }
       }
     }

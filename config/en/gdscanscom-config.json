@@ -1,8 +1,9 @@
 {
   "source": "gdscanscom",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://gdscans.com",
@@ -99,7 +100,31 @@
         "inherits": "home"
       },
       "detail": "/manga/{id}/",
-      "chapter": "/manga/{id}"
+      "chapter": "/manga/{id}",
+      "searchPage": {
+        "url": "/page/{page}/?s={query}&post_type=wp-manga",
+        "list": {
+          "container": ".row.c-tabs-item__content",
+          "fields": {
+            "id": {
+              "selector": "a[href*='/manga/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "transform": "cleanText",
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
+            }
+          },
+          "pagination": {
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        }
+      }
     },
     "selectors": {
       "detail": {

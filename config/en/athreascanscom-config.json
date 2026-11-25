@@ -1,8 +1,9 @@
 {
   "source": "athreascanscom",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://athreascans.com",
@@ -160,7 +161,8 @@
         "images": {
           "selector": "#readerarea img",
           "attribute": "src"
-        }
+        },
+        "tsReaderRegex": "ts_reader\\.run\\((\\{.*?\\})\\);"
       }
     },
     "searchForm": {

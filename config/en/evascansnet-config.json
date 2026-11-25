@@ -1,8 +1,9 @@
 {
   "source": "evascansnet",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://evascans.net",
@@ -125,6 +126,17 @@
           "title": {
             "transform": "cleanText",
             "selector": "h1.entry-title"
+          },
+          "coverUrl": {
+            "attribute": "src",
+            "selector": ".thumb img"
+          },
+          "tags": {
+            "attribute": "href",
+            "extractTagObjects": true,
+            "multi": true,
+            "selector": ".mgen a",
+            "transform": "slug"
           }
         },
         "chapters": {
@@ -138,6 +150,9 @@
             "title": {
               "transform": "cleanText",
               "selector": ".chapternum"
+            },
+            "date": {
+              "selector": ".chapterdate"
             }
           }
         }

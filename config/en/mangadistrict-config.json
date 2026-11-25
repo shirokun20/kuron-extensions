@@ -1,8 +1,9 @@
 {
   "source": "mangadistrict",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://mangadistrict.com",
@@ -84,7 +85,28 @@
       },
       "searchPage": {
         "url": "/page/{page}/?s={query}&post_type=wp-manga",
-        "inherits": "search"
+        "inherits": "search",
+        "list": {
+          "container": ".page-item-detail",
+          "fields": {
+            "id": {
+              "selector": ".item-thumb a[href*='/series/'], .post-title a[href*='/series/']",
+              "attribute": "href",
+              "transform": "slug"
+            },
+            "title": {
+              "transform": "cleanText",
+              "selector": ".post-title h3 a, .post-title a"
+            },
+            "coverUrl": {
+              "selector": ".item-thumb img",
+              "attribute": "src"
+            }
+          },
+          "pagination": {
+            "next": ".wp-pagenavi a.page.larger"
+          }
+        }
       },
       "genreSearch": {
         "url": "/publication-genre/{tag}/",
@@ -161,7 +183,8 @@
             "date": {
               "selector": ".chapter-release-date i, .chapter-release-date a"
             }
-          }
+          },
+          "mode": "ajaxHtml"
         }
       },
       "reader": {
@@ -227,7 +250,8 @@
             }
           ]
         }
-      }
+      },
+      "enabled": true
     }
   },
   "contentIdPattern": "/series/([^/]+)",

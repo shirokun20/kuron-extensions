@@ -1,8 +1,9 @@
 {
   "source": "manhwanex",
+  "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://manhwanex.com",
@@ -71,6 +72,10 @@
             "title": {
               "transform": "cleanText",
               "selector": ".post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
             }
           },
           "pagination": {
@@ -91,6 +96,10 @@
             "title": {
               "transform": "cleanText",
               "selector": ".post-title a"
+            },
+            "coverUrl": {
+              "selector": ".tab-thumb img",
+              "attribute": "data-src"
             }
           },
           "pagination": {
@@ -150,7 +159,8 @@
             "tagTypeMap": {
               "manga-genre": "genre",
               "manga-tag": "tag"
-            }
+            },
+            "tagType": "tag"
           }
         },
         "chapters": {

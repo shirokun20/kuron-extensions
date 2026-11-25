@@ -1,8 +1,9 @@
 {
   "source": "komikdewasa",
+  "extends": "themesia",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "enabled": true,
   "defaultLanguage": "indonesian",
   "configUrl": "",
@@ -80,7 +81,8 @@
             }
           },
           "pagination": {
-            "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']"
+            "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']",
+            "mode": "paged"
           }
         }
       },
@@ -106,14 +108,40 @@
           "pagination": {
             "next": ".hpage a.r, .pagination .next.page-numbers, a[rel='next']"
           }
-        }
+        },
+        "inherits": "home"
       },
       "genreSearchPage": {
         "url": "/genres/{tag}/page/{page}/",
         "inherits": "genreSearch"
       },
       "detail": "/komik/{id}/",
-      "chapter": "/{id}"
+      "chapter": "/{id}",
+      "searchPage": {
+        "list": {
+          "container": ".listupd .bsx",
+          "fields": {
+            "coverUrl": {
+              "attribute": "src",
+              "selector": "img.ts-post-image"
+            },
+            "id": {
+              "attribute": "href",
+              "selector": "a",
+              "transform": "slug"
+            },
+            "title": {
+              "selector": ".tt",
+              "transform": "cleanText"
+            }
+          },
+          "pagination": {
+            "mode": "paged",
+            "next": "a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+          }
+        },
+        "url": "/page/{page}/?s={query}"
+      }
     },
     "selectors": {
       "detail": {
@@ -129,7 +157,9 @@
           "tags": {
             "selector": ".seriestugenre a, .mgen a",
             "multi": true,
-            "extractTagObjects": true
+            "extractTagObjects": true,
+            "attribute": "href",
+            "transform": "slug"
           }
         },
         "chapters": {
@@ -138,7 +168,8 @@
             "id": {
               "selector": ".chbox .eph-num a, a[href]",
               "attribute": "href",
-              "transform": "slug"
+              "transform": "slug",
+              "regex": "/([^?#/]+)/?$"
             },
             "title": {
               "transform": "cleanText",
@@ -162,6 +193,44 @@
           "prev": ".nextprev a.prev, .nav-links a.prev, .ch-prev-btn"
         }
       }
+    },
+    "searchForm": {
+      "enabled": true,
+      "params": {
+        "query": {
+          "placeholder": "Search manga...",
+          "queryParam": "s",
+          "type": "text"
+        },
+        "sort": {
+          "label": "Sort by",
+          "options": [
+            {
+              "name": "Relevance",
+              "value": ""
+            },
+            {
+              "name": "Popular",
+              "value": "popular"
+            },
+            {
+              "name": "Latest",
+              "value": "latest"
+            },
+            {
+              "name": "A-Z",
+              "value": "alphabet"
+            },
+            {
+              "name": "Rating",
+              "value": "rating"
+            }
+          ],
+          "queryParam": "m_orderby",
+          "type": "select"
+        }
+      },
+      "urlPattern": "search"
     }
   },
   "searchForm": {
