@@ -3,7 +3,7 @@
   "extends": "madara-wpmanga",
   "idType": "slug",
   "schemaVersion": "2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "enabled": true,
   "defaultLanguage": "english",
   "baseUrl": "https://cocomic.co",
@@ -33,25 +33,25 @@
       "home": {
         "url": "/manga/",
         "list": {
-          "container": ".page-item-detail",
+          "container": "article.asura-card",
           "fields": {
             "id": {
-              "selector": ".item-thumb a[href*='/manga/'], .post-title a[href*='/manga/']",
+              "selector": ".asura-card-poster a[href*='/manga/']",
               "attribute": "href",
               "transform": "slug"
             },
             "title": {
               "transform": "cleanText",
-              "selector": ".post-title h3 a, .post-title a"
+              "selector": ".asura-card-title"
             },
             "coverUrl": {
-              "selector": ".item-thumb img",
-              "attribute": "data-src"
+              "selector": ".asura-card-poster img",
+              "attribute": "src"
             }
           },
           "pagination": {
             "mode": "paged",
-            "next": "a.page.larger, a[rel='next'], .pagination .next.page-numbers, li.pagination-next a"
+            "next": ".asura-pagination a.next.page-numbers"
           }
         }
       },
@@ -131,29 +131,29 @@
         "fields": {
           "title": {
             "transform": "cleanText",
-            "selector": ".post-title h1, h1"
+            "selector": ".asura-series-title, h1"
           },
           "coverUrl": {
-            "selector": ".summary_image img",
-            "attribute": "data-src"
+            "selector": ".asura-poster-img",
+            "attribute": "src"
           },
           "description": {
-            "selector": ".summary__content, .description-summary .summary__content"
+            "selector": ".asura-synopsis-content"
           },
           "author": {
-            "selector": ".author-content a",
+            "selector": ".asura-chip-author .author-name-text",
             "multi": true,
             "extractTagObjects": true,
             "tagType": "author"
           },
           "artist": {
-            "selector": ".artist-content a",
+            "selector": ".asura-chip:contains(Artist:) .chip-val",
             "multi": true,
             "extractTagObjects": true,
             "tagType": "artist"
           },
           "tags": {
-            "selector": ".genres-content a",
+            "selector": ".asura-genre-tag",
             "multi": true,
             "extractTagObjects": true,
             "tagType": "tag"
@@ -161,19 +161,19 @@
         },
         "chapters": {
           "mode": "ajaxHtml",
-          "container": "li.wp-manga-chapter",
+          "container": ".asura-chap-card",
           "fields": {
             "id": {
-              "selector": "a",
+              "selector": "a.chap-card-left",
               "attribute": "href",
-              "regex": "/manga/([^?#]+)"
+              "regex": "/manga/([^?#]+?)/?$"
             },
             "title": {
               "transform": "cleanText",
-              "selector": "a"
+              "selector": ".chap-name"
             },
             "date": {
-              "selector": ".chapter-release-date i, .chapter-release-date a"
+              "selector": ".chap-time"
             }
           }
         }
@@ -254,5 +254,5 @@
       }
     }
   },
-  "notes": "2026-11-23: search enabled after live verify (#59 audit: search 200 + matching items for 'webtoons', config container/id selectors match; minimal searchForm added)."
+  "notes": "2026-11-23: search enabled after live verify (#59 audit: search 200 + matching items for 'webtoons', config container/id selectors match; minimal searchForm added). 2026-11-26: home/detail migrated to live article.asura-card / asura-series layout (24 cards, search .row.c-tabs-item__content unchanged); Item #61 canary drift."
 }

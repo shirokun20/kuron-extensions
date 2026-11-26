@@ -9,8 +9,9 @@ result with a stored baseline to report *drift*:
   critical  HTTP status changed away from 2xx / network error, or item count
             dropped to 0 (selector or API shape most likely changed upstream)
   warning   item count dropped more than ``--drop-threshold`` (default 50%)
-  info      new source (no baseline yet), recovered status, count increase
-  skip      config has maintenance=true
+  info      Cloudflare challenge on a CI IP, recovered status, count increase
+  skip      config has maintenance=true, no such route, or a client-decoded
+            ``secondaryFetch`` shell (raw HTML has no items by design)
 
 Politeness: one request at a time, ``--delay`` seconds with ``--jitter``,
 retry-on-429/503 inside :mod:`canary_lib`, and a rotating sample (pass a
@@ -46,6 +47,43 @@ import canary_lib as lib
 DEFAULT_BASELINE = os.path.join(".canary", "baseline.json")
 ROUTES = ("home", "search")
 
+# Hash-picked generic queries do not match every site (xiutaku: "comic"/"manga"
+# return 0 items while "love"/"girl" return results). Register a known-good
+# sample query per source; a second one is a bounded fallback if the index shifts.
+SAMPLE_QUERIES = {"xiutaku": ("love", "girl")}
+
+# A 403/503 carrying a Cloudflare challenge is a CI/datacenter-IP block, not
+# selector drift (seen on ravenscansorg; hentailoop under CI). Plain 403s stay
+# critical so real access regressions are still reported.
+CF_BLOCK_MARKERS = (
+    "just a moment", "cf-turnstile", "challenges.cloudflare.com",
+    "attention required! | cloudflare", "checking your browser",
+    "enable javascript and cookies to continue", "error code: 1020",
+    "cloudflare ray id", "cf-browser-verification",
+)
+
+
+def sample_queries(source):
+    """Return a bounded list of search samples for a source."""
+    preferred = SAMPLE_QUERIES.get(source)
+    if preferred:
+        return list(preferred)
+    queries = lib.search_queries()
+    pick = queries[int(hashlib.sha256(source.encode()).hexdigest(), 16)
+                   % len(queries)]
+    return [pick]
+
+
+def classify_block(fetched):
+    """Return a Cloudflare-challenge reason for a blocked response, else None."""
+    if fetched.status not in (403, 503):
+        return None
+    body = (fetched.text or "").lower()
+    if any(marker in body for marker in CF_BLOCK_MARKERS):
+        return "Cloudflare challenge %s (CI-IP block, not selector drift)" % (
+            fetched.status)
+    return None
+
 
 # ---------------------------------------------------------------------------
 # probing
@@ -70,8 +108,10 @@ def probe_route(cfg, route, query, fetcher_cfg, rate_limit=None):
             record["skipped"] = True
             return record
         kind, url = lib.search_target(cfg, query)
-    if not url:
-        record["error"] = kind if isinstance(kind, str) else "no route"
+    # *_target returns (None, reason) when a route is absent; the reason must
+    # not be handed to http_get as if it were a URL (beauty3600000: no search).
+    if kind not in ("html", "api") or not url:
+        record["error"] = url if isinstance(url, str) and url else "no route"
         record["skipped"] = True
         return record
     record["url"] = url
@@ -86,6 +126,11 @@ def probe_route(cfg, route, query, fetcher_cfg, rate_limit=None):
                            timeout=fetcher_cfg["timeout"], attempts=2)
     record["status_code"] = fetched.status
     record["latency_ms"] = int(fetched.elapsed * 1000)
+    block = classify_block(fetched)
+    if block:
+        record["error"] = block
+        record["blocked"] = True
+        return record
     if not fetched.ok():
         record["error"] = fetched.error or ("HTTP %s" % fetched.status)
         return record
@@ -104,7 +149,15 @@ def probe_route(cfg, route, query, fetcher_cfg, rate_limit=None):
         if not container:
             record["error"] = "config has no list container"
             return record
-        record["item_count"] = lib.count_items(fetched.text, container)
+        count = lib.count_items(fetched.text, container)
+        secondary = (list_block or {}).get("secondaryFetch") or {}
+        if secondary.get("enabled") and not count:
+            # nicomanga (Next.js): the shell HTML has no cards; the real list
+            # arrives from secondaryFetch and is decoded client-side.
+            record["error"] = "secondaryFetch shell (items decoded client-side)"
+            record["skipped"] = True
+            return record
+        record["item_count"] = count
     return record
 
 
@@ -152,6 +205,10 @@ def detect_drift(entry, baseline, drop_threshold):
     for route in ROUTES:
         current = entry["routes"].get(route) or {}
         if current.get("skipped"):
+            continue
+        if current.get("blocked"):
+            drifts.append({"route": route, "severity": "info",
+                           "detail": current.get("error") or "blocked"})
             continue
         old_status = (prior or {}).get("%sStatus" % route)
         old_items = (prior or {}).get("%sItems" % route)
@@ -311,11 +368,22 @@ def main(argv=None):
             lib.polite_sleep(lib.jitter_delay(args.delay, args.jitter, rng))
         probed_any[0] = True
 
+    def probe_search(cfg, queries):
+        """Probe search; retry once with a registered sample if items == 0."""
+        record = None
+        for q in queries:
+            record = probe_route(cfg, "search", q, fetcher_cfg,
+                                 rate_limit=pace)
+            record["query"] = q
+            if record.get("item_count") or record.get("skipped") or \
+                    record.get("blocked"):
+                break
+        return record
+
     for bucket, rel, cfg in rows:
         source = cfg.get("source")
-        query = lib.search_queries()[
-            int(hashlib.sha256(source.encode()).hexdigest(), 16)
-            % len(lib.search_queries())]
+        queries = sample_queries(source)
+        query = queries[0]
         entry = {"source": source, "bucket": bucket, "config": rel,
                  "engine": "rest" if cfg.get("api") and not
                  (cfg.get("scraper") or {}).get("enabled") else "scraper",
@@ -334,8 +402,11 @@ def main(argv=None):
                     "engine": kind if isinstance(kind, str) else None,
                     "skipped": True, "error": "dry-run"}
                 continue
-            entry["routes"][route] = probe_route(
-                cfg, route, query, fetcher_cfg, rate_limit=pace)
+            if route == "search":
+                entry["routes"][route] = probe_search(cfg, queries)
+            else:
+                entry["routes"][route] = probe_route(
+                    cfg, route, query, fetcher_cfg, rate_limit=pace)
             if args.verbose:
                 record = entry["routes"][route]
                 print("  %-7s %s %s items=%s" % (

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 2,
-    "lastUpdated": "2026-11-25T19:15:08.507836+07:00",
+    "lastUpdated": "2026-11-26T21:01:23.452442+07:00",
     "minimumAppVersion": "0.9.0",
     "installableSources": [
         {
@@ -403,7 +403,7 @@
         },
         {
             "id": "cocomicco",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "url": "config/en/cocomicco-config.json",
             "meta": {
                 "displayName": "Cocomic",
@@ -417,7 +417,7 @@
                 "bypassStatus": "none",
                 "requiresBypass": false
             },
-            "checksum": "68733465ce835a095baf7d6e8fbd6e441b4d490d484c6ac584b069d096e07144"
+            "checksum": "2b9386d24c366d4b755d3984507164571ddefd0f12d19816082e0a814eff5fc9"
         },
         {
             "id": "comicasuranet",

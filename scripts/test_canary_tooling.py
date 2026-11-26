@@ -293,5 +293,83 @@ class HardeningTest(unittest.TestCase):
         self.assertEqual(fetcher.calls, 1)
 
 
+class ProbeClassificationTest(unittest.TestCase):
+    fetcher_cfg = {"timeout": 1, "dry_run": False}
+
+    def test_sample_queries_override_and_hash_fallback(self):
+        self.assertEqual(canary_probe.sample_queries("xiutaku"),
+                         ["love", "girl"])
+        picked = canary_probe.sample_queries("cocomicco")
+        self.assertEqual(len(picked), 1)
+        self.assertIn(picked[0], lib.search_queries())
+
+    def test_probe_route_without_search_route_is_skipped(self):
+        cfg = {"source": "beauty3600000", "baseUrl": "https://3600000.xyz",
+               "scraper": {"urlPatterns": {"home": {"url": "/"}}}}
+        with mock.patch.object(lib, "http_get") as get:
+            record = canary_probe.probe_route(
+                cfg, "search", "love", self.fetcher_cfg)
+        self.assertTrue(record["skipped"])
+        self.assertEqual(record["error"], "no search route in config")
+        self.assertIsNone(record["url"])
+        get.assert_not_called()
+
+    def test_cloudflare_challenge_is_info_not_critical(self):
+        body = ("<title>Just a moment...</title>"
+                "<script src='https://challenges.cloudflare.com/x'></script>")
+        fetched = lib.Fetch(status=403, body=body.encode(), error="HTTP 403")
+        self.assertIn("Cloudflare", canary_probe.classify_block(fetched) or "")
+        self.assertIsNone(canary_probe.classify_block(
+            lib.Fetch(status=403, body=b"forbidden")))
+        cfg = {"source": "ravenscansorg", "baseUrl": "https://ravenscans.org",
+               "scraper": {"urlPatterns": {"home": {"url": "/"}}}}
+        with mock.patch.object(lib, "http_get", return_value=fetched):
+            record = canary_probe.probe_route(
+                cfg, "home", "love", self.fetcher_cfg)
+        self.assertTrue(record["blocked"])
+        entry = {"source": "ravenscansorg", "routes": {
+            "home": record, "search": {"route": "search", "skipped": True}}}
+        baseline = {"sources": {"ravenscansorg": {"homeStatus": 200}}}
+        drifts = canary_probe.detect_drift(entry, baseline, 0.5)
+        self.assertEqual([d["severity"] for d in drifts], ["info"])
+
+    def test_search_falls_back_to_second_known_query(self):
+        cfg = {"source": "xiutaku", "baseUrl": "https://xiutaku.com",
+               "scraper": {"urlPatterns": {
+                   "home": {"url": "/"},
+                   "search": {"url": "/?search={query}"}}}}
+        calls = []
+
+        def fake_probe(_cfg, route, query, _fetcher_cfg, rate_limit=None):
+            calls.append((route, query))
+            if route == "home":
+                return {"route": route, "status_code": 200, "item_count": 20}
+            return {"route": route, "status_code": 200,
+                    "item_count": 12 if query == "girl" else 0}
+
+        with mock.patch.object(lib, "load_configs", return_value=[
+                ("global", "config/global/xiutaku-config.json", cfg)]), \
+                mock.patch.object(canary_probe, "probe_route",
+                                  side_effect=fake_probe), \
+                mock.patch("sys.stdout"):
+            self.assertEqual(canary_probe.main(
+                ["--source", "xiutaku", "--timeout", "1", "--delay", "0"]), 0)
+        self.assertEqual([q for route, q in calls if route == "search"],
+                         ["love", "girl"])
+
+    def test_secondary_fetch_shell_is_skipped(self):
+        cfg = {"source": "nicomanga", "baseUrl": "https://nicomanga.com",
+               "scraper": {"urlPatterns": {"home": {
+                   "url": "/manga-list.html",
+                   "list": {"container": ".manga-grid .manga-card",
+                            "secondaryFetch": {"enabled": True}}}}}}
+        fetched = lib.Fetch(status=200, body=b"<html><body></body></html>")
+        with mock.patch.object(lib, "http_get", return_value=fetched):
+            record = canary_probe.probe_route(
+                cfg, "home", "love", self.fetcher_cfg)
+        self.assertTrue(record["skipped"])
+        self.assertIn("secondaryFetch", record["error"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
